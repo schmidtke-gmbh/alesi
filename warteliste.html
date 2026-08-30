@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Warteliste | Die Schlaf-Masterclass von Dr. André Alesi</title>
+  <meta name="description" content="Trag dich kostenlos auf die Warteliste ein und erfahre als Erster, wenn die neue Video-Masterclass für besseren Schlaf von Dr. André Alesi startet.">
+  <meta name="robots" content="noindex, follow">
+  <meta name="author" content="Dr. André Alesi">
+
+  <!-- Favicon: Dateien noch anlegen -->
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <!-- ▼ apple-touch-icon.png anlegen: <link rel="apple-touch-icon" href="apple-touch-icon.png"> -->
+  <meta name="theme-color" content="#0D1117">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Die Schlaf-Masterclass von Dr. André Alesi | Warteliste">
+  <meta property="og:description" content="Erfahre als Erster, wenn die neue Video-Masterclass startet, und sichere dir exklusive Vorteile.">
+  <meta property="og:url" content="https://www.alesi-schlaf.de/warteliste">
+  <meta property="og:image" content="https://www.alesi-schlaf.de/og-image.jpg">
+  <meta property="og:locale" content="de_DE">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --night:       #0D1117;
+      --slate:       #2A344A;
+      --slate-soft:  #6B708E;
+      --copper:      #BB8961;
+      --copper-deep: #A5744E;
+      --copper-text: #8C6743;
+      --light:       #F4F4F2;
+      --light-2:     #EAEAE6;
+      --text-dark:   #0D1117;
+      --text-body:   #4A4F5C;
+      --text-muted:  #868B98;
+      --border:      #DCDCD6;
+      --border-dark: rgba(187,137,97,0.28);
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--light);
+      color: var(--text-dark);
+      font-family: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
+      font-weight: 300;
+      line-height: 1.75;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { text-decoration: none; color: inherit; }
+    img { display: block; max-width: 100%; }
+
+    .wrap { max-width: 1060px; margin: 0 auto; padding: 0 24px; }
+
+    /* ───────── LOGO HEADER (hell, damit das Logo voll zur Geltung kommt) ───────── */
+    .brandbar {
+      background: #fff;
+      display: flex; justify-content: center; align-items: center;
+      padding: 28px 20px 26px;
+    }
+    .brandbar img { height: 62px; width: auto; }
+
+    /* ───────── TYPO ───────── */
+    .eyebrow {
+      text-align: center; font-size: 14.5px; font-weight: 400;
+      letter-spacing: 0.015em; color: var(--text-body);
+      max-width: 730px; margin: 0 auto 22px; text-wrap: balance;
+    }
+    h1, h2, h3 { text-wrap: balance; }
+    h1 {
+      font-weight: 400; font-size: clamp(29px, 4.4vw, 46px);
+      line-height: 1.28; text-align: center; letter-spacing: -0.005em;
+      max-width: 920px; margin: 0 auto 24px; color: var(--text-dark);
+    }
+    h1 strong { font-weight: 500; }
+    h1 .accent { color: var(--copper-deep); font-weight: 500; }
+    .sub {
+      text-align: center; font-size: 16.5px; font-weight: 400;
+      color: var(--text-body); max-width: 760px; margin: 0 auto 50px;
+    }
+    .sub strong { font-weight: 500; color: var(--text-dark); }
+    h2 {
+      font-weight: 400; font-size: clamp(25px, 3.3vw, 35px);
+      line-height: 1.3; letter-spacing: -0.005em; margin-bottom: 18px;
+    }
+    h2 .accent { color: var(--copper-deep); font-weight: 500; }
+    h3 { font-size: 19px; font-weight: 500; line-height: 1.45; letter-spacing: 0.005em; }
+    .section-label {
+      display: block; font-size: 11px; font-weight: 500;
+      letter-spacing: 0.3em; text-transform: uppercase;
+      color: var(--copper-text); margin-bottom: 14px;
+    }
+    .on-dark .section-label { color: var(--copper); }
+    .on-dark h2 { color: #fff; }
+
+    /* ───────── BUTTONS ───────── */
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+      background: var(--copper); color: var(--night);
+      font-family: inherit; font-size: 15px; font-weight: 500;
+      padding: 17px 34px; border-radius: 50px; border: none; cursor: pointer;
+      transition: background .2s ease, transform .2s ease, box-shadow .2s ease;
+      text-align: center; letter-spacing: 0.02em;
+      box-shadow: 0 10px 26px rgba(187,137,97,0.28);
+    }
+    .btn:hover { background: #CE9A70; transform: translateY(-2px); box-shadow: 0 16px 32px rgba(187,137,97,0.34); }
+    .btn svg { width: 18px; height: 18px; flex: none; }
+    .micro {
+      font-size: 11px; color: var(--text-body); margin-top: 14px; text-align: center;
+      letter-spacing: 0.22em; text-transform: uppercase; font-weight: 400;
+    }
+    .on-dark .micro { color: #A2A8B9; }
+
+    /* ───────── HERO (hell) ───────── */
+    .hero {
+      background:
+        radial-gradient(900px 420px at 82% 0%, rgba(187,137,97,0.10), transparent 62%),
+        linear-gradient(180deg, #FFFFFF 0%, var(--light) 55%);
+      padding: 30px 0 74px;
+    }
+    .hero-grid {
+      display: grid; grid-template-columns: 0.92fr 1.08fr; gap: 34px;
+      align-items: stretch;
+    }
+    .hero-photo {
+      position: relative; border-radius: 20px; overflow: hidden;
+      background: linear-gradient(160deg, var(--slate), var(--night));
+      box-shadow: 0 20px 48px rgba(13,17,23,0.16);
+      min-height: 340px;
+    }
+    .hero-photo img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 35%; }
+    .hero-card {
+      background:
+        radial-gradient(560px 320px at 80% 0%, rgba(187,137,97,0.16), transparent 62%),
+        linear-gradient(160deg, #17202D, var(--night));
+      border: 1px solid var(--border-dark);
+      border-radius: 20px; padding: 36px 34px;
+      box-shadow: 0 22px 50px rgba(13,17,23,0.22);
+    }
+    .hero-card h3 { margin-bottom: 22px; color: #fff; }
+    .hero-card .micro { color: #A2A8B9; }
+    .checks { list-style: none; display: flex; flex-direction: column; gap: 15px; margin-bottom: 28px; }
+    .checks li { display: grid; grid-template-columns: auto 1fr; gap: 13px; font-size: 15px; color: var(--text-body); }
+    .hero-card .checks li { color: #CED3DC; font-weight: 400; }
+    .checks .ck {
+      width: 22px; height: 22px; flex: none; border-radius: 50%;
+      background: var(--light-2); color: var(--copper-deep);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 12px; font-weight: 700; margin-top: 3px;
+    }
+    .hero-card .checks .ck { background: rgba(187,137,97,0.16); color: var(--copper); }
+    .hero-card .btn { width: 100%; }
+
+    /* ───────── SÄULEN ───────── */
+    .pillars {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px;
+      padding: 58px 0 62px; text-align: center;
+    }
+    .pillar {
+      background: #fff; border: 1px solid var(--border); border-radius: 18px;
+      padding: 28px 16px 24px;
+      box-shadow: 0 10px 26px rgba(13,17,23,0.05);
+      transition: transform .2s ease, box-shadow .2s ease;
+    }
+    .pillar:hover { transform: translateY(-3px); box-shadow: 0 16px 34px rgba(13,17,23,0.09); }
+    .pillar .p-icon {
+      width: 48px; height: 48px; border-radius: 50%;
+      background: var(--light-2); color: var(--copper-deep);
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 14px;
+    }
+    .pillar .p-icon svg { width: 22px; height: 22px; }
+    .pillar b {
+      display: block; font-size: 14px; font-weight: 500; color: var(--text-dark);
+      letter-spacing: 0.26em; text-transform: uppercase; margin-bottom: 8px;
+    }
+    .pillar span { font-size: 13px; font-weight: 400; color: var(--text-body); line-height: 1.55; display: block; }
+
+    /* ───────── DAS ERWARTET DICH ───────── */
+    .expect { background: var(--light-2); padding: 74px 0; }
+    .expect-head { text-align: center; max-width: 780px; margin: 0 auto 42px; }
+    .expect-head p { font-size: 16px; font-weight: 400; color: var(--text-body); }
+    .expect-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 44px; align-items: center; }
+    .expect .checks li { font-size: 15.5px; }
+    .expect .cta-line { margin-top: 32px; }
+    .expect h3 { margin-bottom: 22px; }
+
+    /* Kurs-Mockup (rein in CSS, kann später durch ein echtes Mockup-Bild ersetzt werden) */
+    .device {
+      max-width: 420px; margin: 0 auto; background: var(--night);
+      border: 1px solid var(--border-dark); border-radius: 20px; padding: 14px;
+      box-shadow: 0 26px 50px rgba(13,17,23,0.30);
+    }
+    .device-bar { display: flex; gap: 6px; padding: 2px 4px 12px; }
+    .device-bar i { width: 8px; height: 8px; border-radius: 50%; background: rgba(255,255,255,0.16); }
+    .device-screen {
+      position: relative; aspect-ratio: 16/10; border-radius: 12px; overflow: hidden;
+      background:
+        radial-gradient(300px 200px at 70% 20%, rgba(187,137,97,0.22), transparent 65%),
+        linear-gradient(150deg, var(--slate), #0A0E14);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .device-screen .play {
+      width: 58px; height: 58px; border-radius: 50%; background: var(--copper);
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 8px 24px rgba(187,137,97,0.4);
+    }
+    .device-screen .play svg { width: 20px; height: 20px; margin-left: 3px; fill: var(--night); }
+    .device-cap {
+      position: absolute; left: 0; right: 0; bottom: 0; padding: 14px 16px 13px;
+      background: linear-gradient(to top, rgba(10,14,20,0.92), transparent);
+    }
+    .device-cap b { display: block; font-size: 12.5px; font-weight: 500; color: #fff; margin-bottom: 8px; }
+    .device-cap .bar { height: 3px; border-radius: 3px; background: rgba(255,255,255,0.18); overflow: hidden; }
+    .device-cap .bar i { display: block; height: 100%; width: 38%; background: var(--copper); }
+    .device-list { list-style: none; padding: 6px 4px 2px; }
+    .device-list li {
+      display: grid; grid-template-columns: auto 1fr; gap: 12px; align-items: center;
+      padding: 11px 6px; font-size: 12.5px; font-weight: 400; color: #C3C8D3;
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+    }
+    .device-list li:last-child { border-bottom: none; }
+    .device-list em {
+      font-style: normal; font-size: 10.5px; font-weight: 500; letter-spacing: 0.14em;
+      color: var(--copper); width: 22px;
+    }
+
+    /* ───────── WARTELISTE-VORTEILE ───────── */
+    .perks { padding: 78px 0; }
+    .perks-inner { max-width: 730px; margin: 0 auto; text-align: center; }
+    .perks p.lead { font-size: 16.5px; font-weight: 400; color: var(--text-body); margin-bottom: 32px; }
+    .perk-list {
+      list-style: none; text-align: left; display: flex; flex-direction: column; gap: 15px;
+      background: #fff; border: 1px solid var(--border); border-radius: 20px;
+      padding: 34px; margin-bottom: 32px;
+      box-shadow: 0 14px 40px rgba(13,17,23,0.06);
+    }
+    .perk-list li { display: grid; grid-template-columns: auto 1fr; gap: 13px; font-size: 15.5px; font-weight: 400; color: var(--text-body); }
+    .perk-list .ck {
+      width: 22px; height: 22px; border-radius: 50%;
+      background: var(--light-2); color: var(--copper-deep);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 12px; font-weight: 700; margin-top: 3px;
+    }
+    .perk-list strong { font-weight: 500; color: var(--text-dark); }
+    .bonus-box {
+      display: grid; grid-template-columns: auto 1fr; gap: 18px; align-items: start;
+      text-align: left;
+      background: linear-gradient(135deg, #FFF7EF, #F6E7D7);
+      border: 1.5px solid var(--copper);
+      border-radius: 18px; padding: 26px 28px; margin-bottom: 34px;
+    }
+    .bonus-box .b-icon {
+      width: 46px; height: 46px; border-radius: 50%;
+      background: var(--copper); color: #fff;
+      display: flex; align-items: center; justify-content: center; flex: none;
+    }
+    .bonus-box .b-icon svg { width: 22px; height: 22px; }
+    .bonus-box .b-tag {
+      display: inline-block; font-size: 10.5px; font-weight: 500;
+      letter-spacing: 0.3em; text-transform: uppercase;
+      color: var(--copper-text); margin-bottom: 4px;
+    }
+    .bonus-box p { font-size: 15px; font-weight: 400; color: var(--text-body); margin: 0; }
+    .bonus-box p strong { font-weight: 500; color: var(--text-dark); }
+
+    /* ───────── ÜBER ANDRÉ ───────── */
+    .about { background: var(--light-2); padding: 78px 0; }
+    .about-grid { display: grid; grid-template-columns: 0.85fr 1.15fr; gap: 46px; align-items: center; }
+    .about-photo {
+      border-radius: 170px 170px 20px 20px; overflow: hidden;
+      background: linear-gradient(160deg, var(--slate), var(--night));
+      box-shadow: 0 22px 54px rgba(13,17,23,0.22);
+      aspect-ratio: 3/4;
+    }
+    .about-photo img { width: 100%; height: 100%; object-fit: cover; }
+    .about p { font-size: 15.5px; font-weight: 400; color: var(--text-body); margin-bottom: 16px; }
+    .about blockquote {
+      font-size: 18.5px; font-weight: 300; font-style: italic; line-height: 1.55;
+      color: var(--copper-deep); border-left: 3px solid var(--copper);
+      padding-left: 20px; margin: 26px 0 0;
+    }
+    .about-facts {
+      list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 12px 22px; margin-top: 28px;
+    }
+    .about-facts li { display: grid; grid-template-columns: auto 1fr; gap: 10px; font-size: 14px; font-weight: 400; color: var(--text-body); }
+    .about-facts .ck { color: var(--copper-deep); font-weight: 700; }
+
+    /* ───────── FORMULAR (Nacht) ───────── */
+    .signup {
+      background:
+        radial-gradient(900px 460px at 50% 0%, rgba(187,137,97,0.14), transparent 62%),
+        var(--night);
+      padding: 84px 0;
+    }
+    .signup-box {
+      max-width: 640px; margin: 0 auto;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid var(--border-dark);
+      border-radius: 24px; padding: 46px 42px; text-align: center;
+      box-shadow: 0 26px 70px rgba(0,0,0,0.4);
+    }
+    .signup-box > p { font-size: 15.5px; font-weight: 400; color: #CED3DC; margin-bottom: 28px; }
+    form { display: flex; flex-direction: column; gap: 14px; text-align: left; }
+    label { font-size: 13px; font-weight: 500; color: #E4E6EA; letter-spacing: 0.02em; }
+    input[type="text"], input[type="email"] {
+      width: 100%; padding: 15px 18px;
+      border: 1.5px solid rgba(255,255,255,0.14); border-radius: 12px;
+      font-family: inherit; font-size: 15px; color: #fff;
+      background: rgba(255,255,255,0.05); outline: none;
+      transition: border-color .2s ease, box-shadow .2s ease, background .2s ease;
+    }
+    input::placeholder { color: #8E94A3; }
+    input:focus { border-color: var(--copper); background: rgba(255,255,255,0.08); box-shadow: 0 0 0 3px rgba(187,137,97,0.18); }
+    .consent {
+      display: grid; grid-template-columns: auto 1fr; gap: 10px;
+      font-size: 12.5px; font-weight: 400; color: #A2A8B9; line-height: 1.55; margin-top: 6px;
+    }
+    .consent input { align-self: start; margin-top: 4px; width: 15px; height: 15px; accent-color: var(--copper); }
+    .hp { position: absolute; left: -9999px; }
+    .signup .btn { margin-top: 6px; }
+    .trust {
+      display: flex; align-items: center; justify-content: center; gap: 7px;
+      font-size: 12.5px; color: #A2A8B9; margin-top: 8px;
+    }
+    .trust svg { width: 14px; height: 14px; fill: var(--copper); }
+
+    /* ───────── FOOTER ───────── */
+    footer { background: var(--night); border-top: 1px solid rgba(255,255,255,0.07); padding: 40px 24px 32px; text-align: center; }
+    footer .foot-logo { height: 54px; width: auto; margin: 0 auto 22px; opacity: 0.9; }
+    .foot-links { display: flex; justify-content: center; gap: 22px; margin-bottom: 16px; }
+    .foot-links a { font-size: 13px; color: #A2A8B9; }
+    .foot-links a:hover { color: var(--copper); }
+    .foot-note { font-size: 11.5px; font-weight: 400; color: #868D9D; max-width: 760px; margin: 0 auto 12px; line-height: 1.65; }
+    .foot-copy { font-size: 12px; color: #868D9D; }
+
+    /* ───────── RESPONSIVE ───────── */
+    @media (max-width: 860px) {
+      .brandbar { padding: 20px 20px 18px; }
+      .brandbar img { height: 44px; }
+      .hero { padding-top: 44px; }
+      .hero-grid { grid-template-columns: 1fr; }
+      .hero-photo { min-height: 0; aspect-ratio: 4/3; }
+      .pillars { grid-template-columns: repeat(2, 1fr); gap: 20px; padding: 46px 0 50px; }
+      .expect-grid { grid-template-columns: 1fr; gap: 34px; }
+      .device { max-width: 340px; }
+      .about-grid { grid-template-columns: 1fr; }
+      .about-photo { max-width: 320px; margin: 0 auto; }
+      .about-facts { grid-template-columns: 1fr; }
+      .signup-box { padding: 34px 22px; }
+      .hero-card { padding: 30px 24px; }
+      .perk-list { padding: 26px 22px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ══════════ HEADER ══════════ -->
+  <header class="brandbar">
+    <img src="logo-header-hell.svg" alt="Dr. André Alesi · Sleep · Recover · Perform" width="281" height="62">
+  </header>
+
+  <!-- ══════════ HERO ══════════ -->
+  <section class="hero">
+    <div class="wrap">
+      <p class="eyebrow">Für Menschen, die seit Monaten oder Jahren nicht mehr richtig schlafen, obwohl sie längst alles versucht haben, was man ihnen geraten hat.</p>
+
+      <h1>Erfahre, warum dein Schlaf nicht funktioniert und was deinen Körper wieder <span class="accent">in einen echten Nachtrhythmus</span> bringt.</h1>
+
+      <p class="sub">In der neuen Video-Masterclass zeigt dir Schlafwissenschaftler <strong>Dr. André Alesi</strong>, welche Mechanismen dafür sorgen, dass du abends wach im Bett liegst, nachts um drei hellwach wirst und morgens wie gerädert aufstehst. Und er gibt dir ein System an die Hand, mit dem dein Körper von selbst wieder in erholsamen Schlaf findet.</p>
+
+      <div class="hero-grid">
+        <div class="hero-photo">
+          <img src="img/andre-portrait.jpg" alt="Dr. André Alesi, Schlafwissenschaftler">
+        </div>
+
+        <div class="hero-card">
+          <h3>Die Masterclass bildet die Grundlage, damit&nbsp;du&nbsp;...</h3>
+          <ul class="checks">
+            <li><span class="ck">✓</span><span>verstehst, was in deinem Körper wirklich passiert, wenn du nachts wachliegst, auch wenn beim Arzt „alle Werte unauffällig“ sind</span></li>
+            <li><span class="ck">✓</span><span>erkennst, warum Schlaftipps aus dem Internet, Melatonin und „einfach früher ins Bett“ bei dir nichts ändern, und was stattdessen den Unterschied macht</span></li>
+            <li><span class="ck">✓</span><span>die Zusammenhänge zwischen Schlafdruck, innerer Uhr und Nervensystem verstehst und dadurch weißt, an welcher Stellschraube du zuerst drehen musst</span></li>
+            <li><span class="ck">✓</span><span>weißt, wie du Schritt für Schritt zu Nächten kommst, nach denen du morgens wirklich erholt bist, ohne Schlafmittel und ohne dich abends unter Druck zu setzen</span></li>
+          </ul>
+          <a class="btn" href="#warteliste">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
+            Jetzt kostenlos auf die Warteliste eintragen
+          </a>
+          <p class="micro">Frühzugang · Günstigster Preis · Als Erster informiert</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════ SÄULEN ══════════ -->
+  <div class="wrap">
+    <div class="pillars">
+      <div class="pillar">
+        <span class="p-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg></span>
+        <b>Sleep</b>
+        <span>Erholsamer Schlaf, Nacht für Nacht</span>
+      </div>
+      <div class="pillar">
+        <span class="p-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/></svg></span>
+        <b>Recover</b>
+        <span>Regeneration für Körper und Geist</span>
+      </div>
+      <div class="pillar">
+        <span class="p-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 17l5-5 3.5 3.5L20 8"/><path d="M15 8h5v5"/></svg></span>
+        <b>Perform</b>
+        <span>Wieder leistungsfähig im Alltag</span>
+      </div>
+      <div class="pillar">
+        <span class="p-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M5 5l1.8 1.8M17.2 17.2L19 19M19 5l-1.8 1.8M6.8 17.2L5 19"/></svg></span>
+        <b>Balance</b>
+        <span>Ganzheitliches Wohlbefinden</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════ DAS ERWARTET DICH ══════════ -->
+  <section class="expect">
+    <div class="wrap">
+      <div class="expect-head">
+        <span class="section-label">Die Inhalte</span>
+        <h2>Verstehe, vielleicht zum ersten Mal, <span class="accent">was deinen Schlaf wirklich steuert</span></h2>
+        <p>Verständliche Video-Lektionen, die dir zeigen, warum dein Schlaf trotz allem nicht besser wird und welche nächsten Schritte tatsächlich sinnvoll sind.</p>
+      </div>
+
+      <div class="expect-grid">
+        <!-- Kurs-Mockup: kann jederzeit durch ein echtes Produkt-Mockup ersetzt werden -->
+        <div class="expect-mockup">
+          <div class="device">
+            <div class="device-bar"><i></i><i></i><i></i></div>
+            <div class="device-screen">
+              <span class="play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>
+              <div class="device-cap">
+                <b>Modul 1 · Warum dein Körper nachts nicht abschaltet</b>
+                <span class="bar"><i></i></span>
+              </div>
+            </div>
+            <ul class="device-list">
+              <li><em>02</em>Schlafdruck und innere Uhr</li>
+              <li><em>03</em>Das nächtliche Aufwachen</li>
+              <li><em>04</em>Licht, Koffein, Alkohol, Temperatur</li>
+              <li><em>05</em>Deine Abend- und Morgenroutine</li>
+            </ul>
+          </div>
+        </div>
+
+        <div>
+          <h3>Das erwartet dich in der Masterclass:</h3>
+          <ul class="checks">
+            <li><span class="ck">✓</span><span>Ein zusammenhängendes System aus Schlafdruck, innerer Uhr und Entspannungsfähigkeit, statt einzelner Tipps, die sich gegenseitig sogar ausbremsen</span></li>
+            <li><span class="ck">✓</span><span>Warum du nachts um drei wach wirst, was dein Körper in diesem Moment gerade tut und wie du zurück in den Schlaf findest</span></li>
+            <li><span class="ck">✓</span><span>Was Licht, Temperatur, Mahlzeiten, Koffein und Alkohol wirklich mit deinem Schlaf machen und in welcher Reihenfolge du sie angehst</span></li>
+            <li><span class="ck">✓</span><span>Wie du das nächtliche Gedankenkarussell unterbrichst, ohne dich zum Einschlafen zwingen zu wollen</span></li>
+            <li><span class="ck">✓</span><span>Wie du Abend, Schlafzimmer und Morgen so gestaltest, dass dein Körper von selbst müde wird, auch mit Schichtdienst, Kindern oder wenig Zeit</span></li>
+            <li><span class="ck">✓</span><span>PDFs, Checklisten, Schlafprotokolle und konkrete Routinen, die du direkt anwenden kannst, ohne erst selbst herausfinden zu müssen, womit du anfängst</span></li>
+          </ul>
+          <div class="cta-line">
+            <a class="btn" href="#warteliste">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
+              Jetzt auf die Warteliste eintragen
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════ WARUM JETZT EINTRAGEN ══════════ -->
+  <section class="perks">
+    <div class="wrap">
+      <div class="perks-inner">
+        <span class="section-label">Warum jetzt eintragen?</span>
+        <h2>Die Masterclass erscheint <span class="accent">in Kürze</span></h2>
+        <p class="lead">Trag dich jetzt kostenlos ein, um direkt zum Start informiert zu werden und dir exklusive Vorteile vor allen anderen zu sichern:</p>
+
+        <ul class="perk-list">
+          <li><span class="ck">✓</span><span><strong>Der günstigste Preis, den es für diese Masterclass jemals geben wird,</strong> exklusiv für alle auf der Warteliste</span></li>
+          <li><span class="ck">✓</span><span><strong>Als Erster informiert sein,</strong> sobald sich die Türen zur Masterclass öffnen</span></li>
+          <li><span class="ck">✓</span><span><strong>Exklusives Begleitmaterial,</strong> das du demnächst erhältst, mit echtem Mehrwert schon vor dem Start</span></li>
+          <li><span class="ck">✓</span><span><strong>Früher starten als alle anderen,</strong> mit Zugriff noch vor der offiziellen Veröffentlichung</span></li>
+          <li><span class="ck">✓</span><span><strong>Von Anfang an dabei sein,</strong> gemeinsam mit anderen, die endlich wieder schlafen wollen</span></li>
+        </ul>
+
+        <div class="bonus-box">
+          <span class="b-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="8" width="18" height="13" rx="2"/><path d="M3 12h18M12 8v13"/><path d="M12 8S10.5 3.5 8 3.5 5.5 8 8 8h4zM12 8s1.5-4.5 4-4.5S18.5 8 16 8h-4z"/></svg></span>
+          <div>
+            <span class="b-tag">Bonus</span>
+            <p><strong>Exklusives Bonusmaterial mit echtem Mehrwert,</strong> das du demnächst per E-Mail und in Videos von André erhältst, noch bevor die Masterclass überhaupt startet. Nur für Menschen auf der Warteliste.</p>
+          </div>
+        </div>
+
+        <a class="btn" href="#warteliste">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
+          Jetzt kostenlos auf die Warteliste eintragen
+        </a>
+        <p class="micro">100 % kostenlos und unverbindlich</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════ ÜBER ANDRÉ ══════════ -->
+  <section class="about">
+    <div class="wrap">
+      <div class="about-grid">
+        <div class="about-photo">
+          <img src="img/andre-portrait.jpg" alt="Dr. André Alesi">
+        </div>
+
+        <div>
+          <span class="section-label">Dein Experte</span>
+          <h2>Über <span class="accent">Dr. André Alesi</span></h2>
+
+          <p>André ist Gesundheitswissenschaftler und Gründer des Instituts für Schlaf &amp; Regeneration. Seit Jahren begleitet er Menschen, deren Schlaf nicht mehr funktioniert: Menschen mit Ein- und Durchschlafproblemen, mit Erschöpfung am Tag und mit dem Gefühl, dem eigenen Körper nachts ausgeliefert zu sein.</p>
+
+          <p>Sein Ansatz setzt nicht bei Schlafmitteln oder der nächsten Einschlafroutine an, sondern dort, wo Schlaf tatsächlich entsteht: bei Schlafdruck, innerer Uhr und Nervensystem. Was in der Betreuung von Leistungssportlern funktioniert, wenn Regeneration über Erfolg entscheidet, wirkt genauso im ganz normalen Alltag.</p>
+
+          <p>In der Masterclass bündelt er dieses Wissen erstmals in strukturierter Form: verständlich erklärt, wissenschaftlich eingeordnet und ergänzt um konkrete Schritte aus der täglichen Praxis.</p>
+
+          <!-- ZITAT: bitte von André freigeben lassen oder durch ein Original-Zitat ersetzen -->
+          <blockquote>„Schlaf ist keine Frage von Disziplin. Dein Körper folgt einer Logik. Wenn du sie verstehst, musst du nicht mehr um jede Nacht kämpfen.“</blockquote>
+
+          <ul class="about-facts">
+            <li><span class="ck">✓</span><span>Gesundheitswissenschaftler mit Fokus auf Schlaf</span></li>
+            <li><span class="ck">✓</span><span>Gründer des Instituts für Schlaf &amp; Regeneration</span></li>
+            <li><span class="ck">✓</span><span>Buchautor: „Endlich richtig ausgeschlafen“</span></li>
+            <li><span class="ck">✓</span><span>Erfahrung aus dem Leistungssport</span></li>
+            <li><span class="ck">✓</span><span>Ursache statt Symptom, ohne Schlafmythen</span></li>
+            <li><span class="ck">✓</span><span>Alltagstauglich, auch mit Job und Familie</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════ FORMULAR ══════════ -->
+  <section class="signup on-dark" id="warteliste">
+    <div class="wrap">
+      <div class="signup-box">
+        <span class="section-label">Warteliste</span>
+        <h2>Sichere dir jetzt deinen Frühzugang</h2>
+        <p>Trag dich kostenlos ein und sei von Anfang an dabei, wenn die Masterclass startet. Als Dankeschön erhältst du demnächst exklusives Bonusmaterial von André.</p>
+
+        <!-- Netlify Forms: Formular wird beim Deploy automatisch erkannt.
+             Danke-Seite /warteliste-danke muss existieren. -->
+        <form action="warteliste-danke.html" method="POST" name="schlaf-warteliste" data-netlify="true" netlify-honeypot="bot-field">
+          <input type="hidden" name="form-name" value="schlaf-warteliste">
+          <p class="hp"><label>Bitte freilassen: <input name="bot-field"></label></p>
+
+          <label for="vorname">Vorname</label>
+          <input type="text" id="vorname" name="vorname" placeholder="Dein Vorname" autocomplete="given-name" required>
+
+          <label for="email">E-Mail</label>
+          <input type="email" id="email" name="email" placeholder="deine@email.de" autocomplete="email" required>
+
+          <label class="consent"><input type="checkbox" name="einverstanden" required> Ja, informiert mich zum Start der Masterclass und schickt mir gelegentlich hilfreiche Tipps rund um Schlaf und Regeneration per E-Mail. Ich bin einverstanden.</label>
+
+          <button class="btn" type="submit">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
+            Jetzt kostenlos eintragen
+          </button>
+
+          <div class="trust">
+            <svg viewBox="0 0 24 24"><path d="M12 1 3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg>
+            100 % kostenlos · jederzeit abbestellbar
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════ FOOTER ══════════ -->
+  <footer>
+    <img class="foot-logo" src="logo-lockup-dunkel.svg" alt="Dr. André Alesi" width="139" height="40">
+    <div class="foot-links">
+      <a href="impressum.html">Impressum</a>
+      <a href="datenschutz.html">Datenschutz</a>
+    </div>
+    <p class="foot-note">Hinweis: Die Inhalte dieser Seite dienen ausschließlich der allgemeinen Information und Gesundheitsförderung. Sie ersetzen keine professionelle medizinische Beratung, Diagnose oder Behandlung. Diese Website ist nicht Teil der Facebook-Website oder der Meta Platforms Inc. und wird in keiner Weise von Meta unterstützt.</p>
+    <p class="foot-copy">© 2026 Dr. André Alesi</p>
+  </footer>
+
+</body>
+</html>
