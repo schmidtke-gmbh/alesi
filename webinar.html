@@ -242,8 +242,8 @@
   .hyp-stage{position:relative;touch-action:pan-y}
   .hyp-stage svg{width:100%;height:auto;display:block;cursor:crosshair}
   .hyp-grid{stroke:rgba(244,244,242,.07);stroke-width:1}
-  .hyp-ylabel{fill:var(--muted2);font-family:'Poppins';font-size:11px;letter-spacing:.08em}
-  .hyp-xlabel{fill:var(--muted2);font-family:'Poppins';font-size:11px}
+  .hyp-ylabel{fill:var(--muted);font-family:'Poppins';font-size:11px;letter-spacing:.08em}
+  .hyp-xlabel{fill:var(--muted);font-family:'Poppins';font-size:11px}
   .hyp-line{fill:none;stroke:url(#hypStroke);stroke-width:2.5;stroke-linecap:round;stroke-dasharray:3400;stroke-dashoffset:3400}
   .hyp-card.in .hyp-line{animation:hypdraw 2.8s cubic-bezier(.25,.1,.25,1) .3s forwards}
   @keyframes hypdraw{to{stroke-dashoffset:0}}
@@ -561,7 +561,7 @@
     <div class="hero-grid">
       <div>
         <!-- ▼ TERMIN ändern (1/5) -->
-        <div class="badge"><span class="live"></span> Kostenloses Live-Webinar · So., 13. September · 20:00 Uhr</div>
+        <div class="badge"><span class="live"></span> Kostenloses Live-Webinar · So., 29. November · 20:00 Uhr</div>
         <div class="hero-kicker">Für alle, die nachts um 3 Uhr wachliegen</div>
         <h1>Schluss mit der 3-Uhr-Nacht: endlich wieder <span class="ac">durchschlafen</span></h1>
         <p class="hero-lead">Du schläfst gut ein und bist um 3 Uhr trotzdem hellwach: Gedankenkarussell, Blick zur Uhr, und je mehr du schlafen willst, desto wacher wirst du. <strong>Das ist kein kaputter Schlaf. Das ist Biologie, und sie lässt sich steuern.</strong> Dr. André Alesi zeigt dir live, was nachts wirklich in deinem Körper passiert und wie du in wenigen Minuten zurück in den Schlaf findest.</p>
@@ -970,7 +970,7 @@
   <div class="orb orb-f1"></div><div class="orb orb-f2 blue"></div>
   <div class="wrap inner">
     <!-- ▼ TERMIN ändern (2/5) -->
-    <div class="eyebrow c">Kostenloses Live-Webinar · So., 13. September · 20:00 Uhr</div>
+    <div class="eyebrow c">Kostenloses Live-Webinar · So., 29. November · 20:00 Uhr</div>
     <h2>Deine nächste Nacht kann schon <span class="ac">anders</span> sein</h2>
     <p class="lead">60 Minuten, die dir zeigen, warum du nachts um 3 Uhr aufwachst und wie du wissenschaftlich fundiert zurück in den Schlaf findest. Im Anschluss beantwortet André deine Fragen live.</p>
     <div class="count" data-cd>
@@ -1029,7 +1029,7 @@
 <div class="sticky" id="sticky">
   <div class="sticky-inner">
     <!-- ▼ TERMIN ändern (3/5) -->
-    <div class="sticky-txt"><b>Kostenloses Live-Webinar · So., 13. September · 20:00 Uhr</b><small>Schluss mit der 3-Uhr-Nacht · nur 100 Plätze</small></div>
+    <div class="sticky-txt"><b>Kostenloses Live-Webinar · So., 29. November · 20:00 Uhr</b><small>Schluss mit der 3-Uhr-Nacht · nur 100 Plätze</small></div>
     <a href="#anmelden" class="btn">Kostenlos anmelden <span class="arr">→</span></a>
   </div>
 </div>
@@ -1085,8 +1085,8 @@
     tio.observe(tiles);
   }
 
-  // ▼ TERMIN ändern (4/5): Countdown-Ziel — So., 13. September 2026, 20:00 Uhr (Monat 0-basiert: 8 = September)
-  const target=new Date(2026,8,13,20,0,0).getTime();
+  // ▼ TERMIN ändern (4/5): Countdown-Ziel — So., 29. November 2026, 20:00 Uhr (Monat 0-basiert: 10 = November)
+  const target=new Date(2026,10,29,20,0,0).getTime();
   const pads=n=>String(Math.max(0,n)).padStart(2,'0');
   function tick(){
     const diff=target-Date.now();

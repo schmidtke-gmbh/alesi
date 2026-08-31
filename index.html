@@ -17,6 +17,10 @@
 <link rel="stylesheet" href="site.css">
 <style>
 .hero{position:relative;padding:172px 0 92px;overflow:hidden;background:radial-gradient(1100px 560px at 72% -10%,#1A2233 0%,var(--midnight) 62%)}
+.ray{position:absolute;pointer-events:none;z-index:0;border-radius:999px}
+.ray.r1{width:560px;height:1280px;left:-4%;top:-360px;transform:rotate(-45deg);background:radial-gradient(68% 68% at 55% 31%,rgba(210,164,125,.09) 0,rgba(210,164,125,.02) 50%,transparent 80%)}
+.ray.r2{width:220px;height:1280px;left:4%;top:-46%;transform:rotate(-45deg);background:radial-gradient(50% 50% at 50% 50%,rgba(244,244,242,.05) 0,rgba(244,244,242,.01) 80%,transparent 100%)}
+.ray.r3{width:220px;height:1280px;left:0;top:-360px;transform:rotate(-45deg);background:radial-gradient(50% 50% at 50% 50%,rgba(244,244,242,.04) 0,transparent 100%)}
 .hero-grid{position:relative;z-index:1;display:grid;grid-template-columns:1.08fr .92fr;gap:52px;align-items:center}
 .hero h1{font-weight:600;font-size:clamp(2.2rem,4.6vw,58px);line-height:1.12;letter-spacing:-.015em;margin-bottom:20px;animation:blurin 1s cubic-bezier(.25,.1,.25,1) .15s backwards}
 .hero h1 .ac{color:var(--copper-light)}
@@ -192,6 +196,7 @@
 <!-- HERO -->
 <header class="hero">
   <div class="stars"></div>
+  <div class="ray r1"></div><div class="ray r2"></div><div class="ray r3"></div>
   <div class="wrap">
     <div class="hero-grid">
       <div>
@@ -300,28 +305,6 @@
   </div>
 </section>
 
-<!-- KURS-TEASER (Bild-Sektion) -->
-<section class="imgsec">
-  <img class="bg" src="img/szene-schlafzimmer.jpg" onerror="this.onerror=null;this.src='https://d8j0ntlcm91z4.cloudfront.net/user_39bpvnosVvqwhbus3q5PhClCw2s/hf_20260830_142617_ad82471c-12df-4ad9-b921-4210cac1deab.png'" alt="" loading="lazy">
-  <div class="shade"></div>
-  <div class="wrap">
-    <div class="float-card rv">
-      <div class="eyebrow">Digitaler Schlafkurs</div>
-      <h3>Schluss mit der Drei-Uhr-Nacht: <span class="ac">Die Durchschlaf-Formel</span></h3>
-      <p class="lead">12 kompakte Videomodule, das QQRT-System aus der Schlafforschung und 4 Boni. Sofort starten und in deinem Tempo lernen.</p>
-      <ul class="mini">
-        <li><span class="tk"><svg viewBox="0 0 12 12"><polyline points="2.5 6 5 8.5 9.5 3.5"/></svg></span>Verstehen, warum du nachts aufwachst</li>
-        <li><span class="tk"><svg viewBox="0 0 12 12"><polyline points="2.5 6 5 8.5 9.5 3.5"/></svg></span>In Minuten zurück in den Schlaf finden</li>
-        <li><span class="tk"><svg viewBox="0 0 12 12"><polyline points="2.5 6 5 8.5 9.5 3.5"/></svg></span>Guten Schlaf planbar machen statt hoffen</li>
-      </ul>
-      <div class="price-line">
-        <div><b>997&nbsp;€</b> <span>inkl. MwSt.</span></div>
-        <a href="kurs.html" class="btn">Kurs entdecken <span class="arr">→</span></a>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- WEBINAR-TEASER (Bild-Sektion) -->
 <section class="imgsec right">
   <img class="bg" src="img/szene-mondfenster.jpg" onerror="this.onerror=null;this.src='https://d8j0ntlcm91z4.cloudfront.net/user_39bpvnosVvqwhbus3q5PhClCw2s/hf_20260830_142619_d829a28a-e57d-413f-8ef6-e0e30e2e24ee.png'" alt="" loading="lazy">
@@ -330,7 +313,7 @@
     <div class="float-card rv">
       <div class="eyebrow">Kostenloses Live-Webinar</div>
       <h3>Schluss mit der 3-Uhr-Nacht: <span class="ac">endlich wieder durchschlafen</span></h3>
-      <div class="when-chip">🌙 So., 13. September · 20:00 Uhr · live &amp; online</div>
+      <div class="when-chip">🌙 So., 29. November · 20:00 Uhr · live &amp; online</div>
       <p class="lead">Lerne live, was zwischen 2 und 4 Uhr wirklich in deinem Körper passiert und wie du zurück in den Schlaf findest. Der perfekte erste Schritt.</p>
       <a href="webinar.html" class="btn">Kostenlosen Platz sichern <span class="arr">→</span></a>
     </div>
@@ -350,6 +333,27 @@
         <p class="sec-intro">Seit 2015 leite ich das Institut für Schlaf und Regeneration. Ich übersetze Schlafforschung in den Alltag: für Spitzensportler, Unternehmen und alle, die viel leisten und gut leben wollen. Als Autor, Speaker und Berater habe ich ein Ziel: gesunden Schlaf wirksam zu verankern.</p>
         <div class="quote">„Schlaf lässt sich nicht erzwingen. Aber er lässt sich einladen. Wenn du verstehst, wie deine Nacht funktioniert, hört das Kämpfen auf."</div>
         <div style="margin-top:24px"><a href="ueber-mich.html" class="btn">Meine Geschichte <span class="arr">→</span></a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- KURS-TEASER (Bild-Sektion) -->
+<section class="imgsec">
+  <img class="bg" src="img/szene-schlafzimmer.jpg" onerror="this.onerror=null;this.src='https://d8j0ntlcm91z4.cloudfront.net/user_39bpvnosVvqwhbus3q5PhClCw2s/hf_20260830_142617_ad82471c-12df-4ad9-b921-4210cac1deab.png'" alt="" loading="lazy">
+  <div class="shade"></div>
+  <div class="wrap">
+    <div class="float-card rv">
+      <div class="eyebrow">Digitaler Schlafkurs</div>
+      <h3>Schluss mit der Drei-Uhr-Nacht: <span class="ac">Die Durchschlaf-Formel</span></h3>
+      <p class="lead">12 kompakte Videomodule, das QQRT-System aus der Schlafforschung und 4 Boni. Sofort starten und in deinem Tempo lernen.</p>
+      <ul class="mini">
+        <li><span class="tk"><svg viewBox="0 0 12 12"><polyline points="2.5 6 5 8.5 9.5 3.5"/></svg></span>Verstehen, warum du nachts aufwachst</li>
+        <li><span class="tk"><svg viewBox="0 0 12 12"><polyline points="2.5 6 5 8.5 9.5 3.5"/></svg></span>In Minuten zurück in den Schlaf finden</li>
+        <li><span class="tk"><svg viewBox="0 0 12 12"><polyline points="2.5 6 5 8.5 9.5 3.5"/></svg></span>Guten Schlaf planbar machen statt hoffen</li>
+      </ul>
+      <div class="price-line">
+        <a href="kurs.html" class="btn">Kurs entdecken <span class="arr">→</span></a>
       </div>
     </div>
   </div>
@@ -401,17 +405,14 @@
         <!-- ▼ Kontaktdaten anpassen -->
         <ul class="fcontact">
           <li><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="M3.5 7l8.5 6 8.5-6"/></svg><a href="mailto:kontakt@andre-alesi.de">kontakt@andre-alesi.de</a></li>
-          <li><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.6"/><path d="M12 7.5V12l3 2"/></svg><span>Antwort innerhalb von 48 Stunden</span></li>
-          <li><svg viewBox="0 0 24 24"><path d="M20.5 14.2A8.6 8.6 0 0 1 9.8 3.5a8.6 8.6 0 1 0 10.7 10.7z"/></svg><span>Better today. Stronger tomorrow.</span></li>
         </ul>
       </div>
     </div>
     <div class="foot-bottom">
-      <!-- ▼ Social-Links anpassen -->
       <div class="socials">
-        <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="17" height="17" rx="4.5"/><circle cx="12" cy="12" r="3.8"/><circle cx="17.2" cy="6.8" r="1" fill="currentColor" stroke="none"/></svg></a>
-        <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24"><rect x="2.5" y="5.5" width="19" height="13" rx="3.5"/><path d="M10.2 9.3l4.6 2.7-4.6 2.7z"/></svg></a>
-        <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="17" height="17" rx="3"/><path d="M8 10.5V16M8 7.8v.1M12 16v-3.2c0-1.2.9-2.1 2-2.1s2 .9 2 2.1V16"/></svg></a>
+        <a href="https://www.instagram.com/dr.andre.schlafen/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="17" height="17" rx="4.5"/><circle cx="12" cy="12" r="3.8"/><circle cx="17.2" cy="6.8" r="1" fill="currentColor" stroke="none"/></svg></a>
+        <a href="https://www.youtube.com/@dr.andre.schlafen" target="_blank" rel="noopener" aria-label="YouTube"><svg viewBox="0 0 24 24"><rect x="2.5" y="5.5" width="19" height="13" rx="3.5"/><path d="M10.2 9.3l4.6 2.7-4.6 2.7z"/></svg></a>
+        <a href="https://www.linkedin.com/in/andre-alesi" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="17" height="17" rx="3"/><path d="M8 10.5V16M8 7.8v.1M12 16v-3.2c0-1.2.9-2.1 2-2.1s2 .9 2 2.1V16"/></svg></a>
       </div>
       <div class="foot-copy">© 2026 <strong>Dr. André Alesi</strong> · Alle Rechte vorbehalten.</div>
     </div>
