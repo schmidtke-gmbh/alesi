@@ -24,7 +24,7 @@ Landing Page für das kostenlose Live-Webinar „Schluss mit der 3-Uhr-Nacht".
 
 ## Vor dem Livegang
 
-0. **Rechtsseiten:** Alle [Platzhalter] in Impressum, Datenschutz, AGB und Widerruf ausfüllen und prüfen lassen. Kontaktdaten (kontakt@andre-alesi.de ist ein Platzhalter) überall anpassen.
+0. **Rechtsseiten:** Alle [Platzhalter] in Impressum, Datenschutz, AGB und Widerruf ausfüllen und prüfen lassen. Kontaktdaten (hallo@andre-alesi.de ist ein Platzhalter) überall anpassen.
 1. **Termin:** Alle Stellen sind im Code mit `▼ TERMIN ändern (1/5 … 5/5)` markiert (index.html + webinar-danke.html).
 2. **WebinarJam:** Embed-Code in `index.html` beim Marker `WEBINARJAM-ANMELDUNG` einfügen; Bestätigungsseite auf `webinar-danke.html` stellen.
 3. **Checkout:** In `kurs.html` beim Marker `▼ CHECKOUT-LINK` den Bezahllink einsetzen (z. B. Digistore24, CopeCart, Stripe).

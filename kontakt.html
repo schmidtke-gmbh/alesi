@@ -26,6 +26,7 @@
 .direct{margin-top:26px;text-align:center;font-size:13.5px;color:var(--muted);font-weight:300}
 .direct a{color:var(--copper-light)}
 @media(max-width:600px){.frow{grid-template-columns:1fr}.contact-wrap{padding-top:140px}}
+.hp-wrap{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden}
 </style>
 </head>
 <body>
@@ -62,9 +63,11 @@
   <div class="stars" style="position:fixed"></div>
   <div class="eyebrow">Kontakt</div>
   <h1>Du hast <span class="ac">eine Frage?</span></h1>
-  <p class="lead">Schreib mir gerne. Ob Frage zum Kurs, Presseanfrage oder Kooperation: Ich melde mich so schnell wie möglich zurück.</p>
+  <p class="lead">Dann schreib mir gerne. Egal, ob es um deinen Schlaf, den Schlafkurs oder ein anderes Anliegen geht. Ich freue mich auf deine Nachricht und melde mich persönlich bei dir zurück.</p>
   <!-- ▼ FORMULAR-BACKEND einrichten: action durch z. B. Formspree-Endpoint ersetzen (https://formspree.io) -->
-  <form class="glass cform" action="#" method="POST">
+  <!-- ▼ FORMULAR-BACKEND: action anpassen. Bei Netlify-Hosting funktionieren data-netlify + Honeypot automatisch. -->
+  <form class="glass cform" name="kontakt" action="#" method="POST" data-netlify="true" netlify-honeypot="firma" id="kontaktForm">
+    <p class="hp-wrap" aria-hidden="true"><label>Firma <input name="firma" tabindex="-1" autocomplete="off"></label></p>
     <div class="frow">
       <div class="field"><label for="name">Name</label><input id="name" name="name" type="text" required placeholder="Dein Name"></div>
       <div class="field"><label for="email">E-Mail</label><input id="email" name="email" type="email" required placeholder="deine@mail.de"></div>
@@ -86,7 +89,7 @@
     <button class="btn lg" type="submit" style="justify-content:center">Nachricht senden <span class="arr">→</span></button>
     <p class="cnote">Deine Daten werden nur zur Bearbeitung deiner Anfrage verwendet.</p>
   </form>
-  <p class="direct">Oder direkt per E-Mail: <a href="mailto:kontakt@andre-alesi.de">kontakt@andre-alesi.de</a></p>
+  <p class="direct">Oder direkt per E-Mail: <a href="mailto:hallo@andre-alesi.de">hallo@andre-alesi.de</a></p>
 </div>
 
 <footer>
@@ -94,7 +97,7 @@
     <div class="foot-grid">
       <div class="foot-brand">
         <img src="logo-lockup-dunkel.svg" alt="Dr. André Alesi">
-        <p>Dr. André Alesi ist Experte für Schlafgesundheit und Gründer des Instituts für Schlaf und Regeneration. <b>Wissenschaft. Mensch. Performance.</b></p>
+        <p>Dr. André Alesi ist Schlafwissenschaftler und Gründer des Instituts für Schlaf und Regeneration. <b>Wissenschaftlich fundiert. Verständlich erklärt. Für besseren Schlaf.</b></p>
       </div>
       <div class="fcol">
         <h4>Seiten</h4>
@@ -120,7 +123,7 @@
         <h4>Kontakt</h4>
         <!-- ▼ Kontaktdaten anpassen -->
         <ul class="fcontact">
-          <li><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="M3.5 7l8.5 6 8.5-6"/></svg><a href="mailto:kontakt@andre-alesi.de">kontakt@andre-alesi.de</a></li>
+          <li><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="M3.5 7l8.5 6 8.5-6"/></svg><a href="mailto:hallo@andre-alesi.de">hallo@andre-alesi.de</a></li>
         </ul>
       </div>
     </div>
@@ -152,5 +155,20 @@
   </div>
 </footer>
 <script src="site.js"></script>
+<script>
+/* Spam-Schutz: Honeypot + Mindestzeit. Bots füllen das versteckte Feld oder senden sofort ab. */
+(function(){
+  var t0 = Date.now();
+  var form = document.getElementById('kontaktForm');
+  if (!form) return;
+  form.addEventListener('submit', function(ev){
+    var hp = form.querySelector('input[name="firma"]');
+    if ((hp && hp.value !== '') || Date.now() - t0 < 4000){
+      ev.preventDefault();
+      return false;
+    }
+  });
+})();
+</script>
 </body>
 </html>
