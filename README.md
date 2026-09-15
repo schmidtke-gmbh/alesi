@@ -29,7 +29,7 @@ Landing Page für das kostenlose Live-Webinar „Schluss mit der 3-Uhr-Nacht".
 2. **WebinarJam:** Embed-Code in `index.html` beim Marker `WEBINARJAM-ANMELDUNG` einfügen; Bestätigungsseite auf `webinar-danke.html` stellen.
 3. **Checkout:** In `kurs.html` beim Marker `▼ CHECKOUT-LINK` den Bezahllink einsetzen (z. B. Digistore24, CopeCart, Stripe).
 4. **Meta-Pixel:** In `webinar-danke.html` vorbereitet (auskommentiert).
-4. **André-Foto:** Das echte Porträt liegt als `img/andre-portrait.jpg` im Repo (Querformat-Original: `img/andre-portrait-quer.jpg`).
+4. **André-Foto:** Profifotos (Tobias Fröhner Photography) liegen in `img/`: andre-portrait (Hero Start), andre-locker (Über mich), andre-studio (Kurs-Avatar), andre-experte (Webinar), andre-hemd (About-Teaser), andre-regal + andre-hemd-hoch (Warteliste).
 5. **Fotos:** Die KI-Bilder liegen aktuell auf dem Higgsfield-CDN (automatischer Fallback im HTML). Für dauerhafte Nutzung einmal herunterladen und unter diesen Namen in `img/` speichern — die Seite nutzt dann automatisch die lokalen Dateien:
    | Datei | Download |
    |---|---|
