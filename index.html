@@ -63,6 +63,35 @@
 .tmock .t-sub{font-size:12.5px;color:var(--muted);margin-top:10px;position:relative;font-weight:300}
 .about-teaser{display:grid;grid-template-columns:.8fr 1.2fr;gap:46px;align-items:center}
 .about-teaser .quote{background:var(--card-dark);border-left:3px solid var(--copper);border-radius:14px;padding:20px 24px;font-size:15px;font-weight:300;color:#C9CFDA;line-height:1.7;margin-top:20px}
+
+/* ── YouTube ── */
+.yt-handle{display:inline-flex;align-items:center;gap:9px;margin-top:18px;font-size:14px;color:var(--muted);font-weight:400}
+.yt-handle svg{width:22px;height:16px}
+.yt-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:46px;align-items:start}
+.yt-card{background:var(--card-dark);border:1px solid var(--line-dark);border-radius:18px;overflow:hidden;transition:transform .25s,border-color .25s;text-align:left;display:block}
+.yt-card:hover{transform:translateY(-5px);border-color:rgba(187,137,97,.35)}
+.yt-grid .yt-card:nth-child(2){transform:translateY(-14px)}
+.yt-grid .yt-card:nth-child(2):hover{transform:translateY(-19px)}
+.yt-thumb{position:relative;aspect-ratio:16/9;overflow:hidden;background:#0A0E14}
+.yt-thumb img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
+.yt-card:hover .yt-thumb img{transform:scale(1.04)}
+.yt-thumb::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(13,17,23,.55))}
+.yt-play{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:58px;height:40px;background:#F03;border-radius:11px;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 28px rgba(0,0,0,.45);transition:transform .25s;z-index:1}
+.yt-play::before{content:'';border-style:solid;border-width:8px 0 8px 14px;border-color:transparent transparent transparent #fff;margin-left:3px}
+.yt-card:hover .yt-play{transform:translate(-50%,-50%) scale(1.12)}
+.yt-body{padding:20px 22px 22px}
+.yt-meta{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted2);margin-bottom:9px}
+.yt-body h3{font-size:16.5px;font-weight:500;line-height:1.4;margin-bottom:9px;color:var(--porcelain)}
+.yt-body p{font-size:13.5px;color:var(--muted);font-weight:300;line-height:1.65;margin-bottom:14px}
+.yt-link{display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--copper-light)}
+.yt-link svg{width:18px;height:13px}
+.yt-cta{margin-top:44px}
+@media(max-width:900px){
+  .yt-grid{grid-template-columns:1fr;max-width:460px;margin-left:auto;margin-right:auto}
+  .yt-grid .yt-card:nth-child(2){transform:none}
+  .yt-grid .yt-card:nth-child(2):hover{transform:translateY(-5px)}
+}
+
 .nl-card{max-width:640px;margin:0 auto;padding:46px 44px;text-align:center}
 .nl-card h3{font-size:clamp(1.4rem,2.6vw,28px);font-weight:600;margin-bottom:12px}
 .nl-card p{font-size:15px;color:var(--muted);font-weight:300;margin-bottom:24px}
@@ -356,6 +385,23 @@
         <a href="kurs.html" class="btn">Kurs entdecken <span class="arr">→</span></a>
       </div>
     </div>
+  </div>
+</section>
+
+
+<!-- YOUTUBE -->
+<section class="band deep">
+  <div class="wrap center">
+    <div class="rv"><div class="eyebrow c">YouTube · Dr. André Alesi</div>
+    <h2 class="title">Schlafwissen auf <span class="ac">YouTube</span></h2>
+    <p class="sec-intro" style="margin:0 auto">Auf seinem Kanal erklärt Dr. André Alesi Schlafforschung verständlich und auf den Punkt. Ehrlich, fundiert und direkt anwendbar.</p>
+    <div class="yt-handle"><svg viewBox="0 0 28 20" fill="none"><rect width="28" height="20" rx="5" fill="#F03"/><path d="M11.2 5.8l7 4.2-7 4.2z" fill="#fff"/></svg> @dr.andre.schlafen</div></div>
+    <div class="yt-grid">
+      <a class="yt-card rv" href="https://youtu.be/LXCHLQfOqwc" target="_blank" rel="noopener"><div class="yt-thumb"><img src="https://i.ytimg.com/vi/LXCHLQfOqwc/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/LXCHLQfOqwc/hqdefault.jpg'" alt="Wechseljahre: 80% ignorieren DIESEN Schlaf-Fehler (QQRT-Formel hilft)" loading="lazy"><span class="yt-play"></span></div><div class="yt-body"><div class="yt-meta">Dr. André Alesi · Schlaf &amp; Regeneration</div><h3>Wechseljahre: 80% ignorieren DIESEN Schlaf-Fehler (QQRT-Formel hilft)</h3><p>Warum Schlaf in den Wechseljahren anders funktioniert und wie dir die QQRT-Formel hilft, wieder durchzuschlafen.</p><span class="yt-link"><svg viewBox="0 0 28 20" fill="none"><rect width="28" height="20" rx="5" fill="#F03"/><path d="M11.2 5.8l7 4.2-7 4.2z" fill="#fff"/></svg> Auf YouTube ansehen</span></div></a>
+      <a class="yt-card rv" href="https://youtu.be/PqePpY4-N60" target="_blank" rel="noopener"><div class="yt-thumb"><img src="https://i.ytimg.com/vi/PqePpY4-N60/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/PqePpY4-N60/hqdefault.jpg'" alt="Du schläfst &quot;genug&quot; aber bist trotzdem müde? Das ist der Grund!" loading="lazy"><span class="yt-play"></span></div><div class="yt-body"><div class="yt-meta">Dr. André Alesi · Schlaf &amp; Regeneration</div><h3>Du schläfst &quot;genug&quot; aber bist trotzdem müde? Das ist der Grund!</h3><p>Acht Stunden im Bett und trotzdem erschöpft? Warum Schlafdauer allein nichts über deine Erholung aussagt.</p><span class="yt-link"><svg viewBox="0 0 28 20" fill="none"><rect width="28" height="20" rx="5" fill="#F03"/><path d="M11.2 5.8l7 4.2-7 4.2z" fill="#fff"/></svg> Auf YouTube ansehen</span></div></a>
+      <a class="yt-card rv" href="https://youtu.be/aVHuQsaUY0A" target="_blank" rel="noopener"><div class="yt-thumb"><img src="https://i.ytimg.com/vi/aVHuQsaUY0A/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/aVHuQsaUY0A/hqdefault.jpg'" alt="Forscher warnen! Das MUSST du über Melatonin wissen!" loading="lazy"><span class="yt-play"></span></div><div class="yt-body"><div class="yt-meta">Dr. André Alesi · Schlaf &amp; Regeneration</div><h3>Forscher warnen! Das MUSST du über Melatonin wissen!</h3><p>Was die Forschung wirklich über Melatonin sagt: Wirkung, Grenzen und worauf du bei der Einnahme achten solltest.</p><span class="yt-link"><svg viewBox="0 0 28 20" fill="none"><rect width="28" height="20" rx="5" fill="#F03"/><path d="M11.2 5.8l7 4.2-7 4.2z" fill="#fff"/></svg> Auf YouTube ansehen</span></div></a>
+    </div>
+    <div class="yt-cta rv"><a class="btn lg" href="https://www.youtube.com/@dr.andre.schlafen" target="_blank" rel="noopener">Zum YouTube-Kanal <span class="arr">→</span></a></div>
   </div>
 </section>
 
