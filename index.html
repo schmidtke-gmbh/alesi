@@ -13,8 +13,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
-<!-- ▼ BILDER: aktuell KI-Platzhalter (Higgsfield-CDN). Nach dem Shooting am 24.10. durch echte Fotos ersetzen. -->
-<link rel="preload" as="image" href="https://d2ol7oe51mr4n9.cloudfront.net/user_39bpvnosVvqwhbus3q5PhClCw2s/2d833543-a9d9-4772-8503-ee80050eea8f.webp" media="(min-width: 861px)">
+<!-- ▼ BILDER: Hero-Foto ist echt (Ordner fotos/). Alle übrigen Bilder sind KI-Platzhalter (Higgsfield-CDN) und werden nach dem Shooting ersetzt. -->
+<link rel="preload" as="image" href="fotos/andre-hero.webp" media="(min-width: 861px)">
 <style>
 :root{
   --steel:#274768; --navy:#081A2E; --navy2:#0D2440; --sky:#87A6C6;
@@ -94,10 +94,10 @@ em.cu{font-style:italic;color:var(--copper)}
 .hero::before{content:'';position:absolute;inset:0;z-index:0;background:radial-gradient(28% 36% at 74% 36%,rgba(90,160,255,.16),transparent 70%),radial-gradient(22% 26% at 66% 52%,rgba(255,160,90,.09),transparent 70%)}
 #waves{position:absolute;inset:0;width:100%;height:100%;z-index:1}
 .hero .grain{position:absolute;inset:0;z-index:2;opacity:.05;pointer-events:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
-.hero-person{position:absolute;z-index:3;right:max(1vw,calc((100vw - 1240px)/2 - 50px));bottom:3vh;height:min(76vh,820px);will-change:transform}
-.hero-person img{height:100%;width:auto;filter:drop-shadow(0 30px 60px rgba(0,0,0,.45));opacity:0;transform:translateY(30px) scale(.98);transition:opacity 1.4s var(--ease) .3s,transform 1.6s var(--ease) .3s}
+.hero-person{position:absolute;z-index:3;right:max(1vw,calc((100vw - 1240px)/2 - 50px));bottom:9vh;height:min(80vh,860px);will-change:transform}
+.hero-person img{height:100%;width:auto;filter:drop-shadow(0 30px 60px rgba(0,0,0,.45));-webkit-mask-image:linear-gradient(180deg,#000 68%,rgba(0,0,0,.45) 84%,transparent 98%);mask-image:linear-gradient(180deg,#000 68%,rgba(0,0,0,.45) 84%,transparent 98%);opacity:0;transform:translateY(30px) scale(.98);transition:opacity 1.4s var(--ease) .3s,transform 1.6s var(--ease) .3s}
 .loaded .hero-person img{opacity:1;transform:none}
-.hero-person::after{content:'';position:absolute;left:-10%;right:-10%;bottom:0;height:26%;background:linear-gradient(to top,#061427 6%,transparent)}
+
 /* Publikum im Vordergrund: Köpfe größer als André, weil näher an der Kamera; André steht dahinter auf der Bühne */
 .crowd{position:absolute;z-index:4;left:-25%;right:-40%;bottom:-12%;pointer-events:none;will-change:transform;-webkit-mask-image:linear-gradient(90deg,transparent 0%,transparent 18%,rgba(0,0,0,.25) 30%,rgba(0,0,0,.85) 44%,#000 54%);mask-image:linear-gradient(90deg,transparent 0%,transparent 18%,rgba(0,0,0,.25) 30%,rgba(0,0,0,.85) 44%,#000 54%)}
 .crowd img{width:100%;filter:blur(6px) brightness(.7)}
@@ -135,7 +135,7 @@ em.cu{font-style:italic;color:var(--copper)}
 .scroll-cue{position:absolute;z-index:6;left:50%;bottom:22px;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:10px;font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:rgba(255,255,255,.55)}
 .scroll-cue i{width:1px;height:42px;background:linear-gradient(var(--copper),transparent);animation:cue 2.4s var(--ease) infinite;transform-origin:top}
 @keyframes cue{0%{transform:scaleY(0)}50%{transform:scaleY(1)}100%{transform:scaleY(1);opacity:0}}
-@media (max-width:1100px){.hero-person{height:min(70vh,700px)}}
+@media (max-width:1100px){.hero-person{height:min(74vh,760px)}}
 
 /* ── Reveal ── */
 .rv{opacity:0;transform:translateY(40px);transition:opacity 1.1s var(--ease),transform 1.1s var(--ease)}
@@ -192,6 +192,7 @@ em.cu{font-style:italic;color:var(--copper)}
 /* ── Korridor (Haltung) ── */
 .corr{padding:150px 0;background:linear-gradient(180deg,var(--navy) 0%,var(--navy2) 100%);overflow:hidden}
 .corr-grid{display:grid;grid-template-columns:.92fr 1.08fr;gap:80px;align-items:center}
+.corr .h2{font-size:clamp(2rem,3.5vw,3rem)}
 .corr .imgbox{position:relative;border-radius:28px;overflow:hidden;aspect-ratio:4/5}
 .corr .imgbox img{width:100%;height:100%;object-fit:cover}
 .corr .imgbox .tag{position:absolute;left:22px;bottom:22px;right:22px;background:rgba(8,26,46,.62);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid var(--line);border-radius:18px;padding:18px 20px;font-size:13.5px;color:#D6E0EA}
@@ -304,14 +305,15 @@ em.cu{font-style:italic;color:var(--copper)}
 .offers-head{display:flex;justify-content:space-between;align-items:flex-end;gap:40px;margin-bottom:60px;flex-wrap:wrap}
 .offers-head .h2{margin-top:20px;max-width:640px}
 .ogrid{display:grid;grid-template-columns:1.25fr 1fr 1fr;gap:22px}
-.ocard{position:relative;border-radius:28px;overflow:hidden;min-height:520px;display:flex;flex-direction:column;justify-content:flex-end;padding:34px;color:#fff;isolation:isolate;transition:transform .6s var(--ease)}
+.ocard{position:relative;border-radius:28px;overflow:hidden;min-height:560px;display:flex;flex-direction:column;justify-content:flex-end;padding:34px;color:#fff;isolation:isolate;transition:transform .6s var(--ease)}
 .ocard:hover{transform:translateY(-8px)}
 .ocard .bg{position:absolute;inset:0;z-index:-2}
 .ocard .bg img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s var(--ease)}
 .ocard:hover .bg img{transform:scale(1.06)}
 .ocard::before{content:'';position:absolute;inset:0;z-index:-1;background:linear-gradient(to top,rgba(8,26,46,.95) 18%,rgba(8,26,46,.25) 70%,rgba(8,26,46,.1))}
 .ocard .pill{align-self:flex-start;font-size:11px;letter-spacing:.2em;text-transform:uppercase;padding:8px 14px;border-radius:999px;background:rgba(255,255,255,.12);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.2);margin-bottom:auto}
-.ocard h3{font-family:var(--serif);font-weight:400;font-size:2rem;line-height:1.1;margin:0 0 12px}
+.ocard h3{font-family:var(--serif);font-weight:400;font-size:1.8rem;line-height:1.12;margin:0 0 12px}
+.ocard .kick{display:block;font-size:11px;font-weight:500;letter-spacing:.24em;text-transform:uppercase;color:var(--copper-l);margin:0 0 10px}
 .ocard p{font-size:14.5px;font-weight:300;color:#D6E0EA;margin-bottom:22px}
 .ocard .go{display:inline-flex;align-items:center;gap:10px;font-weight:500;font-size:14px;color:var(--copper-l)}
 .ocard .go i{width:38px;height:38px;border-radius:50%;border:1px solid rgba(242,198,162,.5);display:flex;align-items:center;justify-content:center;font-style:normal;transition:.4s var(--ease)}
@@ -353,7 +355,7 @@ em.cu{font-style:italic;color:var(--copper)}
 .facts b{display:block;font-family:var(--serif);font-weight:400;font-size:1.25rem;color:#fff;line-height:1.25}
 .facts small{font-size:12.5px;color:var(--mist);line-height:1.4;display:block;margin-top:6px}
 .refs{margin-top:34px;display:flex;align-items:center;gap:14px 28px;flex-wrap:wrap}
-.refs small{font-size:10.5px;letter-spacing:.28em;text-transform:uppercase;color:var(--mist)}
+.refs small{flex-basis:100%;font-size:10.5px;letter-spacing:.28em;text-transform:uppercase;color:var(--mist)}
 .refs span{font-weight:600;font-size:15px;letter-spacing:.04em;color:rgba(255,255,255,.7)}
 
 /* ── Für wen ── */
@@ -399,7 +401,13 @@ em.cu{font-style:italic;color:var(--copper)}
 .dk figcaption small{display:inline-flex;align-items:center;gap:10px;font:500 10.5px/1 var(--sans);letter-spacing:.3em;text-transform:uppercase;color:var(--copper-l);margin-bottom:12px}
 .dk figcaption small::before{content:'';width:22px;height:1px;background:currentColor}
 .dk figcaption p{font-family:var(--serif);font-size:1.32rem;line-height:1.32;margin:0}
-.dk-nav{display:flex;align-items:center;gap:18px;margin-top:30px}
+.dk-nav{display:flex;align-items:center;gap:14px;margin-top:30px}
+.dk-arw{flex:0 0 auto;width:42px;height:42px;padding:0;border-radius:50%;border:1px solid rgba(11,31,53,.14);background:#fff;color:var(--ink);display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 10px 22px -14px rgba(11,31,53,.55);transition:background .3s,color .3s,border-color .3s,transform .3s var(--ease)}
+.dk-arw:hover{background:var(--ink);color:#fff;border-color:var(--ink)}
+.dk-arw:active{transform:scale(.92)}
+.dk-arw:focus-visible{outline:2px solid var(--copper-d);outline-offset:3px}
+.dk-arw svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.dk.outb{opacity:0;transform:translate(90px,60px) rotate(12deg) scale(1.02);z-index:4}
 .dk-num{font:400 13px/1 var(--sans);color:var(--ink-m);letter-spacing:.08em;white-space:nowrap}
 .dk-num b{font-family:var(--serif);font-weight:400;font-size:1.5rem;color:var(--ink);margin-right:4px}
 .dk-bar{display:flex;gap:6px;flex:1}
@@ -429,7 +437,49 @@ em.cu{font-style:italic;color:var(--copper)}
 .ytc .play svg{width:18px;fill:#fff;margin-left:3px}
 .ytc .bd{padding:22px 24px 26px}
 .ytc .bd small{font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--copper)}
-.ytc .bd h3{font-weight:500;font-size:16px;line-height:1.45;margin-top:10px}
+.ytc .bd h3{font-weight:500;font-size:16px;line-height:1.45;margin-top:10px;min-height:2.9em}
+/* Kanal-Karten in den Plattformfarben */
+.yt-head .lead{max-width:360px;margin-bottom:8px}
+.ytc{display:flex;flex-direction:column;position:relative;isolation:isolate;border:0;color:#fff;box-shadow:0 24px 50px -30px rgba(0,0,0,.7);transition:transform .5s var(--ease),box-shadow .5s var(--ease)}
+.ytc:hover{transform:translateY(-8px)}
+.ytc .bd{flex:1;display:flex;flex-direction:column;padding:22px 24px 24px}
+.ytc .bd small{color:rgba(255,255,255,.78)}
+.ytc .bd h3{margin-bottom:18px}
+.ytc .go{align-self:flex-start;margin-top:auto;display:inline-flex;align-items:center;gap:8px;padding:10px 18px;border-radius:999px;font-size:13.5px;font-weight:600;letter-spacing:.01em;transition:transform .35s var(--ease),background .35s}
+.ytc .go .ar{transition:transform .35s var(--ease)}.ytc:hover .go .ar{transform:translateX(4px)}
+.ytc .plat{position:absolute;z-index:3;left:16px;top:16px;display:inline-flex;align-items:center;gap:8px;padding:7px 12px 7px 10px;border-radius:999px;background:rgba(0,0,0,.28);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.22);font-size:12px;font-weight:500;letter-spacing:.02em;color:#fff}
+.ytc .plat svg{width:17px;height:17px}
+.ytc .th .play{z-index:2;inset:auto 16px 16px auto}
+.ytc .th .play i{width:48px;height:48px}
+.ytc .th .play svg{width:15px}
+/* YouTube */
+.sc-yt{background:linear-gradient(170deg,#E62117 0%,#C4101A 55%,#93000F 100%)}
+.sc-yt:hover{box-shadow:0 30px 60px -28px rgba(230,33,23,.65)}
+.sc-yt .th::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.25),rgba(0,0,0,0) 40%,rgba(196,16,26,.35));pointer-events:none}
+.sc-yt .th .play i{background:#fff;border-color:#fff}
+.sc-yt:hover .th .play i{background:#fff;border-color:#fff}
+.sc-yt .th .play svg{fill:#E62117}
+.sc-yt .go{background:#fff;color:#C4101A}
+/* Instagram */
+.sc-ig{background:linear-gradient(150deg,#F9A13B 0%,#F05A3C 22%,#D62976 48%,#962FBF 76%,#5B51D8 100%)}
+.sc-ig:hover{box-shadow:0 30px 60px -28px rgba(214,41,118,.65)}
+.sc-ig .go{background:#fff;color:#B5276B}
+/* TikTok */
+.sc-tt{background:radial-gradient(70% 55% at 15% 0%,rgba(37,244,238,.22),transparent 70%),radial-gradient(70% 55% at 100% 45%,rgba(254,44,85,.24),transparent 70%),#0B0B10}
+.sc-tt:hover{box-shadow:0 30px 60px -28px rgba(254,44,85,.5)}
+.sc-tt .plat svg{filter:drop-shadow(-1px -1px 0 #25F4EE) drop-shadow(1px 1px 0 #FE2C55)}
+.sc-tt .go{background:#FE2C55;color:#fff}
+/* Mini-Feed und Profilzeile */
+.ytc .feed{background:#0B0B10}
+.ytc .feed>img{filter:none}
+.ytc .feed::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.35),rgba(0,0,0,0) 32%,rgba(0,0,0,0) 70%,rgba(0,0,0,.25));pointer-events:none}
+.ytc .tic{position:absolute;z-index:2;width:18px;height:18px;color:#fff;filter:drop-shadow(0 1px 3px rgba(0,0,0,.6))}
+.ytc .tic svg{width:100%;height:100%;display:block}
+.ytc .tic.t1{left:calc(32.9% - 28px);bottom:10px}.ytc .tic.t2{left:calc(66.4% - 28px);bottom:10px}.ytc .tic.t3{right:10px;bottom:10px}
+.ytc .tic.b1{left:10px;bottom:10px}.ytc .tic.b2{left:calc(33.6% + 10px);bottom:10px}.ytc .tic.b3{left:calc(67.1% + 10px);bottom:10px}
+.ytc .sc-who{display:inline-flex;align-items:center;gap:10px;font-size:13px;font-weight:500;color:rgba(255,255,255,.9);letter-spacing:.01em}
+.ytc .sc-who img{width:28px;height:28px;border-radius:50%;object-fit:cover;border:2px solid rgba(255,255,255,.85);transform:none}
+.sc-tt .sc-who img{box-shadow:-2px -1px 0 #25F4EE,2px 1px 0 #FE2C55;border-color:#fff}
 
 /* ── Final CTA ── */
 .final{position:relative;padding:190px 0;overflow:hidden;text-align:center;isolation:isolate}
@@ -457,6 +507,7 @@ footer{background:#06142A;border-top:1px solid var(--line);position:relative;ove
 .fbot{display:flex;justify-content:space-between;align-items:center;gap:16px 30px;flex-wrap:wrap;padding:26px 0 18px;border-top:1px solid var(--line);font-size:12.5px;color:var(--mist)}
 .flegal{display:flex;gap:26px;flex-wrap:wrap}
 .flegal a{color:var(--mist);transition:color .3s}.flegal a:hover{color:var(--copper)}
+.sc-credit{display:inline-flex;align-items:center;gap:14px;color:var(--mist);opacity:.72;transition:opacity .35s}.sc-credit:hover{opacity:1}.sc-credit small{font:500 9.5px/1 var(--sans);letter-spacing:.3em;text-transform:uppercase}.sc-credit b{position:relative;font:600 16.5px/1 var(--sans);letter-spacing:-.025em;color:#fff;padding-right:8px}.sc-credit b::after{content:'';position:absolute;right:0;bottom:.14em;width:5px;height:5px;background:#D6A445;transition:transform .35s}.sc-credit:hover b::after{transform:translateY(-2px)}
 .flegal .totop{color:#fff}.flegal .totop i{font-style:normal;display:inline-block;margin-left:6px;transition:transform .3s}.flegal .totop:hover i{transform:translateY(-3px)}
 .mega{position:relative;font-family:var(--serif);font-weight:400;font-size:clamp(4rem,15.5vw,15rem);line-height:1;white-space:nowrap;text-align:center;letter-spacing:-.03em;padding:.08em 0 .3em;color:transparent;-webkit-text-stroke:1px rgba(255,255,255,.22);user-select:none;border-top:1px solid var(--line);background:radial-gradient(60% 120% at 50% 100%,rgba(217,155,114,.08),transparent 70%)}
 .mega .mt{display:block}
@@ -504,7 +555,9 @@ footer{background:#06142A;border-top:1px solid var(--line);position:relative;ove
   .who-ring{width:128%}
   .dk figcaption{padding:70px 22px 22px}
   .dk figcaption p{font-size:1.12rem}
-  .dk-nav{margin-top:24px}
+  .dk-nav{margin:24px -22px 0;gap:10px}
+  .dk-arw{width:46px;height:46px}
+  .dk-arw svg{width:20px;height:20px}
   .who-lines{top:auto;bottom:0;transform:none}
   .known .ml{padding:0 16px;height:28px}
   .ml.faz{font-size:19px}.ml.tsp,.ml.hb{font-size:16px}.ml.zdf{font-size:18px}
@@ -523,6 +576,7 @@ footer{background:#06142A;border-top:1px solid var(--line);position:relative;ove
   .hyp-legend{left:14px;right:14px;gap:12px;font-size:10px}.hyp-legend .cyc{display:none}
   .ogrid{grid-template-columns:1fr}
   .ocard{min-height:440px}
+  .ocard.test{min-height:540px}
   .gauge{width:150px;height:150px;top:64px;right:24px}
   .about .photo .badge{right:14px;top:auto;bottom:-34px;width:136px;height:136px}
   .about .photo .badge b{font-size:2.1rem}
@@ -600,8 +654,8 @@ footer{background:#06142A;border-top:1px solid var(--line);position:relative;ove
   <div class="grain"></div>
   <div class="hero-person" id="person">
     <picture>
-      <source media="(max-width:860px)" srcset="https://d2ol7oe51mr4n9.cloudfront.net/user_39bpvnosVvqwhbus3q5PhClCw2s/d09808d8-31e3-41a6-91a2-a3be95ab859f.webp">
-      <img src="https://d2ol7oe51mr4n9.cloudfront.net/user_39bpvnosVvqwhbus3q5PhClCw2s/2d833543-a9d9-4772-8503-ee80050eea8f.webp" alt="Dr. André Alesi bei einem Vortrag über Schlaf" width="897" height="1250" fetchpriority="high">
+      <source media="(max-width:860px)" srcset="fotos/andre-hero-mobil.webp">
+      <img src="fotos/andre-hero.webp" alt="Dr. André Alesi, Schlafwissenschaftler" width="1000" height="1394" fetchpriority="high">
     </picture>
   </div>
   <div class="crowd" id="crowd" aria-hidden="true">
@@ -616,7 +670,7 @@ footer{background:#06142A;border-top:1px solid var(--line);position:relative;ove
         <span class="ln"><span>Erholsamer Schlaf</span></span>
         <span class="ln"><span>ist <span class="o">kein</span> <span class="b">Zufall</span></span></span>
       </h1>
-      <p class="sub fade d1">Ich bin Dr. André Alesi und helfe Menschen, die im Alltag viel leisten, wieder erholsam zu schlafen. Mit wissenschaftlich fundierten Methoden, die wirklich in einen vollen Alltag passen. <b>Entwickelt aus Forschung und über 20 Jahren Schlafexpertise.</b></p>
+      <p class="sub fade d1">Ich bin Dr. André Alesi, Schlafwissenschaftler und Unternehmer. Seit über 20 Jahren verbinde ich Forschung mit praktischer Erfahrung. Meine Mission: Aus Schlafwissen konkrete Lösungen machen, die zu deinem Leben passen. <b>Damit guter Schlaf auch in einem vollen Alltag möglich wird.</b></p>
       <div class="ctas fade d2">
         <a href="kurs.html" class="btn btn-cu">Zum Schlafkurs <span class="ar">→</span></a>
         <a href="webinar.html" class="lnk">Kostenloses Webinar ansehen</a>
@@ -658,28 +712,28 @@ footer{background:#06142A;border-top:1px solid var(--line);position:relative;ove
     <div class="cond-head">
       <div class="rv">
         <div class="eyebrow">Was guten Schlaf ausmacht</div>
-        <h2 class="h2">Wie gut du schläfst, hängt nicht <em>nur von&nbsp;dir</em>&nbsp;ab.</h2>
+        <h2 class="h2">Guter Schlaf braucht Lösungen, die <em>zum&nbsp;Leben&nbsp;passen.</em></h2>
       </div>
-      <p class="lead rv d1">Schlaf entsteht im Zusammenspiel von Verhalten und Bedingungen. Deshalb schaue ich nicht nur auf das Warum. Sondern auf das, was sich konkret verändern lässt.</p>
+      <p class="lead rv d1">Guter Schlaf entsteht durch das Zusammenspiel unserer Gewohnheiten, der richtigen Produkte und der Bedingungen, unter denen wir leben und arbeiten. Genau dort setze ich an und entwickele Lösungen, die im Alltag funktionieren.</p>
     </div>
     <div class="cond-grid">
       <article class="ccard rv">
         <span class="num">01</span>
         <div class="ic"><svg viewBox="0 0 32 32"><circle cx="16" cy="16" r="11"/><path d="M16 9v7l5 3"/></svg></div>
         <h3>Gewohnheiten</h3>
-        <p>Manchmal sind es kleine Routinen. Wann du schlafen gehst, wie du abschaltest, was du am Abend tust.</p>
+        <p>Ob Schlafrhythmus, Stress oder Abendroutine: Ich zeige dir, welche Veränderungen deinen Schlaf tatsächlich verbessern können und wie du sie im Alltag umsetzt.</p>
       </article>
       <article class="ccard rv d1">
         <span class="num">02</span>
         <div class="ic"><svg viewBox="0 0 32 32"><path d="M5 22v-8a3 3 0 0 1 3-3h16a3 3 0 0 1 3 3v8"/><path d="M3 22h26v4H3z"/><path d="M9 11V8h6v3"/></svg></div>
-        <h3>Produkte und Technologien</h3>
-        <p>Manchmal hilft das richtige Werkzeug. Licht, Raum, Bett und Technik, die wirklich etwas verbessern.</p>
+        <h3>Produkte&nbsp;&amp; Technologien</h3>
+        <p>Von Schlafsystemen bis zu digitalen Anwendungen: Ich verbinde Schlafwissenschaft mit über 20 Jahren praktischer Erfahrung, um sinnvolle Lösungen zu entwickeln und zu bewerten.</p>
       </article>
       <article class="ccard rv d2">
         <span class="num">03</span>
         <div class="ic"><svg viewBox="0 0 32 32"><path d="M4 28V12l8-5v21"/><path d="M12 28V4l16 6v18"/><path d="M17 13h6M17 18h6M17 23h6"/></svg></div>
-        <h3>Bedingungen</h3>
-        <p>Und manchmal müssen sich die Umstände ändern. Zu Hause, am Arbeitsplatz, in der Schule.</p>
+        <h3><span>Lebens-&nbsp;&amp;<br>Arbeits&shy;bedingungen</span></h3>
+        <p>Ob Schichtarbeit, Schulzeiten oder betriebliche Gesundheitsförderung: Ich entwickle mit Unternehmen und Organisationen Konzepte, die gesunden Schlaf im Alltag erleichtern.</p>
       </article>
     </div>
     <div class="cond-foot rv">Guter Schlaf muss zum Leben passen. <em>Nicht umgekehrt.</em></div>
@@ -694,17 +748,17 @@ footer{background:#06142A;border-top:1px solid var(--line);position:relative;ove
       <div class="tag"><b>Aus Schlafwissen Lösungen machen.</b>Das ist der Kern meiner Arbeit.</div>
     </div>
     <div>
-      <div class="eyebrow rv">Meine Haltung</div>
-      <h2 class="h2 rv d1" style="margin-top:22px">Zwischen Hörsaal und <em>Heilsversprechen.</em></h2>
+      <div class="eyebrow rv">Was mich antreibt</div>
+      <h2 class="h2 rv d1" style="margin-top:22px">Wissenschaftler im&nbsp;Kopf.<br><em>Unternehmer im&nbsp;Herzen.</em></h2>
       <div class="scale rv d2">
         <div class="mid"><div class="pin"><svg viewBox="0 0 100 120"><use href="#signet"/></svg></div><small>Hier arbeite ich</small></div>
         <div class="bar"></div>
         <div class="poles">
-          <div class="pole"><b>Reines Wissen</b>„Schlaf sieben bis neun Stunden.“ Stimmt. Hilft dir aber wenig, wenn du Schicht arbeitest oder kleine Kinder hast.</div>
-          <div class="pole r"><b>Große Versprechen</b>Wundermittel, Rituale, Honig von glücklichen Bienen. Klingt gut. Hält selten.</div>
+          <div class="pole"><b>Wissenschaftler</b>Wissenschaftliche Erkenntnisse bilden die Grundlage, um Schlaf und Regeneration besser zu verstehen.</div>
+          <div class="pole r"><b>Unternehmer</b>Mit unternehmerischem Denken entstehen aus wissenschaftlichen Erkenntnissen konkrete Produkte, Angebote und Lösungen.</div>
         </div>
       </div>
-      <p class="body rv">Die einen sagen dir, was du tun solltest. Die anderen versprechen dir Wunder. Ich arbeite dazwischen. <b>Wissenschaftlich fundiert und mit Lösungen, die in dein echtes Leben passen.</b> Mit kleinen Kindern, im Schichtdienst, unter Druck im Job oder mitten in einer neuen Lebensphase.</p>
+      <p class="body rv">Wissenschaft liefert die Grundlage, unternehmerische Erfahrung macht daraus konkrete Lösungen. <b>Seit über 20 Jahren verbinde ich beide Perspektiven,</b> um neue Ideen zu entwickeln, Produkte kritisch zu bewerten und Schlafgesundheit praktisch voranzubringen.</p>
       <blockquote class="quote rv">„Eine Lösung ist erst dann gut, wenn sie im echten Leben funktioniert.“</blockquote>
     </div>
   </div>
@@ -715,14 +769,14 @@ footer{background:#06142A;border-top:1px solid var(--line);position:relative;ove
   <div class="wrap">
     <div class="pillars-head rv">
       <div class="eyebrow c">Wofür ich stehe</div>
-      <h2 class="h2">Drei Säulen. <em>Eine Haltung.</em></h2>
-      <p class="lead">Ob mit Vorständen über Schlafgesundheit oder mit Jugendlichen über Medienkonsum. Die Sprache passt sich an. Die Haltung bleibt dieselbe.</p>
+      <h2 class="h2">Drei Perspektiven. <em>Ein Anspruch.</em></h2>
+      <p class="lead">Ob im Gespräch mit Vorständen über Schlafgesundheit oder mit Jugendlichen über ihren Medienkonsum: Unterschiedliche Zielgruppen brauchen unterschiedliche Ansätze. Meine Sprache passt sich an, mein Anspruch bleibt derselbe: wissenschaftlich fundiert, verständlich und praxisnah.</p>
     </div>
     <div class="stack">
       <article class="pcard pc1">
         <div class="pl">
           <div class="ph"><span class="no">01</span><h3>Wissenschaftliche Glaubwürdigkeit</h3></div>
-          <p>Ich weiß, wie Schlaf funktioniert. Promotion an der Deutschen Sporthochschule Köln, eigene Forschung und der aktuelle Stand der Wissenschaft bilden das Fundament.</p>
+          <p>Fundierte Schlafforschung bildet die Grundlage meiner Arbeit. Wissenschaftliche Erkenntnisse kritisch einordnen, verständlich vermitteln und konsequent an der Evidenz orientieren.</p>
           <ul><li>Forschung</li><li>Promotion</li><li>DGSM</li></ul>
         </div>
         <div class="pr hypbox">
@@ -744,8 +798,8 @@ footer{background:#06142A;border-top:1px solid var(--line);position:relative;ove
       </article>
       <article class="pcard pc2">
         <div class="pl">
-          <div class="ph"><span class="no">02</span><h3>Unternehmerische Umsetzungskompetenz</h3></div>
-          <p>Über 20 Jahre im Einzelhandel, in der Produktentwicklung und mit Unternehmen. Ich erkenne Bedürfnisse und mache aus Wissen konkrete Konzepte, Produkte und Geschäftsmodelle.</p>
+          <div class="ph"><span class="no">02</span><h3>Unternehmerische Erfahrung</h3></div>
+          <p>Über 20 Jahre Erfahrung im Bereich Sleeping, in der Produktentwicklung und in der Zusammenarbeit mit Unternehmen. Dieses Wissen hilft, Bedürfnisse zu erkennen und Ideen wirtschaftlich und praktisch umzusetzen.</p>
           <ul><li>Produktentwicklung</li><li>Handel</li><li>Unternehmen</li></ul>
         </div>
         <div class="pr"><img src="https://d8j0ntlcm91z4.cloudfront.net/user_39bpvnosVvqwhbus3q5PhClCw2s/hf_20261017_120812_88643ffa-e60e-4dc1-a9c7-1e61746d8d9a_min.webp" alt="Dr. André Alesi bei einem Workshop im Unternehmen" loading="lazy"></div>
@@ -753,23 +807,10 @@ footer{background:#06142A;border-top:1px solid var(--line);position:relative;ove
       <article class="pcard pc3">
         <div class="pl">
           <div class="ph"><span class="no">03</span><h3>Praktischer Nutzen</h3></div>
-          <p>Ein Produkt allein verbessert keinen Schlaf. Deshalb verbinde ich Wissen, Verhalten und Werkzeuge zu einem Ganzen. Jeder Baustein öffnet den Zugang zu allen anderen.</p>
-          <ul><li>Wissen</li><li>Verhalten</li><li>Werkzeuge</li></ul>
+          <p>Entscheidend ist, was im Alltag funktioniert. Ob individuelle Angebote, neue Produkte oder betriebliche Konzepte: Im Mittelpunkt stehen Lösungen, die Menschen konkret weiterhelfen.</p>
+          <ul><li>Angebote</li><li>Produkte</li><li>Konzepte</li></ul>
         </div>
-        <div class="pr netbox">
-          <svg class="net" viewBox="0 0 400 360" aria-hidden="true">
-            <circle class="orb o1" cx="200" cy="180" r="132"/>
-            <circle class="orb o2" cx="200" cy="180" r="92"/>
-            <path class="lk" d="M200 180 L200 58"/><path class="lk" d="M200 180 L306 241"/><path class="lk" d="M200 180 L94 241"/>
-            <path class="lk ring" d="M200 58 L306 241 L94 241 Z"/>
-            <path class="pulse p1" d="M200 58 L200 180"/><path class="pulse p2" d="M306 241 L200 180"/><path class="pulse p3" d="M94 241 L200 180"/>
-            <g class="node" transform="translate(200 58)"><circle r="30"/><text y="5">Wissen</text></g>
-            <g class="node" transform="translate(306 241)"><circle r="30"/><text y="5">Verhalten</text></g>
-            <g class="node" transform="translate(94 241)"><circle r="30"/><text y="5">Werkzeuge</text></g>
-            <circle class="core" cx="200" cy="180" r="44"/>
-            <svg x="174" y="149" width="52" height="62" viewBox="0 0 100 120"><use href="#signetW"/></svg>
-          </svg>
-        </div>
+        <div class="pr"><img src="https://d8j0ntlcm91z4.cloudfront.net/user_39bpvnosVvqwhbus3q5PhClCw2s/hf_20261023_185751_2c058078-3eb8-4f0f-be14-1f10dc006831_min.webp" alt="Frau wacht ausgeruht am Morgen auf" loading="lazy" style="object-position:30% 40%"></div>
       </article>
     </div>
   </div>
@@ -787,10 +828,10 @@ footer{background:#06142A;border-top:1px solid var(--line);position:relative;ove
       <span class="lbl l1">Tag</span><span class="lbl l2">Übergang</span><span class="lbl l3">Nacht</span>
     </div>
     <div>
-      <div class="eyebrow rv">Das Zeichen</div>
-      <h2 class="h2 rv d1" style="margin:22px 0 24px">Der gute Tag formt die <em>gute Nacht.</em></h2>
-      <p class="t rv d1">Die halbe Kugel steht für den Tag. Der Halbmond für die Nacht. Der Strich dazwischen für den Übergang.</p>
-      <p class="t rv d2">Alles, was ich entwickle, setzt an beiden Seiten an. Denn guter Schlaf beginnt nicht erst im Bett. <b>Und die gute Nacht formt den guten Tag.</b></p>
+      <div class="eyebrow rv">Das Logo</div>
+      <h2 class="h2 rv d1" style="margin:22px 0 24px">Guter Schlaf beginnt <em>am Tag.</em></h2>
+      <p class="t rv d1">Die helle Hälfte steht für den Tag, der Halbmond für die Nacht. Dazwischen liegt der Übergang. Gemeinsam bilden sie das Zeichen meiner Marke.</p>
+      <p class="t rv d2">Denn Schlaf und Wachsein gehören zusammen. Was wir tagsüber erleben und wie wir unseren Alltag gestalten, beeinflusst unsere Nächte. <b>Und wie gut wir schlafen, prägt wiederum unseren nächsten Tag.</b></p>
     </div>
   </div>
 </section>
@@ -801,31 +842,34 @@ footer{background:#06142A;border-top:1px solid var(--line);position:relative;ove
     <div class="offers-head">
       <div class="rv">
         <div class="eyebrow">Dein Einstieg</div>
-        <h2 class="h2">Drei Wege zu <em>besserem Schlaf.</em></h2>
+        <h2 class="h2">Schlaf verstehen. <em>Schlaf verbessern.</em></h2>
       </div>
-      <p class="lead rv d1" style="max-width:420px">Starte dort, wo du gerade stehst. Mit einem schnellen Check, einem klaren System oder einer Lösung für dein Unternehmen.</p>
+      <p class="lead rv d1" style="max-width:440px">Ob du deinen eigenen Schlaf verbessern möchtest oder Schlafgesundheit in deinem Unternehmen fördern willst: Hier findest du den passenden Einstieg.</p>
     </div>
     <div class="ogrid">
       <a href="schlaftest.html" class="ocard test rv">
         <span class="pill">Kostenlos · 3 Minuten</span>
         <div class="gauge" id="gauge"><svg viewBox="0 0 180 180"><circle class="t" cx="90" cy="90" r="80"/><circle class="v" cx="90" cy="90" r="80"/></svg><div class="n"><b id="gnum">0</b><small>Sleep Score</small></div></div>
-        <h3>Der Schlaftest</h3>
-        <p>13 kurze Fragen. Dein persönlicher Sleep Score von 0 bis 100. Und dein größter Hebel für bessere Nächte.</p>
-        <span class="go"><i>→</i>Jetzt Score berechnen</span>
+        <small class="kick">01 · Der Schlaftest</small>
+        <h3>Wie gut schläfst du wirklich?</h3>
+        <p>13 kurze Fragen helfen dir, deinen Schlaf besser einzuschätzen und mögliche Ansatzpunkte für Veränderungen zu erkennen.</p>
+        <span class="go"><i>→</i>Jetzt Schlaftest starten</span>
       </a>
       <a href="kurs.html" class="ocard rv d1">
         <div class="bg"><img src="https://d8j0ntlcm91z4.cloudfront.net/user_39bpvnosVvqwhbus3q5PhClCw2s/hf_20261017_120812_7f48337f-ed26-4285-8508-d7d463e6f4a2_min.webp" alt="" loading="lazy"></div>
-        <span class="pill">Online-Kurs</span>
-        <h3>Die Durchschlaf-Formel</h3>
-        <p>Raus aus der Drei-Uhr-Nacht. Ein klares System statt Verbotslisten. Verständlich erklärt und in deinem Tempo.</p>
-        <span class="go"><i>→</i>Zum Schlafkurs</span>
+        <span class="pill">Onlinekurs</span>
+        <small class="kick">02 · Der Schlafkurs</small>
+        <h3>Besser schlafen. Schritt für Schritt.</h3>
+        <p>Verstehe, was deinen Schlaf beeinflusst, und lerne wissenschaftlich fundierte Methoden kennen, die du in deinem Alltag umsetzen kannst.</p>
+        <span class="go"><i>→</i>Schlafkurs entdecken</span>
       </a>
-      <a href="kontakt.html" class="ocard biz rv d2">
+      <a href="https://institut-schlaf.de/betriebliche-gesundheit/" target="_blank" rel="noopener" class="ocard biz rv d2">
         <div class="bg"><img src="https://d8j0ntlcm91z4.cloudfront.net/user_39bpvnosVvqwhbus3q5PhClCw2s/hf_20261017_115055_de690edf-d84f-4304-b34a-adcf4f4fc6d8_min.webp" alt="" loading="lazy" style="object-position:75% center"></div>
-        <span class="pill">Für Unternehmen</span>
-        <h3>Schlaf im Unternehmen</h3>
-        <p>Arbeitswelten verändern sich gerade schnell. Ausgeschlafene Teams passen sich besser an. Mit Schlafscreenings, Workshops und Vorträgen über das Institut für Schlaf und Regeneration.</p>
-        <span class="go"><i>→</i>Anfrage stellen</span>
+        <span class="pill">Betriebliche Schlafgesundheit</span>
+        <small class="kick">03 · Für Unternehmen</small>
+        <h3>Gesunder Schlaf am Arbeitsplatz</h3>
+        <p>Von Fachvorträgen und Workshops bis zu Schlafscreenings und individuellen Konzepten. Wissenschaftlich fundierte Angebote über das Institut für Schlaf und Regeneration.</p>
+        <span class="go"><i>→</i>Angebote für Unternehmen</span>
       </a>
     </div>
   </div>
@@ -848,11 +892,11 @@ footer{background:#06142A;border-top:1px solid var(--line);position:relative;ove
       <p class="t rv d2">Dabei habe ich eines gelernt: <b>Guter Schlaf ist keine Frage perfekter Regeln.</b> Er muss zum Leben der Menschen passen.</p>
       <div class="facts rv d2">
         <div><b>Promotion</b><small>Deutsche Sporthochschule Köln</small></div>
-        <div><b>DGSM</b><small>Stv. Sprecher des wissenschaftlichen Nachwuchses</small></div>
-        <div><b>Autor</b><small>„Einfach besser schlafen“, Riva Verlag</small></div>
+        <div><b>DGSM</b><small>Mitglied im wissenschaftlichen Nachwuchs</small></div>
+        <div><b>Autor</b><small>„Einfach besser schlafen“ und „Endlich richtig ausgeschlafen“</small></div>
       </div>
       <a href="ueber-mich.html" class="btn btn-ghost rv d3">Meine Geschichte <span class="ar">→</span></a>
-      <div class="refs rv d3"><small>Vertrauen mir</small><span>Deutsche Bank</span><span>ExxonMobil</span><span>STIHL</span></div>
+      <div class="refs rv d3"><small>Vertrauen mir in der betrieblichen Gesundheit</small><span>Deutsche Bank</span><span>ExxonMobil</span><span>STIHL</span></div>
     </div>
   </div>
 </section>
@@ -888,6 +932,7 @@ footer{background:#06142A;border-top:1px solid var(--line);position:relative;ove
         <figure class="dk" aria-hidden="true"><img src="https://d8j0ntlcm91z4.cloudfront.net/user_39bpvnosVvqwhbus3q5PhClCw2s/hf_20261023_195544_384b3548-4dcf-42fd-8f1a-b20314145bc0_min.webp" alt="Älteres Paar trinkt morgens Tee am Fenster" loading="lazy" style="object-position:55% 35%"><figcaption><small>Sleep to Life</small><p>Für jede Lebensphase. Denn Schlaf verändert sich mit uns.</p></figcaption></figure>
       </div>
       <div class="dk-nav">
+        <button type="button" class="dk-arw" id="dkPrev" aria-label="Vorherige Zielgruppe"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></button>
         <span class="dk-num"><b id="dkNum">01</b>/ 06</span>
         <div class="dk-bar" id="dkBar">
           <button type="button" aria-label="Sleep to Work" class="act" aria-current="true"><span><i></i></span></button>
@@ -897,33 +942,36 @@ footer{background:#06142A;border-top:1px solid var(--line);position:relative;ove
           <button type="button" aria-label="Sleep to Shift"><span><i></i></span></button>
           <button type="button" aria-label="Sleep to Life"><span><i></i></span></button>
         </div>
+        <button type="button" class="dk-arw" id="dkNext" aria-label="Nächste Zielgruppe"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
       </div>
     </div>
   </div>
 </section>
 
-<!-- YOUTUBE -->
+<!-- SOCIAL MEDIA -->
 <section class="yt">
   <div class="wrap">
     <div class="yt-head">
       <div class="rv">
-        <div class="eyebrow">YouTube · @dr.andre.schlafen</div>
+        <div class="eyebrow">Social Media</div>
         <h2 class="h2">Schlafwissen, <em>das hängen bleibt.</em></h2>
       </div>
-      <a href="https://www.youtube.com/@dr.andre.schlafen" target="_blank" rel="noopener" class="btn btn-ghost rv d1">Zum Kanal <span class="ar">→</span></a>
+      <p class="lead rv d1">Ausführlich auf YouTube. Im Alltag auf Instagram. In 60 Sekunden auf TikTok.</p>
     </div>
     <div class="ytgrid">
-      <a class="ytc rv" href="https://youtu.be/LXCHLQfOqwc" target="_blank" rel="noopener">
-        <div class="th"><img src="https://i.ytimg.com/vi/LXCHLQfOqwc/hqdefault.jpg" alt="Video: Schlaf in den Wechseljahren" loading="lazy"><div class="play"><i><svg viewBox="0 0 24 24"><path d="M6 4l15 8-15 8z"/></svg></i></div></div>
-        <div class="bd"><small>Wechseljahre</small><h3>Wechseljahre: 80% ignorieren DIESEN Schlaf-Fehler (QQRT-Formel hilft)</h3></div>
+      <a class="ytc sc-yt rv" href="https://www.youtube.com/@dr.andre.schlafen?sub_confirmation=1" target="_blank" rel="noopener">
+        <div class="th"><img src="https://i.ytimg.com/vi/aVHuQsaUY0A/maxres2.jpg" alt="Dr. André Alesi im Studio bei einem YouTube-Video" loading="lazy"><span class="plat"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M23 7.2a3 3 0 0 0-2.1-2.1C19 4.6 12 4.6 12 4.6s-7 0-8.9.5A3 3 0 0 0 1 7.2 31 31 0 0 0 .5 12 31 31 0 0 0 1 16.8a3 3 0 0 0 2.1 2.1c1.9.5 8.9.5 8.9.5s7 0 8.9-.5a3 3 0 0 0 2.1-2.1 31 31 0 0 0 .5-4.8 31 31 0 0 0-.5-4.8z"/><path fill="#E62117" d="M9.8 15.1V8.9l5.4 3.1z"/></svg> YouTube</span><div class="play"><i><svg viewBox="0 0 24 24"><path d="M6 4l15 8-15 8z"/></svg></i></div></div>
+        <div class="bd"><span class="sc-who"><img src="https://d2ol7oe51mr4n9.cloudfront.net/user_39bpvnosVvqwhbus3q5PhClCw2s/a1dfdf9d-194f-4f25-89ea-0ae5a363fe64.jpg" alt="" loading="lazy"><span>@dr.andre.schlafen</span></span><h3>Schlaf verstehen. Videos zu Forschung, Alltag und Regeneration, ruhig erklärt.</h3><span class="go">Abonnieren <span class="ar">→</span></span></div>
       </a>
-      <a class="ytc rv d1" href="https://youtu.be/PqePpY4-N60" target="_blank" rel="noopener">
-        <div class="th"><img src="https://i.ytimg.com/vi/PqePpY4-N60/hqdefault.jpg" alt="Video: Genug geschlafen und trotzdem müde" loading="lazy"><div class="play"><i><svg viewBox="0 0 24 24"><path d="M6 4l15 8-15 8z"/></svg></i></div></div>
-        <div class="bd"><small>Erholung</small><h3>Du schläfst „genug“, bist aber trotzdem müde? Das ist der Grund!</h3></div>
+      <a class="ytc sc-ig rv d1" href="https://www.instagram.com/dr.andre.schlafen/" target="_blank" rel="noopener">
+        <div class="th feed"><img src="https://d2ol7oe51mr4n9.cloudfront.net/user_39bpvnosVvqwhbus3q5PhClCw2s/535c4d3c-c754-4af4-8a4b-8a8ce930a8d5.jpg" alt="Die letzten Reels von Dr. André Alesi auf Instagram" loading="lazy"><span class="plat"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2.6" y="2.6" width="18.8" height="18.8" rx="5.4" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4.3" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.4" cy="6.6" r="1.25" fill="currentColor"/></svg> Instagram</span><span class="tic t1"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M3 8.5h18M8.5 3l2.5 5.5M14 3l2.5 5.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M10 12v5l4.5-2.5z" fill="currentColor"/></svg></span><span class="tic t2"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M3 8.5h18M8.5 3l2.5 5.5M14 3l2.5 5.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M10 12v5l4.5-2.5z" fill="currentColor"/></svg></span><span class="tic t3"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M3 8.5h18M8.5 3l2.5 5.5M14 3l2.5 5.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M10 12v5l4.5-2.5z" fill="currentColor"/></svg></span></div>
+        <div class="bd"><span class="sc-who"><img src="https://d2ol7oe51mr4n9.cloudfront.net/user_39bpvnosVvqwhbus3q5PhClCw2s/a1dfdf9d-194f-4f25-89ea-0ae5a363fe64.jpg" alt="" loading="lazy"><span>@dr.andre.schlafen</span></span><h3>Kurze Impulse für besseren Schlaf und Einblicke hinter die Kulissen.</h3><span class="go">Folgen <span class="ar">→</span></span></div>
       </a>
-      <a class="ytc rv d2" href="https://youtu.be/aVHuQsaUY0A" target="_blank" rel="noopener">
-        <div class="th"><img src="https://i.ytimg.com/vi/aVHuQsaUY0A/hqdefault.jpg" alt="Video: Melatonin" loading="lazy"><div class="play"><i><svg viewBox="0 0 24 24"><path d="M6 4l15 8-15 8z"/></svg></i></div></div>
-        <div class="bd"><small>Forschung</small><h3>Forscher warnen! Das MUSST du über Melatonin wissen!</h3></div>
+      <!-- ▼ TIKTOK: Profil-Link prüfen. @andre.schlafen ist aktuell nicht erreichbar. -->
+      <a class="ytc sc-tt rv d2" href="https://www.tiktok.com/@andre.schlafen" target="_blank" rel="noopener">
+        <!-- ▼ TIKTOK-FEED: Platzhalter mit drei Reels von Instagram. Nach Klärung des Profils durch echte TikTok-Cover ersetzen. -->
+        <div class="th feed"><img src="https://d2ol7oe51mr4n9.cloudfront.net/user_39bpvnosVvqwhbus3q5PhClCw2s/14b7d79c-cdf7-4ec8-a688-f2aac3e36f8a.jpg" alt="Kurzvideos von Dr. André Alesi" loading="lazy"><span class="plat"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M16.6 5.82a4.28 4.28 0 0 1-1.04-2.82h-3.09v12.4a2.59 2.59 0 0 1-2.59 2.5c-1.42 0-2.6-1.16-2.6-2.6 0-1.72 1.66-3.01 3.37-2.48V9.66c-3.45-.46-6.47 2.22-6.47 5.64 0 3.33 2.76 5.7 5.69 5.7 3.14 0 5.69-2.55 5.69-5.7V9.01a7.35 7.35 0 0 0 4.3 1.38V7.3s-1.88.09-3.26-1.48z"/></svg> TikTok</span><span class="tic b1"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4.5v15l12-7.5z" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/></svg></span><span class="tic b2"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4.5v15l12-7.5z" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/></svg></span><span class="tic b3"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4.5v15l12-7.5z" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/></svg></span></div>
+        <div class="bd"><span class="sc-who"><img src="https://d2ol7oe51mr4n9.cloudfront.net/user_39bpvnosVvqwhbus3q5PhClCw2s/a1dfdf9d-194f-4f25-89ea-0ae5a363fe64.jpg" alt="" loading="lazy"><span>@andre.schlafen</span></span><h3>Ein Gedanke, ein Tipp. Schlafwissen, das sofort in deinen Abend passt.</h3><span class="go">Folgen <span class="ar">→</span></span></div>
       </a>
     </div>
   </div>
@@ -964,6 +1012,7 @@ footer{background:#06142A;border-top:1px solid var(--line);position:relative;ove
   </div>
   <div class="wrap">
     <div class="fbot">
+      <a class="sc-credit" href="https://schmidtke-gmbh.de" target="_blank" rel="noopener" aria-label="Webseite von der Schmidtke GmbH"><small>Webseite von</small><b>schmidtke</b></a>
       <span>© 2026 Dr. André Alesi · Alle Rechte vorbehalten</span>
       <nav class="flegal"><a href="impressum.html">Impressum</a><a href="datenschutz.html">Datenschutz</a><a href="agb.html">AGB</a><a href="widerruf.html">Widerruf</a><a href="#top" class="totop">Nach oben <i>↑</i></a></nav>
     </div>
@@ -982,6 +1031,17 @@ footer{background:#06142A;border-top:1px solid var(--line);position:relative;ove
      kurze Wachphasen nach REM, Aufwachen aus dem REM-Schlaf.
      Anteile an der Schlafzeit (451 Min.): Leichtschlaf 55 %, REM 24 %, Tiefschlaf 21 %, Schlafeffizienz 94 %. */
   var NIGHT = [[0,0],[12,2],[28,3],[74,2],[86,1],[94,2],[120,3],[148,2],[164,1],[180,0],[182,2],[214,3],[228,2],[248,1],[270,2],[306,3],[312,2],[330,1],[358,0],[361,2],[400,0],[402,2],[434,1],[470,0]], NIGHT_END = 480;
+  // geglättete Lesart für die Lichtlinien: sehr kurze Phasen (unter 7 Min.) gehen im vorigen Abschnitt auf
+  function NIGHT_SMOOTH(){
+    var out = [];
+    for(var i=0;i<NIGHT.length;i++){
+      var a = NIGHT[i][0], e = i+1 < NIGHT.length ? NIGHT[i+1][0] : NIGHT_END, st = NIGHT[i][1];
+      if(e - a < 7 && i > 0 && i < NIGHT.length-1) continue;
+      if(out.length && out[out.length-1][1] === st) continue;
+      out.push([a, st]);
+    }
+    return out;
+  }
   window.addEventListener('load', function(){ document.body.classList.add('loaded'); });
   setTimeout(function(){ document.body.classList.add('loaded'); }, 1600);
 
@@ -1075,12 +1135,12 @@ footer{background:#06142A;border-top:1px solid var(--line);position:relative;ove
     function schedule(){ clearTimeout(timer); sec.classList.toggle('paused', !vis || hold); if(reduce || !vis || hold) return; timer = setTimeout(function(){ show(cur + 1); }, DUR); }
     function show(i){
       var prev = cur; i = (i + n) % n;
-      var step = ((i - prev) + n) % n; turns += step; cur = i;
+      var step = ((i - prev) + n) % n; if(step > n/2) step -= n; turns += step; cur = i;
       cards.forEach(function(c, k){
-        c.classList.remove('on','n1','n2','out');
+        c.classList.remove('on','n1','n2','out','outb');
         var d = (k - cur + n) % n;
         if(d === 0) c.classList.add('on'); else if(d === 1) c.classList.add('n1'); else if(d === 2) c.classList.add('n2');
-        if(k === prev && k !== cur) c.classList.add('out');
+        if(k === prev && k !== cur) c.classList.add(step < 0 ? 'outb' : 'out');
         c.setAttribute('aria-hidden', d === 0 ? 'false' : 'true');
       });
       if(rw){
@@ -1096,6 +1156,15 @@ footer{background:#06142A;border-top:1px solid var(--line);position:relative;ove
     }
     chips.forEach(function(c){ c.addEventListener('click', function(){ var w = +c.getAttribute('data-w'); if(w !== cur) show(w); else { restartFill(); schedule(); } }); });
     segs.forEach(function(sg, k){ sg.addEventListener('click', function(){ if(k !== cur) show(k); }); });
+    var bPrev = document.getElementById('dkPrev'), bNext = document.getElementById('dkNext');
+    if(bPrev) bPrev.addEventListener('click', function(){ show(cur - 1); });
+    if(bNext) bNext.addEventListener('click', function(){ show(cur + 1); });
+    var deckEl = document.getElementById('deck'), tx = null, ty = null;
+    deckEl.addEventListener('touchstart', function(e){ var t = e.touches[0]; tx = t.clientX; ty = t.clientY; }, {passive:true});
+    deckEl.addEventListener('touchend', function(e){
+      if(tx === null) return; var t = e.changedTouches[0], dx = t.clientX - tx, dy = t.clientY - ty; tx = null;
+      if(Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy) * 1.3) show(cur + (dx < 0 ? 1 : -1));
+    }, {passive:true});
     var stage = sec.querySelector('.stage');
     stage.addEventListener('pointerenter', function(e){ if(e.pointerType === 'mouse'){ hold = true; schedule(); } });
     stage.addEventListener('pointerleave', function(e){ if(e.pointerType === 'mouse'){ hold = false; restartFill(); schedule(); } });
@@ -1103,8 +1172,9 @@ footer{background:#06142A;border-top:1px solid var(--line);position:relative;ove
     /* Hypnogramm im Hintergrund: dieselbe Nacht wie im Header, drei parallele Linien */
     var svg = document.getElementById('whoLines'), NS = 'http://www.w3.org/2000/svg';
     var lv = [], m, k2;
-    for(m = 0; m <= NIGHT_END; m++){ var v = NIGHT[0][1]; for(k2 = 0; k2 < NIGHT.length; k2++){ if(NIGHT[k2][0] <= m) v = NIGHT[k2][1]; else break; } lv.push(v); }
-    var sm = [], sig = 8, R = 24;
+    var VN = NIGHT_SMOOTH();
+    for(m = 0; m <= NIGHT_END; m++){ var v = VN[0][1]; for(k2 = 0; k2 < VN.length; k2++){ if(VN[k2][0] <= m) v = VN[k2][1]; else break; } lv.push(v); }
+    var sm = [], sig = 12, R = 36;
     for(m = 0; m <= NIGHT_END; m++){ var a = 0, wsum = 0; for(var j = -R; j <= R; j++){ var q = Math.min(NIGHT_END, Math.max(0, m + j)), g = Math.exp(-(j*j)/(2*sig*sig)); a += lv[q]*g; wsum += g; } sm.push(a/wsum); }
     function Y(mm){ return 70 + sm[mm]/3*220; }
     [['s1',-16],['s2',0],['s3',16]].forEach(function(st){
@@ -1209,22 +1279,24 @@ footer{background:#06142A;border-top:1px solid var(--line);position:relative;ove
   var cv = document.getElementById('waves'), ctx = cv.getContext('2d'), hero = document.getElementById('hero');
   var copy = document.getElementById('heroCopy'), personEl = document.getElementById('person');
   var W, H, DPR = Math.min(window.devicePixelRatio || 1, 1.75), running = true;
-  var AX = 0, X0 = 0, X1 = 0, TOP = 0, BOT = 0, GAP = 0, desk = true, stars = [], motes = [], SM = [], PEAKS = [], t0 = 0;
+  var AX = 0, X0 = 0, X1 = 0, TOP = 0, BOT = 0, GAP = 0, HMAX = 480, desk = true, stars = [], motes = [], SM = [], PEAKS = [], t0 = 0;
   var CUR = document.createElement('canvas');
   var STR = [ {o:-1, c:'110,170,255', w:1.6, a:.85}, {o:0, c:'246,162,98', w:2.2, a:1}, {o:1, c:'150,200,255', w:1.4, a:.7} ];
   function LY(s){ return TOP + (BOT-TOP)*s/3; }
   function XM(m){ return X0 + (X1-X0)*m/NIGHT_END; }
-  // Stufenverlauf je Minute, danach mit Gauß-Filter (Sigma 8 Min.) geglättet
+  // Für die Darstellung: Phasen unter 7 Minuten (kurzes Erwachen, kurzer Tiefschlaf) dem vorigen Abschnitt zuschlagen,
+  // danach Gauß-Filter (Sigma 12 Min.). So entstehen lange, runde Wellen statt spitzer Zacken.
   (function(){
+    var V = NIGHT_SMOOTH();
     var raw = [];
-    for(var m=0;m<=NIGHT_END;m++){ var s = NIGHT[0][1]; for(var i=0;i<NIGHT.length;i++){ if(NIGHT[i][0] <= m) s = NIGHT[i][1]; } raw.push(s); }
-    var sig = 8, R = 24, w = [], ws = 0; for(var k=-R;k<=R;k++){ var v = Math.exp(-k*k/(2*sig*sig)); w.push(v); ws += v; }
+    for(var m=0;m<=NIGHT_END;m++){ var s = V[0][1]; for(var i=0;i<V.length;i++){ if(V[i][0] <= m) s = V[i][1]; } raw.push(s); }
+    var sig = 12, R = 36, w = [], ws = 0; for(var k=-R;k<=R;k++){ var v = Math.exp(-k*k/(2*sig*sig)); w.push(v); ws += v; }
     for(var m2=0;m2<=NIGHT_END;m2++){ var acc = 0; for(var k2=-R;k2<=R;k2++){ acc += raw[Math.min(NIGHT_END, Math.max(0, m2+k2))]*w[k2+R]; } SM.push(acc/ws); }
-    for(var n=0;n<NIGHT.length;n++){ if(NIGHT[n][1] === 1){ var e = n+1 < NIGHT.length ? NIGHT[n+1][0] : NIGHT_END; PEAKS.push((NIGHT[n][0] + e)/2); } }
+    for(var n=0;n<V.length;n++){ if(V[n][1] === 1){ var e = n+1 < V.length ? V[n+1][0] : NIGHT_END; PEAKS.push((V[n][0] + e)/2); } }
   })();
   function CY(m, o){ m = Math.max(0, Math.min(NIGHT_END, m)); var i = Math.floor(m), f = m - i, a = SM[i], b = SM[Math.min(NIGHT_END, i+1)]; return LY(a + (b-a)*f) + o*GAP; }
   function curve(o, c, m0, m1){
-    c = c || ctx; m0 = m0 || 0; m1 = m1 === undefined ? NIGHT_END : m1;
+    c = c || ctx; m0 = m0 || 0; m1 = m1 === undefined ? Math.min(NIGHT_END, HMAX + 12) : m1;
     c.beginPath(); c.moveTo(XM(m0), CY(m0, o));
     for(var m=m0+1.5; m<m1; m+=1.5) c.lineTo(XM(m), CY(m, o));
     c.lineTo(XM(m1), CY(m1, o));
@@ -1235,7 +1307,7 @@ footer{background:#06142A;border-top:1px solid var(--line);position:relative;ove
     var c = CUR.getContext('2d'); c.setTransform(DPR,0,0,DPR,0,0); c.clearRect(0,0,W,H);
     var depth = (BOT-TOP)*(desk ? .55 : .4), AL = [.16,.20,.12];
     for(var s=0;s<STR.length;s++){
-      for(var x=X0; x<=X1; x+=3){
+      for(var x=X0; x<=Math.min(X1, W); x+=3){
         var m = (x-X0)/(X1-X0)*NIGHT_END, y = CY(m, STR[s].o);
         var g = c.createLinearGradient(0, y, 0, y+depth);
         g.addColorStop(0, 'rgba('+STR[s].c+','+AL[s]+')'); g.addColorStop(1, 'rgba('+STR[s].c+',0)');
@@ -1244,7 +1316,7 @@ footer{background:#06142A;border-top:1px solid var(--line);position:relative;ove
     }
     // Randauslauf links und rechts
     c.globalCompositeOperation = 'destination-in';
-    var hz = c.createLinearGradient(X0, 0, X1, 0); hz.addColorStop(0,'rgba(0,0,0,.35)'); hz.addColorStop(.06,'#000'); hz.addColorStop(.94,'#000'); hz.addColorStop(1,'rgba(0,0,0,.35)');
+    var hz = c.createLinearGradient(X0, 0, Math.min(X1, W), 0); hz.addColorStop(0,'rgba(0,0,0,.35)'); hz.addColorStop(.06,'#000'); hz.addColorStop(1,'#000');
     c.fillStyle = hz; c.fillRect(0,0,W,H); c.globalCompositeOperation = 'source-over';
   }
   function layout(){
@@ -1254,13 +1326,14 @@ footer{background:#06142A;border-top:1px solid var(--line);position:relative;ove
     if(desk){
       var cr = copy.getBoundingClientRect(), pr = personEl.getBoundingClientRect();
       AX = Math.min(cr.right - r.left + 95, pr.left - r.left + 30);
-      X0 = AX + 10; X1 = W - Math.max(48, W*.035);
-      TOP = H*.19; BOT = H*.53;
+      X0 = AX + 10; X1 = X0 + (W - Math.max(48, W*.035) - X0)*1.6;
+      TOP = H*.22; BOT = H*.5;
     } else {
       var pr2 = personEl.getBoundingClientRect(); var pt = pr2.top - r.top;
-      AX = 0; X0 = 0; X1 = W; TOP = pt + 40; BOT = pt + Math.min(270, pr2.height*.5);
+      AX = 0; X0 = 0; X1 = W*2.1; TOP = pt + 50; BOT = pt + Math.min(220, pr2.height*.42);
     }
     GAP = (BOT-TOP)*.1;
+    HMAX = Math.min(NIGHT_END, (W - X0)/(X1 - X0)*NIGHT_END);
     paintCurtain();
     stars = []; for(var j=0;j<55;j++) stars.push({x:Math.random()*W, y:Math.random()*H*.7, r:Math.random()*1.1+.2, p:Math.random()*6.28, s:Math.random()*.6+.2});
     motes = []; for(var i=0;i<36;i++) motes.push({u:Math.random(), v:Math.random(), r:Math.random()*1.4+.4, p:Math.random()*6.28, s:Math.random()*.5+.15, c:Math.random()>.55?'150,205,255':'255,190,130'});
@@ -1286,7 +1359,7 @@ footer{background:#06142A;border-top:1px solid var(--line);position:relative;ove
       ctx.stroke();
     }
     // Hypnogramm: Aufbau von links nach rechts
-    var xr = X0 + (X1 - X0 + 4)*reveal;
+    var xr = X0 + (Math.min(X1, W) - X0 + 4)*reveal;
     ctx.save(); ctx.beginPath(); ctx.rect(0, 0, xr, H); ctx.clip();
     ctx.globalCompositeOperation = 'lighter'; var ga = desk ? 1 : .7; ctx.globalAlpha = ga;
     var pulse = .85 + .15*Math.sin(tt*.9);
@@ -1321,7 +1394,7 @@ footer{background:#06142A;border-top:1px solid var(--line);position:relative;ove
     }
     // Abspielkopf: Lichtpunkt wandert durch die Nacht
     if(reveal >= 1 && !reduce){
-      var hm = ((t - t0 - 4100)/18000 % 1) * NIGHT_END; if(hm < 0) hm += NIGHT_END;
+      var hm = ((t - t0 - 4100)/16000 % 1) * HMAX; if(hm < 0) hm += HMAX;
       var tail = Math.min(40, hm), steps = 20;
       for(var z=0; z<steps; z++){
         var ma = hm - tail + tail*z/steps, mb = hm - tail + tail*(z+1)/steps;
@@ -1355,7 +1428,8 @@ footer{background:#06142A;border-top:1px solid var(--line);position:relative;ove
       ctx.font = '500 10px Poppins, sans-serif'; ctx.fillStyle = 'rgba(214,224,236,.5)';
       if('letterSpacing' in ctx) ctx.letterSpacing = '1px';
       ctx.textAlign = 'left'; ctx.fillText('23:00', X0, BOT + GAP + 40);
-      ctx.textAlign = 'right'; ctx.fillText('07:00', X1, BOT + GAP + 40);
+      ctx.textAlign = 'center';
+      for(var hh=2; hh<=8; hh+=2){ var tx = XM(hh*60); if(tx > W - 40) break; ctx.fillText(String((23+hh)%24).padStart(2,'0') + ':00', tx, BOT + GAP + 40); }
       if('letterSpacing' in ctx) ctx.letterSpacing = '0px';
     }
   }

@@ -24,11 +24,12 @@ Logo, Signet und Favicon: `brand/`.
 ## Hypnogramm
 
 Header der Startseite, Säule 01, Webinar und die Lichtlinien in den Seitenköpfen beruhen auf einer typischen Nacht eines gesunden Erwachsenen (23:00 bis 07:00): 5 Zyklen, Tiefschlaf vor allem in den ersten beiden Zyklen, REM-Phasen werden länger (8 auf 36 Minuten), kurze Wachphasen nach REM, Aufwachen aus dem REM. Anteile: Leichtschlaf 55 %, REM 24 %, Tiefschlaf 21 %. Die Webinar-Seite zeigt dieselbe Nacht mit langem Wachliegen ab 3:12 Uhr.
+Die Lichtlinien im Header und in der Sektion „Für wen ich arbeite“ zeigen diese Nacht als lange, runde Wellen: Phasen unter 7 Minuten (kurzes Erwachen, kurzer Tiefschlaf) sind dort zusammengefasst und stark geglättet. Im Header ist die Nacht in die Breite gezogen, sichtbar ist etwa die erste Nachthälfte. Säule 01 zeigt dieselbe Nacht als Stufenkurve mit allen Phasen.
 Quellen: AASM-Normwerte, Wikipedia „Hypnogram“, Oura-Leitfaden Schlafphasen.
 
 ## Vor dem Livegang ausfüllen (im Code mit ▼ markiert)
 
-1. **Bilder:** Alle Fotos sind KI-Platzhalter (Higgsfield-CDN). Nach dem Shooting durch echte Fotos ersetzen. Die Zuordnung steht oben in jeder Seite bzw. im Abschnitt `IMG`.
+1. **Bilder:** Das Hero-Foto der Startseite ist echt (`fotos/andre-hero.webp` und `fotos/andre-hero-mobil.webp`, aus dem Shooting-Bild A7402405). Das warme Gegenlicht am rechten Rand ist nur in einer schmalen Zone entlang der Freistellkante ergänzt. Das Gesicht ist unverändert. Alle übrigen Fotos sind noch KI-Platzhalter (Higgsfield-CDN) und werden nach und nach durch echte Fotos ersetzt. Die Zuordnung steht oben in jeder Seite bzw. im Abschnitt `IMG`.
 2. **Checkout-Link** in `kurs.html` (`href="#checkout"`), danach Weiterleitung auf `kurs-danke.html`.
 3. **Link zum Kursbereich** in `kurs-danke.html` (`href="#kursbereich"`).
 4. **WebinarJam-Formular** in `webinar.html` (Platzhalter im Anmeldebereich).
@@ -37,6 +38,7 @@ Quellen: AASM-Normwerte, Wikipedia „Hypnogram“, Oura-Leitfaden Schlafphasen.
 7. **Testimonials** auf Kurs- und Webinar-Seite sind Platzhalter.
 8. **Rechtstexte:** Platzhalter-Felder ausfüllen und prüfen lassen.
 9. **Pressezeile „Bekannt aus“:** Schriftzüge durch offizielle Logos ersetzen (`img/presse/`).
+10. **Social-Media-Karten (Startseite, „Folge mir“):** TikTok-Profil-Link prüfen, `@andre.schlafen` war beim Bau nicht erreichbar (im Code mit ▼ markiert). Das Profilbild ist das aktuelle Instagram-Profilbild. Instagram- und TikTok-Karte zeigen oben je drei Kurzvideos als Mini-Feed (Stand 24.10.2026, als Bildstreifen auf dem Higgsfield-CDN gesichert, kein Live-Feed). Der TikTok-Streifen ist bis zur Klärung des Profils ein Platzhalter mit drei Instagram-Reels. Das Standbild der YouTube-Karte kommt direkt von YouTube (`i.ytimg.com`). Bewusst ohne Follower-Zahlen. Für einen automatisch aktuellen Feed wäre ein Feed-Dienst mit Zugang zu Andrés Instagram-Konto nötig.
 
 ## Webinar-Termin ändern
 
