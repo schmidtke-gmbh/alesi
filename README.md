@@ -1,50 +1,48 @@
-# Dr. André Alesi — Webinar-Landingpage
+# Website Dr. André Alesi · Sleep to Life
 
-Landing Page für das kostenlose Live-Webinar „Schluss mit der 3-Uhr-Nacht".
+Statische Website im neuen Corporate Design (Markenpositionierung III, Styleguide Oktober 2026).
+Farben: Steel Blue, Deep Navy, Warm Copper, Soft Cream, Sky Blue. Schriften: Playfair Display und Poppins.
 
-## Dateien
+## Seiten
 
-| Datei | Zweck |
+| Datei | Inhalt |
 |---|---|
-| `index.html` | Startseite (Marken-Homepage) |
-| `ueber-mich.html` | Über Dr. André Alesi |
-| `kurs.html` | Verkaufsseite „Die Durchschlaf-Formel" (997 € inkl. MwSt.) |
-| `kurs-danke.html` | Bestätigungsseite nach dem Kauf (Checkout-Redirect, Purchase-Pixel) |
-| `webinar.html` | Webinar-Landingpage |
-| `webinar-danke.html` | Bestätigungsseite nach der Anmeldung (WebinarJam-Redirect) |
-| `kontakt.html` | Kontaktformular (Backend einrichten, z. B. Formspree) |
-| `warteliste.html` / `warteliste-danke.html` | Warteliste der Schlaf-Masterclass (eigener Funnel im hellen Design, Netlify-Formular) |
-| `newsletter.html` / `newsletter-danke.html` | Newsletter-Anmeldung (Tool einbinden) + Double-Opt-in-Seite |
-| `impressum.html`, `datenschutz.html`, `agb.html`, `widerruf.html` | Rechtsseiten (Platzhalter, anwaltlich prüfen) |
-| `site.css`, `site.js` | Gemeinsames Design-System der neuen Seiten |
-| `styleguide.html` | Brand Style Guide (Logo, Farben, Typografie, Dark/Light) |
-| `favicon.svg`, `logo-zeichen-*.svg`, `logo-lockup-*.svg` | Offizielle Logo-Dateien (Zeichen solo + komplettes Lockup, je hell/dunkel) |
-- `logo-header-dunkel.svg` / `logo-header-hell.svg` – Header-Varianten: ohne Mikro-Tagline, Schriftzug 1,45x größer. Werden in Navigation und Seitenköpfen genutzt, Footer behalten das volle Lockup.
-| `img/` | Beispielbilder (KI-generiert, bei Bedarf durch echte Fotos ersetzen) |
+| `index.html` | Startseite mit Hypnogramm-Header, Säulen, Angeboten, YouTube |
+| `ueber-mich.html` | Haltung, Zeitstrahl 2004 bis heute, Arbeitsweise, Zielgruppen, Schwarzwald |
+| `schlaftest.html` | Sleep Score (13 Fragen, 5 Dimensionen, E-Mail-Schritt, Ergebnis). Drei Fragen als Regler 1 bis 10 mit Bild (Mond, Sonnenaufgang, Signet), Fortschritt als Testnacht mit 13 Sternen. Reglerwerte zählen linear: 1 = 0, 4 = 33, 7 = 67, 10 = 100 Punkte. |
+| `kurs.html` / `kurs-danke.html` | Landingpage „Die Durchschlaf-Formel“ (997 €) und Danke-Seite |
+| `webinar.html` / `webinar-danke.html` | Live-Webinar 29. November, 20:00 Uhr, mit Countdown und Kalender-Datei |
+| `kontakt.html` / `kontakt-danke.html` | Kontaktformular (Netlify, Spamschutz) |
+| `newsletter.html` / `newsletter-danke.html` | Newsletter-Anmeldung |
+| `warteliste.html` / `warteliste-danke.html` | Warteliste Schlaf-Masterclass (Netlify-Formular, noindex) |
+| `impressum.html`, `datenschutz.html`, `agb.html`, `widerruf.html` | Rechtstexte (Inhalt unverändert, nur neues Design) |
+| `styleguide.html` | CI-Seite (noindex) |
 
-## Vor dem Livegang
+Gemeinsames Design und Verhalten der Unterseiten: `assets/sleep.css` und `assets/sleep.js`. Die Startseite bringt ihr CSS selbst mit.
+Logo, Signet und Favicon: `brand/`.
 
-0. **Rechtsseiten:** Alle [Platzhalter] in Impressum, Datenschutz, AGB und Widerruf ausfüllen und prüfen lassen. Kontaktdaten (hallo@andre-alesi.de ist ein Platzhalter) überall anpassen.
-1. **Termin:** Alle Stellen sind im Code mit `▼ TERMIN ändern (1/5 … 5/5)` markiert (index.html + webinar-danke.html).
-2. **WebinarJam:** Embed-Code in `index.html` beim Marker `WEBINARJAM-ANMELDUNG` einfügen; Bestätigungsseite auf `webinar-danke.html` stellen.
-3. **Checkout:** In `kurs.html` beim Marker `▼ CHECKOUT-LINK` den Bezahllink einsetzen (z. B. Digistore24, CopeCart, Stripe).
-4. **Meta-Pixel:** In `webinar-danke.html` vorbereitet (auskommentiert).
-4. **André-Foto:** Profifotos (Tobias Fröhner Photography) liegen in `img/`: andre-portrait (Hero Start), andre-locker (Über mich), andre-studio (Kurs-Avatar), andre-experte (Webinar), andre-hemd (About-Teaser), andre-regal + andre-hemd-hoch (Warteliste).
-5. **Fotos:** Die KI-Bilder liegen aktuell auf dem Higgsfield-CDN (automatischer Fallback im HTML). Für dauerhafte Nutzung einmal herunterladen und unter diesen Namen in `img/` speichern — die Seite nutzt dann automatisch die lokalen Dateien:
-   | Datei | Download |
-   |---|---|
-   | `img/schlaf-nacht.jpg` | https://d8j0ntlcm91z4.cloudfront.net/user_39bpvnosVvqwhbus3q5PhClCw2s/hf_20260720_102649_169e3d4c-8980-4143-a280-14bde6d9a7e4.png |
-   | `img/morgen-energie.jpg` | https://d8j0ntlcm91z4.cloudfront.net/user_39bpvnosVvqwhbus3q5PhClCw2s/hf_20260720_102651_bd0b10d6-7d59-4532-8ed2-dbbc1944e1d6.png |
-   | `img/schlafzimmer-ruhe.jpg` | https://d8j0ntlcm91z4.cloudfront.net/user_39bpvnosVvqwhbus3q5PhClCw2s/hf_20260720_102653_70cd2293-bdda-4741-9d5d-a2ad193ce0d3.png |
-   | `img/szene-schlafzimmer.jpg` | https://d8j0ntlcm91z4.cloudfront.net/user_39bpvnosVvqwhbus3q5PhClCw2s/hf_20260830_142617_ad82471c-12df-4ad9-b921-4210cac1deab.png |
-   | `img/szene-mondfenster.jpg` | https://d8j0ntlcm91z4.cloudfront.net/user_39bpvnosVvqwhbus3q5PhClCw2s/hf_20260830_142619_d829a28a-e57d-413f-8ef6-e0e30e2e24ee.png |
-   | `img/szene-wach.jpg` | https://d8j0ntlcm91z4.cloudfront.net/user_39bpvnosVvqwhbus3q5PhClCw2s/hf_20260830_144734_fd19963f-0e82-4507-987a-9c3de7a054ed.png |
-   | `img/szene-morgen.jpg` | https://d8j0ntlcm91z4.cloudfront.net/user_39bpvnosVvqwhbus3q5PhClCw2s/hf_20260830_144743_74afa12c-0148-4220-829c-14f94b592318.png |
-   | `img/szene-schwarzwald.jpg` | https://d8j0ntlcm91z4.cloudfront.net/user_39bpvnosVvqwhbus3q5PhClCw2s/hf_20260830_142620_bf3c84b6-c7ef-47df-9d7a-eda5468f0200.png |
+## Hypnogramm
 
-   Später einfach durch echte Fotos von André ersetzen (gleiche Dateinamen genügen).
-5. **Impressum/Datenschutz:** `impressum.html` und `datenschutz.html` ergänzen.
+Header der Startseite, Säule 01, Webinar und die Lichtlinien in den Seitenköpfen beruhen auf einer typischen Nacht eines gesunden Erwachsenen (23:00 bis 07:00): 5 Zyklen, Tiefschlaf vor allem in den ersten beiden Zyklen, REM-Phasen werden länger (8 auf 36 Minuten), kurze Wachphasen nach REM, Aufwachen aus dem REM. Anteile: Leichtschlaf 55 %, REM 24 %, Tiefschlaf 21 %. Die Webinar-Seite zeigt dieselbe Nacht mit langem Wachliegen ab 3:12 Uhr.
+Quellen: AASM-Normwerte, Wikipedia „Hypnogram“, Oura-Leitfaden Schlafphasen.
 
-## GitHub Pages
+## Vor dem Livegang ausfüllen (im Code mit ▼ markiert)
 
-Repo → Settings → Pages → Branch `main`, Ordner `/ (root)` — die Seite liegt dann unter `https://USERNAME.github.io/REPONAME/`.
+1. **Bilder:** Alle Fotos sind KI-Platzhalter (Higgsfield-CDN). Nach dem Shooting durch echte Fotos ersetzen. Die Zuordnung steht oben in jeder Seite bzw. im Abschnitt `IMG`.
+2. **Checkout-Link** in `kurs.html` (`href="#checkout"`), danach Weiterleitung auf `kurs-danke.html`.
+3. **Link zum Kursbereich** in `kurs-danke.html` (`href="#kursbereich"`).
+4. **WebinarJam-Formular** in `webinar.html` (Platzhalter im Anmeldebereich).
+5. **Newsletter-Formular** in `newsletter.html` (z. B. ActiveCampaign).
+6. **Schlaftest:** E-Mail-Schritt an CRM oder Newsletter-Tool anbinden.
+7. **Testimonials** auf Kurs- und Webinar-Seite sind Platzhalter.
+8. **Rechtstexte:** Platzhalter-Felder ausfüllen und prüfen lassen.
+9. **Pressezeile „Bekannt aus“:** Schriftzüge durch offizielle Logos ersetzen (`img/presse/`).
+
+## Webinar-Termin ändern
+
+`webinar.html`: Datum im Header, in der Sticky-Leiste und im Anmeldebereich sowie `data-countdown`.
+`webinar-danke.html`: Datum und Kalender-Datei. Der Schlaftest nennt den Termin im Ergebnis.
+
+## Alte Dateien
+
+Nicht mehr im Paket und auf GitHub löschen: `index-neu.html`, `index-v2.html`, `site.css`, `site-v2.css`, `site.js`, `favicon.svg`, `logo-header-*.svg`, `logo-lockup-*.svg`, `logo-zeichen-*.svg`, `styleguide-neu.html` (heißt jetzt `styleguide.html`) und der Ordner `img/` mit den alten Fotos.

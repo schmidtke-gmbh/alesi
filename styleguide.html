@@ -3,545 +3,310 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Dr. André Alesi — Style Guide</title>
-<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<title>CI · Dr. André Alesi · Sleep to Life</title>
+<meta name="robots" content="noindex">
+<link rel="icon" type="image/svg+xml" href="brand/favicon-neu.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
-  :root{
-    --midnight:#0D1117;
-    --deepblue:#2A344A;
-    --mistblue:#6B708E;
-    --sand:#B4A189;
-    --copper:#BB8961;
-    --copper-light:#D2A47D;
-    --copper-dark:#A5754E;
-    --porcelain:#F4F4F2;
-    --white:#FFFFFF;
-    --card-dark:#131A26;
-    --line-dark:rgba(244,244,242,.08);
-    --line-light:rgba(13,17,23,.09);
-  }
-  *{margin:0;padding:0;box-sizing:border-box}
-  html{scroll-behavior:smooth}
-  body{font-family:'Poppins',sans-serif;background:var(--porcelain);color:var(--midnight);-webkit-font-smoothing:antialiased}
+:root{--steel:#274768;--navy:#081A2E;--navy2:#0D2440;--sky:#87A6C6;--copper:#D99B72;--copper-d:#B9764D;--copper-l:#F2C6A2;--cream:#F4EEE6;--ink:#0B1F35;--ink-m:#4B5D73;--mist:#A9B9CC;--line:rgba(11,31,53,.1);--serif:'Playfair Display',Georgia,serif;--sans:'Poppins',system-ui,sans-serif}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--sans);background:var(--cream);color:var(--ink);line-height:1.65;-webkit-font-smoothing:antialiased}
+img,svg{display:block;max-width:100%}
+.wrap{max-width:1180px;margin:0 auto;padding:0 32px}
+section{padding:110px 0;border-bottom:1px solid var(--line)}
+.kick{display:flex;align-items:center;gap:14px;font:500 11px/1 var(--sans);letter-spacing:.32em;text-transform:uppercase;color:var(--copper-d);margin-bottom:20px}
+.kick b{font-family:var(--serif);font-style:italic;font-weight:400;font-size:15px;letter-spacing:0;text-transform:none}
+h2{font-family:var(--serif);font-weight:400;font-size:clamp(2.2rem,4.5vw,3.6rem);line-height:1.08;margin-bottom:20px}
+h2 em{font-style:italic;color:var(--copper-d)}
+.intro{max-width:640px;color:var(--ink-m);font-weight:300;font-size:1.05rem;margin-bottom:56px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.card{background:#fff;border-radius:22px;padding:30px;border:1px solid var(--line)}
+.card h4{font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--copper-d);font-weight:500;margin-bottom:12px}
+.card p{font-size:15px;color:var(--ink-m);font-weight:300}
+.card p.big{font-family:var(--serif);font-size:1.5rem;line-height:1.3;color:var(--ink);font-weight:400}
 
-  .kicker{font-size:11px;font-weight:500;letter-spacing:.38em;text-transform:uppercase;color:var(--mistblue)}
-  .kicker .num{color:var(--copper)}
-  .wrap{max-width:1160px;margin:0 auto;padding:0 40px}
-  section{padding:96px 0}
-  .section-head{margin-bottom:52px}
-  .section-head h2{font-size:30px;font-weight:300;letter-spacing:.04em;margin-top:14px}
-  .section-head p{color:var(--mistblue);font-size:14.5px;font-weight:300;max-width:560px;margin-top:10px;line-height:1.7}
+/* Cover */
+.cover{position:relative;min-height:92vh;background:radial-gradient(80% 70% at 75% 30%,#1B3B5E,var(--navy) 70%);color:#fff;display:flex;align-items:center;overflow:hidden;border:0}
+.cover::after{content:'';position:absolute;right:-12%;top:50%;transform:translateY(-50%);width:62vw;height:62vw;max-width:820px;max-height:820px;border-radius:50%;border:1px solid rgba(217,155,114,.25)}
+.cover .wrap{position:relative;z-index:1;width:100%}
+.cover .lg{display:flex;align-items:center;gap:18px}
+.cover .lg svg{width:58px}
+.cover .lg .d{width:1px;height:58px;background:rgba(255,255,255,.4)}
+.cover .lg b{display:block;font-weight:500;font-size:22px;letter-spacing:.28em}
+.cover .lg small{display:block;font-size:11px;letter-spacing:.46em;margin-top:8px;opacity:.85}
+.cover .lg small i{font-style:normal;color:var(--copper)}
+.cover h1{font-family:var(--serif);font-weight:400;font-size:clamp(3rem,8vw,7rem);line-height:1;margin:70px 0 24px}
+.cover h1 em{font-style:italic;color:var(--copper)}
+.cover p{max-width:520px;color:#C7D3E0;font-weight:300}
+.cover .meta{margin-top:50px;display:flex;gap:30px;flex-wrap:wrap;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--mist)}
+.toc{display:flex;flex-wrap:wrap;gap:10px;margin-top:40px}
+.toc a{color:#fff;text-decoration:none;font-size:13px;padding:9px 16px;border-radius:999px;border:1px solid rgba(255,255,255,.22)}
+.toc a:hover{border-color:var(--copper);color:var(--copper-l)}
 
-  /* ---------- HERO ---------- */
-  .hero{background:radial-gradient(1200px 600px at 70% -10%, #1A2233 0%, var(--midnight) 60%);color:var(--porcelain);padding:110px 0 100px;text-align:center;position:relative;overflow:hidden}
-  .hero .mark{width:150px;margin:0 auto 38px;display:block;height:auto}
-  .hero h1{font-size:44px;font-weight:300;letter-spacing:.22em;text-transform:uppercase}
-  .hero h1 .dr{color:var(--copper)}
-  .hero .slp{margin-top:18px;font-size:14px;font-weight:400;letter-spacing:.42em;text-transform:uppercase;color:var(--mistblue)}
-  .hero .slp b{font-weight:400;color:var(--copper)}
-  .hero .slp .dot{color:var(--copper);padding:0 .35em}
-  .hero .tagline{margin-top:30px;font-size:12px;font-weight:300;letter-spacing:.3em;text-transform:uppercase;color:#9BA3B5;display:flex;align-items:center;justify-content:center;gap:22px}
-  .hero .tagline::before,.hero .tagline::after{content:"";width:44px;height:1px;background:var(--copper);opacity:.8}
-  .hero .meta{margin-top:66px;font-size:10.5px;letter-spacing:.3em;text-transform:uppercase;color:#4A5468}
+/* Logo */
+.logos{display:grid;grid-template-columns:1.4fr 1fr;gap:22px}
+.lbox{border-radius:22px;min-height:230px;display:flex;align-items:center;justify-content:center;padding:34px;position:relative}
+.lbox small{position:absolute;left:20px;bottom:16px;font-size:10px;letter-spacing:.24em;text-transform:uppercase;opacity:.65}
+.lbox img{max-height:100px;width:auto}
+.lbox.sig img{max-height:120px}
+.l-navy{background:var(--navy);color:#fff}.l-steel{background:var(--steel);color:#fff}.l-cream{background:#fff;color:var(--ink);border:1px solid var(--line)}.l-cu{background:var(--copper);color:var(--navy)}
+.rules{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:22px}
+.rule{background:#fff;border:1px solid var(--line);border-radius:18px;padding:20px;font-size:13.5px;color:var(--ink-m)}
+.rule b{display:block;color:var(--ink);font-weight:500;margin-bottom:4px}
+.rule.no b{color:#A2463A}
+.anat{display:grid;grid-template-columns:auto 1fr;gap:40px;align-items:center;margin-top:22px;background:#fff;border:1px solid var(--line);border-radius:22px;padding:34px}
+.anat svg.big{width:150px}
+.anat ul{list-style:none;display:grid;gap:12px}
+.anat li{display:flex;gap:14px;font-size:15px;color:var(--ink-m);font-weight:300}
+.anat li b{font-family:var(--serif);font-weight:400;font-style:italic;color:var(--copper-d);min-width:22px}
 
-  /* ---------- GRID / CARDS ---------- */
-  .grid{display:grid;gap:22px}
-  .card{background:var(--white);border:1px solid var(--line-light);border-radius:14px;overflow:hidden}
-  .card .cap{padding:16px 22px;border-top:1px solid var(--line-light);font-size:10.5px;letter-spacing:.28em;text-transform:uppercase;color:var(--mistblue);font-weight:500}
-  .tile{display:flex;align-items:center;justify-content:center;min-height:260px;padding:36px}
-  .tile.dark{background:var(--midnight)}
-  .tile.deep{background:radial-gradient(600px 300px at 35% 20%, #1A2233 0%, var(--midnight) 70%)}
+/* Farben */
+.sw{display:grid;grid-template-columns:2fr 1fr 1fr;grid-template-rows:auto auto;gap:18px}
+.sw .c{border-radius:22px;padding:24px;min-height:200px;display:flex;flex-direction:column;justify-content:space-between;cursor:pointer;transition:transform .3s}
+.sw .c:hover{transform:translateY(-4px)}
+.sw .c b{font-family:var(--serif);font-weight:400;font-size:1.6rem}
+.sw .c code{font:500 13px var(--sans);letter-spacing:.06em;opacity:.85}
+.sw .c span{font-size:12.5px;opacity:.8;max-width:260px;font-weight:300}
+.sw .main{grid-row:span 2;min-height:420px}
+.ratio{display:flex;height:22px;border-radius:999px;overflow:hidden;margin-top:26px}
+.ratio div{display:flex;align-items:center;justify-content:center;font-size:10px;letter-spacing:.14em;color:#fff}
+.copied{position:fixed;left:50%;bottom:30px;transform:translateX(-50%) translateY(80px);background:var(--navy);color:#fff;padding:12px 20px;border-radius:999px;font-size:13px;transition:transform .35s}
+.copied.on{transform:translateX(-50%) translateY(0)}
 
-  /* ---------- LOGO SECTION ---------- */
-  .logo-grid{grid-template-columns:1.4fr 1fr}
-  .logo-grid-2{grid-template-columns:repeat(3,1fr);margin-top:22px}
-  .lockup{display:flex;align-items:center;gap:34px}
-  .lockup .divider{width:1px;height:96px;background:linear-gradient(to bottom,transparent,var(--mistblue),transparent);opacity:.55}
-  .lockup .words .name{font-size:25px;font-weight:300;letter-spacing:.24em;text-transform:uppercase;white-space:nowrap}
-  .lockup .words .sub{margin-top:9px;font-size:10.5px;font-weight:400;letter-spacing:.4em;text-transform:uppercase;color:var(--mistblue)}
-  .lockup .words .sub b{font-weight:400;color:var(--copper)}
-  .lockup .words .sub .dot{color:var(--copper);padding:0 .3em}
-  .lockup.on-dark .words .name{color:var(--porcelain)}
-  .lockup.on-dark .words .name .dr{color:var(--copper)}
-  .lockup.on-light .words .name{color:var(--midnight)}
-  .appicon{width:120px;height:120px;border-radius:28px;background:linear-gradient(145deg,#161D2B,#0D1117);box-shadow:0 18px 40px rgba(13,17,23,.35), inset 0 1px 0 rgba(255,255,255,.06);display:flex;align-items:center;justify-content:center}
-  .appicon img{width:66px}
-  .fav-row{display:flex;align-items:flex-end;gap:34px}
-  .fav-item{text-align:center}
-  .fav-item .box{background:var(--porcelain);border:1px solid var(--line-light);border-radius:10px;padding:14px;display:flex;align-items:center;justify-content:center}
-  .fav-item span{display:block;margin-top:10px;font-size:10px;letter-spacing:.2em;color:var(--mistblue)}
-  .logo-note{margin-top:22px;background:var(--white);border:1px solid var(--line-light);border-radius:14px;padding:34px 40px;display:grid;grid-template-columns:auto 1fr;gap:40px;align-items:center}
-  .logo-note h3{font-size:15px;font-weight:500;letter-spacing:.14em;text-transform:uppercase}
-  .logo-note p{color:var(--mistblue);font-size:14px;font-weight:300;line-height:1.75;margin-top:8px;max-width:640px}
-  .logo-note img{width:64px}
+/* Typo */
+.type{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.tspec{background:#fff;border:1px solid var(--line);border-radius:22px;padding:36px}
+.tspec .aa{font-size:7rem;line-height:1;margin:6px 0 16px}
+.tspec.serif .aa{font-family:var(--serif)}
+.tspec.sans .aa{font-family:var(--sans);font-weight:500}
+.tspec p{color:var(--ink-m);font-size:14.5px;font-weight:300}
+.scale{margin-top:22px;background:var(--navy);color:#fff;border-radius:22px;padding:40px}
+.scale .row{display:grid;grid-template-columns:150px 1fr;gap:24px;align-items:baseline;padding:18px 0;border-bottom:1px solid rgba(255,255,255,.1)}
+.scale .row:last-child{border:0}
+.scale small{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--mist)}
 
-  /* ---------- FARBEN ---------- */
-  .color-grid{grid-template-columns:repeat(5,1fr)}
-  .swatch{border-radius:14px;overflow:hidden;border:1px solid var(--line-light);background:var(--white);cursor:pointer;transition:transform .2s}
-  .swatch:hover{transform:translateY(-4px)}
-  .swatch .chip{height:150px}
-  .swatch .info{padding:18px 20px}
-  .swatch .info .name{font-size:12.5px;font-weight:500;letter-spacing:.1em;text-transform:uppercase}
-  .swatch .info .hex{font-size:12px;color:var(--mistblue);margin-top:4px;letter-spacing:.08em}
-  .swatch .info .use{font-size:11px;color:var(--mistblue);margin-top:10px;font-weight:300;line-height:1.5}
+/* Bildwelt */
+.imgs{display:grid;grid-template-columns:1.2fr 1fr 1fr;grid-template-rows:260px 260px;gap:14px}
+.imgs div{border-radius:20px;overflow:hidden;background:var(--navy2)}
+.imgs div:first-child{grid-row:span 2}
+.imgs img{width:100%;height:100%;object-fit:cover}
 
-  /* ---------- TYPOGRAFIE ---------- */
-  .type-intro{display:grid;grid-template-columns:auto 1fr;gap:56px;align-items:center;background:var(--white);border:1px solid var(--line-light);border-radius:14px;padding:48px 52px}
-  .type-intro .aa{font-size:110px;font-weight:300;line-height:1}
-  .type-intro .aa span{font-weight:600}
-  .type-intro h3{font-size:22px;font-weight:500;letter-spacing:.3em;text-transform:uppercase}
-  .type-intro p{color:var(--mistblue);font-size:14px;font-weight:300;line-height:1.75;margin-top:10px;max-width:520px}
-  .weights{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;margin-top:22px}
-  .weight{background:var(--white);border:1px solid var(--line-light);border-radius:14px;padding:28px}
-  .weight .big{font-size:44px;line-height:1.1}
-  .weight .lbl{margin-top:14px;font-size:10.5px;letter-spacing:.25em;text-transform:uppercase;color:var(--mistblue)}
-  .scale{background:var(--white);border:1px solid var(--line-light);border-radius:14px;margin-top:22px;padding:14px 52px}
-  .scale .row{display:grid;grid-template-columns:190px 1fr;gap:30px;align-items:baseline;padding:26px 0;border-bottom:1px solid var(--line-light)}
-  .scale .row:last-child{border-bottom:none}
-  .scale .tag{font-size:10.5px;letter-spacing:.25em;text-transform:uppercase;color:var(--mistblue)}
-  .t-display{font-size:46px;font-weight:200;letter-spacing:.02em}
-  .t-h1{font-size:34px;font-weight:300}
-  .t-h2{font-size:24px;font-weight:400}
-  .t-h3{font-size:17px;font-weight:500;letter-spacing:.06em}
-  .t-body{font-size:15px;font-weight:300;line-height:1.8;color:#3A4254;max-width:640px}
-  .t-label{font-size:11px;font-weight:500;letter-spacing:.38em;text-transform:uppercase;color:var(--copper)}
+/* UI */
+.ui{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.uibox{border-radius:22px;padding:36px;display:flex;flex-direction:column;gap:18px;align-items:flex-start}
+.btn{display:inline-flex;align-items:center;gap:12px;padding:16px 30px;border-radius:999px;font:500 15px/1 var(--sans);text-decoration:none}
+.btn-cu{background:linear-gradient(135deg,var(--copper-l),var(--copper) 45%,var(--copper-d));color:var(--navy)}
+.btn-gh{border:1px solid rgba(255,255,255,.3);color:#fff}
+.btn-ink{background:var(--steel);color:#fff}
+.eye{display:inline-flex;align-items:center;gap:14px;font:500 11.5px/1 var(--sans);letter-spacing:.32em;text-transform:uppercase;color:var(--copper)}
+.eye::before{content:'';width:34px;height:1px;background:currentColor}
+.lnk{font-weight:500;font-size:14.5px;border-bottom:1px solid currentColor;padding-bottom:3px;color:inherit;text-decoration:none}
+.chip{display:inline-flex;align-items:center;gap:10px;padding:12px 20px;border-radius:999px;background:#fff;border:1px solid var(--line);font-size:14px}
+.chip i{width:8px;height:8px;border-radius:50%;background:var(--copper)}
 
-  /* ---------- ICONS ---------- */
-  .icon-grid{grid-template-columns:repeat(4,1fr)}
-  .icon-card{background:var(--white);border:1px solid var(--line-light);border-radius:14px;padding:38px 28px;text-align:center;transition:transform .2s}
-  .icon-card:hover{transform:translateY(-4px)}
-  .icon-card svg{width:46px;height:46px;stroke:var(--deepblue);fill:none;stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round}
-  .icon-card.copper svg{stroke:var(--copper)}
-  .icon-card h4{margin-top:20px;font-size:12.5px;font-weight:500;letter-spacing:.28em;text-transform:uppercase}
-  .icon-card p{margin-top:8px;font-size:12px;color:var(--mistblue);font-weight:300;line-height:1.6}
+/* Ton */
+.dd{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.dd .card ul{list-style:none;display:grid;gap:14px;margin-top:6px}
+.dd .card li{font-size:15px;color:var(--ink-m);font-weight:300;padding-left:26px;position:relative}
+.dd .card li::before{position:absolute;left:0;top:0;font-weight:600}
+.dd .yes li::before{content:'✓';color:#3E7C5A}
+.dd .no li::before{content:'✕';color:#A2463A}
+.ex{margin-top:22px;display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.ex .card p.q{font-family:var(--serif);font-size:1.25rem;line-height:1.4;color:var(--ink)}
+.ex .bad p.q{text-decoration:line-through;text-decoration-color:rgba(162,70,58,.5);color:var(--ink-m)}
 
-  /* ---------- UI ELEMENTE ---------- */
-  .ui-grid{grid-template-columns:1fr 1fr}
-  .ui-panel{border-radius:14px;padding:44px;display:flex;flex-direction:column;gap:26px;border:1px solid var(--line-light)}
-  .ui-panel.dark{background:var(--midnight)}
-  .ui-panel.light{background:var(--white)}
-  .ui-row{display:flex;gap:16px;flex-wrap:wrap;align-items:center}
-  .btn{font-family:'Poppins',sans-serif;font-size:11.5px;font-weight:500;letter-spacing:.22em;text-transform:uppercase;padding:15px 30px;border-radius:100px;border:none;cursor:pointer;transition:all .25s}
-  .btn-copper{background:linear-gradient(135deg,var(--copper-light),var(--copper) 55%,var(--copper-dark));color:#10151E}
-  .btn-copper:hover{filter:brightness(1.07)}
-  .btn-ghost-dark{background:transparent;color:var(--porcelain);border:1px solid rgba(244,244,242,.28)}
-  .btn-ghost-dark:hover{border-color:var(--copper);color:var(--copper)}
-  .btn-navy{background:var(--midnight);color:var(--porcelain)}
-  .btn-navy:hover{background:var(--deepblue)}
-  .btn-ghost-light{background:transparent;color:var(--midnight);border:1px solid rgba(13,17,23,.25)}
-  .btn-ghost-light:hover{border-color:var(--copper);color:var(--copper-dark)}
-  .link-copper{font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--copper);text-decoration:none;border-bottom:1px solid var(--copper);padding-bottom:4px}
-  .ui-panel .lbl{font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--mistblue)}
-
-  /* ---------- WEBSITE PREVIEWS ---------- */
-  .browser{border-radius:16px;overflow:hidden;box-shadow:0 30px 80px rgba(13,17,23,.18);border:1px solid var(--line-light)}
-  .browser-bar{display:flex;align-items:center;gap:14px;padding:13px 20px;background:#E7E7E4}
-  .browser-bar .dots{display:flex;gap:7px}
-  .browser-bar .dots i{width:11px;height:11px;border-radius:50%;background:#CFCFCA;display:block}
-  .browser-bar .url{flex:1;max-width:420px;margin:0 auto;background:var(--white);border-radius:100px;font-size:11px;color:var(--mistblue);padding:7px 18px;text-align:center;letter-spacing:.06em}
-  .browser-bar.dark{background:#191F2C}
-  .browser-bar.dark .dots i{background:#2E3648}
-  .browser-bar.dark .url{background:#0D1117;color:#6B708E}
-
-  .site{padding:0}
-  .site header{display:flex;align-items:center;justify-content:space-between;padding:26px 54px}
-  .site .brand{display:flex;align-items:center;gap:16px}
-  .site .brand img{width:30px}
-  .site .brand .n{font-size:13px;font-weight:400;letter-spacing:.22em;text-transform:uppercase}
-  .site nav{display:flex;gap:34px}
-  .site nav a{font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;text-decoration:none;font-weight:400}
-  .site .hero-area{display:grid;grid-template-columns:1.15fr .85fr;align-items:center;gap:30px;padding:64px 54px 70px}
-  .site .hk{font-size:10.5px;font-weight:500;letter-spacing:.4em;text-transform:uppercase;color:var(--copper)}
-  .site h2.head{font-size:42px;font-weight:200;line-height:1.18;margin-top:20px;letter-spacing:.01em}
-  .site h2.head em{font-style:normal;color:var(--copper)}
-  .site .hero-area p{font-size:14px;font-weight:300;line-height:1.85;margin-top:20px;max-width:470px}
-  .site .cta-row{display:flex;gap:16px;margin-top:34px}
-  .site .visual{display:flex;align-items:center;justify-content:center}
-  .site .visual img{width:210px}
-  .site .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;padding:0 54px 64px}
-  .site .pcard{border-radius:14px;padding:30px 28px}
-  .site .pcard svg{width:30px;height:30px;fill:none;stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round}
-  .site .pcard h5{font-size:12px;font-weight:500;letter-spacing:.3em;text-transform:uppercase;margin-top:16px}
-  .site .pcard p{font-size:12px;font-weight:300;line-height:1.7;margin-top:8px}
-  .site .foot{display:flex;align-items:center;justify-content:space-between;padding:22px 54px;font-size:10px;letter-spacing:.26em;text-transform:uppercase}
-
-  /* dark theme site */
-  .site.dark{background:radial-gradient(900px 500px at 75% -5%, #1A2233 0%, var(--midnight) 60%);color:var(--porcelain)}
-  .site.dark header{border-bottom:1px solid var(--line-dark)}
-  .site.dark .brand .n{color:var(--porcelain)}
-  .site.dark nav a{color:#9BA3B5}
-  .site.dark nav a:hover{color:var(--copper)}
-  .site.dark .hero-area p{color:#9BA3B5}
-  .site.dark .pcard{background:rgba(42,52,74,.28);border:1px solid var(--line-dark)}
-  .site.dark .pcard svg{stroke:var(--copper)}
-  .site.dark .pcard p{color:#8A93A8}
-  .site.dark .foot{border-top:1px solid var(--line-dark);color:#4A5468}
-  .site.dark .foot b{color:var(--copper);font-weight:500}
-
-  /* light theme site */
-  .site.light{background:var(--porcelain);color:var(--midnight)}
-  .site.light header{border-bottom:1px solid var(--line-light);background:var(--white)}
-  .site.light nav a{color:var(--mistblue)}
-  .site.light nav a:hover{color:var(--copper-dark)}
-  .site.light .hero-area p{color:var(--mistblue)}
-  .site.light .pcard{background:var(--white);border:1px solid var(--line-light)}
-  .site.light .pcard svg{stroke:var(--copper-dark)}
-  .site.light .pcard p{color:var(--mistblue)}
-  .site.light .foot{border-top:1px solid var(--line-light);color:var(--mistblue);background:var(--white)}
-  .site.light .foot b{color:var(--copper-dark);font-weight:500}
-
-  /* ---------- FOOTER ---------- */
-  .page-foot{background:var(--midnight);color:#9BA3B5;text-align:center;padding:54px 0}
-  .page-foot .line{font-size:13px;letter-spacing:.4em;text-transform:uppercase;font-weight:300}
-  .page-foot .line b{color:var(--copper);font-weight:400}
-  .page-foot .sub{margin-top:16px;font-size:10px;letter-spacing:.25em;text-transform:uppercase;color:#4A5468}
-
-  .toast{position:fixed;bottom:30px;left:50%;transform:translate(-50%,20px);background:var(--midnight);color:var(--porcelain);font-size:11px;letter-spacing:.2em;text-transform:uppercase;padding:13px 26px;border-radius:100px;opacity:0;pointer-events:none;transition:all .3s}
-  .toast.show{opacity:1;transform:translate(-50%,0)}
-
-  @media (max-width:960px){
-    .wrap{padding:0 22px}
-    .logo-grid,.ui-grid{grid-template-columns:1fr}
-    .logo-grid-2,.icon-grid{grid-template-columns:repeat(2,1fr)}
-    .color-grid{grid-template-columns:repeat(2,1fr)}
-    .weights{grid-template-columns:repeat(2,1fr)}
-    .site .hero-area{grid-template-columns:1fr}
-    .site .visual{display:none}
-    .site .cards{grid-template-columns:1fr}
-    .site nav{display:none}
-    .hero h1{font-size:26px}
-    .type-intro{grid-template-columns:1fr}
-  }
+.foot{padding:50px 0;font-size:12.5px;color:var(--ink-m);border:0}
+@media(max-width:860px){
+  section{padding:80px 0}.wrap{padding:0 22px}
+  .grid2,.grid3,.logos,.type,.ui,.dd,.ex{grid-template-columns:1fr}
+  .rules{grid-template-columns:1fr 1fr}
+  .sw{grid-template-columns:1fr 1fr}.sw .main{grid-column:1/-1;grid-row:auto;min-height:240px}
+  .imgs{grid-template-columns:1fr 1fr;grid-template-rows:200px 200px 200px}.imgs div:first-child{grid-column:1/-1;grid-row:auto}
+  .anat{grid-template-columns:1fr}
+  .scale .row{grid-template-columns:1fr;gap:6px}
+  .tspec .aa{font-size:5rem}
+}
 </style>
 </head>
 <body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<linearGradient id="sgDisc" x1="6" y1="0" x2="47" y2="0" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#5F7FA3"/><stop offset="1" stop-color="#F4F1EC"/></linearGradient>
+<linearGradient id="sgMoon" x1="54" y1="22" x2="92" y2="98" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#F2C6A2"/><stop offset=".55" stop-color="#D99B72"/><stop offset="1" stop-color="#B9764D"/></linearGradient>
+<symbol id="signet" viewBox="0 0 100 120"><path d="M46.5 20a40 40 0 0 0 0 80z" fill="url(#sgDisc)"/><rect x="48.6" y="5" width="3.4" height="110" rx="1.2" fill="#fff"/><path d="M55 22a38 38 0 0 1 0 76a25 38 0 0 0 0-76z" fill="url(#sgMoon)"/></symbol>
+</defs></svg>
 
-<!-- ======= HERO ======= -->
-<div class="hero">
+<section class="cover">
   <div class="wrap">
-    <img class="mark" src="logo-zeichen-dunkel.svg" alt="Zeichen">
-    <h1><span class="dr">Dr.</span> André Alesi</h1>
-    <div class="slp">Sleep<span class="dot">•</span>Recover<span class="dot">•</span><b>Perform</b></div>
-    <div class="tagline">Better today. Stronger tomorrow.</div>
-    <div class="meta">Brand &amp; Web Style Guide — Version 1.0</div>
+    <div class="lg"><svg viewBox="0 0 100 120"><use href="#signet"/></svg><span class="d"></span><span><b>DR. ANDRÉ ALESI</b><small>SLEEP TO <i>LIFE</i></small></span></div>
+    <h1>Corporate <em>Identity</em></h1>
+    <p>Das Regelwerk für alles, was unter dem Namen Dr. André Alesi entsteht. Website, Social Media, Präsentationen, Produkte und Verpackung.</p>
+    <div class="toc"><a href="#kern">Markenkern</a><a href="#logo">Logo</a><a href="#farben">Farben</a><a href="#typo">Typografie</a><a href="#bild">Bildwelt</a><a href="#ui">Elemente</a><a href="#ton">Tonalität</a></div>
+    <div class="meta"><span>Version 2.0</span><span>Oktober 2026</span><span>Basis: Styleguide-Handbuch &amp; Markenpositionierung III</span></div>
   </div>
-</div>
+</section>
 
-<!-- ======= 01 LOGO ======= -->
+<section id="kern">
+  <div class="wrap">
+    <div class="kick"><b>01</b> Markenkern</div>
+    <h2>Aus Schlafwissen <em>Lösungen machen.</em></h2>
+    <p class="intro">Dr. André Alesi verbindet wissenschaftliche Expertise mit über 20 Jahren praktischer und unternehmerischer Erfahrung rund um den Schlaf.</p>
+    <div class="grid3">
+      <div class="card"><h4>Dachclaim</h4><p class="big">Sleep to Life.</p></div>
+      <div class="card"><h4>Haltung</h4><p class="big">Guter Schlaf muss zum Leben passen. Nicht umgekehrt.</p></div>
+      <div class="card"><h4>Markenversprechen</h4><p class="big">Wissenschaftlich fundiert. Verständlich vermittelt. Für den Alltag gemacht.</p></div>
+    </div>
+    <div class="grid3" style="margin-top:22px">
+      <div class="card"><h4>Säule 1</h4><p><b>Wissenschaftliche Glaubwürdigkeit.</b> Wir wissen, wie Schlaf funktioniert. Die Forschung ist das Fundament.</p></div>
+      <div class="card"><h4>Säule 2</h4><p><b>Unternehmerische Umsetzungskompetenz.</b> Wir erkennen Bedürfnisse und machen aus Wissen konkrete Ideen.</p></div>
+      <div class="card"><h4>Säule 3</h4><p><b>Praktischer Nutzen.</b> Wir entwickeln Lösungen, die im echten Leben funktionieren.</p></div>
+    </div>
+    <div class="grid2" style="margin-top:22px">
+      <div class="card"><h4>Vision</h4><p>Damit guter Schlaf nicht an unserem Alltag scheitert, sondern ein selbstverständlicher Teil davon werden kann. Zu Hause, am Arbeitsplatz, in der Schule und überall dort, wo Menschen Erholung brauchen.</p></div>
+      <div class="card"><h4>Mission</h4><p>Wir bringen Schlafwissenschaft dorthin, wo sie im Alltag wirkt. Unser Maßstab: Eine Lösung ist erst dann gut, wenn sie im echten Leben funktioniert.</p></div>
+    </div>
+  </div>
+</section>
+
 <section id="logo">
   <div class="wrap">
-    <div class="section-head">
-      <div class="kicker"><span class="num">01</span> — Logo</div>
-      <h2>Das Zeichen &amp; die Wortmarke</h2>
-      <p>Zwei Welten. Ein Rhythmus. Tag und Nacht im Einklang — für bessere Erholung, mehr Energie und nachhaltige Performance.</p>
+    <div class="kick"><b>02</b> Logo</div>
+    <h2>Erde, Strich, <em>Mond.</em></h2>
+    <p class="intro">Ein Zeichen, das jedes Kind mit dem Finger nachzeichnen kann. Die halbe Kugel steht für den Tag, der Halbmond für die Nacht, der Strich für den Übergang. Der gute Tag formt die gute Nacht. Die gute Nacht formt den guten Tag.</p>
+    <div class="logos">
+      <div class="lbox l-navy"><img src="brand/logo-sleep-to-life-hell.svg" alt="Logo auf Deep Navy"><small>Hauptlogo · auf Dunkel</small></div>
+      <div class="lbox l-navy sig"><img src="brand/signet-hell.svg" alt="Signet"><small>Signet</small></div>
+      <div class="lbox l-cream"><img src="brand/logo-sleep-to-life-dunkel.svg" alt="Logo auf Hell"><small>Hauptlogo · auf Hell</small></div>
+      <div class="lbox l-steel sig"><img src="brand/favicon-neu.svg" alt="App-Icon" style="max-height:110px;border-radius:24px"><small>App-Icon · Favicon</small></div>
     </div>
-
-    <div class="grid logo-grid">
-      <div class="card">
-        <div class="tile deep">
-          <img src="logo-lockup-dunkel.svg" alt="Logo auf Dunkel" style="width:min(480px,92%)">
-        </div>
-        <div class="cap">Primäres Logo — auf Dunkel</div>
-      </div>
-      <div class="card">
-        <div class="tile">
-          <img src="logo-lockup-hell.svg" alt="Logo auf Hell" style="width:min(440px,92%)">
-        </div>
-        <div class="cap">Logo — auf Hell</div>
-      </div>
+    <div class="anat">
+      <svg class="big" viewBox="0 0 100 120"><use href="#signet"/></svg>
+      <ul>
+        <li><b>a</b>Halbe Kugel mit Verlauf von Sky Blue zu Weiß. Steht für Tag und Erde.</li>
+        <li><b>b</b>Durchgehender Strich, länger als beide Formen. Die Grenze zwischen Tag und Nacht.</li>
+        <li><b>c</b>Halbmond in Warm Copper mit leichtem Verlauf. Steht für die Nacht.</li>
+        <li><b>d</b>Wortmarke in Poppins Medium, weit gesperrt. Zusatz „Sleep to Life“ mit Akzent auf „Life“.</li>
+      </ul>
     </div>
-
-    <div class="grid logo-grid-2">
-      <div class="card">
-        <div class="tile">
-          <img src="logo-zeichen-hell.svg" alt="Zeichen" style="width:96px">
-        </div>
-        <div class="cap">Zeichen solo — Hell</div>
-      </div>
-      <div class="card">
-        <div class="tile dark">
-          <div class="appicon"><img src="logo-zeichen-dunkel.svg" alt=""></div>
-        </div>
-        <div class="cap">App Icon</div>
-      </div>
-      <div class="card">
-        <div class="tile">
-          <div class="fav-row">
-            <div class="fav-item"><div class="box"><img src="favicon.svg" width="64" height="64" alt="Favicon 64"></div><span>64 px</span></div>
-            <div class="fav-item"><div class="box"><img src="favicon.svg" width="32" height="32" alt="Favicon 32"></div><span>32 px</span></div>
-            <div class="fav-item"><div class="box"><img src="favicon.svg" width="16" height="16" alt="Favicon 16"></div><span>16 px</span></div>
-          </div>
-        </div>
-        <div class="cap">Favicon — favicon.svg</div>
-      </div>
+    <div class="rules">
+      <div class="rule"><b>Schutzzone</b>Mindestens die Breite des Halbmonds rund um das Logo frei lassen.</div>
+      <div class="rule"><b>Mindestgröße</b>Signet ab 24 px, Wortmarke ab 140 px Breite digital.</div>
+      <div class="rule no"><b>Nicht verzerren</b>Proportionen nie verändern, nie drehen, keine Schatten.</div>
+      <div class="rule no"><b>Kein Bunt</b>Keine weiteren Farben im Logo. Auf Karton die Graustufen-Variante nutzen.</div>
     </div>
-
-    <div class="logo-note">
-      <img src="logo-zeichen-hell.svg" alt="">
-      <div>
-        <h3>Konstruktion</h3>
-        <p>Der dunkle Halbkreis steht für die Nacht und erholsamen Schlaf, die kupferfarbene Sichel für den Tag und aufsteigende Energie. Die vertikale Linie verbindet beide Welten — Balance als Grundlage von Leistung. Mindestschutzzone: die halbe Zeichenhöhe umlaufend.</p>
-      </div>
-    </div>
+    <p style="margin-top:22px;font-size:13px;color:var(--ink-m)">Hinweis: Die Logo-Dateien in <code>brand/</code> sind ein digitaler Nachbau nach dem Styleguide. Sobald die finalen Vektordaten von Rebecca vorliegen, werden sie 1:1 ersetzt.</p>
   </div>
 </section>
 
-<!-- ======= 02 FARBEN ======= -->
-<section id="farben" style="padding-top:0">
+<section id="farben">
   <div class="wrap">
-    <div class="section-head">
-      <div class="kicker"><span class="num">02</span> — Farbpalette</div>
-      <h2>Farben</h2>
-      <p>Tiefe, ruhige Blautöne treffen auf warmes Sand und Kupfer. Klick auf eine Farbe kopiert den Hex-Wert. Hinweis: Der im Original-Board notierte Wert #6B708E entspricht nicht der sichtbaren Farbe — verwendet wird der aus dem Board gesampelte Sandton.</p>
+    <div class="kick"><b>03</b> Farben</div>
+    <h2>Ruhig, warm und <em>vertrauensvoll.</em></h2>
+    <p class="intro">Steel Blue trägt den Auftritt. Warm Copper setzt Akzente. Soft Cream schafft ruhige Flächen. Klick auf eine Farbe kopiert den Hex-Wert.</p>
+    <div class="sw">
+      <div class="c main" data-hex="#274768" style="background:#274768;color:#fff"><div><b>Steel Blue</b><br><code>#274768</code></div><span>Primärfarbe. Große Flächen, Header, Cover, Karten.</span></div>
+      <div class="c" data-hex="#D99B72" style="background:#D99B72;color:#081A2E"><div><b>Warm Copper</b><br><code>#D99B72</code></div><span>Akzent. Buttons, Hervorhebungen, interaktive Elemente.</span></div>
+      <div class="c" data-hex="#F4EEE6" style="background:#F4EEE6;color:#081A2E;border:1px solid rgba(11,31,53,.12)"><div><b>Soft Cream</b><br><code>#F4EEE6</code></div><span>Helle, ruhige Inhaltsflächen.</span></div>
+      <div class="c" data-hex="#081A2E" style="background:#081A2E;color:#fff"><div><b>Deep Navy</b><br><code>#081A2E</code></div><span>Sekundär. Tiefe Hintergründe, Footer, Text auf Hell.</span></div>
+      <div class="c" data-hex="#87A6C6" style="background:#87A6C6;color:#081A2E"><div><b>Sky Blue</b><br><code>#87A6C6</code></div><span>Sekundär. Infografiken, Icons, Wellen.</span></div>
     </div>
-    <div class="grid color-grid">
-      <div class="swatch" data-hex="#0D1117">
-        <div class="chip" style="background:#0D1117"></div>
-        <div class="info"><div class="name">Mitternacht</div><div class="hex">#0D1117</div><div class="use">Primärfläche Dark Mode, Text auf Hell</div></div>
-      </div>
-      <div class="swatch" data-hex="#2A344A">
-        <div class="chip" style="background:#2A344A"></div>
-        <div class="info"><div class="name">Tiefblau</div><div class="hex">#2A344A</div><div class="use">Sekundärflächen, Karten, Hover</div></div>
-      </div>
-      <div class="swatch" data-hex="#B4A189">
-        <div class="chip" style="background:#B4A189"></div>
-        <div class="info"><div class="name">Sand</div><div class="hex">#B4A189</div><div class="use">Sekundäre Akzente, ruhige Flächen, Text auf Dunkel</div></div>
-      </div>
-      <div class="swatch" data-hex="#BB8961">
-        <div class="chip" style="background:linear-gradient(135deg,#D2A47D,#BB8961 55%,#A5754E)"></div>
-        <div class="info"><div class="name">Kupfer</div><div class="hex">#BB8961</div><div class="use">Akzent, CTAs, Highlights — sparsam einsetzen</div></div>
-      </div>
-      <div class="swatch" data-hex="#F4F4F2">
-        <div class="chip" style="background:#F4F4F2;border-bottom:1px solid var(--line-light)"></div>
-        <div class="info"><div class="name">Porzellan</div><div class="hex">#F4F4F2</div><div class="use">Hintergrund Light Mode, Text auf Dunkel</div></div>
-      </div>
+    <div class="ratio">
+      <div style="flex:40;background:#081A2E">NAVY 40 %</div><div style="flex:25;background:#274768">STEEL 25 %</div><div style="flex:20;background:#F4EEE6;color:#081A2E">CREAM 20 %</div><div style="flex:10;background:#D99B72;color:#081A2E">COPPER 10 %</div><div style="flex:5;background:#87A6C6;color:#081A2E">5 %</div>
     </div>
+    <p style="margin-top:16px;font-size:13px;color:var(--ink-m)">Hinweis: Im Styleguide-PDF ist Soft Cream versehentlich mit dem Copper-Wert #D99B72 beschriftet. Für Soft Cream wird #F4EEE6 verwendet, bitte bei Rebecca bestätigen. Für Copper auf hellen Flächen gibt es die dunklere Textvariante #B9764D, damit Schrift gut lesbar bleibt.</p>
   </div>
 </section>
 
-<!-- ======= 03 TYPOGRAFIE ======= -->
-<section id="typografie" style="padding-top:0">
+<section id="typo">
   <div class="wrap">
-    <div class="section-head">
-      <div class="kicker"><span class="num">03</span> — Typografie</div>
-      <h2>Poppins</h2>
-      <p>Modern. Klar. Menschlich. Vertrauensvoll. Eine Schriftfamilie für alle Anwendungen — Headlines leicht und großzügig gesperrt, Fließtext ruhig und gut lesbar.</p>
+    <div class="kick"><b>04</b> Typografie</div>
+    <h2>Elegant in der Headline. <em>Klar im Text.</em></h2>
+    <p class="intro">Playfair Display für ausdrucksstarke Überschriften, gerne mit kursivem Akzent in Copper. Poppins als Hausschrift für Fließtext, Navigation und Buttons.</p>
+    <div class="type">
+      <div class="tspec serif"><div class="kick" style="margin:0">Überschriften</div><div class="aa">Aa</div><b style="font-family:var(--serif);font-size:1.5rem;font-weight:400">Playfair Display</b><p>Regular 400 und Italic. Zeilenabstand 1,05 bis 1,15. Kursiv für das eine Wort, das tragen soll.</p></div>
+      <div class="tspec sans"><div class="kick" style="margin:0">Fließtext</div><div class="aa">Aa</div><b style="font-size:1.5rem;font-weight:500">Poppins</b><p>Light 300 für Text, Medium 500 für Hervorhebungen und Buttons. Versalien mit weiter Sperrung für kleine Labels.</p></div>
     </div>
-
-    <div class="type-intro">
-      <div class="aa">A<span>a</span></div>
-      <div>
-        <h3>Poppins</h3>
-        <p>Geometrische Sans-Serif mit weichem, menschlichem Charakter. Verwendete Schnitte: ExtraLight 200 (Display), Light 300 (Headlines), Regular 400 (Fließtext), Medium 500 (Labels &amp; Buttons), SemiBold 600 (Auszeichnung).</p>
-        <p style="margin-top:14px;letter-spacing:.06em">ABCDEFGHIJKLMNOPQRSTUVWXYZ&nbsp;&nbsp;abcdefghijklmnopqrstuvwxyz&nbsp;&nbsp;0123456789</p>
-      </div>
-    </div>
-
-    <div class="weights">
-      <div class="weight"><div class="big" style="font-weight:200">Aa</div><div class="lbl">ExtraLight 200</div></div>
-      <div class="weight"><div class="big" style="font-weight:300">Aa</div><div class="lbl">Light 300</div></div>
-      <div class="weight"><div class="big" style="font-weight:400">Aa</div><div class="lbl">Regular 400</div></div>
-      <div class="weight"><div class="big" style="font-weight:500">Aa</div><div class="lbl">Medium 500</div></div>
-    </div>
-
     <div class="scale">
-      <div class="row"><div class="tag">Display — 46 / 200</div><div class="t-display">Better today. Stronger tomorrow.</div></div>
-      <div class="row"><div class="tag">H1 — 34 / 300</div><div class="t-h1">Erholsamer Schlaf ist trainierbar</div></div>
-      <div class="row"><div class="tag">H2 — 24 / 400</div><div class="t-h2">Regeneration für Körper &amp; Geist</div></div>
-      <div class="row"><div class="tag">H3 — 17 / 500</div><div class="t-h3">Die drei Säulen der Methode</div></div>
-      <div class="row"><div class="tag">Body — 15 / 300</div><div class="t-body">Wissenschaftlich fundierte Strategien für besseren Schlaf, echte Erholung und nachhaltige Leistungsfähigkeit — verständlich erklärt und alltagstauglich umgesetzt.</div></div>
-      <div class="row"><div class="tag">Label — 11 / 500</div><div class="t-label">Sleep • Recover • Perform</div></div>
+      <div class="row"><small>H1 · 84 px</small><span style="font-family:var(--serif);font-size:clamp(2.4rem,5vw,4.4rem);line-height:1.05">Guter Schlaf muss zu deinem <i style="color:var(--copper)">Leben passen.</i></span></div>
+      <div class="row"><small>H2 · 56 px</small><span style="font-family:var(--serif);font-size:clamp(1.8rem,3.4vw,3rem);line-height:1.1">Drei Säulen. <i style="color:var(--copper)">Eine Haltung.</i></span></div>
+      <div class="row"><small>H3 · 28 px</small><span style="font-family:var(--serif);font-size:1.75rem">Wissenschaftliche Glaubwürdigkeit</span></div>
+      <div class="row"><small>Label · 11 px</small><span class="eye">Schlafwissenschaftler · 20+ Jahre</span></div>
+      <div class="row"><small>Text · 17 px</small><span style="font-weight:300;color:#C7D3E0;max-width:620px">Ich verbinde Schlafforschung mit über 20 Jahren Erfahrung aus der Praxis. <b style="color:#fff;font-weight:500">Damit guter Schlaf nicht an deinem Alltag scheitert.</b></span></div>
     </div>
   </div>
 </section>
 
-<!-- ======= 04 ICONS ======= -->
-<section id="icons" style="padding-top:0">
+<section id="bild">
   <div class="wrap">
-    <div class="section-head">
-      <div class="kicker"><span class="num">04</span> — Icons</div>
-      <h2>Ikonografie</h2>
-      <p>Feine Linien-Icons, 1,4 pt Strichstärke, abgerundete Enden. Grundfarbe Tiefblau — Balance als einziges Icon in Kupfer.</p>
+    <div class="kick"><b>05</b> Bildwelt</div>
+    <h2>Warm, nahbar, <em>souverän.</em></h2>
+    <p class="intro">Warme, natürliche Lichtstimmungen. Hochwertige Schlaf- und Interior-Settings. Eine Mischung aus souveränen, nachdenklichen und lebendigen Posen. Casual business: T-Shirt, Pullover, weißes Hemd. Kein Anzug, keine Krawatte.</p>
+    <div class="imgs">
+      <div><img src="https://d2ol7oe51mr4n9.cloudfront.net/user_39bpvnosVvqwhbus3q5PhClCw2s/2d833543-a9d9-4772-8503-ee80050eea8f.webp" alt="" loading="lazy" style="object-fit:contain;background:radial-gradient(circle at 50% 30%,#1B3B5E,#081A2E)"></div>
+      <div><img src="https://d8j0ntlcm91z4.cloudfront.net/user_39bpvnosVvqwhbus3q5PhClCw2s/hf_20261017_115055_91291928-1a06-40eb-94b0-a5c36ee0ab3b_min.webp" alt="" loading="lazy"></div>
+      <div><img src="https://d8j0ntlcm91z4.cloudfront.net/user_39bpvnosVvqwhbus3q5PhClCw2s/hf_20261017_115054_8ee26780-37f7-4ac2-9d2c-52f00bfb2376_min.webp" alt="" loading="lazy"></div>
+      <div><img src="https://d8j0ntlcm91z4.cloudfront.net/user_39bpvnosVvqwhbus3q5PhClCw2s/hf_20261017_115055_de690edf-d84f-4304-b34a-adcf4f4fc6d8_min.webp" alt="" loading="lazy"></div>
+      <div><img src="https://d8j0ntlcm91z4.cloudfront.net/user_39bpvnosVvqwhbus3q5PhClCw2s/hf_20261017_115053_05732a30-9561-4384-9831-7cd7d61895a2_min.webp" alt="" loading="lazy"></div>
     </div>
-    <div class="grid icon-grid">
-      <div class="icon-card">
-        <svg viewBox="0 0 24 24"><path d="M20.5 14.2A8.6 8.6 0 0 1 9.8 3.5a8.6 8.6 0 1 0 10.7 10.7z"/></svg>
-        <h4>Sleep</h4><p>Erholsamer Schlaf</p>
-      </div>
-      <div class="icon-card">
-        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.6"/></svg>
-        <h4>Recover</h4><p>Regeneration für Körper &amp; Geist</p>
-      </div>
-      <div class="icon-card">
-        <svg viewBox="0 0 24 24"><path d="M4 20 19 5"/><path d="M11 5h8v8"/></svg>
-        <h4>Perform</h4><p>Leistung steigern</p>
-      </div>
-      <div class="icon-card copper">
-        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.4M12 19.1v2.4M2.5 12h2.4M19.1 12h2.4M5.3 5.3l1.7 1.7M17 17l1.7 1.7M18.7 5.3 17 7M7 17l-1.7 1.7"/></svg>
-        <h4>Balance</h4><p>Ganzheitliches Wohlbefinden</p>
-      </div>
-    </div>
+    <p style="margin-top:16px;font-size:13px;color:var(--ink-m)">Aktuell KI-Platzhalter auf Basis echter Fotos. Werden nach dem Shooting am 24.10. ersetzt. Bühnenmotive nur mit Freigabe des Kunden und ohne erkennbare Gesichter von Mitarbeitenden.</p>
   </div>
 </section>
 
-<!-- ======= 05 UI ELEMENTE ======= -->
-<section id="ui" style="padding-top:0">
+<section id="ui">
   <div class="wrap">
-    <div class="section-head">
-      <div class="kicker"><span class="num">05</span> — UI-Elemente</div>
-      <h2>Buttons &amp; Links</h2>
+    <div class="kick"><b>06</b> Elemente</div>
+    <h2>Bausteine der <em>Website.</em></h2>
+    <p class="intro">Große Rundungen, viel Luft, feine Linien. Bewegung ist ruhig und weich: Inhalte gleiten beim Scrollen herein, nichts springt.</p>
+    <div class="ui">
+      <div class="uibox" style="background:var(--navy);color:#fff">
+        <span class="eye">Eyebrow-Label</span>
+        <a class="btn btn-cu" href="#">Schlaftest starten →</a>
+        <a class="btn btn-gh" href="#">Zum Schlafkurs →</a>
+        <a class="lnk" href="#" style="color:#fff">Textlink →</a>
+      </div>
+      <div class="uibox" style="background:#fff;border:1px solid var(--line)">
+        <span class="eye" style="color:var(--copper-d)">Auf hellen Flächen</span>
+        <a class="btn btn-ink" href="#">Anfrage stellen →</a>
+        <div style="display:flex;gap:10px;flex-wrap:wrap"><span class="chip"><i></i>Schichtarbeitende</span><span class="chip"><i></i>Familien</span></div>
+        <a class="lnk" href="#" style="color:var(--copper-d)">Textlink →</a>
+      </div>
     </div>
-    <div class="grid ui-grid">
-      <div class="ui-panel dark">
-        <div class="lbl">Dark Mode</div>
-        <div class="ui-row">
-          <button class="btn btn-copper">Jetzt starten</button>
-          <button class="btn btn-ghost-dark">Mehr erfahren</button>
-        </div>
-        <div class="ui-row"><a class="link-copper" href="#">Methode entdecken</a></div>
-      </div>
-      <div class="ui-panel light">
-        <div class="lbl">Light Mode</div>
-        <div class="ui-row">
-          <button class="btn btn-copper">Jetzt starten</button>
-          <button class="btn btn-navy">Termin anfragen</button>
-          <button class="btn btn-ghost-light">Mehr erfahren</button>
-        </div>
-        <div class="ui-row"><a class="link-copper" href="#" style="color:var(--copper-dark);border-color:var(--copper-dark)">Methode entdecken</a></div>
-      </div>
+    <div class="grid3" style="margin-top:22px">
+      <div class="card"><h4>Radien</h4><p>Buttons und Chips voll gerundet. Karten 22 bis 30 px. Bilder 28 px.</p></div>
+      <div class="card"><h4>Schlafwellen</h4><p>Signature-Element im Header. Feine Linien in Copper und Sky Blue, langsam animiert, nie hektisch.</p></div>
+      <div class="card"><h4>Bewegung</h4><p>Weiche Einblendungen von unten, Bild-Reveals, sanfte Parallaxe. Bei „Bewegung reduzieren“ im System wird alles statisch.</p></div>
     </div>
   </div>
 </section>
 
-<!-- ======= 06 WEBSITE DARK ======= -->
-<section id="web-dark" style="padding-top:0">
+<section id="ton">
   <div class="wrap">
-    <div class="section-head">
-      <div class="kicker"><span class="num">06</span> — Website</div>
-      <h2>Dark Mode</h2>
-      <p>Der Standard-Auftritt: Mitternachtsblau mit warmem Kupfer — ruhig, hochwertig, fokussiert.</p>
+    <div class="kick"><b>07</b> Tonalität</div>
+    <h2>Direkt, nahbar, <em>fundiert.</em></h2>
+    <p class="intro">Wir können mit Vorständen über Schlafgesundheit sprechen und mit Jugendlichen über Medienkonsum. Die Sprache passt sich an. Die Haltung bleibt dieselbe.</p>
+    <div class="dd">
+      <div class="card yes"><h4>So schreiben wir</h4><ul><li>Du-Ansprache, warm und auf Augenhöhe</li><li>Kurze Sätze. Ein Gedanke pro Satz.</li><li>Wissenschaftlich korrekt, aber ohne Fachchinesisch</li><li>Konkret und alltagsnah: Schichtdienst, kleine Kinder, Druck im Job</li><li>Gerne auch mal unkonventionell</li></ul></div>
+      <div class="card no"><h4>Das vermeiden wir</h4><ul><li>Gedankenstriche im Fließtext</li><li>Heilsversprechen und Garantien</li><li>Verbotslisten und erhobener Zeigefinger</li><li>Esoterische Bildsprache und Begriffe</li><li>Lange, verschachtelte Sätze</li></ul></div>
     </div>
-    <div class="browser">
-      <div class="browser-bar dark"><div class="dots"><i></i><i></i><i></i></div><div class="url">andre-alesi.de</div></div>
-      <div class="site dark">
-        <header>
-          <div class="brand">
-            <img src="logo-zeichen-dunkel.svg" alt="">
-            <div class="n"><span style="color:var(--copper)">Dr.</span> André Alesi</div>
-          </div>
-          <nav><a href="#">Methode</a><a href="#">Programm</a><a href="#">Über mich</a><a href="#">Kontakt</a></nav>
-          <button class="btn btn-copper" style="padding:12px 24px">Termin anfragen</button>
-        </header>
-        <div class="hero-area">
-          <div>
-            <div class="hk">Sleep • Recover • Perform</div>
-            <h2 class="head">Better today.<br><em>Stronger tomorrow.</em></h2>
-            <p>Wissenschaftlich fundierte Strategien für erholsamen Schlaf, echte Regeneration und nachhaltige Performance — für Menschen, die viel leisten und gut leben wollen.</p>
-            <div class="cta-row">
-              <button class="btn btn-copper">Jetzt starten</button>
-              <button class="btn btn-ghost-dark">Mehr erfahren</button>
-            </div>
-          </div>
-          <div class="visual">
-            <img src="logo-zeichen-dunkel.svg" alt="">
-          </div>
-        </div>
-        <div class="cards">
-          <div class="pcard">
-            <svg viewBox="0 0 24 24"><path d="M20.5 14.2A8.6 8.6 0 0 1 9.8 3.5a8.6 8.6 0 1 0 10.7 10.7z"/></svg>
-            <h5>Sleep</h5><p>Erholsamer, tiefer Schlaf als Fundament für Gesundheit und Leistungsfähigkeit.</p>
-          </div>
-          <div class="pcard">
-            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.6"/></svg>
-            <h5>Recover</h5><p>Gezielte Regeneration für Körper und Geist — messbar und alltagstauglich.</p>
-          </div>
-          <div class="pcard">
-            <svg viewBox="0 0 24 24"><path d="M4 20 19 5"/><path d="M11 5h8v8"/></svg>
-            <h5>Perform</h5><p>Mehr Energie, Fokus und Leistung — heute besser, morgen stärker.</p>
-          </div>
-        </div>
-        <div class="foot"><span>© Dr. André Alesi</span><span>Wissenschaft. Mensch. <b>Performance.</b></span></div>
-      </div>
+    <div class="ex">
+      <div class="card"><h4>So</h4><p class="q">„Guter Schlaf ist keine Frage perfekter Regeln. Er muss zu deinem Leben passen.“</p></div>
+      <div class="card bad"><h4>Nicht so</h4><p class="q">„Mit dieser einen Methode schläfst du garantiert nach drei Tagen wieder perfekt durch.“</p></div>
     </div>
   </div>
 </section>
 
-<!-- ======= 07 WEBSITE LIGHT ======= -->
-<section id="web-light" style="padding-top:0">
-  <div class="wrap">
-    <div class="section-head">
-      <div class="kicker"><span class="num">07</span> — Website</div>
-      <h2>Light Mode</h2>
-      <p>Die helle Variante: Porzellan-Grundton, Weiß für Karten, Tiefblau für Text — Kupfer bleibt der Akzent.</p>
-    </div>
-    <div class="browser">
-      <div class="browser-bar"><div class="dots"><i></i><i></i><i></i></div><div class="url">andre-alesi.de</div></div>
-      <div class="site light">
-        <header>
-          <div class="brand">
-            <img src="logo-zeichen-hell.svg" alt="">
-            <div class="n">Dr. André Alesi</div>
-          </div>
-          <nav><a href="#">Methode</a><a href="#">Programm</a><a href="#">Über mich</a><a href="#">Kontakt</a></nav>
-          <button class="btn btn-navy" style="padding:12px 24px">Termin anfragen</button>
-        </header>
-        <div class="hero-area">
-          <div>
-            <div class="hk" style="color:var(--copper-dark)">Sleep • Recover • Perform</div>
-            <h2 class="head">Better today.<br><em style="color:var(--copper-dark)">Stronger tomorrow.</em></h2>
-            <p>Wissenschaftlich fundierte Strategien für erholsamen Schlaf, echte Regeneration und nachhaltige Performance — für Menschen, die viel leisten und gut leben wollen.</p>
-            <div class="cta-row">
-              <button class="btn btn-copper">Jetzt starten</button>
-              <button class="btn btn-ghost-light">Mehr erfahren</button>
-            </div>
-          </div>
-          <div class="visual">
-            <img src="logo-zeichen-hell.svg" alt="">
-          </div>
-        </div>
-        <div class="cards">
-          <div class="pcard">
-            <svg viewBox="0 0 24 24"><path d="M20.5 14.2A8.6 8.6 0 0 1 9.8 3.5a8.6 8.6 0 1 0 10.7 10.7z"/></svg>
-            <h5>Sleep</h5><p>Erholsamer, tiefer Schlaf als Fundament für Gesundheit und Leistungsfähigkeit.</p>
-          </div>
-          <div class="pcard">
-            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.6"/></svg>
-            <h5>Recover</h5><p>Gezielte Regeneration für Körper und Geist — messbar und alltagstauglich.</p>
-          </div>
-          <div class="pcard">
-            <svg viewBox="0 0 24 24"><path d="M4 20 19 5"/><path d="M11 5h8v8"/></svg>
-            <h5>Perform</h5><p>Mehr Energie, Fokus und Leistung — heute besser, morgen stärker.</p>
-          </div>
-        </div>
-        <div class="foot"><span>© Dr. André Alesi</span><span>Wissenschaft. Mensch. <b>Performance.</b></span></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ======= FOOTER ======= -->
-<div class="page-foot">
-  <div class="line">Wissenschaft. Mensch. <b>Performance.</b></div>
-  <div class="sub">Dr. André Alesi — Style Guide · Poppins · #0D1117 · #2A344A · #B4A189 · #BB8961 · #F4F4F2</div>
-</div>
-
-<div class="toast" id="toast">Kopiert</div>
-
+<div class="foot"><div class="wrap">© 2026 Dr. André Alesi · Sleep to Life · CI Version 2.0 · Grundlage für Website, Social Media und Produkte</div></div>
+<div class="copied" id="copied">Kopiert</div>
 <script>
-  document.querySelectorAll('.swatch').forEach(function(s){
-    s.addEventListener('click', function(){
-      var hex = s.getAttribute('data-hex');
-      navigator.clipboard && navigator.clipboard.writeText(hex);
-      var t = document.getElementById('toast');
-      t.textContent = hex + ' kopiert';
-      t.classList.add('show');
-      clearTimeout(t._h);
-      t._h = setTimeout(function(){ t.classList.remove('show'); }, 1600);
-    });
+document.querySelectorAll('.sw .c').forEach(function(c){
+  c.addEventListener('click',function(){
+    var hex=c.getAttribute('data-hex'); var t=document.getElementById('copied');
+    if(navigator.clipboard) navigator.clipboard.writeText(hex);
+    t.textContent=hex+' kopiert'; t.classList.add('on'); setTimeout(function(){t.classList.remove('on')},1400);
   });
+});
 </script>
 </body>
 </html>

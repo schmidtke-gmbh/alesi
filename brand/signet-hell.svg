@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 120"><defs>
+  <linearGradient id="gDisc" x1="6" y1="0" x2="47" y2="0" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#5F7FA3"/><stop offset="1" stop-color="#F4F1EC"/></linearGradient>
+  <linearGradient id="gMoon" x1="54" y1="22" x2="92" y2="98" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#F2C6A2"/><stop offset=".55" stop-color="#D99B72"/><stop offset="1" stop-color="#B9764D"/></linearGradient>
+</defs>
+<path d="M46.5 20a40 40 0 0 0 0 80z" fill="url(#gDisc)"/>
+<rect x="48.6" y="5" width="3.4" height="110" rx="1.2" fill="#FFFFFF"/>
+<path d="M55 22a38 38 0 0 1 0 76a25 38 0 0 0 0-76z" fill="url(#gMoon)"/></svg>

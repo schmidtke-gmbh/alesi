@@ -3,19 +3,23 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Schlaftest | Dein Sleep Score in 3 Minuten | Dr. André Alesi</title>
-<meta name="description" content="Wie gut schläfst du wirklich? Der kostenlose 3-Minuten-Schlafcheck von Dr. André Alesi. 13 kurze Fragen, dein persönlicher Sleep Score und dein größter Schlaf-Hebel.">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Schlaftest | Dein Sleep Score in 3 Minuten">
-<meta property="og:description" content="13 kurze Fragen, dein persönlicher Sleep Score und dein größter Schlaf-Hebel. Kostenlos und sofort.">
-<meta property="og:locale" content="de_DE">
-<!-- ▼ og:image nach Deploy eintragen: <meta property="og:image" content="https://DEINE-DOMAIN/og-image.jpg"> -->
-<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<title>Schlaftest: Dein Sleep Score in 3 Minuten | Dr. André Alesi</title>
+<meta name="description" content="Wie gut schläfst du wirklich? 13 Fragen, dein Sleep Score von 0 bis 100 und dein größter Hebel für bessere Nächte. Kostenlos, entwickelt von Schlafwissenschaftler Dr. André Alesi.">
+<meta name="robots" content="index, follow">
+<meta property="og:title" content="Schlaftest: Dein Sleep Score in 3 Minuten | Dr. André Alesi">
+<meta property="og:description" content="Wie gut schläfst du wirklich? 13 Fragen, dein Sleep Score von 0 bis 100 und dein größter Hebel für bessere Nächte. Kostenlos, entwickelt von Schlafwissenschaftler Dr. André Alesi.">
+<meta name="theme-color" content="#081A2E">
+<link rel="icon" type="image/svg+xml" href="brand/favicon-neu.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="site.css">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+<!-- ▼ BILDER: KI-Platzhalter (Higgsfield-CDN) im neuen Look. Nach dem Shooting durch echte Fotos ersetzen. -->
+<link rel="stylesheet" href="assets/sleep.css">
 <style>
+:root{--muted:#A9B9CC;--muted2:#7F93AB;--porcelain:#FFFFFF;--copper-light:#F2C6A2;--copper-dark:#B9764D;--card-dark:rgba(255,255,255,.045);--line-dark:rgba(255,255,255,.12)}
+@keyframes blurin{from{opacity:0;filter:blur(8px);transform:translateY(14px)}to{opacity:1;filter:none;transform:none}}
+.glass{background:linear-gradient(160deg,rgba(255,255,255,.07),rgba(255,255,255,.02));border:1px solid var(--line);border-radius:24px;backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);box-shadow:0 40px 90px -40px rgba(0,0,0,.6)}
+
 /* ── Schlaftest ── */
 .qz-outer{position:relative;overflow:hidden;background:radial-gradient(1100px 560px at 50% -12%,#1A2233 0%,var(--midnight) 62%)}
 .qz-wrap{max-width:960px;margin:0 auto;padding:150px 24px 90px;position:relative;z-index:1;min-height:72vh}
@@ -153,67 +157,117 @@
   .qz-modalwrap{padding-top:8px}
   .qz-modal{padding:28px 20px}
 }
+
+/* Neues Erscheinungsbild */
+.qz-outer{background:radial-gradient(70% 70% at 70% 10%,#12325A 0%,#0A2241 45%,#061427 90%);isolation:isolate}
+.qz-outer .grain{position:absolute;inset:0;z-index:-1;opacity:.05;pointer-events:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+.qz-outer .hyline{height:36%;opacity:.4}
+.qz-wrap{min-height:calc(100vh - 120px);padding-top:160px}
+.qz-hero h1{font-family:var(--serif);font-weight:700;font-size:clamp(2.4rem,4.8vw,4rem);line-height:1.06;letter-spacing:-.012em;margin:18px 0 20px}
+.qz-hero h1 .ac,.qz-screen h2 .ac,.qz-pitch h3 .ac{background:linear-gradient(180deg,#F8B983 10%,#E3874C 90%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.qz-hero .lead{color:var(--mist2)}
+.qz-screen h2{font-family:var(--serif);font-weight:500;font-size:clamp(1.6rem,3.2vw,2.4rem);line-height:1.2}
+.qz-inter .big{font-family:var(--serif);font-weight:400;background:linear-gradient(180deg,#F2C6A2,#D99B72);-webkit-background-clip:text;background-clip:text;color:transparent}
+.qz-ring .num,.pv-ring .num{font-family:var(--serif);font-weight:400}
+.qz-hebel h3,.qz-pitch h3,.qz-modal h2{font-family:var(--serif);font-weight:500}
+.qz-opt{font-size:15.5px}
+.qz-step b{background:rgba(217,155,114,.18)}
+.qz-modal{background:rgba(8,26,46,.96);border-color:rgba(217,155,114,.4)}
+.qz-name input,.qz-modal input{background:rgba(255,255,255,.05);border-color:rgba(255,255,255,.16)}
+.qz-name input:focus,.qz-modal input:focus{border-color:var(--copper);box-shadow:0 0 0 4px rgba(217,155,114,.14)}
+.qz-pitch{background:linear-gradient(160deg,rgba(217,155,114,.14),rgba(255,255,255,.02) 60%);border-color:rgba(217,155,114,.35)}
+.qz-pitch .ctas2{display:flex;justify-content:center}
+.qz-trust{display:flex;flex-wrap:wrap;gap:8px 22px;margin-top:22px;font-size:12px;color:var(--mist)}
+.qz-trust span{display:inline-flex;align-items:center;gap:8px}
+.qz-trust span::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--copper)}
+.qz-hero .eyebrow{margin-bottom:0}
+.qz-dim .tr,.pv-bar .tr{display:block}
+.qz-dim .fl,.pv-bar .fl{display:block}
+/* Testnacht: Mond als Fortschritt, Sterne als Belohnung */
+.qz-progress .track{position:relative;overflow:visible;height:4px}
+.qz-progress .fill{border-radius:99px}
+.qz-progress .moon{position:absolute;top:50%;left:0;width:22px;height:22px;margin:-11px 0 0 -11px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#FFF4E8,#F2C6A2 70%);box-shadow:0 0 16px rgba(242,198,162,.85);transition:left .5s cubic-bezier(.22,.8,.24,1)}
+.qz-progress .meta{margin-top:14px}
+.qz-stars{display:flex;justify-content:space-between;margin-top:10px;padding:0 1px}
+.qz-stars i{width:11px;height:11px;background:rgba(255,255,255,.16);clip-path:polygon(50% 0,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%);transition:background .4s}
+.qz-stars i.on{background:#F2C6A2}
+.qz-stars i.pop{animation:starpop .7s cubic-bezier(.22,.8,.24,1)}
+@keyframes starpop{0%{transform:scale(.4)}45%{transform:scale(1.9)}100%{transform:scale(1)}}
+.qz-opt.sel .dot{animation:starpop .5s cubic-bezier(.22,.8,.24,1)}
+/* Regler mit Bild */
+.qz-scene{width:min(420px,100%);aspect-ratio:320/200;margin:6px auto 20px;border-radius:24px;overflow:hidden;border:1px solid rgba(255,255,255,.14);box-shadow:0 34px 80px -34px rgba(0,0,0,.8)}
+.qz-scene svg{width:100%;height:100%;display:block}
+.qz-scene .tw{animation:tw 3.2s ease-in-out infinite}
+@keyframes tw{50%{opacity:.2}}
+.qz-val{display:flex;align-items:baseline;justify-content:center;gap:8px;margin-bottom:14px;flex-wrap:wrap}
+.qz-val b{font-family:var(--serif);font-weight:400;font-size:3rem;line-height:1;color:#fff;font-variant-numeric:tabular-nums}
+.qz-val b.bump{animation:starpop .35s cubic-bezier(.22,.8,.24,1)}
+.qz-val span{color:var(--mist);font-size:15px}
+.qz-val em{font-style:normal;margin-left:10px;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--copper-l);padding:6px 12px;border-radius:999px;background:rgba(217,155,114,.14);border:1px solid rgba(217,155,114,.35)}
+.qz-range{max-width:460px;margin:0 auto 28px}
+.qz-range input{-webkit-appearance:none;appearance:none;width:100%;height:8px;border-radius:99px;background:linear-gradient(90deg,#F2C6A2,#C9824F) 0 0/var(--p,50%) 100% no-repeat,rgba(255,255,255,.12);outline:none;cursor:pointer;margin:12px 0 0}
+.qz-range input::-webkit-slider-thumb{-webkit-appearance:none;width:32px;height:32px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#FFF4E8,#F2C6A2 60%,#D99B72);border:3px solid #081A2E;box-shadow:0 0 0 2px rgba(242,198,162,.7),0 8px 20px rgba(0,0,0,.5);cursor:grab}
+.qz-range input::-moz-range-thumb{width:28px;height:28px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#FFF4E8,#F2C6A2 60%,#D99B72);border:3px solid #081A2E;box-shadow:0 0 0 2px rgba(242,198,162,.7),0 8px 20px rgba(0,0,0,.5);cursor:grab}
+.qz-range input:focus-visible::-webkit-slider-thumb{box-shadow:0 0 0 6px rgba(242,198,162,.35)}
+.qz-ticks{display:flex;justify-content:space-between;padding:0 12px;margin-top:12px;font-size:11px;color:var(--muted2)}
+.qz-ticks span{width:10px;text-align:center}
+.qz-ends{display:flex;justify-content:space-between;margin-top:8px;font-size:12.5px;color:var(--mist2)}
+.qz-slide .qz-back{margin-top:18px}
+.qz-badge{display:inline-flex;align-items:center;gap:10px;font-size:13px!important;color:var(--copper-l)!important;margin:-6px auto 26px!important}
+.qz-inter .qz-badge{display:flex;justify-content:center}
+.qz-badge i{flex:0 0 14px;height:14px;background:#F2C6A2;clip-path:polygon(50% 0,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%)}
+.qz-result .qz-badge{display:flex;justify-content:center;margin:4px auto 18px!important}
+@media (max-width:520px){.qz-val b{font-size:2.5rem}.qz-scene{border-radius:20px}}
+@media (max-width:860px){.qz-trust{justify-content:center}.qz-hero .ctas{justify-content:center}
+.qz-dim{grid-template-columns:1fr auto}.qz-dim .lb{grid-row:1;grid-column:1}.qz-dim .vl{grid-row:1;grid-column:2;white-space:nowrap}.qz-dim .tr{grid-row:2;grid-column:1/3}}
 </style>
 </head>
-<body>
-<div class="progress" id="progress"></div>
-<nav id="nav">
-  <div class="nav-shell">
-    <a class="logo" href="index.html"><img src="logo-header-dunkel.svg" alt="Dr. André Alesi"></a>
-    <div class="nav-links">
-      <a href="index.html">Start</a>
-      <a href="ueber-mich.html">Über mich</a>
-      <a href="schlaftest.html" class="active">Schlaftest</a>
-      <a href="kurs.html">Schlafkurs</a>
-      <a href="kontakt.html">Kontakt</a>
-    </div>
-    <div class="nav-right">
-      <a href="kurs.html" class="btn nav-btn">Kurs starten <span class="arr">→</span></a>
-      <button class="burger" id="burger" aria-label="Menü öffnen">
-        <svg class="ic-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
-        <svg class="ic-x" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg>
-      </button>
-    </div>
-    <div class="nav-panel">
-      <a href="index.html">Start</a>
-      <a href="ueber-mich.html">Über mich</a>
-      <a href="schlaftest.html">Schlaftest</a>
-      <a href="kurs.html">Schlafkurs</a>
-      <a href="kontakt.html">Kontakt</a>
-      <div class="panel-cta"><a href="kurs.html" class="btn">Kurs starten <span class="arr">→</span></a></div>
-    </div>
+<body id="top">
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<linearGradient id="sgDisc" x1="6" y1="0" x2="47" y2="0" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#5F7FA3"/><stop offset="1" stop-color="#F4F1EC"/></linearGradient>
+<linearGradient id="sgMoon" x1="54" y1="22" x2="92" y2="98" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#F2C6A2"/><stop offset=".55" stop-color="#D99B72"/><stop offset="1" stop-color="#B9764D"/></linearGradient>
+<linearGradient id="sgDiscW" x1="6" y1="0" x2="47" y2="0" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#8F9BAB"/><stop offset=".55" stop-color="#D9DEE5"/><stop offset="1" stop-color="#FFFFFF"/></linearGradient>
+<symbol id="signetW" viewBox="0 0 100 120"><path d="M46.5 20a40 40 0 0 0 0 80z" fill="url(#sgDiscW)"/><rect x="48.6" y="5" width="3.4" height="110" rx="1.2" fill="#fff"/><path d="M55 22a38 38 0 0 1 0 76a25 38 0 0 0 0-76z" fill="#fff"/></symbol>
+<symbol id="signet" viewBox="0 0 100 120"><path d="M46.5 20a40 40 0 0 0 0 80z" fill="url(#sgDisc)"/><rect x="48.6" y="5" width="3.4" height="110" rx="1.2" fill="#fff"/><path d="M55 22a38 38 0 0 1 0 76a25 38 0 0 0 0-76z" fill="url(#sgMoon)"/></symbol>
+</defs></svg>
+<header class="nav" id="nav">
+  <div class="wrap">
+    <a href="index.html" class="logo" aria-label="Dr. André Alesi, Startseite"><svg viewBox="0 0 100 120"><use href="#signetW"/></svg><span class="div"></span><span class="wm"><b>DR. ANDRÉ ALESI</b><small>SLEEP TO <i>LIFE</i></small></span></a>
+    <ul><li><a href="index.html">Start</a></li><li><a href="ueber-mich.html">Über mich</a></li><li><a href="schlaftest.html" class="on">Schlaftest</a></li><li><a href="kurs.html">Schlafkurs</a></li><li><a href="kontakt.html">Kontakt</a></li></ul>
+    <a href="kurs.html" class="btn btn-cu desk">Kurs starten <span class="ar">→</span></a>
+    <button class="burger" id="burger" aria-label="Menü öffnen" aria-expanded="false"><span></span></button>
   </div>
-</nav>
+</header>
+<div class="mpanel"><a class="m" href="index.html">Start</a><a class="m" href="ueber-mich.html">Über mich</a><a class="m" href="schlaftest.html">Schlaftest</a><a class="m" href="kurs.html">Schlafkurs</a><a class="m" href="kontakt.html">Kontakt</a><a href="schlaftest.html" class="btn btn-cu">Schlaftest starten <span class="ar">→</span></a></div>
 
 <main class="qz-outer">
-  <div class="stars"></div>
-  <div class="orb" style="width:420px;height:420px;right:-160px;top:60px"></div>
-  <div class="orb" style="width:380px;height:380px;left:-150px;bottom:-100px"></div>
+  <div class="grain"></div>
+  <div class="hyline" aria-hidden="true"><svg viewBox="0 0 1440 400" preserveAspectRatio="none"><path class="l1" d="M0.0 56.9 L12.0 74.1 L24.0 101.8 L36.0 137.2 L48.0 174.1 L60.0 207.6 L72.0 235.9 L84.0 259.6 L96.0 278.5 L108.0 291.6 L120.0 299.0 L132.0 302.4 L144.0 303.6 L156.0 303.8 L168.0 302.9 L180.0 300.1 L192.0 293.7 L204.0 281.6 L216.0 263.5 L228.0 241.1 L240.0 217.9 L252.0 198.7 L264.0 187.5 L276.0 186.3 L288.0 192.9 L300.0 202.8 L312.0 212.2 L324.0 221.0 L336.0 231.6 L348.0 245.9 L360.0 262.8 L372.0 279.1 L384.0 291.1 L396.0 296.8 L408.0 296.0 L420.0 288.6 L432.0 274.8 L444.0 256.3 L456.0 235.7 L468.0 214.7 L480.0 193.6 L492.0 173.5 L504.0 157.1 L516.0 148.2 L528.0 149.6 L540.0 160.5 L552.0 177.2 L564.0 193.8 L576.0 206.3 L588.0 214.2 L600.0 220.0 L612.0 227.1 L624.0 238.0 L636.0 252.0 L648.0 264.9 L660.0 271.0 L672.0 267.2 L684.0 255.0 L696.0 239.2 L708.0 223.2 L720.0 207.3 L732.0 190.3 L744.0 172.4 L756.0 156.6 L768.0 146.9 L780.0 145.8 L792.0 153.5 L804.0 167.9 L816.0 184.7 L828.0 199.4 L840.0 209.2 L852.0 214.6 L864.0 217.6 L876.0 220.5 L888.0 225.2 L900.0 232.1 L912.0 239.2 L924.0 242.5 L936.0 239.4 L948.0 230.2 L960.0 216.7 L972.0 200.3 L984.0 181.9 L996.0 163.7 L1008.0 148.4 L1020.0 138.3 L1032.0 132.9 L1044.0 131.4 L1056.0 134.3 L1068.0 143.4 L1080.0 159.0 L1092.0 178.0 L1104.0 195.4 L1116.0 207.4 L1128.0 213.7 L1140.0 215.7 L1152.0 215.2 L1164.0 212.2 L1176.0 207.5 L1188.0 202.6 L1200.0 200.1 L1212.0 201.6 L1224.0 206.2 L1236.0 210.9 L1248.0 213.5 L1260.0 212.6 L1272.0 207.0 L1284.0 196.1 L1296.0 180.5 L1308.0 163.3 L1320.0 148.6 L1332.0 138.8 L1344.0 133.4 L1356.0 130.3 L1368.0 126.9 L1380.0 120.6 L1392.0 109.4 L1404.0 93.8 L1416.0 76.7 L1428.0 62.0 L1440.0 52.1"/><path class="l2" d="M0.0 82.9 L12.0 100.1 L24.0 127.8 L36.0 163.2 L48.0 200.1 L60.0 233.6 L72.0 261.9 L84.0 285.6 L96.0 304.5 L108.0 317.6 L120.0 325.0 L132.0 328.4 L144.0 329.6 L156.0 329.8 L168.0 328.9 L180.0 326.1 L192.0 319.7 L204.0 307.6 L216.0 289.5 L228.0 267.1 L240.0 243.9 L252.0 224.7 L264.0 213.5 L276.0 212.3 L288.0 218.9 L300.0 228.8 L312.0 238.2 L324.0 247.0 L336.0 257.6 L348.0 271.9 L360.0 288.8 L372.0 305.1 L384.0 317.1 L396.0 322.8 L408.0 322.0 L420.0 314.6 L432.0 300.8 L444.0 282.3 L456.0 261.7 L468.0 240.7 L480.0 219.6 L492.0 199.5 L504.0 183.1 L516.0 174.2 L528.0 175.6 L540.0 186.5 L552.0 203.2 L564.0 219.8 L576.0 232.3 L588.0 240.2 L600.0 246.0 L612.0 253.1 L624.0 264.0 L636.0 278.0 L648.0 290.9 L660.0 297.0 L672.0 293.2 L684.0 281.0 L696.0 265.2 L708.0 249.2 L720.0 233.3 L732.0 216.3 L744.0 198.4 L756.0 182.6 L768.0 172.9 L780.0 171.8 L792.0 179.5 L804.0 193.9 L816.0 210.7 L828.0 225.4 L840.0 235.2 L852.0 240.6 L864.0 243.6 L876.0 246.5 L888.0 251.2 L900.0 258.1 L912.0 265.2 L924.0 268.5 L936.0 265.4 L948.0 256.2 L960.0 242.7 L972.0 226.3 L984.0 207.9 L996.0 189.7 L1008.0 174.4 L1020.0 164.3 L1032.0 158.9 L1044.0 157.4 L1056.0 160.3 L1068.0 169.4 L1080.0 185.0 L1092.0 204.0 L1104.0 221.4 L1116.0 233.4 L1128.0 239.7 L1140.0 241.7 L1152.0 241.2 L1164.0 238.2 L1176.0 233.5 L1188.0 228.6 L1200.0 226.1 L1212.0 227.6 L1224.0 232.2 L1236.0 236.9 L1248.0 239.5 L1260.0 238.6 L1272.0 233.0 L1284.0 222.1 L1296.0 206.5 L1308.0 189.3 L1320.0 174.6 L1332.0 164.8 L1344.0 159.4 L1356.0 156.3 L1368.0 152.9 L1380.0 146.6 L1392.0 135.4 L1404.0 119.8 L1416.0 102.7 L1428.0 88.0 L1440.0 78.1"/><path class="l3" d="M0.0 108.9 L12.0 126.1 L24.0 153.8 L36.0 189.2 L48.0 226.1 L60.0 259.6 L72.0 287.9 L84.0 311.6 L96.0 330.5 L108.0 343.6 L120.0 351.0 L132.0 354.4 L144.0 355.6 L156.0 355.8 L168.0 354.9 L180.0 352.1 L192.0 345.7 L204.0 333.6 L216.0 315.5 L228.0 293.1 L240.0 269.9 L252.0 250.7 L264.0 239.5 L276.0 238.3 L288.0 244.9 L300.0 254.8 L312.0 264.2 L324.0 273.0 L336.0 283.6 L348.0 297.9 L360.0 314.8 L372.0 331.1 L384.0 343.1 L396.0 348.8 L408.0 348.0 L420.0 340.6 L432.0 326.8 L444.0 308.3 L456.0 287.7 L468.0 266.7 L480.0 245.6 L492.0 225.5 L504.0 209.1 L516.0 200.2 L528.0 201.6 L540.0 212.5 L552.0 229.2 L564.0 245.8 L576.0 258.3 L588.0 266.2 L600.0 272.0 L612.0 279.1 L624.0 290.0 L636.0 304.0 L648.0 316.9 L660.0 323.0 L672.0 319.2 L684.0 307.0 L696.0 291.2 L708.0 275.2 L720.0 259.3 L732.0 242.3 L744.0 224.4 L756.0 208.6 L768.0 198.9 L780.0 197.8 L792.0 205.5 L804.0 219.9 L816.0 236.7 L828.0 251.4 L840.0 261.2 L852.0 266.6 L864.0 269.6 L876.0 272.5 L888.0 277.2 L900.0 284.1 L912.0 291.2 L924.0 294.5 L936.0 291.4 L948.0 282.2 L960.0 268.7 L972.0 252.3 L984.0 233.9 L996.0 215.7 L1008.0 200.4 L1020.0 190.3 L1032.0 184.9 L1044.0 183.4 L1056.0 186.3 L1068.0 195.4 L1080.0 211.0 L1092.0 230.0 L1104.0 247.4 L1116.0 259.4 L1128.0 265.7 L1140.0 267.7 L1152.0 267.2 L1164.0 264.2 L1176.0 259.5 L1188.0 254.6 L1200.0 252.1 L1212.0 253.6 L1224.0 258.2 L1236.0 262.9 L1248.0 265.5 L1260.0 264.6 L1272.0 259.0 L1284.0 248.1 L1296.0 232.5 L1308.0 215.3 L1320.0 200.6 L1332.0 190.8 L1344.0 185.4 L1356.0 182.3 L1368.0 178.9 L1380.0 172.6 L1392.0 161.4 L1404.0 145.8 L1416.0 128.7 L1428.0 114.0 L1440.0 104.1"/></svg></div>
   <div class="qz-wrap">
     <div class="qz-progress" id="qzProgress">
-      <div class="track"><div class="fill" id="qzFill"></div></div>
-      <div class="meta"><span id="qzStep">Frage 1 von 13</span><span id="qzPct">0%</span></div>
+      <div class="track"><div class="fill" id="qzFill"></div><span class="moon" id="qzMoon"></span></div>
+      <div class="meta"><span id="qzStep">Frage 1 von 13</span><span id="qzTime">Deine Testnacht · 23:00 Uhr</span></div>
+      <div class="qz-stars" id="qzStars" aria-hidden="true"></div>
     </div>
     <div id="qzApp" aria-live="polite"></div>
-    <noscript><p style="text-align:center;color:#8A93A8">Für den Schlaftest muss JavaScript aktiviert sein.</p></noscript>
+    <noscript><p style="text-align:center;color:var(--mist)">Für den Schlaftest muss JavaScript aktiviert sein.</p></noscript>
   </div>
 </main>
-
-<footer style="background:#0A0E14;border-top:1px solid var(--line-dark);padding:26px 20px;text-align:center">
-  <div style="font-size:11.5px;color:var(--muted2);line-height:1.8">
-    © 2026 <strong style="color:var(--muted);font-weight:500">Dr. André Alesi</strong> ·
-    <a href="impressum.html" style="color:var(--muted2)">Impressum</a> ·
-    <a href="datenschutz.html" style="color:var(--muted2)">Datenschutz</a><br>
-    Der Sleep Score ist ein orientierender Selbstcheck und ersetzt keine ärztliche Diagnose oder Behandlung.
+<footer class="fmini">
+  <div class="wrap">
+    <span>© 2026 Dr. André Alesi</span>
+    <nav><a href="index.html">Start</a><a href="impressum.html">Impressum</a><a href="datenschutz.html">Datenschutz</a></nav>
+    <p>Der Sleep Score ist ein orientierender Selbstcheck und ersetzt keine ärztliche Diagnose oder Behandlung.</p>
   </div>
 </footer>
-<script src="site.js"></script>
-
+<script src="assets/sleep.js"></script>
 <script>
 /* ═══ Dr. André Alesi · Sleep Score ═══
    Scoring nach dem eigenen 5-Dimensionen-Modell (Version 1):
    Antwortwerte 100/67/33/0 · Dimension = Mittel aus 2 Fragen ·
-   Score = S*.20 + M*.20 + E*.20 + D*.25 + T*.15, gerundet. */
+   Score = S*.20 + M*.20 + E*.20 + D*.25 + T*.15, gerundet.
+   Regler-Fragen (1 bis 10) werden linear umgerechnet: 1 = 0, 4 = 33, 7 = 67, 10 = 100.
+   Damit treffen sie genau die Stufen des Modells. */
 (function(){
 'use strict';
 
@@ -255,8 +309,10 @@ var CTX_HINTS = {
     p:'Du nutzt häufiger Mittel zum Einschlafen. Das ist keine Bewertung und keine medizinische Empfehlung. Bei regelmäßiger Einnahme sprich am besten mit deiner Ärztin oder deinem Arzt.'}
 };
 
+/* Regler-Szenen: Mond (Schlafqualität), Sonnenaufgang (Erholung), Signet (Zufriedenheit) */
 var Q = [
   {qn:1, dim:'S', eyebrow:'Schlafqualität', q:'Wie würdest du deine Schlafqualität insgesamt einschätzen?',
+   slider:{scene:'moon', lo:'Sehr schlecht', hi:'Sehr gut', words:['Sehr unruhig','Eher unruhig','Mittelmäßig','Eher erholsam','Sehr erholsam']},
    o:['Sehr gut','Eher gut','Eher schlecht','Sehr schlecht']},
   {qn:2, dim:'E', eyebrow:'Einschlafen', q:'Wie lange brauchst du normalerweise, um einzuschlafen?',
    o:['15 Minuten oder weniger','16 bis 30 Minuten','31 bis 60 Minuten','Mehr als 60 Minuten']},
@@ -265,6 +321,7 @@ var Q = [
   {qn:4, dim:'D', eyebrow:'Durchschlafen', q:'Wie häufig wachst du nachts auf oder schläfst unruhig?',
    o:['Nie oder selten','Manchmal','Häufig','Sehr häufig']},
   {qn:5, dim:'D', eyebrow:'Regeneration', q:'Wie erholt fühlst du dich morgens?',
+   slider:{scene:'sun', lo:'Wie gerädert', hi:'Rundum erholt', words:['Wie gerädert','Eher müde','Geht so','Eher erholt','Rundum erholt']},
    o:['Sehr erholt','Eher erholt','Eher müde','Sehr müde']},
   {qn:6, dim:'T', eyebrow:'Tagesenergie', q:'Wie häufig fühlst du dich tagsüber müde oder schläfrig?',
    o:['Nie','Selten','Häufiger','Sehr häufig']},
@@ -281,6 +338,7 @@ var Q = [
   {qn:12, ctx:'mittel', eyebrow:'Gewohnheiten', q:'Wie häufig nutzt du Schlafmittel oder andere Mittel gezielt zum Einschlafen?',
    o:['Nie','Selten','Häufiger','Sehr häufig']},
   {qn:13, dim:'S', eyebrow:'Zufriedenheit', q:'Wie zufrieden bist du insgesamt mit deinem Schlaf?',
+   slider:{scene:'signet', lo:'Gar nicht', hi:'Rundum zufrieden', words:['Gar nicht zufrieden','Eher unzufrieden','Teils, teils','Eher zufrieden','Rundum zufrieden']},
    o:['Sehr zufrieden','Eher zufrieden','Eher unzufrieden','Sehr unzufrieden']}
 ];
 var QMAP = {S:[0,12], M:[2,7], E:[1,8], D:[3,4], T:[5,6]};
@@ -300,14 +358,17 @@ function $app(){ return document.getElementById('qzApp'); }
 function esc(s){ return s.replace(/[&<>"]/g, function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];}); }
 function personName(pre){ return state.name ? pre + esc(state.name) : ''; }
 
+/* Punkte einer Antwort: Regler 1 bis 10 linear, sonst Stufen 100/67/33/0 */
+function val(idx){
+  var a = state.answers[idx];
+  if (Q[idx].slider) return (a - 1) / 9 * 100;
+  return VALS[a];
+}
+
 /* ── Scoring ── */
 function computeResult(){
   var dims = {}, k;
-  for (k in QMAP){
-    var a = VALS[state.answers[QMAP[k][0]]];
-    var b = VALS[state.answers[QMAP[k][1]]];
-    dims[k] = (a + b) / 2;
-  }
+  for (k in QMAP){ dims[k] = (val(QMAP[k][0]) + val(QMAP[k][1])) / 2; }
   var score = 0;
   for (k in DIMS){ score += dims[k] * DIMS[k].w; }
   score = Math.round(score);
@@ -322,39 +383,108 @@ function computeResult(){
   return {score:score, dims:dims, hebel:hebel, cat:cat, hints:hints};
 }
 
-/* ── Progress ── */
+/* ── Fortschritt als Nacht: der Mond wandert von 23:00 bis 07:00, jede Antwort zündet einen Stern ── */
 function updateProgress(step){
   var wrap = document.getElementById('qzProgress');
   if (!step || !step.q){ wrap.classList.remove('show'); return; }
   wrap.classList.add('show');
-  var pct = Math.round((step.q.qn - 1) / TOTAL_Q * 100);
-  document.getElementById('qzFill').style.width = pct + '%';
+  var p = (step.q.qn - 1) / TOTAL_Q;
+  document.getElementById('qzFill').style.width = (p * 100) + '%';
+  document.getElementById('qzMoon').style.left = (p * 100) + '%';
   document.getElementById('qzStep').textContent = 'Frage ' + step.q.qn + ' von ' + TOTAL_Q;
-  document.getElementById('qzPct').textContent = pct + '%';
+  var mins = Math.round(p * 480), hh = (23 + Math.floor(mins / 60)) % 24, mm = Math.floor(mins % 60 / 15) * 15;
+  document.getElementById('qzTime').textContent = 'Deine Testnacht · ' + (hh < 10 ? '0' : '') + hh + ':' + (mm < 10 ? '0' : '') + mm + ' Uhr';
+  var stars = document.getElementById('qzStars'), n = Object.keys(state.answers).length;
+  if (!stars.children.length){ for (var i = 0; i < TOTAL_Q; i++){ var d = document.createElement('i'); stars.appendChild(d); } }
+  [].forEach.call(stars.children, function(d, i){ d.classList.toggle('on', i < n); });
 }
+function lightStar(){
+  var stars = document.getElementById('qzStars'); if (!stars) return;
+  var n = Object.keys(state.answers).length, d = stars.children[n - 1];
+  if (d && !d.classList.contains('on')){ d.classList.add('on', 'pop'); setTimeout(function(){ d.classList.remove('pop'); }, 700); }
+}
+
+/* ── Szenen für die Regler (SVG, ändern sich bei jedem Wert) ── */
+function lerp(a, b, t){ return a + (b - a) * t; }
+function mix(c1, c2, t){
+  var a = [parseInt(c1.slice(1,3),16), parseInt(c1.slice(3,5),16), parseInt(c1.slice(5,7),16)];
+  var b = [parseInt(c2.slice(1,3),16), parseInt(c2.slice(3,5),16), parseInt(c2.slice(5,7),16)];
+  return 'rgb(' + a.map(function(x, i){ return Math.round(lerp(x, b[i], t)); }).join(',') + ')';
+}
+var STAR_POS = [[22,30],[60,18],[96,44],[132,22],[170,36],[206,16],[244,40],[284,24],[40,70],[118,74],[194,64],[262,78],[300,52],[78,96],[226,100],[150,110],[18,118],[296,112],[110,132],[246,140]];
+function starsSvg(n, op){
+  var s = '';
+  for (var i = 0; i < Math.min(n, STAR_POS.length); i++){
+    var r = i % 3 === 0 ? 1.6 : 1.1;
+    s += '<circle class="tw" style="animation-delay:' + (i * .37 % 3).toFixed(2) + 's" cx="' + STAR_POS[i][0] + '" cy="' + STAR_POS[i][1] + '" r="' + r + '" fill="#fff" opacity="' + op + '"/>';
+  }
+  return s;
+}
+function scene(kind, v){
+  var p = (v - 1) / 9, s = '<svg viewBox="0 0 320 200" aria-hidden="true"><defs>';
+  if (kind === 'moon'){
+    var R = 34, cx = 160, cy = 92, off = lerp(10, 2 * R + 4, p);   /* Schatten wandert weg: schmale Sichel wird zum Vollmond */
+    if (p > .97) off = 400;
+    s += '<linearGradient id="skM" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="' + mix('#050F1D', '#0E2A4D', p) + '"/><stop offset="1" stop-color="' + mix('#0A1B30', '#1B4373', p) + '"/></linearGradient>';
+    s += '<radialGradient id="glM"><stop offset="0" stop-color="#F2C6A2" stop-opacity="' + (.15 + .45 * p).toFixed(2) + '"/><stop offset="1" stop-color="#F2C6A2" stop-opacity="0"/></radialGradient>';
+    s += '<mask id="mkM"><rect width="320" height="200" fill="#000"/><circle cx="' + cx + '" cy="' + cy + '" r="' + R + '" fill="#fff"/><circle cx="' + (cx - off) + '" cy="' + cy + '" r="' + (R + 1) + '" fill="#000"/></mask>';
+    s += '<linearGradient id="mnM" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFF4E8"/><stop offset="1" stop-color="#F2C6A2"/></linearGradient></defs>';
+    s += '<rect width="320" height="200" fill="url(#skM)"/>' + starsSvg(4 + Math.round(p * 16), (.35 + .55 * p).toFixed(2));
+    s += '<circle cx="' + cx + '" cy="' + cy + '" r="' + (R + 18 + 40 * p) + '" fill="url(#glM)"/>';
+    s += '<circle cx="' + cx + '" cy="' + cy + '" r="' + R + '" fill="#1E3550" opacity=".55"/>';
+    s += '<circle cx="' + cx + '" cy="' + cy + '" r="' + R + '" fill="url(#mnM)" mask="url(#mkM)"/>';
+    s += '<path d="M0 168 C60 152 110 160 160 154 C215 147 262 158 320 150 V200 H0Z" fill="#06142A" opacity=".9"/>';
+  } else if (kind === 'sun'){
+    var sy = lerp(190, 64, p), hor = 150;
+    s += '<linearGradient id="skS" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="' + mix('#071426', '#3B6E9E', p) + '"/><stop offset=".72" stop-color="' + mix('#0D2440', '#F2A877', p) + '"/><stop offset="1" stop-color="' + mix('#122C4C', '#FFD9B8', p) + '"/></linearGradient>';
+    s += '<radialGradient id="glS"><stop offset="0" stop-color="#FFD7A8" stop-opacity="' + (.2 + .6 * p).toFixed(2) + '"/><stop offset="1" stop-color="#FFB27A" stop-opacity="0"/></radialGradient>';
+    s += '<clipPath id="cpS"><rect width="320" height="' + hor + '"/></clipPath></defs>';
+    s += '<rect width="320" height="200" fill="url(#skS)"/>' + starsSvg(Math.round((1 - p) * 14), (.7 * (1 - p)).toFixed(2));
+    s += '<g clip-path="url(#cpS)"><circle cx="160" cy="' + sy + '" r="' + (70 + 40 * p) + '" fill="url(#glS)"/>';
+    var rays = '';
+    for (var k = 0; k < 12; k++){ var a = k / 12 * Math.PI * 2, r1 = 36, r2 = 36 + 14 * p; rays += '<line x1="' + (160 + Math.cos(a) * r1).toFixed(1) + '" y1="' + (sy + Math.sin(a) * r1).toFixed(1) + '" x2="' + (160 + Math.cos(a) * r2).toFixed(1) + '" y2="' + (sy + Math.sin(a) * r2).toFixed(1) + '"/>'; }
+    s += '<g class="rays" stroke="#FFE2C2" stroke-width="2" stroke-linecap="round" opacity="' + (p * .9).toFixed(2) + '">' + rays + '</g>';
+    s += '<circle cx="160" cy="' + sy + '" r="26" fill="' + mix('#E07A45', '#FFE7CC', p) + '"/></g>';
+    s += '<path d="M0 ' + hor + ' C70 140 110 146 160 141 C220 135 262 145 320 138 V200 H0Z" fill="' + mix('#04101F', '#274768', p) + '"/>';
+    s += '<path d="M0 172 C80 160 140 170 200 163 C250 158 290 165 320 160 V200 H0Z" fill="' + mix('#030B16', '#1B3554', p) + '"/>';
+  } else {
+    /* Signet von Dr. André Alesi lädt sich mit Licht auf */
+    var h = lerp(0, 120, p);
+    s += '<linearGradient id="skG" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#081A2E"/><stop offset="1" stop-color="' + mix('#0D2440', '#2A4E78', p) + '"/></linearGradient>';
+    s += '<linearGradient id="cuG" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#B9764D"/><stop offset=".6" stop-color="#D99B72"/><stop offset="1" stop-color="#FFE7CC"/></linearGradient>';
+    s += '<radialGradient id="glG"><stop offset="0" stop-color="#F2C6A2" stop-opacity="' + (.1 + .5 * p).toFixed(2) + '"/><stop offset="1" stop-color="#F2C6A2" stop-opacity="0"/></radialGradient>';
+    s += '<clipPath id="fiG"><rect x="0" y="' + (120 - h).toFixed(1) + '" width="100" height="' + h.toFixed(1) + '"/></clipPath>';
+    s += '<g id="sgG"><path d="M46.5 20a40 40 0 0 0 0 80z"/><rect x="48.6" y="5" width="3.4" height="110" rx="1.2"/><path d="M55 22a38 38 0 0 1 0 76a25 38 0 0 0 0-76z"/></g></defs>';
+    s += '<rect width="320" height="200" fill="url(#skG)"/>' + starsSvg(3 + Math.round(p * 12), (.3 + .5 * p).toFixed(2));
+    s += '<circle cx="160" cy="100" r="' + (60 + 50 * p) + '" fill="url(#glG)"/>';
+    s += '<g transform="translate(102.5 31) scale(1.15)"><use href="#sgG" fill="#22384F"/><use href="#sgG" fill="url(#cuG)" clip-path="url(#fiG)"/></g>';
+  }
+  return s + '</svg>';
+}
+function word(q, v){ return q.slider.words[Math.min(4, Math.floor((v - 1) / 2))]; }
 
 /* ── Screens ── */
 function renderHero(){
   $app().innerHTML =
   '<section class="qz-screen qz-hero">' +
     '<div>' +
-      '<div class="eyebrow">Der kostenlose 3-Minuten-Schlafcheck</div>' +
+      '<span class="eyebrow">Der kostenlose Schlaftest</span>' +
       '<h1>Wie gut schläfst du <span class="ac">wirklich?</span></h1>' +
-      '<p class="lead">13 kurze Fragen. Dein persönlicher <b>Sleep Score</b> von 0 bis 100. Und dein größter Hebel für bessere Nächte.</p>' +
-      '<button class="btn lg" onclick="qzNext()">Jetzt Sleep Score berechnen <span class="arr">→</span></button>' +
-      '<div class="qz-micro">Kostenlos · dauert rund 3 Minuten · Ergebnis sofort</div>' +
+      '<p class="lead">13 kurze Fragen, rund drei Minuten. Du bekommst deinen persönlichen <b>Sleep Score</b> von 0 bis 100, deine fünf Teilbereiche und deinen größten Hebel für bessere Nächte.</p>' +
+      '<button class="btn btn-cu lg" onclick="qzNext()">Jetzt Sleep Score berechnen <span class="ar">→</span></button>' +
+      '<div class="qz-trust"><span>Kostenlos</span><span>Rund 3 Minuten</span><span>Ergebnis sofort</span><span>Entwickelt von Dr. André Alesi</span></div>' +
       '<div class="qz-steps">' +
-        '<span class="qz-step"><b>1</b> Fragen beantworten</span>' +
-        '<span class="qz-step"><b>2</b> Sleep Score erhalten</span>' +
-        '<span class="qz-step"><b>3</b> Größten Hebel entdecken</span>' +
+        '<span class="qz-step"><b>1</b> Durch die Testnacht</span>' +
+        '<span class="qz-step"><b>2</b> 13 Sterne sammeln</span>' +
+        '<span class="qz-step"><b>3</b> Sleep Score erhalten</span>' +
       '</div>' +
     '</div>' +
     '<div class="qz-preview glass">' +
       '<span class="pv-badge">Vorschau</span>' +
       '<div class="pv-eyebrow">Dein Ergebnis</div>' +
       '<div class="pv-ring">' +
-        '<svg viewBox="0 0 132 132"><circle cx="66" cy="66" r="57" fill="none" stroke="rgba(244,244,242,.08)" stroke-width="8"/>' +
-        '<circle cx="66" cy="66" r="57" fill="none" stroke="#BB8961" stroke-width="8" stroke-linecap="round" stroke-dasharray="358" stroke-dashoffset="126"/></svg>' +
+        '<svg viewBox="0 0 132 132"><circle cx="66" cy="66" r="57" fill="none" stroke="rgba(255,255,255,.1)" stroke-width="8"/>' +
+        '<circle cx="66" cy="66" r="57" fill="none" stroke="#D99B72" stroke-width="8" stroke-linecap="round" stroke-dasharray="358" stroke-dashoffset="126"/></svg>' +
         '<div class="num">63<small>VON 100</small></div>' +
       '</div>' +
       '<div class="pv-bars">' +
@@ -377,14 +507,42 @@ function renderName(){
     '<p class="qz-helper">Nur dein Vorname. Damit sich dein Ergebnis nach dir anfühlt.</p>' +
     '<form onsubmit="qzName(event)">' +
       '<input type="text" id="qzNameInput" placeholder="Dein Vorname" autocomplete="given-name" autofocus>' +
-      '<div style="margin-top:20px"><button type="submit" class="btn">Weiter <span class="arr">→</span></button></div>' +
+      '<div style="margin-top:20px"><button type="submit" class="btn btn-cu">Weiter <span class="ar">→</span></button></div>' +
     '</form>' +
     '<button class="qz-skip" onclick="qzSkipName()">Lieber ohne Namen fortfahren</button>' +
   '</section>';
 }
 
+function renderSlider(step){
+  var q = step.q, idx = Q.indexOf(q);
+  var v = state.answers[idx] || 5;
+  $app().innerHTML =
+  '<section class="qz-screen qz-slide">' +
+    '<div class="qz-eyebrow">' + q.eyebrow + '</div>' +
+    '<h2>' + esc(q.q) + '</h2>' +
+    '<p class="qz-helper">Zieh den Regler. 1 heißt ' + q.slider.lo.toLowerCase() + ', 10 heißt ' + q.slider.hi.toLowerCase() + '.</p>' +
+    '<div class="qz-scene" id="qzScene">' + scene(q.slider.scene, v) + '</div>' +
+    '<div class="qz-val"><b id="qzV">' + v + '</b><span>/ 10</span><em id="qzW">' + word(q, v) + '</em></div>' +
+    '<div class="qz-range"><input type="range" id="qzRange" min="1" max="10" step="1" value="' + v + '" aria-label="' + esc(q.q) + '">' +
+      '<div class="qz-ticks">' + [1,2,3,4,5,6,7,8,9,10].map(function(n){ return '<span>' + n + '</span>'; }).join('') + '</div>' +
+      '<div class="qz-ends"><span>' + q.slider.lo + '</span><span>' + q.slider.hi + '</span></div></div>' +
+    '<button class="btn btn-cu" onclick="qzSlide(' + idx + ')">Weiter <span class="ar">→</span></button>' +
+    '<div><button class="qz-back" onclick="qzBack()">← Zurück</button></div>' +
+  '</section>';
+  var r = document.getElementById('qzRange');
+  function paint(){ var x = +r.value; r.style.setProperty('--p', ((x - 1) / 9 * 100) + '%'); }
+  paint();
+  r.addEventListener('input', function(){
+    var x = +r.value; paint();
+    document.getElementById('qzScene').innerHTML = scene(q.slider.scene, x);
+    var b = document.getElementById('qzV'); b.textContent = x; b.classList.remove('bump'); void b.offsetWidth; b.classList.add('bump');
+    document.getElementById('qzW').textContent = word(q, x);
+  });
+}
+
 function renderQuestion(step){
   var q = step.q;
+  if (q.slider){ renderSlider(step); return; }
   var sel = state.answers[Q.indexOf(q)];
   $app().innerHTML =
   '<section class="qz-screen">' +
@@ -407,8 +565,9 @@ function renderInter1(){
   '<section class="qz-screen qz-inter">' +
     '<div class="qz-eyebrow">Gut zu wissen</div>' +
     '<div class="big">90 Min.</div>' +
-    '<p>Schlaf läuft in Wellen von rund 90 Minuten. <b>Entscheidend ist nicht nur, wie lange du schläfst</b>, sondern wie gut deine Nacht aufgebaut ist. Genau das schauen wir uns gerade an.</p>' +
-    '<button class="btn" onclick="qzNext()">Weiter <span class="arr">→</span></button>' +
+    '<p>So lange dauert ein Schlafzyklus ungefähr. Vier bis sechs davon durchläufst du pro Nacht. <b>Entscheidend ist nicht nur, wie lange du schläfst,</b> sondern wie gut deine Nacht aufgebaut ist. Genau das schauen wir uns an.</p>' +
+    '<p class="qz-badge"><i></i>5 von 13 Sternen gesammelt. Weiter so' + personName(', ') + '.</p>' +
+    '<button class="btn btn-cu" onclick="qzNext()">Weiter <span class="ar">→</span></button>' +
   '</section>';
 }
 
@@ -416,9 +575,10 @@ function renderInter2(){
   $app().innerHTML =
   '<section class="qz-screen qz-inter">' +
     '<div class="qz-eyebrow">Fast geschafft' + personName(', ') + '</div>' +
-    '<div class="big">3 Fragen</div>' +
-    '<p>Zum Schluss noch kurz zu deinen <b>Gewohnheiten</b>. Diese Antworten fließen nicht in deinen Score ein. Sie machen deine Auswertung aber persönlicher.</p>' +
-    '<button class="btn" onclick="qzNext()">Weiter <span class="arr">→</span></button>' +
+    '<div class="big">4 Fragen</div>' +
+    '<p>Drei kurze Fragen zu deinen <b>Gewohnheiten</b>, dann noch eine zum Abschluss. Die Gewohnheiten fließen nicht in deinen Score ein. Sie machen deine Auswertung aber persönlicher.</p>' +
+    '<p class="qz-badge"><i></i>9 von 13 Sternen gesammelt. Der Morgen ist in Sicht.</p>' +
+    '<button class="btn btn-cu" onclick="qzNext()">Weiter <span class="ar">→</span></button>' +
   '</section>';
 }
 
@@ -457,11 +617,12 @@ function buildResultBody(r, animate){
     '<div class="qz-eyebrow" style="justify-content:center;display:flex">Dein persönlicher Sleep Score' + personName(', ') + '</div>' +
     '<div class="qz-ring">' +
       '<svg viewBox="0 0 200 200"><defs><linearGradient id="qzGrad" x1="0" y1="0" x2="1" y2="1">' +
-      '<stop offset="0" stop-color="#D2A47D"/><stop offset="1" stop-color="#A5754E"/></linearGradient></defs>' +
+      '<stop offset="0" stop-color="#F2C6A2"/><stop offset="1" stop-color="#C9824F"/></linearGradient></defs>' +
       '<circle class="bg" cx="100" cy="100" r="86"/>' +
       '<circle class="fg" id="qzRingFg" cx="100" cy="100" r="86"' + (animate ? '' : ' style="stroke-dashoffset:' + (540.4 * (1 - r.score / 100)) + '"') + '/></svg>' +
       '<div class="num"><span id="qzScoreNum">' + (animate ? '0' : r.score) + '</span><small>VON 100</small></div>' +
     '</div>' +
+    '<p class="qz-badge" style="justify-content:center"><i></i>13 von 13 Sternen gesammelt. Deine Testnacht ist vorbei.</p>' +
     '<h2>' + r.cat.head + '</h2>' +
     '<p class="qz-cat">' + r.cat.text + '</p>' +
     '<div class="qz-dims">' + dimRows + '</div>' +
@@ -471,9 +632,9 @@ function buildResultBody(r, animate){
     '<!-- ▼ CTA ÄNDERN: Hier verlinkt der Test auf das Webinar. Alternativ z. B. 7-Tage-Schlafcheck oder Newsletter. -->' +
     '<div class="qz-pitch">' +
       '<h3>Dein nächster <span class="ac">Schritt</span></h3>' +
-      '<p>Im kostenlosen Live-Webinar zeigt dir Dr. André Alesi, was hinter deinem Ergebnis steckt und wie du deinen größten Hebel konkret angehst. <b>So., 29. November · 20:00 Uhr · live und online.</b></p>' +
-      '<a class="btn lg" href="webinar.html">Kostenlosen Platz sichern <span class="arr">→</span></a>' +
-      '<p class="sub2">Du willst direkt starten? <a href="kurs.html">Hier geht es zur Durchschlaf-Formel</a></p>' +
+      '<p>Im kostenlosen Live-Webinar zeige ich dir, was hinter deinem Ergebnis steckt und wie du deinen größten Hebel konkret angehst. <b>So., 29. November · 20:00 Uhr · live und online.</b></p>' +
+      '<a class="btn btn-cu lg" href="webinar.html">Kostenlosen Platz sichern <span class="ar">→</span></a>' +
+      '<p class="sub2">Du willst direkt loslegen? <a href="kurs.html">Zum Schlafkurs „Die Durchschlaf-Formel“</a></p>' +
     '</div>' +
     '<button class="qz-restart" onclick="qzRestart()">Test neu starten</button>' +
   '</div>';
@@ -494,7 +655,7 @@ function renderGate(){
         '(z. B. per Netlify Forms oder API), Double-Opt-in und Einwilligungstexte rechtlich prüfen. -->' +
         '<form onsubmit="qzEmail(event)">' +
           '<input type="email" id="qzEmailInput" placeholder="deine@email.de" autocomplete="email" required>' +
-          '<button type="submit" class="btn">Mein Ergebnis anzeigen <span class="arr">→</span></button>' +
+          '<button type="submit" class="btn btn-cu">Mein Ergebnis anzeigen <span class="ar">→</span></button>' +
         '</form>' +
         '<p class="qz-privacy">Kein Spam. Jederzeit abbestellbar. Mit dem Absenden gelten die Hinweise in der <a href="datenschutz.html">Datenschutzerklärung</a>.</p>' +
       '</div>' +
@@ -538,7 +699,7 @@ function spawnSparks(host){
     s.className = 'qz-spark';
     var sz = 2 + Math.random() * 3.5;
     s.style.cssText = 'left:' + (Math.random() * 100) + '%;width:' + sz + 'px;height:' + sz + 'px;' +
-      'background:' + (Math.random() > .45 ? 'rgba(210,164,125,.8)' : 'rgba(244,244,242,.6)') + ';' +
+      'background:' + (Math.random() > .45 ? 'rgba(242,198,162,.85)' : 'rgba(180,216,255,.6)') + ';' +
       'animation-duration:' + (7 + Math.random() * 9) + 's;animation-delay:' + (Math.random() * 6) + 's';
     host.appendChild(s);
   }
@@ -579,7 +740,13 @@ window.qzSelect = function(qIdx, optIdx, el){
   state.answers[qIdx] = optIdx;
   el.parentNode.querySelectorAll('.qz-opt').forEach(function(o){ o.classList.remove('sel'); });
   el.classList.add('sel');
-  setTimeout(function(){ window.qzNext(); }, 340);
+  lightStar();
+  setTimeout(function(){ window.qzNext(); }, 420);
+};
+window.qzSlide = function(qIdx){
+  state.answers[qIdx] = +document.getElementById('qzRange').value;
+  lightStar();
+  setTimeout(function(){ window.qzNext(); }, 260);
 };
 window.qzEmail = function(ev){
   ev.preventDefault();
@@ -587,11 +754,10 @@ window.qzEmail = function(ev){
   /* ▼ E-MAIL-ANBINDUNG: state.email + state.result hier an Newsletter-Tool/CRM übergeben. */
   window.qzNext();
 };
-window.qzRestart = function(){ state = {i:0, name:'', answers:{}, email:''}; render(); };
+window.qzRestart = function(){ state = {i:0, name:'', answers:{}, email:''}; var s = document.getElementById('qzStars'); if (s) s.innerHTML = ''; render(); };
 
 render();
 })();
 </script>
-
 </body>
 </html>
