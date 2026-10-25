@@ -40,7 +40,7 @@ Quellen: AASM-Normwerte, Wikipedia „Hypnogram“, Oura-Leitfaden Schlafphasen.
 7. **Testimonials** auf Kurs- und Webinar-Seite sind Platzhalter.
 8. **Rechtstexte:** Platzhalter-Felder ausfüllen und prüfen lassen.
 9. **Pressezeile „Bekannt aus“:** Schriftzüge durch offizielle Logos ersetzen (`img/presse/`).
-10. **Social-Media-Karten (Startseite, „Folge mir“):** TikTok-Profil-Link prüfen, `@andre.schlafen` war beim Bau nicht erreichbar (im Code mit ▼ markiert). Das Profilbild ist das aktuelle Instagram-Profilbild. Instagram- und TikTok-Karte zeigen oben je drei Kurzvideos als Mini-Feed (Stand 24.10.2026, als Bildstreifen auf dem Higgsfield-CDN gesichert, kein Live-Feed). Der TikTok-Streifen ist bis zur Klärung des Profils ein Platzhalter mit drei Instagram-Reels. Das Standbild der YouTube-Karte kommt direkt von YouTube (`i.ytimg.com`). Bewusst ohne Follower-Zahlen. Für einen automatisch aktuellen Feed wäre ein Feed-Dienst mit Zugang zu Andrés Instagram-Konto nötig.
+10. **Social-Media-Karten (Startseite, „Folge mir“):** YouTube und Instagram laufen auf `@dr.andre.schlafen`, TikTok auf `@dr.andre.alesi` (https://www.tiktok.com/@dr.andre.alesi). Die Profilbilder sind die aktuellen Bilder der jeweiligen Plattform. Instagram- und TikTok-Karte zeigen oben je drei Kurzvideos als Mini-Feed (Instagram Stand 24.10.2026, TikTok Stand 25.10.2026, jeweils als Bildstreifen auf dem Higgsfield-CDN gesichert, kein Live-Feed). Das Standbild der YouTube-Karte kommt direkt von YouTube (`i.ytimg.com`). Bewusst ohne Follower-Zahlen. Für einen automatisch aktuellen Feed wäre ein Feed-Dienst mit Zugang zu Andrés Konten nötig.
 
 ## Webinar-Termin ändern
 
