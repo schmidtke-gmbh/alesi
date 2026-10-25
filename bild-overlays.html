@@ -1,0 +1,58 @@
+<!DOCTYPE html><html lang="de"><head><meta charset="utf-8"><meta name="robots" content="noindex"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Bild-Overlays · Vorschläge</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400&family=Poppins:wght@400;500&display=swap" rel="stylesheet">
+<style>body{margin:0;background:#081A2E;color:#fff;font-family:Poppins,sans-serif;padding:48px 32px}h1{font:400 30px/1.2 'Playfair Display',serif;margin:0 0 8px}.lead{color:#A9B9CC;max-width:720px;margin:0 0 36px;font-size:14px;line-height:1.6}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:34px 22px;max-width:1400px}.card .ov{aspect-ratio:4/5}.card .ov.v5{width:86%;margin:4% auto 0;aspect-ratio:1/1}.card h3{font:500 15px/1.3 Poppins,sans-serif;margin:14px 0 6px}.card p{color:#A9B9CC;font-size:13px;line-height:1.5;margin:0}
+/* Bild-Overlays im Sleep-to-Life-Look. Wrapper .ov um ein <img>, Variante .ov.v1 bis .ov.v10 */
+.ov{position:relative;overflow:hidden;border-radius:28px;isolation:isolate;background:#0B1F35}
+.ov img{display:block;width:100%;height:100%;object-fit:cover}
+.ov::before,.ov::after,.ov .l{content:'';position:absolute;inset:0;pointer-events:none}
+.ov .l{inset:auto}
+
+/* 1 Navy-Verlauf: das Bild läuft unten in die Seitenfarbe aus */
+.ov.v1::after{background:linear-gradient(180deg,rgba(8,26,46,0) 45%,rgba(8,26,46,.55) 75%,#081A2E 100%)}
+.ov.v1 .l{left:0;right:0;bottom:0;height:1px;background:linear-gradient(90deg,transparent,rgba(217,155,114,.9),transparent)}
+
+/* 2 Kupfer-Kante: warmes Licht blutet von einer Ecke ins Bild (wie der rote Verlauf bei Geier) */
+.ov.v2::after{background:linear-gradient(115deg,rgba(217,155,114,.78) 0%,rgba(217,155,114,.28) 26%,rgba(217,155,114,0) 52%);mix-blend-mode:screen}
+.ov.v2::before{z-index:1;background:linear-gradient(295deg,rgba(8,26,46,.7) 0%,rgba(8,26,46,0) 40%)}
+
+/* 3 Duotone: Navy in den Tiefen, Kupfer in den Lichtern */
+.ov.v3 img{filter:grayscale(1) contrast(1.05) brightness(1.05)}
+.ov.v3::before{background:#D99B72;mix-blend-mode:multiply}
+.ov.v3::after{background:#1B3A62;mix-blend-mode:lighten}
+
+/* 4 Hypnogramm-Linie: die Schlafkurve läuft als Lichtfaden durchs Bild */
+.ov.v4::after{background:linear-gradient(180deg,rgba(8,26,46,0) 55%,rgba(8,26,46,.6))}
+.ov.v4 svg{position:absolute;left:-2%;right:-2%;bottom:6%;width:104%;height:34%;z-index:2;filter:drop-shadow(0 0 10px rgba(246,162,98,.7))}
+.ov.v4 svg path{fill:none;stroke-linecap:round}
+
+/* 5 Signet-Maske: Bild im Halbmond des Logos, Kupferring */
+.ov.v5{border-radius:0;background:transparent;overflow:visible}
+.ov.v5 img{border-radius:50%;clip-path:inset(0 0 0 0 round 50%)}
+.ov.v5 .l{inset:-14px;border-radius:50%;border:1px solid rgba(217,155,114,.6)}
+.ov.v5::after{border-radius:50%;background:radial-gradient(circle at 42% 50%,rgba(8,26,46,0) 0 55.5%,rgba(8,26,46,.92) 56.5%)}
+
+/* 6 Editorial-Rahmen: feine Kupferlinie, versetzt */
+.ov.v6{overflow:visible;border-radius:24px}
+.ov.v6 img{border-radius:24px}
+.ov.v6 .l{inset:0;border-radius:24px;border:1px solid rgba(217,155,114,.75);transform:translate(16px,16px);z-index:-1}
+.ov.v6::after{border-radius:24px;box-shadow:inset 0 0 0 1px rgba(255,255,255,.08)}
+
+/* 7 Film: leichter Navy-Ton, Korn und Vignette, vereinheitlicht alle Fotos */
+.ov.v7::before{background:#1B3A62;mix-blend-mode:color;opacity:.28}
+.ov.v7::after{background:radial-gradient(120% 90% at 50% 40%,rgba(8,26,46,0) 50%,rgba(8,26,46,.6) 100%),url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.12'/%3E%3C/svg%3E")}
+
+/* 8 Glas-Etikett: Name und Rolle auf einer Glasfläche im Bild */
+.ov.v8::after{background:linear-gradient(180deg,rgba(8,26,46,0) 50%,rgba(8,26,46,.5))}
+.ov.v8 .tag{position:absolute;left:18px;right:18px;bottom:18px;z-index:2;padding:16px 18px;border-radius:18px;background:rgba(8,26,46,.55);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,.14);color:#D6E0EA;font:400 13px/1.5 Poppins,sans-serif}
+.ov.v8 .tag b{display:block;font:400 1.2rem/1.2 'Playfair Display',serif;color:#fff;margin-bottom:2px}
+.ov.v8 .tag i{position:absolute;right:18px;top:18px;width:8px;height:8px;border-radius:50%;background:#D99B72;box-shadow:0 0 12px #D99B72}
+
+/* 9 Wellenkante: der untere Rand des Bildes ist die Schlafkurve */
+.ov.v9{border-radius:28px 28px 0 0;clip-path:url(#waveClip)}
+.ov.v9::after{background:linear-gradient(180deg,rgba(8,26,46,0) 70%,rgba(8,26,46,.45))}
+
+/* 10 Lichtstreifen: ein diagonaler Kupfer-Verlauf wie Abendsonne, dazu Navy-Gegenpol */
+.ov.v10::after{background:linear-gradient(62deg,rgba(8,26,46,0) 30%,rgba(242,198,162,.0) 44%,rgba(242,198,162,.55) 52%,rgba(217,155,114,.25) 60%,rgba(8,26,46,0) 72%);mix-blend-mode:screen}
+.ov.v10::before{z-index:1;background:linear-gradient(180deg,rgba(8,26,46,.35),rgba(8,26,46,0) 30%,rgba(8,26,46,0) 70%,rgba(8,26,46,.5))}
+</style></head><body><svg width="0" height="0" style="position:absolute"><defs><clipPath id="waveClip" clipPathUnits="objectBoundingBox"><path d="M0,0 H1 V0.86 C0.9,0.86 0.86,0.96 0.75,0.96 S0.6,0.84 0.5,0.84 S0.36,0.98 0.25,0.98 S0.1,0.88 0,0.9 Z"/></clipPath></defs></svg><h1>Bild-Overlays: 10 Vorschläge</h1><p class="lead">Gleiche Fotos, zehn Behandlungen in den Markenfarben Navy und Kupfer. Alle Varianten sind reines CSS, die Fotos bleiben unverändert und lassen sich jederzeit tauschen.</p><div class="grid"><div class="card"><div class="ov v1"><img src="fotos/andre-bett-hoch.webp" alt=""><span class="l"></span></div><h3>1 Navy-Verlauf</h3><p>Das Bild läuft unten in die Seitenfarbe aus. Für Header-Bilder und Bilder neben Text.</p></div><div class="card"><div class="ov v2"><img src="fotos/andre-blazer-blick.webp" alt=""></div><h3>2 Kupfer-Kante</h3><p>Warmes Kupferlicht blutet von einer Ecke ins Bild, wie der rote Verlauf bei Geier, nur leiser. Für Hero und Karten.</p></div><div class="card"><div class="ov v3"><img src="fotos/andre-schwarzwald.webp" alt=""></div><h3>3 Duotone</h3><p>Navy in den Tiefen, Kupfer in den Lichtern. Stark als Stil, verändert aber die Hautfarbe. Eher für Hintergrund- und Stimmungsbilder.</p></div><div class="card"><div class="ov v4"><img src="fotos/andre-vortrag.webp" alt=""><svg viewBox="0 0 1000 300" preserveAspectRatio="none"><path d="M0,200 C80,200 120,80 200,80 S320,230 400,230 S520,60 600,60 S720,210 800,210 S920,110 1000,110" stroke="#F6A262" stroke-width="3"/><path d="M0,230 C80,230 120,110 200,110 S320,260 400,260 S520,90 600,90 S720,240 800,240 S920,140 1000,140" stroke="#96C8FF" stroke-width="2" opacity=".8"/></svg></div><h3>4 Hypnogramm-Linie</h3><p>Die Schlafkurve läuft als Lichtfaden durchs Bild. Verbindet jedes Foto mit dem Header-Motiv.</p></div><div class="card"><div class="ov v5"><img src="fotos/andre-bett-hoch.webp" alt=""><span class="l"></span></div><h3>5 Signet-Maske</h3><p>Das Foto im Halbmond des Logos, mit feinem Kupferring. Für „Über mich“ und Kontakt.</p></div><div class="card"><div class="ov v6"><img src="fotos/andre-blazer-blick.webp" alt=""><span class="l"></span></div><h3>6 Editorial-Rahmen</h3><p>Feine Kupferlinie, versetzt zum Bild. Ruhig, editorial. Für die Zeitleiste.</p></div><div class="card"><div class="ov v7"><img src="fotos/andre-schwarzwald.webp" alt=""></div><h3>7 Film-Look</h3><p>Leichter Navy-Ton, Korn und Vignette. Vereinheitlicht Studio- und Waldfotos.</p></div><div class="card"><div class="ov v8"><img src="fotos/andre-vortrag.webp" alt=""><div class="tag"><i></i><b>Dr. André Alesi</b>Schlafwissenschaftler · Schramberg</div></div><h3>8 Glas-Etikett</h3><p>Name und Rolle auf einer Glasfläche im Bild. Für Kurs, Webinar und Newsletter.</p></div><div class="card"><div class="ov v9"><img src="fotos/andre-bett-hoch.webp" alt=""></div><h3>9 Wellenkante</h3><p>Der untere Bildrand ist die Schlafkurve. Für große Bilder über volle Breite.</p></div><div class="card"><div class="ov v10"><img src="fotos/andre-blazer-blick.webp" alt=""></div><h3>10 Lichtstreifen</h3><p>Diagonaler Kupfer-Verlauf wie Abendsonne, dazu Navy oben und unten. Für Wald und Bühne.</p></div></div></body></html>

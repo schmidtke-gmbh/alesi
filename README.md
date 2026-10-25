@@ -29,7 +29,9 @@ Quellen: AASM-Normwerte, Wikipedia „Hypnogram“, Oura-Leitfaden Schlafphasen.
 
 ## Vor dem Livegang ausfüllen (im Code mit ▼ markiert)
 
-1. **Bilder:** Das Hero-Foto der Startseite ist echt (`fotos/andre-hero.webp` und `fotos/andre-hero-mobil.webp`, aus dem Shooting-Bild A7402405). Das warme Gegenlicht am rechten Rand ist nur in einer schmalen Zone entlang der Freistellkante ergänzt. Das Gesicht ist unverändert. Alle übrigen Fotos sind noch KI-Platzhalter (Higgsfield-CDN) und werden nach und nach durch echte Fotos ersetzt. Die Zuordnung steht oben in jeder Seite bzw. im Abschnitt `IMG`.
+1. **Bilder:** Überall, wo André zu sehen ist, liegen jetzt echte Fotos aus dem Shooting (Ordner `fotos/`, Originale A740xxxx):
+   `andre-hero.webp` Startseiten-Header (A7402405) · `andre-bett-hoch.webp` Über-mich-Header (A7402322) · `andre-sessel.webp` Warteliste, Startseite „Über mich“ (A7402114) · `andre-blazer.webp` Kurs, Newsletter, Warteliste (A7402137) · `andre-blazer-blick.webp` Startseite „Was mich antreibt“ (A7402126) · `andre-vortrag.webp` Über mich „Heute“, Webinar, Startseite Unternehmens-Karte (A7402224) · `andre-workshop.webp` Startseite Säule 1, Über mich 2015 (A7402404) · `andre-bett.webp` Über mich 2020, Startseite Schlaftest-Karte (A7402333) · `andre-kurs.webp` Kurs-Header (A7402377) · `andre-wecker.webp` Webinar-Header (desigraphie 07327, Wecker in den Händen; `andre-webinar.webp` A7402412 als Alternative) · `andre-forschung.webp` Über mich 2021 (A7402441, Laptop-Komposition, Skript `_build/laptop_comp3.py`) · `andre-portrait.webp` Kontakt (A7402342) · `andre-schwarzwald.webp` Über mich, Abschnitt Schramberg (Foto 20260811_desigraphie_07862, Ausschnitt).
+   Noch KI (ohne André): Schlafzimmer bei Nacht (CTA-Hintergründe), „erholt aufwachen“ (Startseite Säule 3, Kurs-CTA), die sechs Zielgruppen-Bilder in „Für wen“, Bühnen- und Publikumsbilder im Header. Zuordnung in `_build/common.py` (`IMG`), Export-Zuschnitte in `_build/patch18.py`. Wunsch von André: keine Fotos, auf denen er nur das weiße Hemd trägt (A7402230 bis A7402306).
 2. **Checkout-Link** in `kurs.html` (`href="#checkout"`), danach Weiterleitung auf `kurs-danke.html`.
 3. **Link zum Kursbereich** in `kurs-danke.html` (`href="#kursbereich"`).
 4. **WebinarJam-Formular** in `webinar.html` (Platzhalter im Anmeldebereich).
@@ -48,3 +50,28 @@ Quellen: AASM-Normwerte, Wikipedia „Hypnogram“, Oura-Leitfaden Schlafphasen.
 ## Alte Dateien
 
 Nicht mehr im Paket und auf GitHub löschen: `index-neu.html`, `index-v2.html`, `site.css`, `site-v2.css`, `site.js`, `favicon.svg`, `logo-header-*.svg`, `logo-lockup-*.svg`, `logo-zeichen-*.svg`, `styleguide-neu.html` (heißt jetzt `styleguide.html`) und der Ordner `img/` mit den alten Fotos.
+
+## Bühne im Hero (Startseite)
+
+Damit André nicht ausgeschnitten wirkt, liegt hinter und vor ihm eine leichte Bühne. Die Hypnogramm-Linien bleiben immer obenauf.
+Die Variante steht als `data-stage` am Hero (`<section class="hero" data-stage="10">`). 0 ist der alte Zustand ohne Bühne.
+Alle 21 Zustände lassen sich in `hero-varianten.html` durchklicken (Zahlen unten oder Pfeiltasten, Link mit `?v=5` usw.). Die Seite ist auf noindex gestellt.
+
+1 Gegenlicht-Spot · 2 LED-Wand · 3 Bühnenkante · 4 Rückwand mit Schatten · 5 Saal unscharf · 6 Lichttraverse · 7 Bühnenvorhang · 8 Konferenzbühne · 9 Publikum in zwei Reihen · 10 Kombination 1
+
+11 Keynote-Saal mit LED-Wand · 12 Theater mit Applaus · 13 Auditorium · 14 Publikum mit Handys · 15 Stehendes Publikum, Applaus · 16 Bühnenlicht auf André · 17 Lichtstrahlen vor der Bühne · 18 Gegenlicht-Flare · 19 Projektion auf die Rückwand · 20 Kombination 2 (aktuell auf der Startseite)
+
+`hero-uebersicht.html` zeigt alle 21 Zustände nebeneinander (noindex, nur zur Abstimmung).
+
+Die Varianten 11 bis 20 nutzen zwei freigestellte Publikumsfotos (KI, von hinten, keine Gesichter) vor André und ganze Bühnenfotos ohne Personen dahinter. Variante 16 und 20 legen zusätzlich ein weiches Bühnenlicht auf Haaransatz und Schultern (`.hero-person .key`, nur additiv, das Gesicht bleibt ausgespart).
+
+Die Bühnenfotos (5 bis 8) sind KI-Platzhalter ohne Personen auf dem Higgsfield-CDN. André selbst ist in keiner Variante verändert, nur Schatten, Licht und Publikum drumherum. CSS-Quelle: `_build/hero_stage.css`, eingebaut mit `_build/patch16.py`.
+
+## Bild-Overlays
+
+Alle Porträt- und Inhaltsbilder tragen den Editorial-Rahmen (Variante 6): ein Wrapper `<div class="frame">` um `.imgbox` oder `.ph`, die versetzte Kupferlinie kommt aus `.frame::after` (CSS in `assets/sleep.css`, auf der Startseite inline). Glas-Etiketten (Variante 8, `<div class="tag"><i></i><b>…</b>…</div>`) sitzen dort, wo das Bild sonst keinen Namen oder Ort trägt: Kurs-Header, Webinar-Header, Newsletter-Header, Warteliste-Header, Schwarzwald auf Über mich, dazu die bestehenden Etiketten auf Startseite und Kurs. Alle zehn geprüften Varianten liegen zur Ansicht in `bild-overlays.html` (noindex). Eingebaut mit `_build/patch19.py`.
+
+## Statement-Sektion (Startseite)
+
+Der Schlusssatz bleibt zusammen: zwischen „müssen wir ansetzen.“ stehen geschützte Leerzeichen, dazu `text-wrap: pretty`. So steht „ansetzen.“ in keiner Breite allein.
+Der Hintergrund hat Varianten über `data-bg` an `.statement` (0 = schlicht): 1 Spot + Korn · 2 Hypnogramm-Linie · 3 Signet-Wasserzeichen · 4 Raster · 5 Kupfer-Ränder · 6 Aurora · 7 Sternenhimmel (aktuell) · 8 Anführungszeichen · 9 Nacht zu Tag · 10 Ring + Korn. Alle in `statement-varianten.html` durchklickbar (noindex, Link mit `?b=4` usw.). CSS in `_build/statement_bg.css`, eingebaut mit `_build/patch20.py`.

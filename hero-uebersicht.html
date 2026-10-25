@@ -1,0 +1,25 @@
+<!DOCTYPE html><html lang="de"><head><meta charset="utf-8"><meta name="robots" content="noindex"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Hero-Varianten im Überblick · Dr. André Alesi</title>
+<style>
+body{margin:0;background:#06142A;color:#D5DEE8;font:400 14px/1.5 Poppins,system-ui,sans-serif;padding:28px}
+h1{font:400 26px/1.2 'Playfair Display',Georgia,serif;color:#fff;margin:0 0 6px}
+p{margin:0 0 22px;color:#A9B9CC;max-width:760px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(430px,1fr));gap:22px}
+.card{position:relative}
+.frame{position:relative;width:100%;aspect-ratio:1440/900;overflow:hidden;border-radius:14px;border:1px solid rgba(255,255,255,.12);background:#081A2E}
+.frame iframe{position:absolute;left:0;top:0;width:1440px;height:900px;border:0;transform-origin:0 0;pointer-events:none}
+.card b{display:block;margin-top:10px;font-weight:600;color:#fff}
+.card a{color:#D99B72;text-decoration:none;font-size:13px}
+</style></head><body>
+<h1>Hero-Varianten im Überblick</h1>
+<p>Alle Zustände nebeneinander, live aus <code>hero-varianten.html</code>. Zum Durchklicken in groß: Karte anklicken. Hinweis: Diese Seite lädt den Header 21-mal, bitte nur zur Abstimmung nutzen.</p>
+<div class="grid" id="g"></div>
+<script>
+var N=['Ohne Bühne (bisher)','Gegenlicht-Spot','LED-Wand','Bühnenkante','Rückwand mit Schatten','Saal unscharf','Lichttraverse','Bühnenvorhang','Konferenzbühne','Publikum in zwei Reihen','Kombination 1','Keynote-Saal mit LED-Wand','Theater mit Applaus','Auditorium','Publikum mit Handys','Stehendes Publikum, Applaus','Bühnenlicht auf André','Lichtstrahlen vor der Bühne','Gegenlicht-Flare','Projektion auf die Rückwand','Kombination 2 (Empfehlung)'];
+var g=document.getElementById('g'), order=[20,11,12,13,14,15,16,17,18,19,10,1,2,3,4,5,6,7,8,9,0];
+order.forEach(function(v){ var c=document.createElement('div'); c.className='card';
+  c.innerHTML='<a href="hero-varianten.html?v='+v+'" target="_blank"><div class="frame"><iframe loading="lazy" src="hero-varianten.html?v='+v+'&still=1"></iframe></div></a><b>'+v+' · '+N[v]+'</b><a href="hero-varianten.html?v='+v+'" target="_blank">In groß öffnen</a>';
+  g.appendChild(c); });
+function fit(){ document.querySelectorAll('.frame').forEach(function(f){ var s=f.clientWidth/1440; f.querySelector('iframe').style.transform='scale('+s+')'; }); }
+fit(); addEventListener('resize', fit);
+</script></body></html>

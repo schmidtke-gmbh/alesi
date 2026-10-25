@@ -147,13 +147,13 @@ em.cu{font-style:italic;color:var(--copper)}
 .mask.in img{transform:scale(1)}
 
 /* ── Statement (Wort für Wort) ── */
-.statement{position:relative;padding:160px 0 150px;text-align:center;background:var(--navy)}
+.statement{position:relative;padding:130px 0 120px;text-align:center;background:var(--navy)}
 .statement .eyebrow{margin-bottom:34px}
-.statement p.big{font-family:var(--serif);font-size:clamp(1.9rem,4.3vw,3.7rem);line-height:1.22;max-width:1080px;margin:0 auto;letter-spacing:-.01em}
+.statement p.big{font-family:var(--serif);font-size:clamp(1.55rem,2.9vw,2.6rem);line-height:1.3;max-width:900px;margin:0 auto;letter-spacing:-.005em}
 .statement p.big .w{opacity:.14;transition:opacity .25s linear}
 .statement p.big .w.on{opacity:1}
 .statement p.big em{font-style:italic;color:var(--copper)}
-.statement .sig{margin:46px auto 0;display:flex;align-items:center;justify-content:center;gap:14px;color:var(--mist);font-size:13px;letter-spacing:.08em}
+.statement .sig{margin:36px auto 0;display:flex;align-items:center;justify-content:center;gap:14px;color:var(--mist);font-size:13px;letter-spacing:.08em}
 .statement .sig svg{width:24px}
 
 /* ── Marquee ── */
@@ -439,7 +439,7 @@ em.cu{font-style:italic;color:var(--copper)}
 .ytc .bd small{font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--copper)}
 .ytc .bd h3{font-weight:500;font-size:16px;line-height:1.45;margin-top:10px;min-height:2.9em}
 /* Kanal-Karten in den Plattformfarben */
-.yt-head .lead{max-width:360px;margin-bottom:8px}
+.yt-head .lead{max-width:470px;margin-bottom:8px}
 .ytc{display:flex;flex-direction:column;position:relative;isolation:isolate;border:0;color:#fff;box-shadow:0 24px 50px -30px rgba(0,0,0,.7);transition:transform .5s var(--ease),box-shadow .5s var(--ease)}
 .ytc:hover{transform:translateY(-8px)}
 .ytc .bd{flex:1;display:flex;flex-direction:column;padding:22px 24px 24px}
@@ -565,7 +565,7 @@ footer{background:#06142A;border-top:1px solid var(--line);position:relative;ove
   .scroll-cue{display:none}
   .hero-fade{height:120px}
   .cond,.corr,.pillars,.offers,.about,.who,.yt{padding:96px 0}
-  .statement{padding:110px 0 100px}
+  .statement{padding:90px 0 84px}
   .cond-head,.corr-grid,.about-grid{grid-template-columns:1fr;gap:40px}
   .cond-grid,.ytgrid{grid-template-columns:1fr}
   .pcard{min-height:0;margin-bottom:24px}
@@ -596,6 +596,171 @@ footer{background:#06142A;border-top:1px solid var(--line);position:relative;ove
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
 }
+
+/* Bühne im Hero: Ebenen hinter den Linien (.hs) und vor André (.hsf). Variante über data-stage an .hero (0 = ohne Bühne) */
+.hero{--ph:min(80vh,860px);--pw:calc(var(--ph)*.7174);--pr:max(1vw,calc((100vw - 1240px)/2 - 50px));--pb:9vh}
+.hero .grain{z-index:5}
+.hs,.hsf{position:absolute;inset:0;pointer-events:none;overflow:hidden}
+.hs{z-index:0}.hsf{z-index:4}
+.hs>*,.hsf>*{position:absolute;display:none}
+/* Bühnenbild aus Foto, unscharf, nur rechts */
+.hs-plate{inset:-3%;background:center 40%/cover no-repeat;filter:blur(3px) saturate(.9);opacity:.5;-webkit-mask-image:linear-gradient(90deg,transparent 24%,rgba(0,0,0,.6) 44%,#000 62%);mask-image:linear-gradient(90deg,transparent 24%,rgba(0,0,0,.6) 44%,#000 62%)}
+/* Gegenlicht hinter André */
+.hs-halo{right:calc(var(--pr) - var(--pw)*.4);width:calc(var(--pw)*1.8);bottom:calc(var(--pb) + var(--ph)*.18);height:calc(var(--ph)*1.05);background:radial-gradient(closest-side,rgba(130,175,255,.17),rgba(130,175,255,.06) 55%,transparent)}
+.hs-beam{right:calc(var(--pr) - var(--pw)*.1);width:calc(var(--pw)*1.2);top:-4%;bottom:calc(var(--pb) + var(--ph)*.1);filter:blur(26px);mix-blend-mode:screen;opacity:.9}
+.hs-beam::before{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(255,228,200,.06),rgba(255,214,176,.11) 45%,rgba(255,205,160,.13));clip-path:polygon(43% 0,57% 0,96% 100%,4% 100%)}
+.hs-src{right:calc(var(--pr) + var(--pw)*.5 - 110px);width:220px;top:-70px;height:140px;background:radial-gradient(closest-side,rgba(255,236,214,.38),rgba(255,214,176,.1) 55%,transparent);mix-blend-mode:screen}
+.hs-haze{inset:-5%;background:radial-gradient(38% 30% at 74% 60%,rgba(150,182,232,.08),transparent 70%),radial-gradient(30% 24% at 56% 76%,rgba(150,182,232,.06),transparent 70%),radial-gradient(26% 20% at 92% 30%,rgba(255,190,140,.05),transparent 70%);animation:hsDrift 28s ease-in-out infinite alternate}
+@keyframes hsDrift{to{transform:translate3d(-3%,-1.5%,0)}}
+/* LED-Wand: das Hypnogramm läuft wie auf der Bühnenleinwand */
+.hs-wall{left:45%;right:2.4%;top:14%;bottom:calc(var(--pb) + var(--ph)*.1);border-radius:8px;background:linear-gradient(180deg,rgba(28,62,110,.30),rgba(14,38,74,.42)),repeating-linear-gradient(0deg,rgba(170,205,255,.04) 0 1px,transparent 1px 4px),repeating-linear-gradient(90deg,rgba(170,205,255,.04) 0 1px,transparent 1px 4px);box-shadow:inset 0 0 0 1px rgba(140,185,255,.12),inset 0 -40px 80px rgba(6,20,39,.35),0 0 90px 12px rgba(50,110,210,.10)}
+.hs-floor{left:36%;right:0;top:calc(100% - var(--pb) - var(--ph)*.1);bottom:0;background:linear-gradient(180deg,rgba(40,74,124,.32),rgba(6,20,39,0) 60%);border-top:1px solid rgba(150,190,255,.10);-webkit-mask-image:linear-gradient(90deg,transparent,#000 30%);mask-image:linear-gradient(90deg,transparent,#000 30%)}
+/* Rückwand mit weichem Schatten von André */
+.hs-back{left:30%;right:0;top:0;bottom:calc(var(--pb) + var(--ph)*.06);background:radial-gradient(46% 58% at 62% 44%,rgba(64,110,178,.38),rgba(36,72,128,.16) 55%,transparent 80%)}
+img.hs-shadow{right:calc(var(--pr) + var(--pw)*.34);bottom:calc(var(--pb) + var(--ph)*.12);height:calc(var(--ph)*.9);width:auto;filter:brightness(0) blur(14px);opacity:.55;-webkit-mask-image:linear-gradient(180deg,#000 50%,transparent 88%);mask-image:linear-gradient(180deg,#000 50%,transparent 88%)}
+/* Vorne: zweite Publikumsreihe, Bühnenkante, Bühnenfront, Dunst */
+img.hsf-row2{left:24%;width:96%;bottom:-3%;filter:blur(3.5px) brightness(.5) saturate(.9);-webkit-mask-image:linear-gradient(90deg,transparent 0%,#000 30%);mask-image:linear-gradient(90deg,transparent 0%,#000 30%)}
+.hsf-edge{left:42%;right:-1%;top:calc(100% - var(--pb) - var(--ph)*.075);height:2px;background:linear-gradient(90deg,transparent,rgba(242,172,124,.7) 22%,rgba(246,180,130,.85) 70%,rgba(242,172,124,.55));box-shadow:0 0 16px 2px rgba(240,160,100,.32),0 -6px 30px rgba(240,160,100,.10)}
+.hsf-front{left:42%;right:-1%;top:calc(100% - var(--pb) - var(--ph)*.075 + 2px);bottom:0;background:linear-gradient(180deg,#071a31,#05132a);-webkit-mask-image:linear-gradient(90deg,transparent,#000 18%);mask-image:linear-gradient(90deg,transparent,#000 18%)}
+.hsf-haze{left:28%;right:0;bottom:0;height:calc(var(--pb) + var(--ph)*.45);background:linear-gradient(0deg,rgba(120,150,200,.10),rgba(120,150,200,.04) 55%,transparent)}
+
+/* Bühnenlicht auf André: nur Haaransatz und Schultern, additiv (screen), Gesicht bleibt frei */
+.hero-person .key{position:absolute;inset:0;display:none;pointer-events:none;mix-blend-mode:screen;
+ -webkit-mask-image:url(fotos/andre-hero.webp),linear-gradient(180deg,#000 68%,rgba(0,0,0,.45) 84%,transparent 98%);-webkit-mask-size:100% 100%;-webkit-mask-composite:source-in;
+ mask-image:url(fotos/andre-hero.webp),linear-gradient(180deg,#000 68%,rgba(0,0,0,.45) 84%,transparent 98%);mask-size:100% 100%;mask-composite:intersect;
+ background:linear-gradient(180deg,rgba(255,224,190,.55),rgba(255,224,190,0) 12%),radial-gradient(64% 13% at 50% 38%,rgba(255,224,190,.30),transparent 70%),linear-gradient(90deg,rgba(255,224,190,.14),transparent 22%)}
+/* Publikum vorn: zwei Freisteller (Handys, Applaus), näher an der Kamera, unscharf */
+img.hsf-ph{left:-6%;width:118%;bottom:-6%;filter:blur(2.5px) brightness(.62) saturate(.85);-webkit-mask-image:linear-gradient(90deg,transparent 8%,rgba(0,0,0,.5) 26%,#000 44%);mask-image:linear-gradient(90deg,transparent 8%,rgba(0,0,0,.5) 26%,#000 44%)}
+img.hsf-ap{left:-4%;width:116%;bottom:-8%;filter:blur(2.2px) brightness(.6) saturate(.85);-webkit-mask-image:linear-gradient(90deg,transparent 8%,rgba(0,0,0,.5) 26%,#000 44%);mask-image:linear-gradient(90deg,transparent 8%,rgba(0,0,0,.5) 26%,#000 44%)}
+/* Lichtstrahlen, die vor André durch den Dunst laufen */
+.hsf-ray{top:-12%;bottom:6%;width:18%;mix-blend-mode:screen;filter:blur(16px);opacity:1}
+.hsf-ray::before{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(255,226,196,.0),rgba(255,226,196,.16) 30%,rgba(255,226,196,.22) 70%,rgba(255,226,196,0));clip-path:polygon(46% 0,54% 0,100% 100%,0 100%)}
+.hsf-ray.r1{left:48%;transform:rotate(14deg)}
+.hsf-ray.r2{left:86%;transform:rotate(-16deg)}
+/* Bodennebel vor der Bühne */
+.hsf-fog{left:20%;right:-10%;bottom:4%;height:30%;background:radial-gradient(60% 100% at 55% 100%,rgba(140,170,220,.16),transparent 70%);filter:blur(10px);animation:hsDrift 24s ease-in-out infinite alternate}
+/* Projektor: Lichtkegel von links auf die Rückwand */
+.hs-proj{left:40%;right:-2%;top:6%;bottom:calc(var(--pb) + var(--ph)*.08);background:radial-gradient(60% 70% at 55% 45%,rgba(60,100,165,.34),rgba(30,62,112,.14) 60%,transparent 85%);-webkit-mask-image:linear-gradient(90deg,transparent,#000 30%);mask-image:linear-gradient(90deg,transparent,#000 30%)}
+.hs-cone{left:20%;right:30%;top:-6%;bottom:26%;mix-blend-mode:screen;filter:blur(20px);opacity:1}
+.hs-cone::before{content:'';position:absolute;inset:0;background:linear-gradient(90deg,rgba(150,185,240,.0),rgba(150,185,240,.14) 45%,rgba(150,185,240,.24));clip-path:polygon(0 30%,0 36%,100% 100%,100% 0)}
+/* Gegenlicht-Flare hinter der Schulter */
+.hs-flare{width:calc(var(--pw)*.9);height:calc(var(--pw)*.9);right:calc(var(--pr) + var(--pw)*.5);bottom:calc(var(--pb) + var(--ph)*.66 - var(--pw)*.45);mix-blend-mode:screen;
+ background:radial-gradient(closest-side,rgba(255,244,230,.55),rgba(190,212,255,.22) 18%,rgba(130,170,255,.08) 40%,transparent 70%)}
+.hs-flare::before{content:'';position:absolute;left:-120%;right:-120%;top:50%;height:2px;transform:translateY(-50%);background:linear-gradient(90deg,transparent,rgba(170,200,255,.55) 35%,rgba(255,248,240,.9) 50%,rgba(170,200,255,.55) 65%,transparent);filter:blur(1px)}
+.hs-flare::after{content:'';position:absolute;left:-60%;right:-60%;top:50%;height:26px;transform:translateY(-50%);background:linear-gradient(90deg,transparent,rgba(150,185,255,.28) 50%,transparent);filter:blur(8px)}
+/* Bühnenfotos als Rückwand (volle Szene, nur rechts, unscharf) */
+.hero:is([data-stage="11"],[data-stage="12"],[data-stage="13"],[data-stage="20"]) .hs-plate{background-size:auto 128%;background-position:66% 0;opacity:.78;filter:blur(2.5px) saturate(.9);-webkit-mask-image:linear-gradient(90deg,transparent 20%,#000 50%);mask-image:linear-gradient(90deg,transparent 20%,#000 50%)}
+
+/* Varianten */
+.hero[data-stage="1"] :is(.hs-halo,.hs-beam,.hs-src,.hs-haze,.hsf-haze){display:block}
+.hero[data-stage="2"] :is(.hs-wall,.hs-floor,.hs-halo){display:block}
+.hero[data-stage="3"] :is(.hs-halo,.hs-haze,.hsf-edge,.hsf-front){display:block}
+.hero[data-stage="4"] :is(.hs-back,.hs-shadow,.hs-haze){display:block}
+.hero[data-stage="5"] :is(.hs-plate,.hs-halo){display:block}
+.hero[data-stage="6"] :is(.hs-plate,.hs-halo){display:block}
+.hero[data-stage="7"] :is(.hs-plate,.hs-halo){display:block}
+.hero[data-stage="8"] :is(.hs-plate,.hsf-haze){display:block}
+.hero[data-stage="9"] :is(.hs-halo,.hs-beam,.hs-haze,.hsf-row2,.hsf-haze){display:block}
+.hero[data-stage="10"] :is(.hs-wall,.hs-halo,.hs-beam,.hs-src,.hs-haze,.hsf-row2,.hsf-edge,.hsf-front,.hsf-haze){display:block}
+.hero[data-stage="5"] .hs-plate{background-image:url(https://d8j0ntlcm91z4.cloudfront.net/user_39bpvnosVvqwhbus3q5PhClCw2s/hf_20261025_121338_205c8ebf-b8e0-44d1-924a-b411926a3af0_min.webp);background-position:50% 30%;opacity:.55}
+.hero[data-stage="6"] .hs-plate{background-image:url(https://d8j0ntlcm91z4.cloudfront.net/user_39bpvnosVvqwhbus3q5PhClCw2s/hf_20261025_121340_4c3c94b8-bf4d-4339-9231-168a90f62e65_min.webp);background-position:60% 0;opacity:.7;-webkit-mask-image:linear-gradient(90deg,transparent 22%,#000 55%),linear-gradient(180deg,#000 40%,transparent 85%);-webkit-mask-composite:source-in;mask-image:linear-gradient(90deg,transparent 22%,#000 55%),linear-gradient(180deg,#000 40%,transparent 85%);mask-composite:intersect}
+.hero[data-stage="7"] .hs-plate{background-image:url(https://d8j0ntlcm91z4.cloudfront.net/user_39bpvnosVvqwhbus3q5PhClCw2s/hf_20261025_121339_6868b73d-9f46-4bfa-a1a3-094f37dd8f92_min.webp);background-position:70% 50%;opacity:.58}
+.hero[data-stage="8"] .hs-plate{background-image:url(https://d8j0ntlcm91z4.cloudfront.net/user_39bpvnosVvqwhbus3q5PhClCw2s/hf_20261025_121339_564b6175-7a2a-4d42-bfe3-9c119cc54945_min.webp);background-size:auto 150%;background-position:72% 4%;opacity:.6;-webkit-mask-image:linear-gradient(90deg,transparent 26%,#000 58%),linear-gradient(180deg,#000 55%,transparent 82%);-webkit-mask-composite:source-in;mask-image:linear-gradient(90deg,transparent 26%,#000 58%),linear-gradient(180deg,#000 55%,transparent 82%);mask-composite:intersect}
+.hero[data-stage="10"] .hs-wall{opacity:.75}
+.hero[data-stage="10"] .hs-beam{opacity:.7}
+
+.hero[data-stage="11"] :is(.hs-plate,.hs-halo,.hsf-ph,.hsf-fog){display:block}
+.hero[data-stage="11"] .hs-plate{background-image:url(https://d8j0ntlcm91z4.cloudfront.net/user_39bpvnosVvqwhbus3q5PhClCw2s/hf_20261025_122742_f7f3a5af-db52-4a88-a51a-0c6f2e77939c_min.webp)}
+.hero[data-stage="12"] :is(.hs-plate,.hs-halo,.hsf-ap,.hsf-fog){display:block}
+.hero[data-stage="12"] .hs-plate{background-image:url(https://d8j0ntlcm91z4.cloudfront.net/user_39bpvnosVvqwhbus3q5PhClCw2s/hf_20261025_122744_3818de9f-425f-44d2-b8ed-ef17c679aba6_min.webp);background-size:auto 130%;background-position:60% 10%;opacity:.72}
+.hero[data-stage="13"] :is(.hs-plate,.hs-halo,.hsf-ph){display:block}
+.hero[data-stage="13"] .hs-plate{background-image:url(https://d8j0ntlcm91z4.cloudfront.net/user_39bpvnosVvqwhbus3q5PhClCw2s/hf_20261025_122743_1de160c3-26fd-4aeb-91dc-3d756427afb8_min.webp);background-position:64% 0;opacity:.75}
+.hero[data-stage="14"] :is(.hs-halo,.hs-beam,.hs-src,.hs-haze,.hsf-ph,.hsf-fog){display:block}
+.hero[data-stage="15"] :is(.hs-halo,.hs-beam,.hs-haze,.hsf-ap,.hsf-fog){display:block}
+.hero[data-stage="16"] :is(.hs-halo,.hs-beam,.hs-src,.hs-haze,.hsf-haze){display:block}
+.hero[data-stage="17"] :is(.hs-halo,.hs-haze,.hsf-ray,.hsf-fog,.hsf-haze){display:block}
+.hero[data-stage="18"] :is(.hs-halo,.hs-haze,.hs-flare,.hsf-haze){display:block}
+.hero[data-stage="19"] :is(.hs-proj,.hs-cone,.hs-shadow,.hs-haze){display:block}
+.hero[data-stage="20"] :is(.hs-plate,.hs-halo,.hs-beam,.hs-haze,.hsf-ph,.hsf-fog,.hsf-edge,.hsf-front){display:block}
+.hero[data-stage="20"] .hs-plate{background-image:url(https://d8j0ntlcm91z4.cloudfront.net/user_39bpvnosVvqwhbus3q5PhClCw2s/hf_20261025_122742_f7f3a5af-db52-4a88-a51a-0c6f2e77939c_min.webp);opacity:.6;filter:blur(3px) saturate(.9)}
+.hero[data-stage="20"] .hs-beam{opacity:.6}
+.hero:is([data-stage="16"],[data-stage="20"]) .hero-person .key{display:block}
+/* Mit eigenem Publikum vorn: das alte Publikum aus */
+.hero:is([data-stage="11"],[data-stage="12"],[data-stage="13"],[data-stage="14"],[data-stage="15"],[data-stage="20"]) .crowd{display:none}
+/* Bühnenkante: André läuft bis zur Kante, die Bühnenfront verdeckt den Rest */
+.hero:is([data-stage="3"],[data-stage="10"],[data-stage="20"]) .hero-person img{-webkit-mask-image:linear-gradient(180deg,#000 90%,transparent 99%);mask-image:linear-gradient(180deg,#000 90%,transparent 99%)}
+.hero:is([data-stage="3"],[data-stage="9"],[data-stage="10"]) .crowd img{filter:blur(5px) brightness(.66) contrast(1.06)}
+/* Mit Raum dahinter wirkt ein harter Schlagschatten wie ausgeschnitten */
+.hero:not([data-stage="0"]) .hero-person img{filter:drop-shadow(0 24px 50px rgba(0,0,0,.28))}
+
+@media (max-width:1100px){.hero{--ph:min(74vh,760px)}}
+@media (max-width:860px){
+  .hero{--ph:min(58vh,520px);--pr:-6%}
+  .hs-wall,.hs-floor,.hs-back,img.hs-shadow,.hsf-edge,.hsf-front,img.hsf-row2{display:none!important}
+  .hs-halo{top:20px;bottom:auto;height:var(--ph)}
+  .hs-beam{top:-4%;bottom:auto;height:calc(74px + var(--ph)*.7)}
+  .hs-src{top:-60px}
+  .hs-plate,.hero:is([data-stage="6"],[data-stage="8"]) .hs-plate{-webkit-mask-image:linear-gradient(180deg,#000 30%,transparent 62%);mask-image:linear-gradient(180deg,#000 30%,transparent 62%)}
+  .hs-flare,.hs-cone,.hs-proj,.hsf-ray,.hsf-fog{display:none!important}
+  img.hsf-ph,img.hsf-ap{left:-10%;width:130%;bottom:auto;top:calc(74px + var(--ph)*.52);filter:blur(2.5px) brightness(.42);-webkit-mask-image:linear-gradient(180deg,transparent,#000 28%,#000 55%,transparent 78%);mask-image:linear-gradient(180deg,transparent,#000 28%,#000 55%,transparent 78%)}
+  .hero:is([data-stage="11"],[data-stage="12"],[data-stage="13"],[data-stage="20"]) .hs-plate{background-size:auto 120%;background-position:62% 0;-webkit-mask-image:linear-gradient(180deg,#000 30%,transparent 62%);mask-image:linear-gradient(180deg,#000 30%,transparent 62%)}
+  .hero:is([data-stage="3"],[data-stage="10"],[data-stage="20"]) .hero-person img{-webkit-mask-image:linear-gradient(180deg,#000 52%,rgba(0,0,0,.35) 74%,transparent 92%);mask-image:linear-gradient(180deg,#000 52%,rgba(0,0,0,.35) 74%,transparent 92%)}
+}
+@media (prefers-reduced-motion:reduce){.hs-haze,.hsf-fog{animation:none}}
+
+/* Bild-Overlays: Variante 6 Editorial-Rahmen, Variante 8 Glas-Etikett */
+.frame{position:relative;isolation:isolate}
+.frame::after{content:'';position:absolute;inset:0;border:1px solid rgba(217,155,114,.7);border-radius:28px;transform:translate(16px,16px);pointer-events:none;z-index:-1}
+.frame.r30::after{border-radius:30px}
+.ph .tag{position:absolute;left:20px;right:20px;bottom:20px;z-index:2;background:rgba(8,26,46,.62);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,.14);border-radius:18px;padding:16px 18px;font-size:13.5px;color:#D6E0EA}
+.ph .tag b{display:block;font-family:'Playfair Display',serif;font-weight:400;font-size:1.2rem;color:#fff;margin-bottom:2px}
+.imgbox .tag i,.ph .tag i{position:absolute;right:18px;top:18px;width:8px;height:8px;border-radius:50%;background:#D99B72;box-shadow:0 0 12px #D99B72}
+.imgbox .tag,.ph .tag{padding-right:40px}
+@media (max-width:860px){.frame::after{transform:translate(12px,12px)}.ph .tag{left:14px;right:14px;bottom:14px;padding:12px 36px 12px 14px;font-size:12.5px}}
+
+/* Statement-Sektion: Hintergrund-Varianten über data-bg (0 = schlicht navy) */
+.statement{overflow:hidden;isolation:isolate}
+.statement .wrap{position:relative;z-index:1}
+.statement p.big{text-wrap:pretty}
+.st-bg{position:absolute;inset:0;z-index:0;pointer-events:none}
+.st-bg>*{display:none;position:absolute}
+.st-grain{inset:0;opacity:.07;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+.st-line{left:-2%;width:104%;top:50%;height:52%;transform:translateY(-50%);opacity:.5}
+.st-line path{fill:none;stroke-linecap:round}
+.st-sig{right:-3%;top:50%;height:150%;transform:translateY(-50%);color:#D99B72;opacity:.06}
+.st-q{left:6%;top:-4%;transform:none;font:400 40rem/1 var(--serif);color:rgba(217,155,114,.07);-webkit-text-stroke:1px rgba(217,155,114,.16);line-height:.8}
+.st-blob{border-radius:50%;filter:blur(48px)}
+.st-blob.a{left:6%;top:-30%;width:44%;height:90%;background:radial-gradient(closest-side,rgba(58,108,190,.6),rgba(58,108,190,0))}
+.st-blob.b{right:4%;bottom:-40%;width:40%;height:90%;background:radial-gradient(closest-side,rgba(217,155,114,.4),rgba(217,155,114,0))}
+.st-ring{left:50%;top:50%;width:min(92vw,820px);aspect-ratio:1;transform:translate(-50%,-50%);border-radius:50%;border:1px solid rgba(217,155,114,.14);box-shadow:inset 0 0 0 60px rgba(255,255,255,.012),0 0 0 90px rgba(217,155,114,.04)}
+
+/* 1 Spot: weicher Lichtkegel von oben, dazu Korn */
+.statement[data-bg="1"]{background:radial-gradient(58% 75% at 50% -10%,rgba(96,146,224,.26),rgba(8,26,46,0) 70%),var(--navy)}
+.statement[data-bg="1"] .st-grain{display:block}
+/* 2 Hypnogramm: die Schlafkurve hinter dem Text */
+.statement[data-bg="2"] .st-line{display:block}
+/* 3 Signet als Wasserzeichen */
+.statement[data-bg="3"] .st-sig{display:block}
+.statement[data-bg="3"]{background:radial-gradient(40% 60% at 85% 50%,rgba(217,155,114,.08),transparent 70%),var(--navy)}
+/* 4 Raster: feines Gitter mit Vignette, wissenschaftlich */
+.statement[data-bg="4"]{background:radial-gradient(70% 70% at 50% 50%,rgba(8,26,46,0) 40%,var(--navy) 100%),linear-gradient(rgba(255,255,255,.075) 1px,transparent 1px) 0 0/100% 64px,linear-gradient(90deg,rgba(255,255,255,.075) 1px,transparent 1px) 0 0/64px 100%,var(--navy)}
+/* 5 Kupfer-Ränder: warmes Licht von links und rechts */
+.statement[data-bg="5"]{background:linear-gradient(90deg,rgba(217,155,114,.2),rgba(8,26,46,0) 26%,rgba(8,26,46,0) 74%,rgba(217,155,114,.2)),var(--navy)}
+.statement[data-bg="5"] .st-grain{display:block}
+/* 6 Aurora: zwei weiche Farbfelder, Blau und Kupfer */
+.statement[data-bg="6"] .st-blob{display:block}
+/* 7 Sternenhimmel: feine Lichtpunkte wie im Header */
+.statement[data-bg="7"]{background:
+ radial-gradient(1.8px 1.8px at 8% 22%,rgba(255,255,255,.55),transparent 70%),radial-gradient(1.4px 1.4px at 17% 68%,rgba(255,255,255,.4),transparent 70%),radial-gradient(2px 2px at 26% 14%,rgba(255,255,255,.5),transparent 70%),radial-gradient(1.4px 1.4px at 33% 84%,rgba(255,255,255,.35),transparent 70%),radial-gradient(1.8px 1.8px at 41% 36%,rgba(255,255,255,.45),transparent 70%),radial-gradient(1.4px 1.4px at 48% 90%,rgba(255,255,255,.3),transparent 70%),radial-gradient(2.2px 2.2px at 56% 10%,rgba(255,255,255,.55),transparent 70%),radial-gradient(1.4px 1.4px at 63% 62%,rgba(255,255,255,.35),transparent 70%),radial-gradient(1.8px 1.8px at 71% 28%,rgba(255,255,255,.5),transparent 70%),radial-gradient(1.4px 1.4px at 78% 80%,rgba(255,255,255,.3),transparent 70%),radial-gradient(1.4px 1.4px at 86% 18%,rgba(255,255,255,.5),transparent 70%),radial-gradient(1.4px 1.4px at 92% 56%,rgba(255,255,255,.4),transparent 70%),radial-gradient(1.8px 1.8px at 12% 46%,rgba(255,255,255,.3),transparent 70%),radial-gradient(1.4px 1.4px at 95% 88%,rgba(255,255,255,.35),transparent 70%),radial-gradient(1.8px 1.8px at 60% 44%,rgba(217,155,114,.45),transparent 70%),radial-gradient(1.8px 1.8px at 22% 92%,rgba(217,155,114,.4),transparent 70%),
+ radial-gradient(70% 80% at 50% 50%,#0B2446 0%,var(--navy) 100%)}
+/* 8 Anführungszeichen: großes Zitatzeichen in Kupfer, Kontur */
+.statement[data-bg="8"] .st-q{display:block}
+/* 9 Nacht zu Tag: von links dunkel nach rechts heller, Kupferlicht am Tag */
+.statement[data-bg="9"]{background:radial-gradient(42% 70% at 100% 50%,rgba(217,155,114,.24),transparent 72%),linear-gradient(90deg,#05122A 0%,#081A2E 40%,#0F2A4D 78%,#173660 100%)}
+/* 10 Ring: ein großer, ruhiger Kreis wie das Signet, dazu Korn */
+.statement[data-bg="10"] .st-ring,.statement[data-bg="10"] .st-grain{display:block}
+.statement[data-bg="10"]{background:radial-gradient(50% 60% at 50% 50%,#0C2546 0%,var(--navy) 100%)}
+@media (max-width:860px){.st-q{font-size:22rem;left:2%;top:0}.st-sig{height:110%;right:-30%}.st-line{height:40%}}
 </style>
 </head>
 <body id="top">
@@ -649,7 +814,8 @@ footer{background:#06142A;border-top:1px solid var(--line);position:relative;ove
 </div>
 
 <!-- HERO -->
-<section class="hero" id="hero">
+<section class="hero" id="hero" data-stage="8">
+  <div class="hs" aria-hidden="true"><div class="hs-plate"></div><div class="hs-back"></div><div class="hs-wall"></div><div class="hs-floor"></div><div class="hs-halo"></div><img class="hs-shadow" src="fotos/andre-hero.webp" alt="" loading="lazy" width="1000" height="1394"><div class="hs-beam"></div><div class="hs-src"></div><div class="hs-haze"></div><div class="hs-proj"></div><div class="hs-cone"></div><div class="hs-flare"></div></div>
   <canvas id="waves" aria-hidden="true"></canvas>
   <div class="grain"></div>
   <div class="hero-person" id="person">
@@ -657,10 +823,13 @@ footer{background:#06142A;border-top:1px solid var(--line);position:relative;ove
       <source media="(max-width:860px)" srcset="fotos/andre-hero-mobil.webp">
       <img src="fotos/andre-hero.webp" alt="Dr. André Alesi, Schlafwissenschaftler" width="1000" height="1394" fetchpriority="high">
     </picture>
+    <i class="key" aria-hidden="true"></i>
   </div>
+  <div class="hsf" aria-hidden="true"><img class="hsf-row2" src="https://d8j0ntlcm91z4.cloudfront.net/user_39bpvnosVvqwhbus3q5PhClCw2s/hf_20261017_115054_f2a29ced-fc7e-4c35-91d5-75c680a0841b_min.webp" alt="" loading="lazy"><div class="hsf-front"></div><div class="hsf-edge"></div><div class="hsf-haze"></div></div>
   <div class="crowd" id="crowd" aria-hidden="true">
     <img src="https://d8j0ntlcm91z4.cloudfront.net/user_39bpvnosVvqwhbus3q5PhClCw2s/hf_20261017_115054_f2a29ced-fc7e-4c35-91d5-75c680a0841b_min.webp" alt="" loading="eager">
   </div>
+  <div class="hsf hsf2" aria-hidden="true"><img class="hsf-ph" src="https://d2ol7oe51mr4n9.cloudfront.net/user_39bpvnosVvqwhbus3q5PhClCw2s/0802afd4-7fc2-48ea-a4e7-5a5454b5a3bd.webp" alt="" loading="lazy"><img class="hsf-ap" src="https://d2ol7oe51mr4n9.cloudfront.net/user_39bpvnosVvqwhbus3q5PhClCw2s/bea3b3e4-18cd-4623-b56f-b60a24050b57.webp" alt="" loading="lazy"><div class="hsf-ray r1"></div><div class="hsf-ray r2"></div><div class="hsf-fog"></div></div>
   <div class="hero-fade"></div>
 
   <div class="wrap hero-inner">
@@ -690,10 +859,11 @@ footer{background:#06142A;border-top:1px solid var(--line);position:relative;ove
 </section>
 
 <!-- STATEMENT -->
-<section class="statement">
+<section class="statement" data-bg="7">
+  <div class="st-bg" aria-hidden="true"><div class="st-grain"></div><svg class="st-line" viewBox="0 0 1440 400" preserveAspectRatio="none"><path d="M0,250 C120,250 160,90 260,90 S420,300 540,300 S700,70 820,70 S980,280 1100,280 S1300,130 1440,130" stroke="#F6A262" stroke-width="2.5"/><path d="M0,290 C120,290 160,130 260,130 S420,340 540,340 S700,110 820,110 S980,320 1100,320 S1300,170 1440,170" stroke="#96C8FF" stroke-width="1.6" opacity=".8"/></svg><svg class="st-sig" viewBox="0 0 100 120"><use href="#signet"/></svg><span class="st-q">“</span><i class="st-blob a"></i><i class="st-blob b"></i><i class="st-ring"></i></div>
   <div class="wrap">
-    <div class="eyebrow c rv">Die Wahrheit über Schlaf</div>
-    <p class="big" id="words">Wir wissen heute sehr viel über guten Schlaf. Trotzdem schlafen viele Menschen schlecht. Nicht, weil ihnen Wissen fehlt. Sondern weil ihr <em>Alltag</em> nicht mitspielt.</p>
+    <div class="eyebrow c rv">Was guten Schlaf wirklich ausmacht</div>
+    <p class="big" id="words">Wir wissen heute sehr viel über guten Schlaf. Trotzdem schlafen Millionen Menschen schlecht. Denn zu wissen, was gut für uns wäre, bedeutet noch lange nicht, dass wir es im <em>Alltag</em> umsetzen können. Genau dort müssen wir ansetzen.</p>
     <div class="sig rv"><svg viewBox="0 0 100 120"><use href="#signet"/></svg>Dr. André Alesi</div>
   </div>
 </section>
@@ -743,10 +913,10 @@ footer{background:#06142A;border-top:1px solid var(--line);position:relative;ove
 <!-- KORRIDOR / HALTUNG -->
 <section class="corr">
   <div class="wrap corr-grid">
-    <div class="imgbox mask rv">
-      <img src="https://d8j0ntlcm91z4.cloudfront.net/user_39bpvnosVvqwhbus3q5PhClCw2s/hf_20261017_115054_8ee26780-37f7-4ac2-9d2c-52f00bfb2376_min.webp" alt="Dr. André Alesi am Fenster in der Abenddämmerung" loading="lazy">
-      <div class="tag"><b>Aus Schlafwissen Lösungen machen.</b>Das ist der Kern meiner Arbeit.</div>
-    </div>
+    <div class="frame rv"><div class="imgbox mask">
+      <img src="fotos/andre-blazer-blick.webp" alt="Dr. André Alesi im Blazer, nachdenklich zur Seite blickend" loading="lazy">
+      <div class="tag"><i></i><b>Aus Schlafwissen Lösungen machen.</b>Das ist der Kern meiner Arbeit.</div>
+    </div></div>
     <div>
       <div class="eyebrow rv">Was mich antreibt</div>
       <h2 class="h2 rv d1" style="margin-top:22px">Wissenschaftler im&nbsp;Kopf.<br><em>Unternehmer im&nbsp;Herzen.</em></h2>
@@ -802,7 +972,7 @@ footer{background:#06142A;border-top:1px solid var(--line);position:relative;ove
           <p>Über 20 Jahre Erfahrung im Bereich Sleeping, in der Produktentwicklung und in der Zusammenarbeit mit Unternehmen. Dieses Wissen hilft, Bedürfnisse zu erkennen und Ideen wirtschaftlich und praktisch umzusetzen.</p>
           <ul><li>Produktentwicklung</li><li>Handel</li><li>Unternehmen</li></ul>
         </div>
-        <div class="pr"><img src="https://d8j0ntlcm91z4.cloudfront.net/user_39bpvnosVvqwhbus3q5PhClCw2s/hf_20261017_120812_88643ffa-e60e-4dc1-a9c7-1e61746d8d9a_min.webp" alt="Dr. André Alesi bei einem Workshop im Unternehmen" loading="lazy"></div>
+        <div class="pr"><img src="fotos/andre-workshop.webp" alt="Dr. André Alesi erklärt im Stehen" loading="lazy"></div>
       </article>
       <article class="pcard pc3">
         <div class="pl">
@@ -856,7 +1026,7 @@ footer{background:#06142A;border-top:1px solid var(--line);position:relative;ove
         <span class="go"><i>→</i>Jetzt Schlaftest starten</span>
       </a>
       <a href="kurs.html" class="ocard rv d1">
-        <div class="bg"><img src="https://d8j0ntlcm91z4.cloudfront.net/user_39bpvnosVvqwhbus3q5PhClCw2s/hf_20261017_120812_7f48337f-ed26-4285-8508-d7d463e6f4a2_min.webp" alt="" loading="lazy"></div>
+        <div class="bg"><img src="fotos/andre-bett.webp" alt="" loading="lazy"></div>
         <span class="pill">Onlinekurs</span>
         <small class="kick">02 · Der Schlafkurs</small>
         <h3>Besser schlafen. Schritt für Schritt.</h3>
@@ -864,7 +1034,7 @@ footer{background:#06142A;border-top:1px solid var(--line);position:relative;ove
         <span class="go"><i>→</i>Schlafkurs entdecken</span>
       </a>
       <a href="https://institut-schlaf.de/betriebliche-gesundheit/" target="_blank" rel="noopener" class="ocard biz rv d2">
-        <div class="bg"><img src="https://d8j0ntlcm91z4.cloudfront.net/user_39bpvnosVvqwhbus3q5PhClCw2s/hf_20261017_115055_de690edf-d84f-4304-b34a-adcf4f4fc6d8_min.webp" alt="" loading="lazy" style="object-position:75% center"></div>
+        <div class="bg"><img src="fotos/andre-vortrag.webp" alt="" loading="lazy" style="object-position:75% center"></div>
         <span class="pill">Betriebliche Schlafgesundheit</span>
         <small class="kick">03 · Für Unternehmen</small>
         <h3>Gesunder Schlaf am Arbeitsplatz</h3>
@@ -879,7 +1049,7 @@ footer{background:#06142A;border-top:1px solid var(--line);position:relative;ove
 <section class="about">
   <div class="wrap about-grid">
     <div class="photo rv">
-      <div class="ph mask" id="aboutMask"><img src="https://d8j0ntlcm91z4.cloudfront.net/user_39bpvnosVvqwhbus3q5PhClCw2s/hf_20261017_115055_91291928-1a06-40eb-94b0-a5c36ee0ab3b_min.webp" alt="Dr. André Alesi im Sessel" loading="lazy"></div>
+      <div class="frame r30"><div class="ph mask" id="aboutMask"><img src="fotos/andre-sessel.webp" alt="Dr. André Alesi im Sessel" loading="lazy"></div></div>
       <div class="badge">
         <svg class="ring" viewBox="0 0 200 200" aria-hidden="true"><defs><path id="rp" d="M100,100 m-80,0 a80,80 0 1,1 160,0 a80,80 0 1,1 -160,0"/></defs><text><textPath href="#rp" textLength="500" lengthAdjust="spacing">SLEEP TO LIFE · SLEEP TO LIFE · SLEEP TO LIFE · </textPath></text></svg>
         <span class="bcore"><b>20+</b><small>Jahre<br>Schlaf</small></span>
@@ -954,9 +1124,9 @@ footer{background:#06142A;border-top:1px solid var(--line);position:relative;ove
     <div class="yt-head">
       <div class="rv">
         <div class="eyebrow">Social Media</div>
-        <h2 class="h2">Schlafwissen, <em>das hängen bleibt.</em></h2>
+        <h2 class="h2">Schlafwissen. <em>Einfach erklärt.</em></h2>
       </div>
-      <p class="lead rv d1">Ausführlich auf YouTube. Im Alltag auf Instagram. In 60 Sekunden auf TikTok.</p>
+      <p class="lead rv d1">Wissenschaftlich fundiert, verständlich erklärt und manchmal mit einer unbequemen Wahrheit. Auf meinen Kanälen räume ich mit Schlafmythen auf, hinterfrage Trends und zeige, was wirklich hinter gutem Schlaf steckt.</p>
     </div>
     <div class="ytgrid">
       <a class="ytc sc-yt rv" href="https://www.youtube.com/@dr.andre.schlafen?sub_confirmation=1" target="_blank" rel="noopener">
@@ -1320,7 +1490,7 @@ footer{background:#06142A;border-top:1px solid var(--line);position:relative;ove
     c.fillStyle = hz; c.fillRect(0,0,W,H); c.globalCompositeOperation = 'source-over';
   }
   function layout(){
-    var r = hero.getBoundingClientRect(); W = r.width; H = r.height;
+    var r = hero.getBoundingClientRect(); W = r.width || window.innerWidth; H = r.height || window.innerHeight;
     cv.width = Math.round(W*DPR); cv.height = Math.round(H*DPR); ctx.setTransform(DPR,0,0,DPR,0,0);
     desk = window.innerWidth > 1000;
     if(desk){
@@ -1342,22 +1512,27 @@ footer{background:#06142A;border-top:1px solid var(--line);position:relative;ove
     var tt = t*.001; if(!t0) t0 = t;
     var reveal = reduce ? 1 : Math.min(1, (t - t0 - 500)/3600); reveal = reveal < 0 ? 0 : 1 - Math.pow(1-reveal, 3);
     ctx.clearRect(0,0,W,H);
-    // Sterne
-    for(var s=0;s<stars.length;s++){ var st=stars[s]; ctx.fillStyle='rgba(255,255,255,'+(.18+.3*Math.sin(tt*.8*st.s+st.p)).toFixed(3)+')'; ctx.beginPath(); ctx.arc(st.x,st.y,st.r,0,6.283); ctx.fill(); }
-    // Lichtstreifen links unten
+    // Lichtstreifen links unten: kurz und tief, laufen vor dem Text aus
     ctx.lineWidth = 1.1;
-    var lim = desk ? W*.58 : W;
-    for(var i=0;i<30;i++){
+    var lim = desk ? W*.42 : W, slope = desk ? .46 : .58, lift = desk ? 1.12 : 1.08, gapL = desk ? 17 : 21, nL = desk ? 26 : 30;
+    for(var i=0;i<nL;i++){
       var g = ctx.createLinearGradient(0,0,lim,0);
-      var al = .2 + .1*Math.sin(tt*.35 + i*.6) + (i%7===0 ? .12 : 0);
-      g.addColorStop(0,'rgba(150,200,255,'+al.toFixed(3)+')'); g.addColorStop(.75,'rgba(120,175,240,'+(al*.5).toFixed(3)+')'); g.addColorStop(1,'rgba(120,175,240,0)');
+      var al = (desk ? .16 : .2) + .1*Math.sin(tt*.35 + i*.6) + (i%7===0 ? .12 : 0);
+      g.addColorStop(0,'rgba(150,200,255,'+al.toFixed(3)+')'); g.addColorStop(desk ? .5 : .75,'rgba(120,175,240,'+(al*.5).toFixed(3)+')'); g.addColorStop(1,'rgba(120,175,240,0)');
       ctx.strokeStyle = g; ctx.beginPath();
       for(var x=-40;x<=lim;x+=16){
-        var y = H*1.08 - (x+40)*.58 - i*21 + Math.sin(x*.0045 + tt*.28 + i*.32)*24 + Math.sin(x*.011 - tt*.18 + i)*7;
+        var y = H*lift - (x+40)*slope - i*gapL + Math.sin(x*.0045 + tt*.28 + i*.32)*24 + Math.sin(x*.011 - tt*.18 + i)*7;
         if(x===-40) ctx.moveTo(x,y); else ctx.lineTo(x,y);
       }
       ctx.stroke();
     }
+    // nach oben weich ausblenden, damit Headline und Text frei bleiben
+    if(desk){
+      var fo = ctx.createLinearGradient(0, H*.5, 0, H*.78); fo.addColorStop(0,'rgba(0,0,0,1)'); fo.addColorStop(1,'rgba(0,0,0,0)');
+      ctx.globalCompositeOperation = 'destination-out'; ctx.fillStyle = fo; ctx.fillRect(0, 0, lim + 2, H*.78); ctx.globalCompositeOperation = 'source-over';
+    }
+    // Sterne
+    for(var s=0;s<stars.length;s++){ var st=stars[s]; ctx.fillStyle='rgba(255,255,255,'+(.18+.3*Math.sin(tt*.8*st.s+st.p)).toFixed(3)+')'; ctx.beginPath(); ctx.arc(st.x,st.y,st.r,0,6.283); ctx.fill(); }
     // Hypnogramm: Aufbau von links nach rechts
     var xr = X0 + (Math.min(X1, W) - X0 + 4)*reveal;
     ctx.save(); ctx.beginPath(); ctx.rect(0, 0, xr, H); ctx.clip();
