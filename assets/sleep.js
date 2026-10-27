@@ -32,9 +32,9 @@
     new IntersectionObserver(function(es, ob){
       es.forEach(function(e){
         if(!e.isIntersecting || done) return; done = true; ob.disconnect();
-        if(reduce){ el.textContent = target; return; }
+        if(reduce){ el.textContent = target.toLocaleString('de-DE'); return; }
         var t0 = null;
-        (function step(ts){ if(!t0) t0 = ts; var p = Math.min(1, (ts-t0)/1800); p = 1 - Math.pow(1-p, 3); el.textContent = Math.round(target*p); if(p < 1) requestAnimationFrame(step); })(performance.now());
+        (function step(ts){ if(!t0) t0 = ts; var p = Math.min(1, (ts-t0)/1800); p = 1 - Math.pow(1-p, 3); el.textContent = Math.round(target*p).toLocaleString('de-DE'); if(p < 1) requestAnimationFrame(step); })(performance.now());
       });
     }, {threshold:.5}).observe(el);
   });

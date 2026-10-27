@@ -295,7 +295,7 @@ em.cu{font-style:italic;color:var(--copper)}
 .sign-art.in .s-bar{transform:scaleY(1)}
 .sign-art .lbl{position:absolute;font-size:10.5px;letter-spacing:.3em;text-transform:uppercase;color:var(--mist);opacity:0;transition:opacity 1s var(--ease) 1.4s}
 .sign-art.in .lbl{opacity:1}
-.sign-art .l1{left:-6%;bottom:-8%}.sign-art .l2{left:50%;top:-10%;transform:translateX(-50%);color:#fff}.sign-art .l3{right:-6%;bottom:-8%;color:var(--copper)}
+.sign-art .l1{left:25%;bottom:-9%;transform:translateX(-50%)}.sign-art .l2{left:57.3%;top:-10%;transform:translateX(-50%);color:#fff}.sign-art .l3{left:81%;bottom:-9%;transform:translateX(-50%);color:var(--copper)}
 .sign p.t{color:#C7D3E0;font-weight:300;font-size:1.06rem;margin-bottom:14px;max-width:520px}
 .sign p.t b{color:#fff;font-weight:500}
 @media (max-width:860px){.sign{padding:96px 0}.sign-grid{grid-template-columns:1fr;gap:60px}.sign-art{width:60%}}
@@ -404,7 +404,8 @@ em.cu{font-style:italic;color:var(--copper)}
 .dk figcaption small{display:inline-flex;align-items:center;gap:10px;font:500 10.5px/1 var(--sans);letter-spacing:.3em;text-transform:uppercase;color:var(--copper-l);margin-bottom:12px}
 .dk figcaption small::before{content:'';width:22px;height:1px;background:currentColor}
 .dk figcaption p{font-family:var(--serif);font-size:1.32rem;line-height:1.32;margin:0}
-.dk-nav{display:flex;align-items:center;gap:14px;margin-top:30px}
+.dk-nav{position:relative;z-index:6;display:flex;align-items:center;gap:14px;margin-top:30px}
+.dk{pointer-events:none}.dk.on{pointer-events:auto}
 .dk-arw{flex:0 0 auto;width:42px;height:42px;padding:0;border-radius:50%;border:1px solid rgba(11,31,53,.14);background:#fff;color:var(--ink);display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 10px 22px -14px rgba(11,31,53,.55);transition:background .3s,color .3s,border-color .3s,transform .3s var(--ease)}
 .dk-arw:hover{background:var(--ink);color:#fff;border-color:var(--ink)}
 .dk-arw:active{transform:scale(.92)}
@@ -933,22 +934,7 @@ img.hsf-ap{left:-4%;width:116%;bottom:-8%;filter:blur(2.2px) brightness(.6) satu
           <p>Fundierte Schlafforschung bildet die Grundlage meiner Arbeit. Wissenschaftliche Erkenntnisse kritisch einordnen, verständlich vermitteln und konsequent an der Evidenz orientieren.</p>
           <ul><li>Forschung</li><li>Promotion</li><li>DGSM</li></ul>
         </div>
-        <div class="pr hypbox">
-          <svg class="hyp" id="hyp" viewBox="0 0 600 360" aria-label="Hypnogramm einer Nacht mit fünf Schlafzyklen">
-            <defs>
-              <linearGradient id="hypLine" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#87A6C6"/><stop offset=".5" stop-color="#F2C6A2"/><stop offset="1" stop-color="#D99B72"/></linearGradient>
-              <linearGradient id="hypArea" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F2C6A2" stop-opacity=".32"/><stop offset="1" stop-color="#87A6C6" stop-opacity="0"/></linearGradient>
-              <filter id="hypGlow" x="-10%" y="-30%" width="120%" height="160%"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
-            </defs>
-            <g class="grid"></g>
-            <path class="area" d=""/>
-            <g class="bands"></g>
-            <path class="line" d="" filter="url(#hypGlow)"/>
-            <g class="ph-head"><line class="ph-line" x1="0" y1="40" x2="0" y2="312"/><circle class="ph-dot" r="6"/><circle class="ph-ring" r="6"/></g>
-          </svg>
-          <div class="hyp-read"><b id="hypTime">23:00</b><span id="hypStage">Wach</span></div>
-          <div class="hyp-legend"><span><i class="lr"></i>REM</span><span><i class="lt"></i>Tiefschlaf</span><span class="cyc">5 Zyklen · je rund 90 Min.</span></div>
-        </div>
+        <div class="pr"><img src="https://d2ol7oe51mr4n9.cloudfront.net/user_39bpvnosVvqwhbus3q5PhClCw2s/e0cdf4b5-a534-4ad3-9049-99a83af13eb4.webp" alt="Schlaftracking am Morgen: Smartwatch, Ring und Schlaf-App auf dem Holztisch" loading="lazy" style="object-position:55% 50%"></div>
       </article>
       <article class="pcard pc2">
         <div class="pl">
@@ -956,7 +942,7 @@ img.hsf-ap{left:-4%;width:116%;bottom:-8%;filter:blur(2.2px) brightness(.6) satu
           <p>Über 20 Jahre Erfahrung im Bereich Sleeping, in der Produktentwicklung und in der Zusammenarbeit mit Unternehmen. Dieses Wissen hilft, Bedürfnisse zu erkennen und Ideen wirtschaftlich und praktisch umzusetzen.</p>
           <ul><li>Produktentwicklung</li><li>Handel</li><li>Unternehmen</li></ul>
         </div>
-        <div class="pr"><img src="fotos/andre-sakko.webp" alt="Dr. André Alesi im Sakko, lächelnd im Gespräch"></div>
+        <div class="pr"><img src="https://d2ol7oe51mr4n9.cloudfront.net/user_39bpvnosVvqwhbus3q5PhClCw2s/62b2733e-4d2b-4c88-b0d3-2cf95b50de5d.webp" alt="Dr. André Alesi im Sakko am Schreibtisch, lächelnd im Gespräch" loading="lazy" style="object-position:58% 30%"></div>
       </article>
       <article class="pcard pc3">
         <div class="pl">
@@ -1047,7 +1033,7 @@ img.hsf-ap{left:-4%;width:116%;bottom:-8%;filter:blur(2.2px) brightness(.6) satu
       <div class="facts rv d2">
         <div><b>Promotion</b><small>Deutsche Sporthochschule Köln</small></div>
         <div><b>DGSM</b><small>Mitglied im wissenschaftlichen Nachwuchs</small></div>
-        <div><b>Autor</b><small>„Einfach besser schlafen“ und „Endlich richtig ausgeschlafen“</small></div>
+        <div><b>Autor</b><small>Buch „Endlich richtig ausgeschlafen“ und Kartenset „Einfach besser schlafen“</small></div>
       </div>
       <a href="ueber-mich.html" class="btn btn-ghost rv d3">Meine Geschichte <span class="ar">→</span></a>
       <div class="refs rv d3"><small>Vertrauen mir in der betrieblichen Gesundheit</small><span>Deutsche Bank</span><span>ExxonMobil</span><span>STIHL</span></div>
@@ -1321,23 +1307,28 @@ img.hsf-ap{left:-4%;width:116%;bottom:-8%;filter:blur(2.2px) brightness(.6) satu
     stage.addEventListener('pointerenter', function(e){ if(e.pointerType === 'mouse'){ hold = true; schedule(); } });
     stage.addEventListener('pointerleave', function(e){ if(e.pointerType === 'mouse'){ hold = false; restartFill(); schedule(); } });
 
-    /* Hypnogramm im Hintergrund: dieselbe Nacht wie im Header, drei parallele Linien */
+    /* Hintergrund: ruhige Schlafzyklus-Welle (5 Zyklen à 96 Min., Amplitude nimmt zum Morgen ab), drei parallele Linien */
     var svg = document.getElementById('whoLines'), NS = 'http://www.w3.org/2000/svg';
-    var lv = [], m, k2;
-    var VN = NIGHT_SMOOTH();
-    for(m = 0; m <= NIGHT_END; m++){ var v = VN[0][1]; for(k2 = 0; k2 < VN.length; k2++){ if(VN[k2][0] <= m) v = VN[k2][1]; else break; } lv.push(v); }
-    var sm = [], sig = 12, R = 36;
-    for(m = 0; m <= NIGHT_END; m++){ var a = 0, wsum = 0; for(var j = -R; j <= R; j++){ var q = Math.min(NIGHT_END, Math.max(0, m + j)), g = Math.exp(-(j*j)/(2*sig*sig)); a += lv[q]*g; wsum += g; } sm.push(a/wsum); }
-    function Y(mm){ return 70 + sm[mm]/3*220; }
-    [['s1',-16],['s2',0],['s3',16]].forEach(function(st){
-      var d = '';
-      for(m = 0; m <= NIGHT_END; m += 2){ d += (m ? 'L' : 'M') + (m/NIGHT_END*1440).toFixed(1) + ' ' + (Y(m) + st[1]).toFixed(1); }
-      var p = document.createElementNS(NS, 'path'); p.setAttribute('d', d); p.setAttribute('class', st[0]); p.setAttribute('pathLength', '1'); svg.appendChild(p);
+    function Yw(x, ph){ var t = 480 * x / 1440; return 180 - 104 * (1 - 0.42 * t / 480) * Math.cos(2 * Math.PI * t / 96 + (ph || 0)); }
+    function wpath(off, ph){
+      var ps = [], k, x;
+      for(x = 0; x <= 1440; x += 8) ps.push([x, Yw(x, ph) + off]);
+      var d = 'M' + ps[0][0] + ' ' + ps[0][1].toFixed(1);
+      for(k = 0; k < ps.length - 1; k++){
+        var p0 = ps[Math.max(0, k - 1)], p1 = ps[k], p2 = ps[k + 1], p3 = ps[Math.min(ps.length - 1, k + 2)];
+        d += 'C' + (p1[0] + (p2[0] - p0[0]) / 6).toFixed(1) + ' ' + (p1[1] + (p2[1] - p0[1]) / 6).toFixed(1) + ' '
+           + (p2[0] - (p3[0] - p1[0]) / 6).toFixed(1) + ' ' + (p2[1] - (p3[1] - p1[1]) / 6).toFixed(1) + ' '
+           + p2[0] + ' ' + p2[1].toFixed(1);
+      }
+      return d;
+    }
+    [['s1', -16, -0.05], ['s2', 0, 0], ['s3', 16, 0.05]].forEach(function(st){
+      var p = document.createElementNS(NS, 'path'); p.setAttribute('d', wpath(st[1], st[2])); p.setAttribute('class', st[0]); p.setAttribute('pathLength', '1'); svg.appendChild(p);
     });
     var halo = document.createElementNS(NS, 'circle'); halo.setAttribute('r', '14'); halo.setAttribute('class', 'halo'); svg.appendChild(halo);
     var dot = document.createElementNS(NS, 'circle'); dot.setAttribute('r', '5'); svg.appendChild(dot);
     var t0 = null, raf = null;
-    function place(u){ var f = u * NIGHT_END, i = Math.floor(f), r = f - i, y = Y(i) + (Y(Math.min(NIGHT_END, i + 1)) - Y(i)) * r, x = u * 1440;
+    function place(u){ var x = u * 1440, y = Yw(x, 0);
       dot.setAttribute('cx', x); dot.setAttribute('cy', y); halo.setAttribute('cx', x); halo.setAttribute('cy', y); }
     function glide(ts){
       if(t0 === null) t0 = ts;
