@@ -58,7 +58,7 @@ em.cu{font-style:italic;color:var(--copper)}
 
 /* ── Logo ── */
 .logo{display:flex;align-items:center;gap:14px}
-.logo svg{width:46px;height:auto}
+.logo svg{height:58px;width:auto;display:block}
 .logo .div{width:1px;height:46px;background:rgba(255,255,255,.45)}
 .logo .wm{display:flex;flex-direction:column;line-height:1}
 .logo .wm b{font-weight:500;font-size:17.5px;letter-spacing:.26em;white-space:nowrap}
@@ -184,6 +184,7 @@ em.cu{font-style:italic;color:var(--copper)}
 .ccard:hover .ic svg{stroke:var(--copper-l)}
 .ccard h3{font-family:var(--serif);font-weight:500;font-size:1.65rem;line-height:1.2;margin-bottom:12px;min-height:2.4em;display:flex;align-items:flex-end}
 .ccard p{font-size:15px;color:var(--ink-m);font-weight:300}
+.amp{font-family:Georgia,'Times New Roman',serif;font-weight:400;font-style:normal}
 .ccard::after{content:'';position:absolute;right:-60px;bottom:-60px;width:160px;height:160px;border-radius:50%;border:1px solid rgba(217,155,114,.35);transition:transform .8s var(--ease)}
 .ccard:hover::after{transform:scale(1.5)}
 .cond-foot{margin-top:60px;display:block;font-family:var(--serif);font-size:clamp(1.3rem,2vw,1.7rem);text-align:center}
@@ -591,7 +592,7 @@ footer{background:#06142A;border-top:1px solid var(--line);position:relative;ove
 }
 @media (max-width:520px){
   .fgrid{grid-template-columns:1fr}
-  .logo .wm b{font-size:12.5px;letter-spacing:.2em}
+  .logo svg{height:44px}
   .hero .ctas .btn{width:100%;justify-content:center}
 }
 @media (prefers-reduced-motion:reduce){
@@ -766,33 +767,14 @@ img.hsf-ap{left:-4%;width:116%;bottom:-8%;filter:blur(2.2px) brightness(.6) satu
 </head>
 <body id="top">
 
-<!-- Signet als wiederverwendbares Symbol -->
-<svg width="0" height="0" style="position:absolute" aria-hidden="true">
-  <defs>
-    <linearGradient id="sgDisc" x1="6" y1="0" x2="47" y2="0" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#5F7FA3"/><stop offset="1" stop-color="#F4F1EC"/></linearGradient>
-    <linearGradient id="sgMoon" x1="54" y1="22" x2="92" y2="98" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#F2C6A2"/><stop offset=".55" stop-color="#D99B72"/><stop offset="1" stop-color="#B9764D"/></linearGradient>
-    <linearGradient id="gG" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#F2C6A2"/><stop offset="1" stop-color="#D99B72"/></linearGradient>
-    <linearGradient id="sgDiscW" x1="6" y1="0" x2="47" y2="0" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#8F9BAB"/><stop offset=".55" stop-color="#D9DEE5"/><stop offset="1" stop-color="#FFFFFF"/></linearGradient>
-    <symbol id="signetW" viewBox="0 0 100 120">
-      <path d="M46.5 20a40 40 0 0 0 0 80z" fill="url(#sgDiscW)"/>
-      <rect x="48.6" y="5" width="3.4" height="110" rx="1.2" fill="#fff"/>
-      <path d="M55 22a38 38 0 0 1 0 76a25 38 0 0 0 0-76z" fill="#fff"/>
-    </symbol>
-    <symbol id="signet" viewBox="0 0 100 120">
-      <path d="M46.5 20a40 40 0 0 0 0 80z" fill="url(#sgDisc)"/>
-      <rect x="48.6" y="5" width="3.4" height="110" rx="1.2" fill="#fff"/>
-      <path d="M55 22a38 38 0 0 1 0 76a25 38 0 0 0 0-76z" fill="url(#sgMoon)"/>
-    </symbol>
-  </defs>
-</svg>
+<!-- Logo und Signet (Original-SVG von Rebecca) als wiederverwendbare Symbole -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><linearGradient id="sgW" x1="115" y1="358" x2="218" y2="358" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#FFFFFF" stop-opacity="1"/><stop offset=".11" stop-color="#FFFFFF" stop-opacity=".97"/><stop offset=".29" stop-color="#FFFFFF" stop-opacity=".87"/><stop offset=".51" stop-color="#FFFFFF" stop-opacity=".72"/><stop offset=".77" stop-color="#FFFFFF" stop-opacity=".51"/><stop offset="1" stop-color="#FFFFFF" stop-opacity=".3"/></linearGradient><linearGradient id="sgK" x1="115" y1="358" x2="218" y2="358" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#081A2E" stop-opacity="1"/><stop offset=".11" stop-color="#081A2E" stop-opacity=".97"/><stop offset=".29" stop-color="#081A2E" stop-opacity=".87"/><stop offset=".51" stop-color="#081A2E" stop-opacity=".72"/><stop offset=".77" stop-color="#081A2E" stop-opacity=".51"/><stop offset="1" stop-color="#081A2E" stop-opacity=".3"/></linearGradient><linearGradient id="sgC" x1="115" y1="358" x2="218" y2="358" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#274768" stop-opacity="1"/><stop offset=".11" stop-color="#274768" stop-opacity=".97"/><stop offset=".29" stop-color="#274768" stop-opacity=".87"/><stop offset=".51" stop-color="#274768" stop-opacity=".72"/><stop offset=".77" stop-color="#274768" stop-opacity=".51"/><stop offset="1" stop-color="#274768" stop-opacity=".3"/></linearGradient><linearGradient id="gG" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#F2C6A2"/><stop offset="1" stop-color="#D99B72"/></linearGradient><symbol id="signetW" viewBox="110 210 222 294"><g fill="#fff"><path d="M115,358c0,56.89,46.11,103,103,103v-206c-56.89,0-103,46.11-103,103Z" fill="url(#sgW)"/><rect x="233.48" y="216.49" width="7.21" height="280.52"/><path d="M251.72,263.6v8.49s53.38,25.02,50.93,89.55c-2.12,55.81-51.78,78.96-51.78,78.96v9.31s72.4-14.31,74.06-93.37c1.49-71.09-73.21-92.94-73.21-92.94Z"/></g></symbol><symbol id="signetK" viewBox="110 210 222 294"><g fill="#081A2E"><path d="M115,358c0,56.89,46.11,103,103,103v-206c-56.89,0-103,46.11-103,103Z" fill="url(#sgK)"/><rect x="233.48" y="216.49" width="7.21" height="280.52"/><path d="M251.72,263.6v8.49s53.38,25.02,50.93,89.55c-2.12,55.81-51.78,78.96-51.78,78.96v9.31s72.4-14.31,74.06-93.37c1.49-71.09-73.21-92.94-73.21-92.94Z"/></g></symbol><symbol id="signet" viewBox="110 210 222 294"><g fill="#D99B72"><path d="M115,358c0,56.89,46.11,103,103,103v-206c-56.89,0-103,46.11-103,103Z" fill="url(#sgC)"/><rect x="233.48" y="216.49" width="7.21" height="280.52"/><path d="M251.72,263.6v8.49s53.38,25.02,50.93,89.55c-2.12,55.81-51.78,78.96-51.78,78.96v9.31s72.4-14.31,74.06-93.37c1.49-71.09-73.21-92.94-73.21-92.94Z"/></g></symbol><symbol id="logoW" viewBox="115 216 1100 282"><g fill="#fff"><path d="M115,358c0,56.89,46.11,103,103,103v-206c-56.89,0-103,46.11-103,103Z" fill="url(#sgW)"/><rect x="233.48" y="216.49" width="7.21" height="280.52"/><path d="M251.72,263.6v8.49s53.38,25.02,50.93,89.55c-2.12,55.81-51.78,78.96-51.78,78.96v9.31s72.4-14.31,74.06-93.37c1.49-71.09-73.21-92.94-73.21-92.94Z"/><rect x="391.64" y="263.81" width="2.04" height="199.89"/><path d="M491.47,311.37c3.95,2.01,7,4.9,9.16,8.66,2.15,3.76,3.23,8.15,3.23,13.17s-1.08,9.37-3.23,13.06c-2.15,3.69-5.21,6.52-9.16,8.48-3.95,1.96-8.55,2.95-13.8,2.95h-16.11v-49.32h16.11c5.25,0,9.85,1.01,13.8,3.02ZM490.94,346.39c3.08-3.12,4.61-7.52,4.61-13.2s-1.54-10.2-4.61-13.41c-3.08-3.22-7.5-4.83-13.27-4.83h-8.02v36.12h8.02c5.77,0,10.2-1.56,13.27-4.68Z"/><path d="M551.83,357.68l-11.36-19.73h-6.17v19.73h-8.09v-49.32h17.03c3.78,0,6.99.66,9.62,1.99,2.63,1.33,4.59,3.1,5.89,5.32,1.3,2.22,1.95,4.71,1.95,7.45,0,3.22-.93,6.14-2.8,8.76-1.87,2.63-4.74,4.41-8.62,5.36l12.21,20.44h-9.65ZM534.3,331.49h8.94c3.03,0,5.31-.76,6.85-2.27,1.54-1.51,2.31-3.55,2.31-6.1s-.76-4.55-2.27-6c-1.52-1.44-3.81-2.16-6.88-2.16h-8.94v16.54Z"/><path d="M584.97,356.68c-.99-.99-1.49-2.22-1.49-3.69s.5-2.7,1.49-3.69,2.22-1.49,3.69-1.49,2.63.5,3.62,1.49,1.49,2.22,1.49,3.69-.5,2.7-1.49,3.69c-.99.99-2.2,1.49-3.62,1.49s-2.7-.5-3.69-1.49Z"/><path d="M679.36,347.6h-20.65l-3.55,10.08h-8.45l17.67-49.4h9.37l17.67,49.4h-8.52l-3.55-10.08ZM677.09,341l-8.02-22.92-8.09,22.92h16.11Z"/><path d="M753.95,357.68h-8.09l-24.34-36.83v36.83h-8.09v-49.4h8.09l24.34,36.76v-36.76h8.09v49.4Z"/><path d="M808.85,311.37c3.95,2.01,7,4.9,9.16,8.66,2.15,3.76,3.23,8.15,3.23,13.17s-1.08,9.37-3.23,13.06c-2.15,3.69-5.21,6.52-9.16,8.48-3.95,1.96-8.55,2.95-13.8,2.95h-16.11v-49.32h16.11c5.25,0,9.85,1.01,13.8,3.02ZM808.32,346.39c3.08-3.12,4.61-7.52,4.61-13.2s-1.54-10.2-4.61-13.41c-3.08-3.22-7.5-4.83-13.27-4.83h-8.02v36.12h8.02c5.77,0,10.2-1.56,13.27-4.68Z"/><path d="M869.21,357.68l-11.35-19.73h-6.17v19.73h-8.09v-49.32h17.03c3.78,0,6.99.66,9.62,1.99,2.63,1.33,4.59,3.1,5.89,5.32,1.3,2.22,1.95,4.71,1.95,7.45,0,3.22-.93,6.14-2.8,8.76s-4.74,4.41-8.62,5.36l12.21,20.44h-9.65ZM851.68,331.49h8.94c3.03,0,5.31-.76,6.85-2.27,1.54-1.51,2.31-3.55,2.31-6.1s-.76-4.55-2.27-6c-1.51-1.44-3.81-2.16-6.88-2.16h-8.94v16.54Z"/><path d="M910.87,314.88v14.48h17.03v6.6h-17.03v15.12h19.16v6.6h-27.25v-49.4h27.25v6.6h-19.16ZM923.36,297.78l-15.68,7.74v-5.96l15.68-8.66v6.88Z"/><path d="M1016.83,347.6h-20.65l-3.55,10.08h-8.45l17.67-49.4h9.37l17.67,49.4h-8.52l-3.55-10.08ZM1014.56,341l-8.02-22.92-8.09,22.92h16.11Z"/><path d="M1058.98,351.15h16.68v6.53h-24.77v-49.32h8.09v42.8Z"/><path d="M1104.83,314.88v14.48h17.03v6.6h-17.03v15.12h19.16v6.6h-27.25v-49.4h27.25v6.6h-19.16Z"/><path d="M1181.55,343.7c0,2.51-.67,4.87-2.03,7.09-1.35,2.23-3.3,4.01-5.88,5.36s-5.62,2.02-9.13,2.02c-3.3,0-6.28-.57-8.94-1.73-2.66-1.16-4.74-2.8-6.25-4.94-.61-.86-1.1-1.77-1.46-2.76l7.07-4.85c.66,1.99,2.13,4.34,3.29,5.41,1.5,1.37,3.59,2.06,6.28,2.06s4.97-.67,6.53-2.02c1.56-1.36,2.34-3.09,2.34-5.22,0-1.66-.49-3-1.46-4.04-.97-1.05-2.17-1.85-3.62-2.42-1.45-.56-3.44-1.18-6-1.85-3.22-.85-5.83-1.71-7.84-2.59-2.02-.87-3.73-2.23-5.15-4.08-1.42-1.85-2.13-4.3-2.13-7.38,0-2.84.71-5.32,2.13-7.45,1.42-2.13,3.4-3.76,5.96-4.9,2.56-1.13,5.51-1.7,8.88-1.7,4.77,0,8.69,1.2,11.74,3.58,1.2.93,2.18,2.01,2.94,3.22l-7.24,4.79c-.41-1.03-1.12-1.97-2.12-2.78-1.56-1.28-3.62-1.92-6.17-1.92-2.33,0-4.21.59-5.68,1.77-1.47,1.18-2.19,2.89-2.19,5.11,0,1.52.46,2.76,1.38,3.73.92.97,2.09,1.75,3.5,2.31,1.42.57,3.37,1.18,5.82,1.85,3.27.9,5.93,1.8,7.99,2.69,2.06.91,3.8,2.29,5.25,4.15,1.45,1.87,2.17,4.38,2.17,7.49Z"/><path d="M1213.56,308.35v49.32h-8.09v-49.32h8.09Z"/><text x="462" y="421" font-family="Poppins,sans-serif" font-weight="400" font-size="32" letter-spacing="9.6">SLEEP TO LIFE</text></g></symbol><symbol id="logoC" viewBox="115 216 1100 282"><path d="M115,358c0,56.89,46.11,103,103,103v-206c-56.89,0-103,46.11-103,103Z" fill="url(#sgC)"/><g fill="#D99B72"><rect x="233.48" y="216.49" width="7.21" height="280.52"/><path d="M251.72,263.6v8.49s53.38,25.02,50.93,89.55c-2.12,55.81-51.78,78.96-51.78,78.96v9.31s72.4-14.31,74.06-93.37c1.49-71.09-73.21-92.94-73.21-92.94Z"/></g><g fill="#274768"><rect x="391.64" y="263.81" width="2.04" height="199.89"/><path d="M491.47,311.37c3.95,2.01,7,4.9,9.16,8.66,2.15,3.76,3.23,8.15,3.23,13.17s-1.08,9.37-3.23,13.06c-2.15,3.69-5.21,6.52-9.16,8.48-3.95,1.96-8.55,2.95-13.8,2.95h-16.11v-49.32h16.11c5.25,0,9.85,1.01,13.8,3.02ZM490.94,346.39c3.08-3.12,4.61-7.52,4.61-13.2s-1.54-10.2-4.61-13.41c-3.08-3.22-7.5-4.83-13.27-4.83h-8.02v36.12h8.02c5.77,0,10.2-1.56,13.27-4.68Z"/><path d="M551.83,357.68l-11.36-19.73h-6.17v19.73h-8.09v-49.32h17.03c3.78,0,6.99.66,9.62,1.99,2.63,1.33,4.59,3.1,5.89,5.32,1.3,2.22,1.95,4.71,1.95,7.45,0,3.22-.93,6.14-2.8,8.76-1.87,2.63-4.74,4.41-8.62,5.36l12.21,20.44h-9.65ZM534.3,331.49h8.94c3.03,0,5.31-.76,6.85-2.27,1.54-1.51,2.31-3.55,2.31-6.1s-.76-4.55-2.27-6c-1.52-1.44-3.81-2.16-6.88-2.16h-8.94v16.54Z"/><path d="M584.97,356.68c-.99-.99-1.49-2.22-1.49-3.69s.5-2.7,1.49-3.69,2.22-1.49,3.69-1.49,2.63.5,3.62,1.49,1.49,2.22,1.49,3.69-.5,2.7-1.49,3.69c-.99.99-2.2,1.49-3.62,1.49s-2.7-.5-3.69-1.49Z"/><path d="M679.36,347.6h-20.65l-3.55,10.08h-8.45l17.67-49.4h9.37l17.67,49.4h-8.52l-3.55-10.08ZM677.09,341l-8.02-22.92-8.09,22.92h16.11Z"/><path d="M753.95,357.68h-8.09l-24.34-36.83v36.83h-8.09v-49.4h8.09l24.34,36.76v-36.76h8.09v49.4Z"/><path d="M808.85,311.37c3.95,2.01,7,4.9,9.16,8.66,2.15,3.76,3.23,8.15,3.23,13.17s-1.08,9.37-3.23,13.06c-2.15,3.69-5.21,6.52-9.16,8.48-3.95,1.96-8.55,2.95-13.8,2.95h-16.11v-49.32h16.11c5.25,0,9.85,1.01,13.8,3.02ZM808.32,346.39c3.08-3.12,4.61-7.52,4.61-13.2s-1.54-10.2-4.61-13.41c-3.08-3.22-7.5-4.83-13.27-4.83h-8.02v36.12h8.02c5.77,0,10.2-1.56,13.27-4.68Z"/><path d="M869.21,357.68l-11.35-19.73h-6.17v19.73h-8.09v-49.32h17.03c3.78,0,6.99.66,9.62,1.99,2.63,1.33,4.59,3.1,5.89,5.32,1.3,2.22,1.95,4.71,1.95,7.45,0,3.22-.93,6.14-2.8,8.76s-4.74,4.41-8.62,5.36l12.21,20.44h-9.65ZM851.68,331.49h8.94c3.03,0,5.31-.76,6.85-2.27,1.54-1.51,2.31-3.55,2.31-6.1s-.76-4.55-2.27-6c-1.51-1.44-3.81-2.16-6.88-2.16h-8.94v16.54Z"/><path d="M910.87,314.88v14.48h17.03v6.6h-17.03v15.12h19.16v6.6h-27.25v-49.4h27.25v6.6h-19.16ZM923.36,297.78l-15.68,7.74v-5.96l15.68-8.66v6.88Z"/><path d="M1016.83,347.6h-20.65l-3.55,10.08h-8.45l17.67-49.4h9.37l17.67,49.4h-8.52l-3.55-10.08ZM1014.56,341l-8.02-22.92-8.09,22.92h16.11Z"/><path d="M1058.98,351.15h16.68v6.53h-24.77v-49.32h8.09v42.8Z"/><path d="M1104.83,314.88v14.48h17.03v6.6h-17.03v15.12h19.16v6.6h-27.25v-49.4h27.25v6.6h-19.16Z"/><path d="M1181.55,343.7c0,2.51-.67,4.87-2.03,7.09-1.35,2.23-3.3,4.01-5.88,5.36s-5.62,2.02-9.13,2.02c-3.3,0-6.28-.57-8.94-1.73-2.66-1.16-4.74-2.8-6.25-4.94-.61-.86-1.1-1.77-1.46-2.76l7.07-4.85c.66,1.99,2.13,4.34,3.29,5.41,1.5,1.37,3.59,2.06,6.28,2.06s4.97-.67,6.53-2.02c1.56-1.36,2.34-3.09,2.34-5.22,0-1.66-.49-3-1.46-4.04-.97-1.05-2.17-1.85-3.62-2.42-1.45-.56-3.44-1.18-6-1.85-3.22-.85-5.83-1.71-7.84-2.59-2.02-.87-3.73-2.23-5.15-4.08-1.42-1.85-2.13-4.3-2.13-7.38,0-2.84.71-5.32,2.13-7.45,1.42-2.13,3.4-3.76,5.96-4.9,2.56-1.13,5.51-1.7,8.88-1.7,4.77,0,8.69,1.2,11.74,3.58,1.2.93,2.18,2.01,2.94,3.22l-7.24,4.79c-.41-1.03-1.12-1.97-2.12-2.78-1.56-1.28-3.62-1.92-6.17-1.92-2.33,0-4.21.59-5.68,1.77-1.47,1.18-2.19,2.89-2.19,5.11,0,1.52.46,2.76,1.38,3.73.92.97,2.09,1.75,3.5,2.31,1.42.57,3.37,1.18,5.82,1.85,3.27.9,5.93,1.8,7.99,2.69,2.06.91,3.8,2.29,5.25,4.15,1.45,1.87,2.17,4.38,2.17,7.49Z"/><path d="M1213.56,308.35v49.32h-8.09v-49.32h8.09Z"/></g><g fill="#D99B72"><text x="462" y="421" font-family="Poppins,sans-serif" font-weight="400" font-size="32" letter-spacing="9.6">SLEEP TO LIFE</text></g></symbol></defs></svg>
 
 <!-- NAV -->
 <header class="nav" id="nav">
   <div class="wrap">
     <a href="index.html" class="logo" aria-label="Dr. André Alesi, Startseite">
-      <svg viewBox="0 0 100 120"><use href="#signetW"/></svg>
-      <span class="div"></span>
-      <span class="wm"><b>DR. ANDRÉ ALESI</b><small>SLEEP TO <i>LIFE</i></small></span>
+      <svg class="lg" viewBox="0 0 1100 282" role="img" aria-label="Dr. André Alesi, Sleep to Life"><use href="#logoW"/></svg>
     </a>
     <ul>
       <li><a href="index.html" class="on">Start</a></li>
@@ -835,7 +817,7 @@ img.hsf-ap{left:-4%;width:116%;bottom:-8%;filter:blur(2.2px) brightness(.6) satu
 
   <div class="wrap hero-inner">
     <div class="hero-copy" id="heroCopy">
-      <div class="kick fade">Schlafwissenschaftler · Forschung · 20+ Jahre Schlafexpertise</div>
+      <div class="kick fade">Schlafwissenschaftler · Unternehmer · 20+ Jahre Schlafexpertise</div>
       <h1>
         <span class="ln"><span>Erholsamer Schlaf</span></span>
         <span class="ln"><span>ist <span class="o">kein</span> <span class="b">Zufall</span></span></span>
@@ -861,19 +843,19 @@ img.hsf-ap{left:-4%;width:116%;bottom:-8%;filter:blur(2.2px) brightness(.6) satu
 
 <!-- STATEMENT -->
 <section class="statement" data-bg="7">
-  <div class="st-bg" aria-hidden="true"><div class="st-grain"></div><svg class="st-line" viewBox="0 0 1440 400" preserveAspectRatio="none"><path d="M0,250 C120,250 160,90 260,90 S420,300 540,300 S700,70 820,70 S980,280 1100,280 S1300,130 1440,130" stroke="#F6A262" stroke-width="2.5"/><path d="M0,290 C120,290 160,130 260,130 S420,340 540,340 S700,110 820,110 S980,320 1100,320 S1300,170 1440,170" stroke="#96C8FF" stroke-width="1.6" opacity=".8"/></svg><svg class="st-sig" viewBox="0 0 100 120"><use href="#signet"/></svg><span class="st-q">“</span><i class="st-blob a"></i><i class="st-blob b"></i><i class="st-ring"></i></div>
+  <div class="st-bg" aria-hidden="true"><div class="st-grain"></div><svg class="st-line" viewBox="0 0 1440 400" preserveAspectRatio="none"><path d="M0,250 C120,250 160,90 260,90 S420,300 540,300 S700,70 820,70 S980,280 1100,280 S1300,130 1440,130" stroke="#F6A262" stroke-width="2.5"/><path d="M0,290 C120,290 160,130 260,130 S420,340 540,340 S700,110 820,110 S980,320 1100,320 S1300,170 1440,170" stroke="#96C8FF" stroke-width="1.6" opacity=".8"/></svg><svg class="st-sig" viewBox="0 0 100 120"><use href="#signetW"/></svg><span class="st-q">“</span><i class="st-blob a"></i><i class="st-blob b"></i><i class="st-ring"></i></div>
   <div class="wrap">
     <div class="eyebrow c rv">Was guten Schlaf wirklich ausmacht</div>
     <p class="big" id="words">Wir wissen heute sehr viel über guten Schlaf. Trotzdem schlafen Millionen Menschen schlecht. Denn zu wissen, was gut für uns wäre, bedeutet noch lange nicht, dass wir es im <em>Alltag</em> umsetzen können. Genau dort müssen wir ansetzen.</p>
-    <div class="sig rv"><svg viewBox="0 0 100 120"><use href="#signet"/></svg>Dr. André Alesi</div>
+    <div class="sig rv"><svg viewBox="0 0 100 120"><use href="#signetW"/></svg>Dr. André Alesi</div>
   </div>
 </section>
 
 <!-- MARQUEE -->
 <div class="marq-wrap" aria-hidden="true"><div class="marq">
   <div class="track">
-    <span><b>Sleep to <i>Life</i></b><svg viewBox="0 0 100 120"><use href="#signet"/></svg>Wissenschaftlich fundiert<svg viewBox="0 0 100 120"><use href="#signet"/></svg>Verständlich vermittelt<svg viewBox="0 0 100 120"><use href="#signet"/></svg>Für den Alltag gemacht<svg viewBox="0 0 100 120"><use href="#signet"/></svg></span>
-    <span><b>Sleep to <i>Life</i></b><svg viewBox="0 0 100 120"><use href="#signet"/></svg>Wissenschaftlich fundiert<svg viewBox="0 0 100 120"><use href="#signet"/></svg>Verständlich vermittelt<svg viewBox="0 0 100 120"><use href="#signet"/></svg>Für den Alltag gemacht<svg viewBox="0 0 100 120"><use href="#signet"/></svg></span>
+    <span><b>Sleep to <i>Life</i></b><svg viewBox="0 0 100 120"><use href="#signetK"/></svg>Wissenschaftlich fundiert<svg viewBox="0 0 100 120"><use href="#signetK"/></svg>Verständlich vermittelt<svg viewBox="0 0 100 120"><use href="#signetK"/></svg>Für den Alltag gemacht<svg viewBox="0 0 100 120"><use href="#signetK"/></svg></span>
+    <span><b>Sleep to <i>Life</i></b><svg viewBox="0 0 100 120"><use href="#signetK"/></svg>Wissenschaftlich fundiert<svg viewBox="0 0 100 120"><use href="#signetK"/></svg>Verständlich vermittelt<svg viewBox="0 0 100 120"><use href="#signetK"/></svg>Für den Alltag gemacht<svg viewBox="0 0 100 120"><use href="#signetK"/></svg></span>
   </div>
 </div></div>
 
@@ -897,13 +879,13 @@ img.hsf-ap{left:-4%;width:116%;bottom:-8%;filter:blur(2.2px) brightness(.6) satu
       <article class="ccard rv d1">
         <span class="num">02</span>
         <div class="ic"><svg viewBox="0 0 32 32"><path d="M5 22v-8a3 3 0 0 1 3-3h16a3 3 0 0 1 3 3v8"/><path d="M3 22h26v4H3z"/><path d="M9 11V8h6v3"/></svg></div>
-        <h3>Produkte&nbsp;&amp; Technologien</h3>
+        <h3><span>Produkte&nbsp;<span class="amp">&amp;</span> Technologien</span></h3>
         <p>Von Schlafsystemen bis zu digitalen Anwendungen: Ich verbinde Schlafwissenschaft mit über 20 Jahren praktischer Erfahrung, um sinnvolle Lösungen zu entwickeln und zu bewerten.</p>
       </article>
       <article class="ccard rv d2">
         <span class="num">03</span>
         <div class="ic"><svg viewBox="0 0 32 32"><path d="M4 28V12l8-5v21"/><path d="M12 28V4l16 6v18"/><path d="M17 13h6M17 18h6M17 23h6"/></svg></div>
-        <h3><span>Lebens-&nbsp;&amp;<br>Arbeits&shy;bedingungen</span></h3>
+        <h3><span>Lebens-&nbsp;<span class="amp">&amp;</span><br>Arbeits&shy;bedingungen</span></h3>
         <p>Ob Schichtarbeit, Schulzeiten oder betriebliche Gesundheitsförderung: Ich entwickle mit Unternehmen und Organisationen Konzepte, die gesunden Schlaf im Alltag erleichtern.</p>
       </article>
     </div>
@@ -920,9 +902,9 @@ img.hsf-ap{left:-4%;width:116%;bottom:-8%;filter:blur(2.2px) brightness(.6) satu
     </div></div>
     <div>
       <div class="eyebrow rv">Was mich antreibt</div>
-      <h2 class="h2 rv d1" style="margin-top:22px">Wissenschaftler im&nbsp;Kopf.<br><em>Unternehmer im&nbsp;Herzen.</em></h2>
+      <h2 class="h2 rv d1" style="margin-top:22px">Wissenschaft verstehen.<br><em>Ideen verwirklichen.</em></h2>
       <div class="scale rv d2">
-        <div class="mid"><div class="pin"><svg viewBox="0 0 100 120"><use href="#signet"/></svg></div><small>Hier arbeite ich</small></div>
+        <div class="mid"><div class="pin"><svg viewBox="0 0 100 120"><use href="#signetW"/></svg></div><small>Hier arbeite ich</small></div>
         <div class="bar"></div>
         <div class="poles">
           <div class="pole"><b>Wissenschaftler</b>Wissenschaftliche Erkenntnisse bilden die Grundlage, um Schlaf und Regeneration besser zu verstehen.</div>
@@ -991,10 +973,10 @@ img.hsf-ap{left:-4%;width:116%;bottom:-8%;filter:blur(2.2px) brightness(.6) satu
 <section class="sign">
   <div class="wrap sign-grid">
     <div class="sign-art" id="signArt" aria-hidden="true">
-      <svg viewBox="0 0 100 120">
-        <path class="s-disc" d="M46.5 20a40 40 0 0 0 0 80z" fill="url(#sgDisc)"/>
-        <rect class="s-bar" x="48.6" y="5" width="3.4" height="110" rx="1.2" fill="#fff"/>
-        <path class="s-moon" d="M55 22a38 38 0 0 1 0 76a25 38 0 0 0 0-76z" fill="url(#sgMoon)"/>
+      <svg viewBox="110 210 222 294">
+        <path class="s-disc" d="M115,358c0,56.89,46.11,103,103,103v-206c-56.89,0-103,46.11-103,103Z" fill="url(#sgW)"/>
+        <rect class="s-bar" fill="#fff" x="233.48" y="216.49" width="7.21" height="280.52"/>
+        <path class="s-moon" fill="#fff" d="M251.72,263.6v8.49s53.38,25.02,50.93,89.55c-2.12,55.81-51.78,78.96-51.78,78.96v9.31s72.4-14.31,74.06-93.37c1.49-71.09-73.21-92.94-73.21-92.94Z"/>
       </svg>
       <span class="lbl l1">Tag</span><span class="lbl l2">Übergang</span><span class="lbl l3">Nacht</span>
     </div>
@@ -1166,7 +1148,7 @@ img.hsf-ap{left:-4%;width:116%;bottom:-8%;filter:blur(2.2px) brightness(.6) satu
   <div class="wrap">
     <div class="fgrid">
       <div>
-        <a href="index.html" class="logo"><svg viewBox="0 0 100 120"><use href="#signetW"/></svg><span class="div"></span><span class="wm"><b>DR. ANDRÉ ALESI</b><small>SLEEP TO <i>LIFE</i></small></span></a>
+        <a href="index.html" class="logo"><svg class="lg" viewBox="0 0 1100 282" role="img" aria-label="Dr. André Alesi, Sleep to Life"><use href="#logoW"/></svg></a>
         <p>Schlafwissenschaftler und Unternehmer. <b>Wissenschaftlich fundiert. Verständlich vermittelt. Für den Alltag gemacht.</b></p>
         <div class="soc">
           <a href="https://www.instagram.com/dr.andre.schlafen/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="17" height="17" rx="4.5"/><circle cx="12" cy="12" r="3.8"/></svg></a>

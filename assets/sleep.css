@@ -60,7 +60,7 @@ button,input,select,textarea{font:inherit;color:inherit}
 
 /* ── Logo ── */
 .logo{display:flex;align-items:center;gap:14px}
-.logo svg{width:46px;height:auto}
+.logo svg{height:58px;width:auto;display:block}
 .logo .div{width:1px;height:46px;background:rgba(255,255,255,.45)}
 .logo .wm{display:flex;flex-direction:column;line-height:1}
 .logo .wm b{font-weight:500;font-size:17.5px;letter-spacing:.26em;white-space:nowrap}
@@ -370,7 +370,7 @@ footer{background:var(--night);border-top:1px solid var(--line);position:relativ
 @media (max-width:520px){
   .g4{grid-template-columns:1fr}
   .fgrid{grid-template-columns:1fr}
-  .logo .wm b{font-size:12.5px;letter-spacing:.2em}
+  .logo svg{height:44px}
   .phero .ctas .btn{width:100%}
   .sticky .t{font-size:12px}
   .sticky .t span{display:none}

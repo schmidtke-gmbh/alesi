@@ -19,7 +19,7 @@ Farben: Steel Blue, Deep Navy, Warm Copper, Soft Cream, Sky Blue. Schriften: Pla
 | `styleguide.html` | CI-Seite (noindex) |
 
 Gemeinsames Design und Verhalten der Unterseiten: `assets/sleep.css` und `assets/sleep.js`. Die Startseite bringt ihr CSS selbst mit.
-Logo, Signet und Favicon: `brand/`.
+Logo, Signet und Favicon: `brand/`. Seit 27.10. ist das Original-Logo von Rebecca eingebaut (Original-SVGs in `brand/logo-*.svg`): Signet mit Verlauf von links deckend nach innen auslaufend, Wortmarke als Pfade mit den Originalabständen, „SLEEP TO LIFE“ als Text in Poppins. Als Symbole in `index.html` und `_build/common.py`: `#logoW` (negativ, Navigation und Footer), `#logoC` (Farbe, nur für helle Flächen), `#signetW` (weiß, dunkle Flächen), `#signetK` (navy, Kupfer-Laufband), `#signet` (Farbe).
 
 ## Hypnogramm
 

@@ -1,7 +1,1 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128"><rect width="128" height="128" rx="28" fill="#0B2038"/><g transform="translate(14 4)"><defs>
-  <linearGradient id="gDisc" x1="6" y1="0" x2="47" y2="0" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#5F7FA3"/><stop offset="1" stop-color="#F4F1EC"/></linearGradient>
-  <linearGradient id="gMoon" x1="54" y1="22" x2="92" y2="98" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#F2C6A2"/><stop offset=".55" stop-color="#D99B72"/><stop offset="1" stop-color="#B9764D"/></linearGradient>
-</defs>
-<path d="M46.5 20a40 40 0 0 0 0 80z" fill="url(#gDisc)"/>
-<rect x="48.6" y="5" width="3.4" height="110" rx="1.2" fill="#FFFFFF"/>
-<path d="M55 22a38 38 0 0 1 0 76a25 38 0 0 0 0-76z" fill="url(#gMoon)"/></g></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128"><rect width="128" height="128" rx="28" fill="#0B2038"/><defs><linearGradient id="g" x1="115" y1="358" x2="218" y2="358" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#fff"/><stop offset=".29" stop-color="#fff" stop-opacity=".87"/><stop offset=".51" stop-color="#fff" stop-opacity=".72"/><stop offset=".77" stop-color="#fff" stop-opacity=".51"/><stop offset="1" stop-color="#fff" stop-opacity=".3"/></linearGradient></defs><g transform="translate(64 64) scale(0.34) translate(-220.4 -356.8)" fill="#fff"><path d="M115,358c0,56.89,46.11,103,103,103v-206c-56.89,0-103,46.11-103,103Z" fill="url(#g)"/><rect x="233.48" y="216.49" width="7.21" height="280.52"/><path d="M251.72,263.6v8.49s53.38,25.02,50.93,89.55c-2.12,55.81-51.78,78.96-51.78,78.96v9.31s72.4-14.31,74.06-93.37c1.49-71.09-73.21-92.94-73.21-92.94Z"/></g></svg>
