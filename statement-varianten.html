@@ -108,7 +108,7 @@ em.cu{font-style:italic;color:var(--copper)}
 .hero .kick{display:flex;gap:14px;font:500 12px/1.65 var(--sans);letter-spacing:.2em;text-transform:uppercase;color:#D5DEE8}
 .hero .kick::before{content:'';flex:0 0 30px;height:1px;background:#D5DEE8;margin-top:.8em}
 .hero h1{font-family:var(--serif);font-weight:700;font-size:clamp(2.5rem,4.4vw,4.3rem);line-height:1.04;letter-spacing:-.012em;margin:20px 0 22px}
-.hero h1 .ln{display:block;overflow:hidden;padding-bottom:.08em}
+.hero h1 .ln{display:block;overflow:hidden;padding:0 .18em .08em 0;margin-right:-.18em}
 .hero h1 .ln>span{display:block;transform:translateY(105%);transition:transform 1.2s var(--ease)}
 .loaded .hero h1 .ln>span{transform:none}
 .loaded .hero h1 .ln:nth-child(2)>span{transition-delay:.12s}
@@ -934,7 +934,22 @@ img.hsf-ap{left:-4%;width:116%;bottom:-8%;filter:blur(2.2px) brightness(.6) satu
           <p>Fundierte Schlafforschung bildet die Grundlage meiner Arbeit. Wissenschaftliche Erkenntnisse kritisch einordnen, verständlich vermitteln und konsequent an der Evidenz orientieren.</p>
           <ul><li>Forschung</li><li>Promotion</li><li>DGSM</li></ul>
         </div>
-        <div class="pr"><img src="https://d2ol7oe51mr4n9.cloudfront.net/user_39bpvnosVvqwhbus3q5PhClCw2s/e0cdf4b5-a534-4ad3-9049-99a83af13eb4.webp" alt="Schlaftracking am Morgen: Smartwatch, Ring und Schlaf-App auf dem Holztisch" loading="lazy" style="object-position:55% 50%"></div>
+        <div class="pr hypbox">
+          <svg class="hyp" id="hyp" viewBox="0 0 600 360" aria-label="Hypnogramm einer Nacht mit fünf Schlafzyklen">
+            <defs>
+              <linearGradient id="hypLine" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#87A6C6"/><stop offset=".5" stop-color="#F2C6A2"/><stop offset="1" stop-color="#D99B72"/></linearGradient>
+              <linearGradient id="hypArea" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F2C6A2" stop-opacity=".32"/><stop offset="1" stop-color="#87A6C6" stop-opacity="0"/></linearGradient>
+              <filter id="hypGlow" x="-10%" y="-30%" width="120%" height="160%"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+            </defs>
+            <g class="grid"></g>
+            <path class="area" d=""/>
+            <g class="bands"></g>
+            <path class="line" d="" filter="url(#hypGlow)"/>
+            <g class="ph-head"><line class="ph-line" x1="0" y1="40" x2="0" y2="312"/><circle class="ph-dot" r="6"/><circle class="ph-ring" r="6"/></g>
+          </svg>
+          <div class="hyp-read"><b id="hypTime">23:00</b><span id="hypStage">Wach</span></div>
+          <div class="hyp-legend"><span><i class="lr"></i>REM</span><span><i class="lt"></i>Tiefschlaf</span><span class="cyc">5 Zyklen · je rund 90 Min.</span></div>
+        </div>
       </article>
       <article class="pcard pc2">
         <div class="pl">
@@ -950,7 +965,7 @@ img.hsf-ap{left:-4%;width:116%;bottom:-8%;filter:blur(2.2px) brightness(.6) satu
           <p>Entscheidend ist, was im Alltag funktioniert. Ob individuelle Angebote, neue Produkte oder betriebliche Konzepte: Im Mittelpunkt stehen Lösungen, die Menschen konkret weiterhelfen.</p>
           <ul><li>Angebote</li><li>Produkte</li><li>Konzepte</li></ul>
         </div>
-        <div class="pr"><img src="https://d8j0ntlcm91z4.cloudfront.net/user_39bpvnosVvqwhbus3q5PhClCw2s/hf_20261023_185751_2c058078-3eb8-4f0f-be14-1f10dc006831_min.webp" alt="Frau wacht ausgeruht am Morgen auf" loading="lazy" style="object-position:30% 40%"></div>
+        <div class="pr"><img src="https://d2ol7oe51mr4n9.cloudfront.net/user_39bpvnosVvqwhbus3q5PhClCw2s/e0cdf4b5-a534-4ad3-9049-99a83af13eb4.webp" alt="Schlaftracking am Morgen: Smartwatch, Ring und Schlaf-App auf dem Holztisch" loading="lazy" style="object-position:55% 50%"></div>
       </article>
     </div>
   </div>
@@ -1464,6 +1479,7 @@ img.hsf-ap{left:-4%;width:116%;bottom:-8%;filter:blur(2.2px) brightness(.6) satu
   }
   function layout(){
     var r = hero.getBoundingClientRect(); W = r.width || window.innerWidth; H = r.height || window.innerHeight;
+    if(W < 50 || H < 50){ W = 0; return; }   // Seite noch ohne Größe (Hintergrund-Tab): später erneut
     cv.width = Math.round(W*DPR); cv.height = Math.round(H*DPR); ctx.setTransform(DPR,0,0,DPR,0,0);
     desk = window.innerWidth > 1000;
     if(desk){
@@ -1482,6 +1498,7 @@ img.hsf-ap{left:-4%;width:116%;bottom:-8%;filter:blur(2.2px) brightness(.6) satu
     motes = []; for(var i=0;i<36;i++) motes.push({u:Math.random(), v:Math.random(), r:Math.random()*1.4+.4, p:Math.random()*6.28, s:Math.random()*.5+.15, c:Math.random()>.55?'150,205,255':'255,190,130'});
   }
   function draw(t){
+    if(!W) return;
     var tt = t*.001; if(!t0) t0 = t;
     var reveal = reduce ? 1 : Math.min(1, (t - t0 - 500)/3600); reveal = reveal < 0 ? 0 : 1 - Math.pow(1-reveal, 3);
     ctx.clearRect(0,0,W,H);
@@ -1582,11 +1599,11 @@ img.hsf-ap{left:-4%;width:116%;bottom:-8%;filter:blur(2.2px) brightness(.6) satu
     }
   }
   function loop(t){ if(running) draw(t); requestAnimationFrame(loop); }
-  layout();
   window.addEventListener('resize', layout);
   if(document.fonts && document.fonts.ready) document.fonts.ready.then(layout);
   window.addEventListener('load', function(){ setTimeout(layout, 50); setTimeout(layout, 1700); });
   new IntersectionObserver(function(es){ running = es[0].isIntersecting; }, {threshold:0}).observe(hero);
+  layout();
   if(reduce){ draw(4000); } else { requestAnimationFrame(loop); }
 })();
 </script>
