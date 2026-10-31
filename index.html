@@ -14,7 +14,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 <!-- ▼ BILDER: Hero-Foto ist echt (Ordner fotos/). Alle übrigen Bilder sind KI-Platzhalter (Higgsfield-CDN) und werden nach dem Shooting ersetzt. -->
-<link rel="preload" as="image" href="fotos/andre-hero.webp" media="(min-width: 861px)">
+<link rel="preload" as="image" href="fotos/andre-hero-warm.webp" media="(min-width: 861px)">
 <style>
 :root{
   --steel:#274768; --navy:#081A2E; --navy2:#0D2440; --sky:#87A6C6;
@@ -764,6 +764,24 @@ img.hsf-ap{left:-4%;width:116%;bottom:-8%;filter:blur(2.2px) brightness(.6) satu
 .statement[data-bg="10"] .st-ring,.statement[data-bg="10"] .st-grain{display:block}
 .statement[data-bg="10"]{background:radial-gradient(50% 60% at 50% 50%,#0C2546 0%,var(--navy) 100%)}
 @media (max-width:860px){.st-q{font-size:22rem;left:2%;top:0}.st-sig{height:110%;right:-30%}.st-line{height:40%}}
+/* Header (Runde 2, Variante 1, 31.10.): André rechts, Hypnogramm als Hintergrund, Achse AWAKE bis DEEP SLEEP links frei,
+   die Nacht endet nach 5 Uhr auf dem flachen Stück. Skript: _build/hv2_waves.js */
+@media (min-width:861px){
+  .hero[data-hv]{--ph:min(62vh,680px);--pw:calc(var(--ph)*.7174);--pb:6vh;--cr:max(32px,(100vw - 1240px)/2);--pl:calc(100vw - var(--cr) - var(--pw) + 2vw);--ch:75vh;--cw:110vw;--cl:-6vw;--cblur:3px;--cbr:.8}
+  .hero[data-hv] .hero-person{right:auto;left:var(--pl);bottom:var(--pb);height:var(--ph)}
+  .hero[data-hv] h1{width:max-content}
+  .hero[data-hv] h1 .ln{white-space:nowrap}
+  .hero[data-hv] .crowd{left:var(--cl);right:auto;width:var(--cw);top:calc(var(--ch) - var(--cw)*.2443);bottom:auto;-webkit-mask-image:linear-gradient(90deg,transparent 0%,transparent 24%,rgba(0,0,0,.55) 36%,#000 48%);mask-image:linear-gradient(90deg,transparent 0%,transparent 24%,rgba(0,0,0,.55) 36%,#000 48%)}
+  .hero[data-hv] .crowd img{filter:blur(var(--cblur)) brightness(var(--cbr)) saturate(1.06)}
+}
+@media (max-width:860px){
+  .hero[data-hv]{--mt:118px;--mh:min(50vh,440px);--mr:-12%}
+  .hero[data-hv] .hero-person{top:var(--mt);right:var(--mr)}
+  .hero[data-hv] .hero-person img{height:var(--mh)}
+  .hero[data-hv] .hero-inner{padding-top:calc(var(--mt) + var(--mh) - 40px)}
+  .hero[data-hv] .crowd{display:block;left:-60vw;right:auto;width:220vw;top:calc(var(--mt) + var(--mh)*.8 - 220vw*.2443);bottom:auto;-webkit-mask-image:none;mask-image:none}
+  .hero[data-hv] .crowd img{filter:blur(2px) brightness(.6)}
+}
 </style>
 </head>
 <body id="top">
@@ -798,14 +816,14 @@ img.hsf-ap{left:-4%;width:116%;bottom:-8%;filter:blur(2.2px) brightness(.6) satu
 </div>
 
 <!-- HERO -->
-<section class="hero" id="hero" data-stage="8">
+<section class="hero" id="hero" data-stage="8" data-hv="1">
   <div class="hs" aria-hidden="true"><div class="hs-plate"></div><div class="hs-back"></div><div class="hs-wall"></div><div class="hs-floor"></div><div class="hs-halo"></div><img class="hs-shadow" src="fotos/andre-hero.webp" alt="" loading="lazy" width="1000" height="1394"><div class="hs-beam"></div><div class="hs-src"></div><div class="hs-haze"></div><div class="hs-proj"></div><div class="hs-cone"></div><div class="hs-flare"></div></div>
   <canvas id="waves" aria-hidden="true"></canvas>
   <div class="grain"></div>
   <div class="hero-person" id="person">
     <picture>
-      <source media="(max-width:860px)" srcset="fotos/andre-hero-mobil.webp">
-      <img src="fotos/andre-hero.webp" alt="Dr. André Alesi, Schlafwissenschaftler" width="1000" height="1394" fetchpriority="high">
+      <source media="(max-width:860px)" srcset="fotos/andre-hero-mobil-warm.webp">
+      <img src="fotos/andre-hero-warm.webp" alt="Dr. André Alesi, Schlafwissenschaftler" width="1000" height="1394" fetchpriority="high">
     </picture>
     <i class="key" aria-hidden="true"></i>
   </div>
@@ -1433,18 +1451,21 @@ img.hsf-ap{left:-4%;width:116%;bottom:-8%;filter:blur(2.2px) brightness(.6) satu
      Drei Lichtfäden mit identischem Verlauf. Der Verlauf ist die geglättete Nacht aus NIGHT:
      tiefe Täler in den ersten Zyklen (Tiefschlaf), REM-Gipfel werden zum Morgen hin breiter, Aufwachen am Ende.
      Der mittlere, kupferne Faden liegt exakt auf den Stufen der Achse, die beiden blauen begleiten ihn mit festem Abstand. */
+  /* Header-Varianten Runde 2: Hypnogramm als Hintergrund des ganzen Headers. Achse mit AWAKE, REM, LIGHT SLEEP, DEEP SLEEP
+     steht links zwischen Text und Grafik und bleibt immer frei. André steht rechts davor (Größe wie Variante 3 aus Runde 1). */
   var cv = document.getElementById('waves'), ctx = cv.getContext('2d'), hero = document.getElementById('hero');
   var copy = document.getElementById('heroCopy'), personEl = document.getElementById('person');
-  var W, H, DPR = Math.min(window.devicePixelRatio || 1, 1.75), running = true;
-  var AX = 0, X0 = 0, X1 = 0, TOP = 0, BOT = 0, GAP = 0, HMAX = 480, desk = true, stars = [], motes = [], SM = [], PEAKS = [], t0 = 0;
+  var W = 0, H = 0, DPR = Math.min(window.devicePixelRatio || 1, 1.75), running = true;
+  var AX = 0, X0 = 0, X1 = 1, WR = 1, TOP = 0, BOT = 1, GAP = 0, HMAX = 480, desk = true, stars = [], motes = [], SM = [], PEAKS = [], VS = [], t0 = 0;
+  var GO = {o:{}, cur:.55, lw:1, fadeR:false, times:false};
+  var rd = document.getElementById('hvRead'), rdT = document.getElementById('hvTime'), rdS = document.getElementById('hvStage'), hvLast = -1;
+  var STAGE_DE = ['Wach', 'REM-Schlaf', 'Leichtschlaf', 'Tiefschlaf'];
   var CUR = document.createElement('canvas');
   var STR = [ {o:-1, c:'110,170,255', w:1.6, a:.85}, {o:0, c:'246,162,98', w:2.2, a:1}, {o:1, c:'150,200,255', w:1.4, a:.7} ];
   function LY(s){ return TOP + (BOT-TOP)*s/3; }
   function XM(m){ return X0 + (X1-X0)*m/NIGHT_END; }
-  // Für die Darstellung: Phasen unter 7 Minuten (kurzes Erwachen, kurzer Tiefschlaf) dem vorigen Abschnitt zuschlagen,
-  // danach Gauß-Filter (Sigma 12 Min.). So entstehen lange, runde Wellen statt spitzer Zacken.
   (function(){
-    var V = NIGHT_SMOOTH();
+    var V = NIGHT_SMOOTH(); VS = V;
     var raw = [];
     for(var m=0;m<=NIGHT_END;m++){ var s = V[0][1]; for(var i=0;i<V.length;i++){ if(V[i][0] <= m) s = V[i][1]; } raw.push(s); }
     var sig = 12, R = 36, w = [], ws = 0; for(var k=-R;k<=R;k++){ var v = Math.exp(-k*k/(2*sig*sig)); w.push(v); ws += v; }
@@ -1458,50 +1479,111 @@ img.hsf-ap{left:-4%;width:116%;bottom:-8%;filter:blur(2.2px) brightness(.6) satu
     for(var m=m0+1.5; m<m1; m+=1.5) c.lineTo(XM(m), CY(m, o));
     c.lineTo(XM(m1), CY(m1, o));
   }
-  // Lichtvorhänge: feine senkrechte Lichtfäden unter jedem Faden, einmal pro Layout vorgerechnet
   function paintCurtain(){
     CUR.width = Math.round(W*DPR); CUR.height = Math.round(H*DPR);
     var c = CUR.getContext('2d'); c.setTransform(DPR,0,0,DPR,0,0); c.clearRect(0,0,W,H);
-    var depth = (BOT-TOP)*(desk ? .55 : .4), AL = [.16,.20,.12];
+    var depth = (BOT-TOP)*GO.cur, AL = [.16,.20,.12], xe = Math.min(X1, WR);
     for(var s=0;s<STR.length;s++){
-      for(var x=X0; x<=Math.min(X1, W); x+=3){
+      for(var x=X0; x<=xe; x+=3){
         var m = (x-X0)/(X1-X0)*NIGHT_END, y = CY(m, STR[s].o);
         var g = c.createLinearGradient(0, y, 0, y+depth);
         g.addColorStop(0, 'rgba('+STR[s].c+','+AL[s]+')'); g.addColorStop(1, 'rgba('+STR[s].c+',0)');
         c.fillStyle = g; c.globalAlpha = .35; c.fillRect(x, y, 3, depth); c.globalAlpha = 1; c.fillRect(x, y, 1, depth);
       }
     }
-    // Randauslauf links und rechts
     c.globalCompositeOperation = 'destination-in';
-    var hz = c.createLinearGradient(X0, 0, Math.min(X1, W), 0); hz.addColorStop(0,'rgba(0,0,0,.35)'); hz.addColorStop(.06,'#000'); hz.addColorStop(1,'#000');
+    var hz = c.createLinearGradient(X0, 0, xe, 0);
+    hz.addColorStop(0, 'rgba(0,0,0,.35)'); hz.addColorStop(.06, '#000'); hz.addColorStop(GO.fadeR ? .85 : .99, '#000'); hz.addColorStop(1, GO.fadeR ? 'rgba(0,0,0,0)' : '#000');
     c.fillStyle = hz; c.fillRect(0,0,W,H); c.globalCompositeOperation = 'source-over';
   }
+  function rel(el){ var a = el.getBoundingClientRect(), b = hero.getBoundingClientRect(); return {l:a.left-b.left, t:a.top-b.top, r:a.right-b.left, b:a.bottom-b.top, w:a.width, h:a.height}; }
+  function hvNo(){ return hero.getAttribute('data-hv') || '1'; }
+  // rechter Rand des Textes (Zeilen der Headline können breiter sein als die Textspalte)
+  function textRight(){ var r = 0; copy.querySelectorAll('.kick, .ln > span, .sub, .ctas, .known .row').forEach(function(e){ var q = rel(e); if(q.w > 0) r = Math.max(r, q.r); }); return r || rel(copy).r; }
+  var CFG = {
+    '1':  {top:.20, bot:.52, endM:410, times:true},   // endet 05:50 auf dem flachen Stück, ohne Anstieg zum Aufwachen
+    '2':  {top:.14, bot:.56, k:1.25, cur:.75, lw:1.35},
+    '3':  {top:.20, bot:.54, k:1, grid:true, times:true},
+    '4':  {top:.21, bot:.56, k:1, times:true},
+    '5':  {top:.18, bot:.50, k:1, times:true},
+    '6':  {top:.20, bot:.56, k:1.15, bands:true},
+    '7':  {top:.20, bot:.50, k:1, clean:true, times:true},
+    '8':  {top:.18, bot:.50, k:1, times:true},
+    '9':  {top:.36, bot:.66, k:1},
+    '10': {top:.25, bot:.55, k:1, times:true}
+  };
+  window.hvCFG = CFG;
   function layout(){
     var r = hero.getBoundingClientRect(); W = r.width || window.innerWidth; H = r.height || window.innerHeight;
     if(W < 50 || H < 50){ W = 0; return; }   // Seite noch ohne Größe (Hintergrund-Tab): später erneut
     cv.width = Math.round(W*DPR); cv.height = Math.round(H*DPR); ctx.setTransform(DPR,0,0,DPR,0,0);
-    desk = window.innerWidth > 1000;
-    if(desk){
-      var cr = copy.getBoundingClientRect(), pr = personEl.getBoundingClientRect();
-      AX = Math.min(cr.right - r.left + 95, pr.left - r.left + 30);
-      X0 = AX + 10; X1 = X0 + (W - Math.max(48, W*.035) - X0)*1.6;
-      TOP = H*.22; BOT = H*.5;
-    } else {
-      var pr2 = personEl.getBoundingClientRect(); var pt = pr2.top - r.top;
-      AX = 0; X0 = 0; X1 = W*2.1; TOP = pt + 50; BOT = pt + Math.min(220, pr2.height*.42);
-    }
+    desk = window.innerWidth > 860;
+    var o = CFG[hvNo()] || CFG['1'], p = rel(personEl);
+    if(desk){ AX = textRight() + 100; X0 = AX + 14; WR = W - Math.max(40, W*.03); TOP = H*o.top; BOT = H*o.bot; }
+    else { AX = 70; X0 = AX + 10; WR = W; TOP = p.t + .02*p.h; BOT = p.t + .30*p.h; }
+    X1 = X0 + (WR - X0)*(desk ? (o.endM ? NIGHT_END/o.endM : (o.k || 1)) : 1.6);
+    GO = {o:o, cur: o.cur || (desk ? .55 : .4), lw: o.lw || 1, fadeR: X1 > WR + 1, times: desk && !!o.times};
     GAP = (BOT-TOP)*.1;
-    HMAX = Math.min(NIGHT_END, (W - X0)/(X1 - X0)*NIGHT_END);
+    HMAX = Math.min(NIGHT_END, (WR - X0)/(X1 - X0)*NIGHT_END);
+    hero.style.setProperty('--gx', AX + 'px');
+    if(rd){ rd.style.left = (AX - 76) + 'px'; rd.style.top = Math.max(96, TOP - 92) + 'px'; }
     paintCurtain();
     stars = []; for(var j=0;j<55;j++) stars.push({x:Math.random()*W, y:Math.random()*H*.7, r:Math.random()*1.1+.2, p:Math.random()*6.28, s:Math.random()*.6+.2});
     motes = []; for(var i=0;i<36;i++) motes.push({u:Math.random(), v:Math.random(), r:Math.random()*1.4+.4, p:Math.random()*6.28, s:Math.random()*.5+.15, c:Math.random()>.55?'150,205,255':'255,190,130'});
+    if(reduce) draw(4000);
+  }
+  // Messraster: eine Linie je Schlafphase, eine je Stunde
+  function grid(){
+    ctx.save(); ctx.lineWidth = 1; ctx.setLineDash([3, 5]);
+    for(var l=0;l<4;l++){ var y = LY(l), gg = ctx.createLinearGradient(AX, 0, WR, 0); gg.addColorStop(0,'rgba(255,255,255,.36)'); gg.addColorStop(1,'rgba(255,255,255,.07)'); ctx.strokeStyle = gg; ctx.beginPath(); ctx.moveTo(AX, y); ctx.lineTo(WR, y); ctx.stroke(); }
+    ctx.setLineDash([]);
+    for(var hh=0; hh<=8; hh++){ var x = XM(hh*60); if(x > WR) break; ctx.strokeStyle = 'rgba(255,255,255,' + (hh%2 ? .08 : .15) + ')'; ctx.beginPath(); ctx.moveTo(x, TOP-24); ctx.lineTo(x, BOT+30); ctx.stroke(); }
+    ctx.restore();
+  }
+  // Farbbänder je Schlafphase
+  function bands(){
+    var C = ['242,198,162', '217,155,114', '120,165,215', '60,110,200'], A = [.16, .22, .17, .28], bh = (BOT-TOP)/3;
+    for(var l=0;l<4;l++){
+      var y = LY(l), g = ctx.createLinearGradient(0, y - bh*.5, 0, y + bh*.5);
+      g.addColorStop(0, 'rgba('+C[l]+',0)'); g.addColorStop(.5, 'rgba('+C[l]+','+A[l]+')'); g.addColorStop(1, 'rgba('+C[l]+',0)');
+      ctx.fillStyle = g; ctx.fillRect(AX, y - bh*.5, WR - AX, bh);
+    }
+  }
+  // weiches, großes Echo der Kurve im Hintergrund
+  function ghost(){
+    var sv = [TOP, BOT, GAP, X0, X1], hg = BOT - TOP;
+    TOP = sv[0] - hg*.45; BOT = sv[1] + hg*.55; GAP = (BOT-TOP)*.1; X0 = sv[3] - 40; X1 = sv[4] + (sv[4]-sv[3])*.35;
+    ctx.save(); ctx.filter = 'blur(6px)'; ctx.globalAlpha = .3;
+    for(var k=0;k<STR.length;k++){ curve(STR[k].o); ctx.strokeStyle = 'rgba('+STR[k].c+',.8)'; ctx.lineWidth = STR[k].w*3.2; ctx.stroke(); }
+    ctx.restore();
+    TOP = sv[0]; BOT = sv[1]; GAP = sv[2]; X0 = sv[3]; X1 = sv[4];
+  }
+  // ruhig und klar, ohne Leuchteffekte: feine Kurve, Fläche darunter, REM und Tiefschlaf als Balken
+  function clean(){
+    var mEnd = Math.min(NIGHT_END, HMAX + 12), yF = BOT + GAP*2.5;
+    ctx.globalCompositeOperation = 'source-over'; ctx.globalAlpha = 1;
+    curve(0); ctx.lineTo(XM(mEnd), yF); ctx.lineTo(X0, yF); ctx.closePath();
+    var af = ctx.createLinearGradient(0, TOP, 0, yF); af.addColorStop(0, 'rgba(246,162,98,.2)'); af.addColorStop(1, 'rgba(246,162,98,0)');
+    ctx.fillStyle = af; ctx.fill();
+    ctx.lineJoin = 'round'; ctx.lineCap = 'round';
+    for(var k=0;k<STR.length;k++){ curve(STR[k].o); ctx.strokeStyle = 'rgba('+STR[k].c+','+(k === 1 ? .95 : .42)+')'; ctx.lineWidth = k === 1 ? 2 : 1; ctx.stroke(); }
+    if(!desk) return;
+    var yb = BOT + GAP + 58;
+    for(var q=0;q<VS.length;q++){
+      var st = VS[q][1]; if(st !== 1 && st !== 3) continue;
+      var a = VS[q][0], e = q+1 < VS.length ? VS[q+1][0] : NIGHT_END, xa = XM(a), xe = Math.min(XM(e), WR);
+      if(xa >= WR) break;
+      ctx.fillStyle = st === 1 ? 'rgba(246,162,98,.9)' : 'rgba(120,175,255,.9)';
+      ctx.fillRect(xa, st === 1 ? yb : yb + 12, Math.max(2, xe - xa - 2), 5);
+    }
   }
   function draw(t){
     if(!W) return;
     var tt = t*.001; if(!t0) t0 = t;
     var reveal = reduce ? 1 : Math.min(1, (t - t0 - 500)/3600); reveal = reveal < 0 ? 0 : 1 - Math.pow(1-reveal, 3);
+    var o = GO.o, lw = GO.lw;
     ctx.clearRect(0,0,W,H);
-    // Lichtstreifen links unten: kurz und tief, laufen vor dem Text aus
+    // Lichtstreifen links unten
     ctx.lineWidth = 1.1;
     var lim = desk ? W*.42 : W, slope = desk ? .46 : .58, lift = desk ? 1.12 : 1.08, gapL = desk ? 17 : 21, nL = desk ? 26 : 30;
     for(var i=0;i<nL;i++){
@@ -1515,95 +1597,110 @@ img.hsf-ap{left:-4%;width:116%;bottom:-8%;filter:blur(2.2px) brightness(.6) satu
       }
       ctx.stroke();
     }
-    // nach oben weich ausblenden, damit Headline und Text frei bleiben
     if(desk){
       var fo = ctx.createLinearGradient(0, H*.5, 0, H*.78); fo.addColorStop(0,'rgba(0,0,0,1)'); fo.addColorStop(1,'rgba(0,0,0,0)');
       ctx.globalCompositeOperation = 'destination-out'; ctx.fillStyle = fo; ctx.fillRect(0, 0, lim + 2, H*.78); ctx.globalCompositeOperation = 'source-over';
     }
-    // Sterne
     for(var s=0;s<stars.length;s++){ var st=stars[s]; ctx.fillStyle='rgba(255,255,255,'+(.18+.3*Math.sin(tt*.8*st.s+st.p)).toFixed(3)+')'; ctx.beginPath(); ctx.arc(st.x,st.y,st.r,0,6.283); ctx.fill(); }
     // Hypnogramm: Aufbau von links nach rechts
-    var xr = X0 + (Math.min(X1, W) - X0 + 4)*reveal;
+    var xr = AX + (WR - AX + 4)*reveal;
     ctx.save(); ctx.beginPath(); ctx.rect(0, 0, xr, H); ctx.clip();
-    ctx.globalCompositeOperation = 'lighter'; var ga = desk ? 1 : .7; ctx.globalAlpha = ga;
-    var pulse = .85 + .15*Math.sin(tt*.9);
-    ctx.globalAlpha = ga*(.8 + .2*pulse); ctx.drawImage(CUR, 0, 0, W, H); ctx.globalAlpha = ga;
-    // Zyklus-Markierungen an den REM-Gipfeln
-    if(desk){
-      for(var pk=0; pk<PEAKS.length; pk++){
-        var px = XM(PEAKS[pk]), ya = CY(PEAKS[pk], -1) - 26, yb = CY(PEAKS[pk], 1) + 18;
-        var vg = ctx.createLinearGradient(0, ya, 0, yb); vg.addColorStop(0,'rgba(255,255,255,0)'); vg.addColorStop(.25,'rgba(255,255,255,.22)'); vg.addColorStop(1,'rgba(255,255,255,0)');
-        ctx.strokeStyle = vg; ctx.lineWidth = 1; ctx.beginPath(); ctx.moveTo(px, ya); ctx.lineTo(px, yb); ctx.stroke();
+    if(o.bands) bands();
+    if(o.grid) grid();
+    if(o.ghost) ghost();
+    if(o.clean) clean();
+    else {
+      ctx.globalCompositeOperation = 'lighter'; var ga = desk ? 1 : .75; ctx.globalAlpha = ga;
+      var pulse = .85 + .15*Math.sin(tt*.9);
+      ctx.globalAlpha = ga*(.8 + .2*pulse); ctx.drawImage(CUR, 0, 0, W, H); ctx.globalAlpha = ga;
+      if(desk){
+        for(var pk=0; pk<PEAKS.length; pk++){
+          var px = XM(PEAKS[pk]); if(px > WR - 20) break;
+          var ya = CY(PEAKS[pk], -1) - 26, yb = CY(PEAKS[pk], 1) + 18;
+          var vg = ctx.createLinearGradient(0, ya, 0, yb); vg.addColorStop(0,'rgba(255,255,255,0)'); vg.addColorStop(.25,'rgba(255,255,255,.22)'); vg.addColorStop(1,'rgba(255,255,255,0)');
+          ctx.strokeStyle = vg; ctx.lineWidth = 1; ctx.beginPath(); ctx.moveTo(px, ya); ctx.lineTo(px, yb); ctx.stroke();
+        }
       }
-    }
-    // Drei Lichtfäden mit gleichem Verlauf
-    ctx.lineJoin = 'round'; ctx.lineCap = 'round';
-    for(var k=0;k<STR.length;k++){
-      var S = STR[k];
-      curve(S.o); ctx.strokeStyle = 'rgba('+S.c+','+(S.a*.07).toFixed(3)+')'; ctx.lineWidth = S.w*7; ctx.stroke();
-      ctx.strokeStyle = 'rgba('+S.c+','+(S.a*.18).toFixed(3)+')'; ctx.lineWidth = S.w*2.6; ctx.stroke();
-      ctx.strokeStyle = 'rgba('+S.c+','+S.a+')'; ctx.lineWidth = S.w; ctx.shadowColor = 'rgba('+S.c+',.95)'; ctx.shadowBlur = 12*pulse; ctx.stroke(); ctx.shadowBlur = 0;
-    }
-    // Lichtpunkte auf den Gipfeln
-    if(desk){
-      for(var pd=0; pd<PEAKS.length; pd++){ for(var k2=0;k2<STR.length;k2++){ var dx = XM(PEAKS[pd]), dy = CY(PEAKS[pd], STR[k2].o); ctx.fillStyle = 'rgba(255,255,255,.85)'; ctx.beginPath(); ctx.arc(dx, dy, 1.8, 0, 6.283); ctx.fill(); } }
-    }
-    // Lichtpartikel im Vorhang
-    for(var m=0;m<motes.length;m++){
-      var p = motes[m]; var mx2 = X0 + p.u*(X1-X0);
-      var my = TOP + (BOT-TOP)*(.15 + p.v*1.05);
-      var a2 = .2 + .45*Math.abs(Math.sin(tt*p.s + p.p));
-      ctx.fillStyle = 'rgba('+p.c+','+a2.toFixed(3)+')'; ctx.beginPath(); ctx.arc(mx2, my, p.r, 0, 6.283); ctx.fill();
-      if(!reduce){ p.v -= .0004*p.s; if(p.v < 0) p.v = 1; }
+      ctx.lineJoin = 'round'; ctx.lineCap = 'round';
+      for(var k=0;k<STR.length;k++){
+        var S = STR[k], sw = S.w*lw;
+        curve(S.o); ctx.strokeStyle = 'rgba('+S.c+','+(S.a*.07).toFixed(3)+')'; ctx.lineWidth = sw*7; ctx.stroke();
+        ctx.strokeStyle = 'rgba('+S.c+','+(S.a*.18).toFixed(3)+')'; ctx.lineWidth = sw*2.6; ctx.stroke();
+        ctx.strokeStyle = 'rgba('+S.c+','+S.a+')'; ctx.lineWidth = sw; ctx.shadowColor = 'rgba('+S.c+',.95)'; ctx.shadowBlur = 12*pulse; ctx.stroke(); ctx.shadowBlur = 0;
+      }
+      if(desk){
+        for(var pd=0; pd<PEAKS.length; pd++){ var dx = XM(PEAKS[pd]); if(dx > WR - 20) break; for(var k2=0;k2<STR.length;k2++){ var dy = CY(PEAKS[pd], STR[k2].o); ctx.fillStyle = 'rgba(255,255,255,.85)'; ctx.beginPath(); ctx.arc(dx, dy, 1.8, 0, 6.283); ctx.fill(); } }
+      }
+      for(var m=0;m<motes.length;m++){
+        var p = motes[m]; var mx2 = X0 + p.u*(X1-X0); if(mx2 > WR) continue;
+        var my = TOP + (BOT-TOP)*(.15 + p.v*1.05);
+        var a2 = .2 + .45*Math.abs(Math.sin(tt*p.s + p.p));
+        ctx.fillStyle = 'rgba('+p.c+','+a2.toFixed(3)+')'; ctx.beginPath(); ctx.arc(mx2, my, p.r, 0, 6.283); ctx.fill();
+        if(!reduce){ p.v -= .0004*p.s; if(p.v < 0) p.v = 1; }
+      }
     }
     // Abspielkopf: Lichtpunkt wandert durch die Nacht
     if(reveal >= 1 && !reduce){
       var hm = ((t - t0 - 4100)/16000 % 1) * HMAX; if(hm < 0) hm += HMAX;
-      var tail = Math.min(40, hm), steps = 20;
+      var tail = o.clean ? 0 : Math.min(40, hm), steps = o.clean ? 0 : 20;
       for(var z=0; z<steps; z++){
         var ma = hm - tail + tail*z/steps, mb = hm - tail + tail*(z+1)/steps;
-        ctx.strokeStyle = 'rgba(255,240,225,'+(.9*(z+1)/steps).toFixed(3)+')'; ctx.lineWidth = 2.6;
+        ctx.strokeStyle = 'rgba(255,240,225,'+(.9*(z+1)/steps).toFixed(3)+')'; ctx.lineWidth = 2.6*lw;
         ctx.beginPath(); ctx.moveTo(XM(ma), CY(ma,0)); ctx.lineTo(XM(mb), CY(mb,0)); ctx.stroke();
       }
       var hx = XM(hm), hy = CY(hm, 0);
-      var hg = ctx.createRadialGradient(hx, hy, 0, hx, hy, 16); hg.addColorStop(0,'rgba(255,255,255,.95)'); hg.addColorStop(.35,'rgba(255,200,150,.45)'); hg.addColorStop(1,'rgba(255,170,110,0)');
-      ctx.fillStyle = hg; ctx.beginPath(); ctx.arc(hx, hy, 16, 0, 6.283); ctx.fill();
+      if(o.clean){ ctx.fillStyle = '#fff'; ctx.beginPath(); ctx.arc(hx, hy, 3.6, 0, 6.283); ctx.fill(); ctx.strokeStyle = 'rgba(246,162,98,.7)'; ctx.lineWidth = 1; ctx.beginPath(); ctx.arc(hx, hy, 8, 0, 6.283); ctx.stroke(); }
+      else { var hg = ctx.createRadialGradient(hx, hy, 0, hx, hy, 16); hg.addColorStop(0,'rgba(255,255,255,.95)'); hg.addColorStop(.35,'rgba(255,200,150,.45)'); hg.addColorStop(1,'rgba(255,170,110,0)');
+      ctx.fillStyle = hg; ctx.beginPath(); ctx.arc(hx, hy, 16, 0, 6.283); ctx.fill(); }
+      if(rdT){ var mi = Math.floor(hm); if(mi !== hvLast){ hvLast = mi; var tot = 23*60 + mi, sv = 0; for(var q=0; q<VS.length; q++){ if(VS[q][0] <= mi) sv = VS[q][1]; }
+        rdT.textContent = String(Math.floor(tot/60)%24).padStart(2,'0') + ':' + String(tot%60).padStart(2,'0'); rdS.textContent = STAGE_DE[sv]; } }
+    }
+    if(GO.fadeR){
+      ctx.globalCompositeOperation = 'destination-out'; ctx.globalAlpha = 1;
+      var fr = ctx.createLinearGradient(WR - 80, 0, WR + 2, 0); fr.addColorStop(0,'rgba(0,0,0,0)'); fr.addColorStop(1,'rgba(0,0,0,1)');
+      ctx.fillStyle = fr; ctx.fillRect(WR - 80, TOP - 90, 90, (BOT - TOP)*(1 + GO.cur) + 170);
     }
     ctx.globalCompositeOperation = 'source-over'; ctx.globalAlpha = 1;
     ctx.restore();
-    if(desk){ var hm2 = ctx.createLinearGradient(AX,0,AX+60,0); hm2.addColorStop(0,'rgba(10,34,65,.45)'); hm2.addColorStop(1,'rgba(10,34,65,0)'); ctx.fillStyle = hm2; ctx.fillRect(AX, TOP-40, 60, (BOT-TOP)*1.9); }
-    // Achse mit Schlafphasen und Uhrzeit
-    if(desk){
-      var ag = ctx.createLinearGradient(0,TOP-30,0,BOT+30);
-      ag.addColorStop(0,'rgba(255,255,255,0)'); ag.addColorStop(.12,'rgba(255,255,255,.55)'); ag.addColorStop(.88,'rgba(255,255,255,.55)'); ag.addColorStop(1,'rgba(255,255,255,0)');
-      ctx.strokeStyle = ag; ctx.lineWidth = 1; ctx.beginPath(); ctx.moveTo(AX, TOP-30); ctx.lineTo(AX, BOT+30); ctx.stroke();
-      ctx.fillStyle = 'rgba(255,255,255,.45)';
-      for(var tk=0; tk<9; tk++){ if(tk%3===0) continue; ctx.beginPath(); ctx.arc(AX, TOP + (BOT-TOP)*tk/9, 1.2, 0, 6.283); ctx.fill(); }
-      var LB = [['AWAKE'],['REM'],['LIGHT','SLEEP'],['DEEP','SLEEP']];
-      ctx.font = '500 10.5px Poppins, sans-serif'; ctx.textAlign = 'right';
-      if('letterSpacing' in ctx) ctx.letterSpacing = '2px';
-      for(var l=0;l<4;l++){
-        var ly = LY(l);
-        ctx.fillStyle = 'rgba(255,255,255,.9)'; ctx.beginPath(); ctx.arc(AX, ly, 2.2, 0, 6.283); ctx.fill();
-        ctx.fillStyle = 'rgba(214,224,236,.75)';
-        if(LB[l].length===1) ctx.fillText(LB[l][0], AX-16, ly+4);
-        else { ctx.fillText(LB[l][0], AX-16, ly-2); ctx.fillText(LB[l][1], AX-16, ly+11); }
-      }
-      ctx.font = '500 10px Poppins, sans-serif'; ctx.fillStyle = 'rgba(214,224,236,.5)';
+    // Achse mit Schlafphasen (immer sichtbar) und Uhrzeit
+    var hm2 = ctx.createLinearGradient(AX, 0, AX + 60, 0); hm2.addColorStop(0,'rgba(10,34,65,.45)'); hm2.addColorStop(1,'rgba(10,34,65,0)'); ctx.fillStyle = hm2; ctx.fillRect(AX, TOP-40, 60, (BOT-TOP)*1.9);
+    var ag = ctx.createLinearGradient(0,TOP-30,0,BOT+30);
+    ag.addColorStop(0,'rgba(255,255,255,0)'); ag.addColorStop(.12,'rgba(255,255,255,.6)'); ag.addColorStop(.88,'rgba(255,255,255,.6)'); ag.addColorStop(1,'rgba(255,255,255,0)');
+    ctx.strokeStyle = ag; ctx.lineWidth = 1; ctx.beginPath(); ctx.moveTo(AX, TOP-30); ctx.lineTo(AX, BOT+30); ctx.stroke();
+    ctx.fillStyle = 'rgba(255,255,255,.45)';
+    for(var tk=0; tk<9; tk++){ if(tk%3===0) continue; ctx.beginPath(); ctx.arc(AX, TOP + (BOT-TOP)*tk/9, 1.2, 0, 6.283); ctx.fill(); }
+    var LB = [['AWAKE'],['REM'],['LIGHT','SLEEP'],['DEEP','SLEEP']], lx = AX - (desk ? 16 : 11);
+    ctx.font = desk ? '600 11.5px Poppins, sans-serif' : '600 9px Poppins, sans-serif'; ctx.textAlign = 'right';
+    if('letterSpacing' in ctx) ctx.letterSpacing = desk ? '2px' : '1.4px';
+    for(var l=0;l<4;l++){
+      var ly = LY(l);
+      ctx.fillStyle = 'rgba(255,255,255,.95)'; ctx.beginPath(); ctx.arc(AX, ly, desk ? 2.6 : 2.1, 0, 6.283); ctx.fill();
+      ctx.fillStyle = 'rgba(226,234,244,.9)';
+      if(LB[l].length===1) ctx.fillText(LB[l][0], lx, ly+4);
+      else { ctx.fillText(LB[l][0], lx, ly-2); ctx.fillText(LB[l][1], lx, ly + (desk ? 12 : 10)); }
+    }
+    if(o.clean && desk){
+      var yb2 = BOT + GAP + 58; ctx.font = '600 9.5px Poppins, sans-serif';
+      ctx.fillStyle = 'rgba(246,162,98,.95)'; ctx.fillText('REM', lx, yb2 + 5);
+      ctx.fillStyle = 'rgba(150,195,255,.95)'; ctx.fillText('DEEP SLEEP', lx, yb2 + 17);
+    }
+    if(GO.times){
+      ctx.font = '500 10px Poppins, sans-serif'; ctx.fillStyle = 'rgba(214,224,236,.55)';
       if('letterSpacing' in ctx) ctx.letterSpacing = '1px';
       ctx.textAlign = 'left'; ctx.fillText('23:00', X0, BOT + GAP + 40);
       ctx.textAlign = 'center';
-      for(var hh=2; hh<=8; hh+=2){ var tx = XM(hh*60); if(tx > W - 40) break; ctx.fillText(String((23+hh)%24).padStart(2,'0') + ':00', tx, BOT + GAP + 40); }
-      if('letterSpacing' in ctx) ctx.letterSpacing = '0px';
+      for(var hh=2; hh<=8; hh+=2){ var tx = XM(hh*60); if(tx > WR - 24) break; ctx.fillText(String((23+hh)%24).padStart(2,'0') + ':00', tx, BOT + GAP + 40); }
     }
+    if('letterSpacing' in ctx) ctx.letterSpacing = '0px';
   }
   function loop(t){ if(running) draw(t); requestAnimationFrame(loop); }
   window.addEventListener('resize', layout);
   if(document.fonts && document.fonts.ready) document.fonts.ready.then(layout);
   window.addEventListener('load', function(){ setTimeout(layout, 50); setTimeout(layout, 1700); });
   new IntersectionObserver(function(es){ running = es[0].isIntersecting; }, {threshold:0}).observe(hero);
+  window.hvLayout = layout;
   layout();
-  if(reduce){ draw(4000); } else { requestAnimationFrame(loop); }
+  if(!reduce) requestAnimationFrame(loop);
 })();
 </script>
 

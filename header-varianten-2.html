@@ -1532,7 +1532,7 @@ img.hsf-ap{left:-4%;width:116%;bottom:-8%;filter:blur(2.2px) brightness(.6) satu
   // rechter Rand des Textes (Zeilen der Headline können breiter sein als die Textspalte)
   function textRight(){ var r = 0; copy.querySelectorAll('.kick, .ln > span, .sub, .ctas, .known .row').forEach(function(e){ var q = rel(e); if(q.w > 0) r = Math.max(r, q.r); }); return r || rel(copy).r; }
   var CFG = {
-    '1':  {top:.20, bot:.52, k:1, times:true},
+    '1':  {top:.20, bot:.52, endM:410, times:true},   // endet 05:50 auf dem flachen Stück, ohne Anstieg zum Aufwachen
     '2':  {top:.14, bot:.56, k:1.25, cur:.75, lw:1.35},
     '3':  {top:.20, bot:.54, k:1, grid:true, times:true},
     '4':  {top:.21, bot:.56, k:1, times:true},
@@ -1552,7 +1552,7 @@ img.hsf-ap{left:-4%;width:116%;bottom:-8%;filter:blur(2.2px) brightness(.6) satu
     var o = CFG[hvNo()] || CFG['1'], p = rel(personEl);
     if(desk){ AX = textRight() + 100; X0 = AX + 14; WR = W - Math.max(40, W*.03); TOP = H*o.top; BOT = H*o.bot; }
     else { AX = 70; X0 = AX + 10; WR = W; TOP = p.t + .02*p.h; BOT = p.t + .30*p.h; }
-    X1 = X0 + (WR - X0)*(desk ? (o.k || 1) : 1.6);
+    X1 = X0 + (WR - X0)*(desk ? (o.endM ? NIGHT_END/o.endM : (o.k || 1)) : 1.6);
     GO = {o:o, cur: o.cur || (desk ? .55 : .4), lw: o.lw || 1, fadeR: X1 > WR + 1, times: desk && !!o.times};
     GAP = (BOT-TOP)*.1;
     HMAX = Math.min(NIGHT_END, (WR - X0)/(X1 - X0)*NIGHT_END);
