@@ -24,7 +24,11 @@
   var io = new IntersectionObserver(function(es){
     es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
   }, {threshold:.14, rootMargin:'0px 0px -6% 0px'});
-  document.querySelectorAll('.rv,.mask,[data-count]').forEach(function(el){ io.observe(el); });
+  document.querySelectorAll('.rv,.mask,.sign-art,[data-count]').forEach(function(el){ io.observe(el); });
+
+  /* kontakt.html?anliegen=kooperation: passendes Anliegen vorwählen */
+  var anl = document.getElementById('anliegen'), q = (location.search.match(/[?&]anliegen=([^&]+)/) || [])[1];
+  if(anl && q){ q = decodeURIComponent(q).toLowerCase(); for(var oi = 0; oi < anl.options.length; oi++){ if(anl.options[oi].text.toLowerCase().indexOf(q) > -1){ anl.selectedIndex = oi; break; } } }
 
   /* Zähler */
   document.querySelectorAll('[data-count]').forEach(function(el){
@@ -100,7 +104,7 @@
   var m = location.search.match(/[?&]y=(\d+)/);
   if(m){
     document.documentElement.style.scrollBehavior = 'auto';
-    var go = function(){ document.querySelectorAll('.rv,.mask,.ti').forEach(function(e){ e.classList.add('in'); }); window.scrollTo(0, +m[1]); window.dispatchEvent(new Event('scroll')); };
+    var go = function(){ document.querySelectorAll('.rv,.mask,.ti,.sign-art').forEach(function(e){ e.classList.add('in'); }); window.scrollTo(0, +m[1]); window.dispatchEvent(new Event('scroll')); };
     window.addEventListener('load', function(){ go(); setTimeout(go, 500); setTimeout(go, 1500); });
   }
 })();

@@ -61,6 +61,8 @@ button,input,select,textarea{font:inherit;color:inherit}
 /* ── Logo ── */
 .logo{display:flex;align-items:center;gap:14px}
 .logo svg{height:58px;width:auto;display:block}
+.nav .logo svg{height:72px;transition:height .5s var(--ease)}
+.nav.sc .logo svg{height:60px}
 .logo .div{width:1px;height:46px;background:rgba(255,255,255,.45)}
 .logo .wm{display:flex;flex-direction:column;line-height:1}
 .logo .wm b{font-weight:500;font-size:17.5px;letter-spacing:.26em;white-space:nowrap}
@@ -371,6 +373,8 @@ footer{background:var(--night);border-top:1px solid var(--line);position:relativ
   .g4{grid-template-columns:1fr}
   .fgrid{grid-template-columns:1fr}
   .logo svg{height:44px}
+  .nav .logo svg{height:50px}
+  .nav.sc .logo svg{height:46px}
   .phero .ctas .btn{width:100%}
   .sticky .t{font-size:12px}
   .sticky .t span{display:none}
