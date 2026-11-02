@@ -59,6 +59,8 @@ em.cu{font-style:italic;color:var(--copper)}
 /* ── Logo ── */
 .logo{display:flex;align-items:center;gap:14px}
 .logo svg{height:58px;width:auto;display:block}
+.nav .logo svg{height:72px;transition:height .5s var(--ease)}
+.nav.sc .logo svg{height:60px}
 .logo .div{width:1px;height:46px;background:rgba(255,255,255,.45)}
 .logo .wm{display:flex;flex-direction:column;line-height:1}
 .logo .wm b{font-weight:500;font-size:17.5px;letter-spacing:.26em;white-space:nowrap}
@@ -283,21 +285,6 @@ em.cu{font-style:italic;color:var(--copper)}
 }
 
 /* ── Das Zeichen ── */
-.sign{padding:150px 0;background:radial-gradient(60% 70% at 25% 50%,#12325A 0%,var(--navy) 70%);overflow:hidden}
-.sign-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:90px;align-items:center}
-.sign-art{position:relative;width:min(380px,80%);margin:0 auto}
-.sign-art svg{width:100%;overflow:visible;filter:drop-shadow(0 0 40px rgba(135,166,198,.25))}
-.sign-art .s-disc{opacity:0;transform:translateX(-24px);transition:opacity 1.2s var(--ease),transform 1.4s var(--ease)}
-.sign-art .s-bar{transform:scaleY(0);transform-origin:50% 50%;transform-box:fill-box;transition:transform 1.1s var(--ease) .35s}
-.sign-art .s-moon{opacity:0;transform:translateX(24px);transition:opacity 1.2s var(--ease) .6s,transform 1.4s var(--ease) .6s}
-.sign-art.in .s-disc,.sign-art.in .s-moon{opacity:1;transform:none}
-.sign-art.in .s-bar{transform:scaleY(1)}
-.sign-art .lbl{position:absolute;font-size:10.5px;letter-spacing:.3em;text-transform:uppercase;color:var(--mist);opacity:0;transition:opacity 1s var(--ease) 1.4s}
-.sign-art.in .lbl{opacity:1}
-.sign-art .l1{left:25%;bottom:-9%;transform:translateX(-50%)}.sign-art .l2{left:57.3%;top:-10%;transform:translateX(-50%);color:#fff}.sign-art .l3{left:81%;bottom:-9%;transform:translateX(-50%);color:var(--copper)}
-.sign p.t{color:#C7D3E0;font-weight:300;font-size:1.06rem;margin-bottom:14px;max-width:520px}
-.sign p.t b{color:#fff;font-weight:500}
-@media (max-width:860px){.sign{padding:96px 0}.sign-grid{grid-template-columns:1fr;gap:60px}.sign-art{width:60%}}
 
 /* ── Angebote ── */
 .offers{padding:150px 0;background:var(--cream);color:var(--ink)}
@@ -594,6 +581,8 @@ footer{background:#06142A;border-top:1px solid var(--line);position:relative;ove
 @media (max-width:520px){
   .fgrid{grid-template-columns:1fr}
   .logo svg{height:44px}
+  .nav .logo svg{height:50px}
+  .nav.sc .logo svg{height:46px}
   .hero .ctas .btn{width:100%;justify-content:center}
 }
 @media (prefers-reduced-motion:reduce){
@@ -782,12 +771,90 @@ img.hsf-ap{left:-4%;width:116%;bottom:-8%;filter:blur(2.2px) brightness(.6) satu
   .hero[data-hv] .crowd{display:block;left:-60vw;right:auto;width:220vw;top:calc(var(--mt) + var(--mh)*.8 - 220vw*.2443);bottom:auto;-webkit-mask-image:none;mask-image:none}
   .hero[data-hv] .crowd img{filter:blur(2px) brightness(.6)}
 }
+/* Angebote als Bento (Feedback André 02.11.): 01 Schlaftest breit, 02 Schlafkurs hoch, 03 Bettenhaus breit mit Bild rechts,
+   04 Kooperation, 05 Unternehmen, 06 Wissen, das ankommt. Lesereihenfolge folgt der Nummerierung. */
+.ogrid.bento{grid-template-columns:1fr 1fr 1.12fr;grid-auto-rows:minmax(340px,auto);grid-auto-flow:row}
+.bento .ocard{min-height:0;padding:32px}
+.bento .ocard h3{font-size:1.5rem}
+.bento .ocard.test{grid-column:1 / span 2;padding-right:270px}
+.bento .ocard.test h3,.bento .ocard.kurs h3,.bento .ocard.bett h3{font-size:1.85rem}
+.bento .ocard.test .gauge{top:50%;right:44px;transform:translateY(-50%)}
+.bento .ocard.kurs{grid-column:3;grid-row:1 / span 2;background:#081626}
+.bento .ocard.kurs .bg img{height:auto;object-fit:contain;object-position:50% 0}
+.bento .ocard.kurs::before{background:linear-gradient(to top,rgba(8,22,38,1) 32%,rgba(8,22,38,.55) 52%,rgba(8,22,38,0) 70%)}
+.bento .ocard.bett{grid-column:1 / span 2;min-height:420px;background:var(--navy)}
+.bento .ocard.bett > *:not(.bg){max-width:370px}
+.bento .ocard.bett .bg{left:44%}
+.bento .ocard.bett .bg img{object-position:50% 18%}
+.bento .ocard.bett::before{background:linear-gradient(90deg,rgba(8,26,46,1) 44%,rgba(8,26,46,.55) 56%,rgba(8,26,46,0) 70%)}
+.bento .ocard.koop,.bento .ocard.biz,.bento .ocard.talk{min-height:440px}
+.bento .ocard.koop{background:#fff;color:var(--ink);box-shadow:0 1px 0 rgba(11,31,53,.06),0 30px 60px -42px rgba(11,31,53,.45)}
+.bento .ocard.koop::before{display:none}
+.bento .ocard.koop .pill{background:rgba(217,155,114,.1);border-color:rgba(185,118,77,.35);color:var(--copper-d);backdrop-filter:none;-webkit-backdrop-filter:none}
+.bento .ocard.koop .kick{color:var(--copper-d)}
+.bento .ocard.koop p{color:var(--ink-m)}
+.bento .ocard.koop .go{color:var(--copper-d)}
+.bento .ocard.koop .go i{border-color:rgba(185,118,77,.45)}
+.bento .ocard.koop:hover .go i{color:#fff}
+.koop-art{position:absolute;right:-92px;top:-62px;width:240px;fill:none;stroke:var(--copper);stroke-width:1;opacity:.5;z-index:-1;transition:transform 1.2s var(--ease)}
+.ocard.koop:hover .koop-art{transform:translateX(-10px)}
+.bento .ocard.talk{background:radial-gradient(120% 80% at 90% 0%,#1E4670,var(--navy) 62%)}
+.bento .ocard.talk::before{display:none}
+.talk-art{position:absolute;right:28px;top:34px;width:150px;opacity:.75;z-index:-1}
+.talk-art rect{transform-box:fill-box;transform-origin:50% 50%;animation:talkW 2.6s ease-in-out infinite}
+.talk-art rect:nth-child(3n){animation-delay:-.6s}.talk-art rect:nth-child(3n+1){animation-delay:-1.3s}.talk-art rect:nth-child(4n){animation-delay:-1.9s}
+@keyframes talkW{0%,100%{transform:scaleY(1)}50%{transform:scaleY(.55)}}
+@media (prefers-reduced-motion:reduce){.talk-art rect{animation:none}}
+@media (max-width:1100px){
+  .ogrid.bento{grid-template-columns:1fr 1fr;grid-auto-rows:auto}
+  .bento .ocard{min-height:440px}
+  .bento .ocard.test{grid-column:1 / -1;min-height:400px}
+  .bento .ocard.kurs{grid-column:auto;grid-row:auto;min-height:600px}
+  .bento .ocard.kurs .bg img{height:64%}
+  .bento .ocard.bett{grid-column:auto;justify-content:flex-start}
+  .bento .ocard.bett > *:not(.bg){max-width:none}
+  .bento .ocard.bett .bg{position:relative;inset:auto;left:auto;height:240px;margin:-32px -32px 22px;flex:none}
+  .bento .ocard.bett .bg::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,var(--navy) 2%,rgba(8,26,46,0) 55%)}
+  .bento .ocard.bett .bg img{object-position:62% 6%}
+  .bento .ocard.bett::before{display:none}
+  .bento .ocard.bett .pill{margin:0 0 18px}
+  .bento .ocard.bett .go{margin-top:auto}
+  .bento .ocard.biz{min-height:560px}
+  .bento .ocard.talk{grid-column:1 / -1;min-height:360px}
+  .bento .ocard.talk > *{max-width:560px}
+}
+@media (max-width:860px){
+  .ogrid.bento{grid-template-columns:1fr}
+  .bento .ocard{min-height:420px;padding:28px}
+  .bento .ocard.test{padding-right:28px;min-height:540px}
+  .bento .ocard.test .gauge{top:64px;right:24px;transform:none}
+  .bento .ocard.kurs{min-height:640px}
+  .bento .ocard.kurs .bg img{height:60%}
+  .bento .ocard.bett{min-height:0}
+  .bento .ocard.bett .bg{height:220px;margin:-28px -28px 22px}
+  .bento .ocard.koop,.bento .ocard.talk{min-height:0;padding-top:30px}
+  .bento .ocard.koop .pill,.bento .ocard.talk .pill{margin-bottom:90px}
+  .koop-art{right:-120px;top:-70px}
+  .talk-art{right:22px;top:30px;width:110px}
+  .bento .ocard.biz{min-height:480px}
+}
+/* Handy: „Bekannt aus“ als ruhiges 2er-Raster, alles links bündig (Feedback 02.11.) */
+@media (max-width:860px){
+  .known .row{display:grid;grid-template-columns:repeat(2,max-content);column-gap:44px;row-gap:14px;justify-content:start}
+  .known .ml,.known .ml:first-child{padding:0;border:0;height:30px}
+  .nav .logo svg{height:58px}
+  .nav.sc .logo svg{height:50px}
+}
+@media (max-width:520px){
+  .nav .logo svg{height:50px}
+  .nav.sc .logo svg{height:46px}
+}
 </style>
 </head>
 <body id="top">
 
 <!-- Logo und Signet (Original-SVG von Rebecca) als wiederverwendbare Symbole -->
-<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><linearGradient id="sgW" x1="115" y1="358" x2="218" y2="358" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#FFFFFF" stop-opacity="1"/><stop offset=".11" stop-color="#FFFFFF" stop-opacity=".97"/><stop offset=".29" stop-color="#FFFFFF" stop-opacity=".87"/><stop offset=".51" stop-color="#FFFFFF" stop-opacity=".72"/><stop offset=".77" stop-color="#FFFFFF" stop-opacity=".51"/><stop offset="1" stop-color="#FFFFFF" stop-opacity=".3"/></linearGradient><linearGradient id="sgK" x1="115" y1="358" x2="218" y2="358" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#081A2E" stop-opacity="1"/><stop offset=".11" stop-color="#081A2E" stop-opacity=".97"/><stop offset=".29" stop-color="#081A2E" stop-opacity=".87"/><stop offset=".51" stop-color="#081A2E" stop-opacity=".72"/><stop offset=".77" stop-color="#081A2E" stop-opacity=".51"/><stop offset="1" stop-color="#081A2E" stop-opacity=".3"/></linearGradient><linearGradient id="sgC" x1="115" y1="358" x2="218" y2="358" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#274768" stop-opacity="1"/><stop offset=".11" stop-color="#274768" stop-opacity=".97"/><stop offset=".29" stop-color="#274768" stop-opacity=".87"/><stop offset=".51" stop-color="#274768" stop-opacity=".72"/><stop offset=".77" stop-color="#274768" stop-opacity=".51"/><stop offset="1" stop-color="#274768" stop-opacity=".3"/></linearGradient><linearGradient id="gG" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#F2C6A2"/><stop offset="1" stop-color="#D99B72"/></linearGradient><symbol id="signetW" viewBox="110 210 222 294"><g fill="#fff"><path d="M115,358c0,56.89,46.11,103,103,103v-206c-56.89,0-103,46.11-103,103Z" fill="url(#sgW)"/><rect x="233.48" y="216.49" width="7.21" height="280.52"/><path d="M251.72,263.6v8.49s53.38,25.02,50.93,89.55c-2.12,55.81-51.78,78.96-51.78,78.96v9.31s72.4-14.31,74.06-93.37c1.49-71.09-73.21-92.94-73.21-92.94Z"/></g></symbol><symbol id="signetK" viewBox="110 210 222 294"><g fill="#081A2E"><path d="M115,358c0,56.89,46.11,103,103,103v-206c-56.89,0-103,46.11-103,103Z" fill="url(#sgK)"/><rect x="233.48" y="216.49" width="7.21" height="280.52"/><path d="M251.72,263.6v8.49s53.38,25.02,50.93,89.55c-2.12,55.81-51.78,78.96-51.78,78.96v9.31s72.4-14.31,74.06-93.37c1.49-71.09-73.21-92.94-73.21-92.94Z"/></g></symbol><symbol id="signet" viewBox="110 210 222 294"><g fill="#D99B72"><path d="M115,358c0,56.89,46.11,103,103,103v-206c-56.89,0-103,46.11-103,103Z" fill="url(#sgC)"/><rect x="233.48" y="216.49" width="7.21" height="280.52"/><path d="M251.72,263.6v8.49s53.38,25.02,50.93,89.55c-2.12,55.81-51.78,78.96-51.78,78.96v9.31s72.4-14.31,74.06-93.37c1.49-71.09-73.21-92.94-73.21-92.94Z"/></g></symbol><symbol id="logoW" viewBox="115 216 1100 282"><g fill="#fff"><path d="M115,358c0,56.89,46.11,103,103,103v-206c-56.89,0-103,46.11-103,103Z" fill="url(#sgW)"/><rect x="233.48" y="216.49" width="7.21" height="280.52"/><path d="M251.72,263.6v8.49s53.38,25.02,50.93,89.55c-2.12,55.81-51.78,78.96-51.78,78.96v9.31s72.4-14.31,74.06-93.37c1.49-71.09-73.21-92.94-73.21-92.94Z"/><rect x="391.64" y="263.81" width="2.04" height="199.89"/><path d="M491.47,311.37c3.95,2.01,7,4.9,9.16,8.66,2.15,3.76,3.23,8.15,3.23,13.17s-1.08,9.37-3.23,13.06c-2.15,3.69-5.21,6.52-9.16,8.48-3.95,1.96-8.55,2.95-13.8,2.95h-16.11v-49.32h16.11c5.25,0,9.85,1.01,13.8,3.02ZM490.94,346.39c3.08-3.12,4.61-7.52,4.61-13.2s-1.54-10.2-4.61-13.41c-3.08-3.22-7.5-4.83-13.27-4.83h-8.02v36.12h8.02c5.77,0,10.2-1.56,13.27-4.68Z"/><path d="M551.83,357.68l-11.36-19.73h-6.17v19.73h-8.09v-49.32h17.03c3.78,0,6.99.66,9.62,1.99,2.63,1.33,4.59,3.1,5.89,5.32,1.3,2.22,1.95,4.71,1.95,7.45,0,3.22-.93,6.14-2.8,8.76-1.87,2.63-4.74,4.41-8.62,5.36l12.21,20.44h-9.65ZM534.3,331.49h8.94c3.03,0,5.31-.76,6.85-2.27,1.54-1.51,2.31-3.55,2.31-6.1s-.76-4.55-2.27-6c-1.52-1.44-3.81-2.16-6.88-2.16h-8.94v16.54Z"/><path d="M584.97,356.68c-.99-.99-1.49-2.22-1.49-3.69s.5-2.7,1.49-3.69,2.22-1.49,3.69-1.49,2.63.5,3.62,1.49,1.49,2.22,1.49,3.69-.5,2.7-1.49,3.69c-.99.99-2.2,1.49-3.62,1.49s-2.7-.5-3.69-1.49Z"/><path d="M679.36,347.6h-20.65l-3.55,10.08h-8.45l17.67-49.4h9.37l17.67,49.4h-8.52l-3.55-10.08ZM677.09,341l-8.02-22.92-8.09,22.92h16.11Z"/><path d="M753.95,357.68h-8.09l-24.34-36.83v36.83h-8.09v-49.4h8.09l24.34,36.76v-36.76h8.09v49.4Z"/><path d="M808.85,311.37c3.95,2.01,7,4.9,9.16,8.66,2.15,3.76,3.23,8.15,3.23,13.17s-1.08,9.37-3.23,13.06c-2.15,3.69-5.21,6.52-9.16,8.48-3.95,1.96-8.55,2.95-13.8,2.95h-16.11v-49.32h16.11c5.25,0,9.85,1.01,13.8,3.02ZM808.32,346.39c3.08-3.12,4.61-7.52,4.61-13.2s-1.54-10.2-4.61-13.41c-3.08-3.22-7.5-4.83-13.27-4.83h-8.02v36.12h8.02c5.77,0,10.2-1.56,13.27-4.68Z"/><path d="M869.21,357.68l-11.35-19.73h-6.17v19.73h-8.09v-49.32h17.03c3.78,0,6.99.66,9.62,1.99,2.63,1.33,4.59,3.1,5.89,5.32,1.3,2.22,1.95,4.71,1.95,7.45,0,3.22-.93,6.14-2.8,8.76s-4.74,4.41-8.62,5.36l12.21,20.44h-9.65ZM851.68,331.49h8.94c3.03,0,5.31-.76,6.85-2.27,1.54-1.51,2.31-3.55,2.31-6.1s-.76-4.55-2.27-6c-1.51-1.44-3.81-2.16-6.88-2.16h-8.94v16.54Z"/><path d="M910.87,314.88v14.48h17.03v6.6h-17.03v15.12h19.16v6.6h-27.25v-49.4h27.25v6.6h-19.16ZM923.36,297.78l-15.68,7.74v-5.96l15.68-8.66v6.88Z"/><path d="M1016.83,347.6h-20.65l-3.55,10.08h-8.45l17.67-49.4h9.37l17.67,49.4h-8.52l-3.55-10.08ZM1014.56,341l-8.02-22.92-8.09,22.92h16.11Z"/><path d="M1058.98,351.15h16.68v6.53h-24.77v-49.32h8.09v42.8Z"/><path d="M1104.83,314.88v14.48h17.03v6.6h-17.03v15.12h19.16v6.6h-27.25v-49.4h27.25v6.6h-19.16Z"/><path d="M1181.55,343.7c0,2.51-.67,4.87-2.03,7.09-1.35,2.23-3.3,4.01-5.88,5.36s-5.62,2.02-9.13,2.02c-3.3,0-6.28-.57-8.94-1.73-2.66-1.16-4.74-2.8-6.25-4.94-.61-.86-1.1-1.77-1.46-2.76l7.07-4.85c.66,1.99,2.13,4.34,3.29,5.41,1.5,1.37,3.59,2.06,6.28,2.06s4.97-.67,6.53-2.02c1.56-1.36,2.34-3.09,2.34-5.22,0-1.66-.49-3-1.46-4.04-.97-1.05-2.17-1.85-3.62-2.42-1.45-.56-3.44-1.18-6-1.85-3.22-.85-5.83-1.71-7.84-2.59-2.02-.87-3.73-2.23-5.15-4.08-1.42-1.85-2.13-4.3-2.13-7.38,0-2.84.71-5.32,2.13-7.45,1.42-2.13,3.4-3.76,5.96-4.9,2.56-1.13,5.51-1.7,8.88-1.7,4.77,0,8.69,1.2,11.74,3.58,1.2.93,2.18,2.01,2.94,3.22l-7.24,4.79c-.41-1.03-1.12-1.97-2.12-2.78-1.56-1.28-3.62-1.92-6.17-1.92-2.33,0-4.21.59-5.68,1.77-1.47,1.18-2.19,2.89-2.19,5.11,0,1.52.46,2.76,1.38,3.73.92.97,2.09,1.75,3.5,2.31,1.42.57,3.37,1.18,5.82,1.85,3.27.9,5.93,1.8,7.99,2.69,2.06.91,3.8,2.29,5.25,4.15,1.45,1.87,2.17,4.38,2.17,7.49Z"/><path d="M1213.56,308.35v49.32h-8.09v-49.32h8.09Z"/><text x="462" y="421" font-family="Poppins,sans-serif" font-weight="400" font-size="32" letter-spacing="9.6">SLEEP TO LIFE</text></g></symbol><symbol id="logoC" viewBox="115 216 1100 282"><path d="M115,358c0,56.89,46.11,103,103,103v-206c-56.89,0-103,46.11-103,103Z" fill="url(#sgC)"/><g fill="#D99B72"><rect x="233.48" y="216.49" width="7.21" height="280.52"/><path d="M251.72,263.6v8.49s53.38,25.02,50.93,89.55c-2.12,55.81-51.78,78.96-51.78,78.96v9.31s72.4-14.31,74.06-93.37c1.49-71.09-73.21-92.94-73.21-92.94Z"/></g><g fill="#274768"><rect x="391.64" y="263.81" width="2.04" height="199.89"/><path d="M491.47,311.37c3.95,2.01,7,4.9,9.16,8.66,2.15,3.76,3.23,8.15,3.23,13.17s-1.08,9.37-3.23,13.06c-2.15,3.69-5.21,6.52-9.16,8.48-3.95,1.96-8.55,2.95-13.8,2.95h-16.11v-49.32h16.11c5.25,0,9.85,1.01,13.8,3.02ZM490.94,346.39c3.08-3.12,4.61-7.52,4.61-13.2s-1.54-10.2-4.61-13.41c-3.08-3.22-7.5-4.83-13.27-4.83h-8.02v36.12h8.02c5.77,0,10.2-1.56,13.27-4.68Z"/><path d="M551.83,357.68l-11.36-19.73h-6.17v19.73h-8.09v-49.32h17.03c3.78,0,6.99.66,9.62,1.99,2.63,1.33,4.59,3.1,5.89,5.32,1.3,2.22,1.95,4.71,1.95,7.45,0,3.22-.93,6.14-2.8,8.76-1.87,2.63-4.74,4.41-8.62,5.36l12.21,20.44h-9.65ZM534.3,331.49h8.94c3.03,0,5.31-.76,6.85-2.27,1.54-1.51,2.31-3.55,2.31-6.1s-.76-4.55-2.27-6c-1.52-1.44-3.81-2.16-6.88-2.16h-8.94v16.54Z"/><path d="M584.97,356.68c-.99-.99-1.49-2.22-1.49-3.69s.5-2.7,1.49-3.69,2.22-1.49,3.69-1.49,2.63.5,3.62,1.49,1.49,2.22,1.49,3.69-.5,2.7-1.49,3.69c-.99.99-2.2,1.49-3.62,1.49s-2.7-.5-3.69-1.49Z"/><path d="M679.36,347.6h-20.65l-3.55,10.08h-8.45l17.67-49.4h9.37l17.67,49.4h-8.52l-3.55-10.08ZM677.09,341l-8.02-22.92-8.09,22.92h16.11Z"/><path d="M753.95,357.68h-8.09l-24.34-36.83v36.83h-8.09v-49.4h8.09l24.34,36.76v-36.76h8.09v49.4Z"/><path d="M808.85,311.37c3.95,2.01,7,4.9,9.16,8.66,2.15,3.76,3.23,8.15,3.23,13.17s-1.08,9.37-3.23,13.06c-2.15,3.69-5.21,6.52-9.16,8.48-3.95,1.96-8.55,2.95-13.8,2.95h-16.11v-49.32h16.11c5.25,0,9.85,1.01,13.8,3.02ZM808.32,346.39c3.08-3.12,4.61-7.52,4.61-13.2s-1.54-10.2-4.61-13.41c-3.08-3.22-7.5-4.83-13.27-4.83h-8.02v36.12h8.02c5.77,0,10.2-1.56,13.27-4.68Z"/><path d="M869.21,357.68l-11.35-19.73h-6.17v19.73h-8.09v-49.32h17.03c3.78,0,6.99.66,9.62,1.99,2.63,1.33,4.59,3.1,5.89,5.32,1.3,2.22,1.95,4.71,1.95,7.45,0,3.22-.93,6.14-2.8,8.76s-4.74,4.41-8.62,5.36l12.21,20.44h-9.65ZM851.68,331.49h8.94c3.03,0,5.31-.76,6.85-2.27,1.54-1.51,2.31-3.55,2.31-6.1s-.76-4.55-2.27-6c-1.51-1.44-3.81-2.16-6.88-2.16h-8.94v16.54Z"/><path d="M910.87,314.88v14.48h17.03v6.6h-17.03v15.12h19.16v6.6h-27.25v-49.4h27.25v6.6h-19.16ZM923.36,297.78l-15.68,7.74v-5.96l15.68-8.66v6.88Z"/><path d="M1016.83,347.6h-20.65l-3.55,10.08h-8.45l17.67-49.4h9.37l17.67,49.4h-8.52l-3.55-10.08ZM1014.56,341l-8.02-22.92-8.09,22.92h16.11Z"/><path d="M1058.98,351.15h16.68v6.53h-24.77v-49.32h8.09v42.8Z"/><path d="M1104.83,314.88v14.48h17.03v6.6h-17.03v15.12h19.16v6.6h-27.25v-49.4h27.25v6.6h-19.16Z"/><path d="M1181.55,343.7c0,2.51-.67,4.87-2.03,7.09-1.35,2.23-3.3,4.01-5.88,5.36s-5.62,2.02-9.13,2.02c-3.3,0-6.28-.57-8.94-1.73-2.66-1.16-4.74-2.8-6.25-4.94-.61-.86-1.1-1.77-1.46-2.76l7.07-4.85c.66,1.99,2.13,4.34,3.29,5.41,1.5,1.37,3.59,2.06,6.28,2.06s4.97-.67,6.53-2.02c1.56-1.36,2.34-3.09,2.34-5.22,0-1.66-.49-3-1.46-4.04-.97-1.05-2.17-1.85-3.62-2.42-1.45-.56-3.44-1.18-6-1.85-3.22-.85-5.83-1.71-7.84-2.59-2.02-.87-3.73-2.23-5.15-4.08-1.42-1.85-2.13-4.3-2.13-7.38,0-2.84.71-5.32,2.13-7.45,1.42-2.13,3.4-3.76,5.96-4.9,2.56-1.13,5.51-1.7,8.88-1.7,4.77,0,8.69,1.2,11.74,3.58,1.2.93,2.18,2.01,2.94,3.22l-7.24,4.79c-.41-1.03-1.12-1.97-2.12-2.78-1.56-1.28-3.62-1.92-6.17-1.92-2.33,0-4.21.59-5.68,1.77-1.47,1.18-2.19,2.89-2.19,5.11,0,1.52.46,2.76,1.38,3.73.92.97,2.09,1.75,3.5,2.31,1.42.57,3.37,1.18,5.82,1.85,3.27.9,5.93,1.8,7.99,2.69,2.06.91,3.8,2.29,5.25,4.15,1.45,1.87,2.17,4.38,2.17,7.49Z"/><path d="M1213.56,308.35v49.32h-8.09v-49.32h8.09Z"/></g><g fill="#D99B72"><text x="462" y="421" font-family="Poppins,sans-serif" font-weight="400" font-size="32" letter-spacing="9.6">SLEEP TO LIFE</text></g></symbol></defs></svg>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><linearGradient id="sgW" x1="115" y1="358" x2="218" y2="358" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#FFFFFF" stop-opacity="1"/><stop offset=".11" stop-color="#FFFFFF" stop-opacity=".97"/><stop offset=".29" stop-color="#FFFFFF" stop-opacity=".87"/><stop offset=".51" stop-color="#FFFFFF" stop-opacity=".72"/><stop offset=".77" stop-color="#FFFFFF" stop-opacity=".51"/><stop offset="1" stop-color="#FFFFFF" stop-opacity=".3"/></linearGradient><linearGradient id="sgK" x1="115" y1="358" x2="218" y2="358" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#081A2E" stop-opacity="1"/><stop offset=".11" stop-color="#081A2E" stop-opacity=".97"/><stop offset=".29" stop-color="#081A2E" stop-opacity=".87"/><stop offset=".51" stop-color="#081A2E" stop-opacity=".72"/><stop offset=".77" stop-color="#081A2E" stop-opacity=".51"/><stop offset="1" stop-color="#081A2E" stop-opacity=".3"/></linearGradient><linearGradient id="sgC" x1="115" y1="358" x2="218" y2="358" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#274768" stop-opacity="1"/><stop offset=".11" stop-color="#274768" stop-opacity=".97"/><stop offset=".29" stop-color="#274768" stop-opacity=".87"/><stop offset=".51" stop-color="#274768" stop-opacity=".72"/><stop offset=".77" stop-color="#274768" stop-opacity=".51"/><stop offset="1" stop-color="#274768" stop-opacity=".3"/></linearGradient><linearGradient id="gG" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#F2C6A2"/><stop offset="1" stop-color="#D99B72"/></linearGradient><symbol id="signetW" viewBox="110 210 222 294"><g fill="#fff"><path d="M115,358c0,56.89,46.11,103,103,103v-206c-56.89,0-103,46.11-103,103Z" fill="url(#sgW)"/><rect x="233.48" y="216.49" width="7.21" height="280.52"/><path d="M251.72,263.6v8.49s53.38,25.02,50.93,89.55c-2.12,55.81-51.78,78.96-51.78,78.96v9.31s72.4-14.31,74.06-93.37c1.49-71.09-73.21-92.94-73.21-92.94Z"/></g></symbol><symbol id="signetK" viewBox="110 210 222 294"><g fill="#081A2E"><path d="M115,358c0,56.89,46.11,103,103,103v-206c-56.89,0-103,46.11-103,103Z" fill="url(#sgK)"/><rect x="233.48" y="216.49" width="7.21" height="280.52"/><path d="M251.72,263.6v8.49s53.38,25.02,50.93,89.55c-2.12,55.81-51.78,78.96-51.78,78.96v9.31s72.4-14.31,74.06-93.37c1.49-71.09-73.21-92.94-73.21-92.94Z"/></g></symbol><symbol id="signet" viewBox="110 210 222 294"><g fill="#D99B72"><path d="M115,358c0,56.89,46.11,103,103,103v-206c-56.89,0-103,46.11-103,103Z" fill="url(#sgC)"/><rect x="233.48" y="216.49" width="7.21" height="280.52"/><path d="M251.72,263.6v8.49s53.38,25.02,50.93,89.55c-2.12,55.81-51.78,78.96-51.78,78.96v9.31s72.4-14.31,74.06-93.37c1.49-71.09-73.21-92.94-73.21-92.94Z"/></g></symbol><symbol id="logoW" viewBox="115 216 1100 282"><g fill="#fff"><path d="M115,358c0,56.89,46.11,103,103,103v-206c-56.89,0-103,46.11-103,103Z" fill="url(#sgW)"/><rect x="233.48" y="216.49" width="7.21" height="280.52"/><path d="M251.72,263.6v8.49s53.38,25.02,50.93,89.55c-2.12,55.81-51.78,78.96-51.78,78.96v9.31s72.4-14.31,74.06-93.37c1.49-71.09-73.21-92.94-73.21-92.94Z"/><rect x="391.64" y="263.81" width="2.04" height="199.89"/><path d="M491.47,311.37c3.95,2.01,7,4.9,9.16,8.66,2.15,3.76,3.23,8.15,3.23,13.17s-1.08,9.37-3.23,13.06c-2.15,3.69-5.21,6.52-9.16,8.48-3.95,1.96-8.55,2.95-13.8,2.95h-16.11v-49.32h16.11c5.25,0,9.85,1.01,13.8,3.02ZM490.94,346.39c3.08-3.12,4.61-7.52,4.61-13.2s-1.54-10.2-4.61-13.41c-3.08-3.22-7.5-4.83-13.27-4.83h-8.02v36.12h8.02c5.77,0,10.2-1.56,13.27-4.68Z"/><path d="M551.83,357.68l-11.36-19.73h-6.17v19.73h-8.09v-49.32h17.03c3.78,0,6.99.66,9.62,1.99,2.63,1.33,4.59,3.1,5.89,5.32,1.3,2.22,1.95,4.71,1.95,7.45,0,3.22-.93,6.14-2.8,8.76-1.87,2.63-4.74,4.41-8.62,5.36l12.21,20.44h-9.65ZM534.3,331.49h8.94c3.03,0,5.31-.76,6.85-2.27,1.54-1.51,2.31-3.55,2.31-6.1s-.76-4.55-2.27-6c-1.52-1.44-3.81-2.16-6.88-2.16h-8.94v16.54Z"/><path d="M584.97,356.68c-.99-.99-1.49-2.22-1.49-3.69s.5-2.7,1.49-3.69,2.22-1.49,3.69-1.49,2.63.5,3.62,1.49,1.49,2.22,1.49,3.69-.5,2.7-1.49,3.69c-.99.99-2.2,1.49-3.62,1.49s-2.7-.5-3.69-1.49Z"/><path d="M679.36,347.6h-20.65l-3.55,10.08h-8.45l17.67-49.4h9.37l17.67,49.4h-8.52l-3.55-10.08ZM677.09,341l-8.02-22.92-8.09,22.92h16.11Z"/><path d="M753.95,357.68h-8.09l-24.34-36.83v36.83h-8.09v-49.4h8.09l24.34,36.76v-36.76h8.09v49.4Z"/><path d="M808.85,311.37c3.95,2.01,7,4.9,9.16,8.66,2.15,3.76,3.23,8.15,3.23,13.17s-1.08,9.37-3.23,13.06c-2.15,3.69-5.21,6.52-9.16,8.48-3.95,1.96-8.55,2.95-13.8,2.95h-16.11v-49.32h16.11c5.25,0,9.85,1.01,13.8,3.02ZM808.32,346.39c3.08-3.12,4.61-7.52,4.61-13.2s-1.54-10.2-4.61-13.41c-3.08-3.22-7.5-4.83-13.27-4.83h-8.02v36.12h8.02c5.77,0,10.2-1.56,13.27-4.68Z"/><path d="M869.21,357.68l-11.35-19.73h-6.17v19.73h-8.09v-49.32h17.03c3.78,0,6.99.66,9.62,1.99,2.63,1.33,4.59,3.1,5.89,5.32,1.3,2.22,1.95,4.71,1.95,7.45,0,3.22-.93,6.14-2.8,8.76s-4.74,4.41-8.62,5.36l12.21,20.44h-9.65ZM851.68,331.49h8.94c3.03,0,5.31-.76,6.85-2.27,1.54-1.51,2.31-3.55,2.31-6.1s-.76-4.55-2.27-6c-1.51-1.44-3.81-2.16-6.88-2.16h-8.94v16.54Z"/><path d="M910.87,314.88v14.48h17.03v6.6h-17.03v15.12h19.16v6.6h-27.25v-49.4h27.25v6.6h-19.16ZM923.36,297.78l-15.68,7.74v-5.96l15.68-8.66v6.88Z"/><path d="M1016.83,347.6h-20.65l-3.55,10.08h-8.45l17.67-49.4h9.37l17.67,49.4h-8.52l-3.55-10.08ZM1014.56,341l-8.02-22.92-8.09,22.92h16.11Z"/><path d="M1058.98,351.15h16.68v6.53h-24.77v-49.32h8.09v42.8Z"/><path d="M1104.83,314.88v14.48h17.03v6.6h-17.03v15.12h19.16v6.6h-27.25v-49.4h27.25v6.6h-19.16Z"/><path d="M1181.55,343.7c0,2.51-.67,4.87-2.03,7.09-1.35,2.23-3.3,4.01-5.88,5.36s-5.62,2.02-9.13,2.02c-3.3,0-6.28-.57-8.94-1.73-2.66-1.16-4.74-2.8-6.25-4.94-.61-.86-1.1-1.77-1.46-2.76l7.07-4.85c.66,1.99,2.13,4.34,3.29,5.41,1.5,1.37,3.59,2.06,6.28,2.06s4.97-.67,6.53-2.02c1.56-1.36,2.34-3.09,2.34-5.22,0-1.66-.49-3-1.46-4.04-.97-1.05-2.17-1.85-3.62-2.42-1.45-.56-3.44-1.18-6-1.85-3.22-.85-5.83-1.71-7.84-2.59-2.02-.87-3.73-2.23-5.15-4.08-1.42-1.85-2.13-4.3-2.13-7.38,0-2.84.71-5.32,2.13-7.45,1.42-2.13,3.4-3.76,5.96-4.9,2.56-1.13,5.51-1.7,8.88-1.7,4.77,0,8.69,1.2,11.74,3.58,1.2.93,2.18,2.01,2.94,3.22l-7.24,4.79c-.41-1.03-1.12-1.97-2.12-2.78-1.56-1.28-3.62-1.92-6.17-1.92-2.33,0-4.21.59-5.68,1.77-1.47,1.18-2.19,2.89-2.19,5.11,0,1.52.46,2.76,1.38,3.73.92.97,2.09,1.75,3.5,2.31,1.42.57,3.37,1.18,5.82,1.85,3.27.9,5.93,1.8,7.99,2.69,2.06.91,3.8,2.29,5.25,4.15,1.45,1.87,2.17,4.38,2.17,7.49Z"/><path d="M1213.56,308.35v49.32h-8.09v-49.32h8.09Z"/><text x="462" y="424" font-family="Poppins,sans-serif" font-weight="400" font-size="44" letter-spacing="13.2">SLEEP TO LIFE</text></g></symbol><symbol id="logoC" viewBox="115 216 1100 282"><path d="M115,358c0,56.89,46.11,103,103,103v-206c-56.89,0-103,46.11-103,103Z" fill="url(#sgC)"/><g fill="#D99B72"><rect x="233.48" y="216.49" width="7.21" height="280.52"/><path d="M251.72,263.6v8.49s53.38,25.02,50.93,89.55c-2.12,55.81-51.78,78.96-51.78,78.96v9.31s72.4-14.31,74.06-93.37c1.49-71.09-73.21-92.94-73.21-92.94Z"/></g><g fill="#274768"><rect x="391.64" y="263.81" width="2.04" height="199.89"/><path d="M491.47,311.37c3.95,2.01,7,4.9,9.16,8.66,2.15,3.76,3.23,8.15,3.23,13.17s-1.08,9.37-3.23,13.06c-2.15,3.69-5.21,6.52-9.16,8.48-3.95,1.96-8.55,2.95-13.8,2.95h-16.11v-49.32h16.11c5.25,0,9.85,1.01,13.8,3.02ZM490.94,346.39c3.08-3.12,4.61-7.52,4.61-13.2s-1.54-10.2-4.61-13.41c-3.08-3.22-7.5-4.83-13.27-4.83h-8.02v36.12h8.02c5.77,0,10.2-1.56,13.27-4.68Z"/><path d="M551.83,357.68l-11.36-19.73h-6.17v19.73h-8.09v-49.32h17.03c3.78,0,6.99.66,9.62,1.99,2.63,1.33,4.59,3.1,5.89,5.32,1.3,2.22,1.95,4.71,1.95,7.45,0,3.22-.93,6.14-2.8,8.76-1.87,2.63-4.74,4.41-8.62,5.36l12.21,20.44h-9.65ZM534.3,331.49h8.94c3.03,0,5.31-.76,6.85-2.27,1.54-1.51,2.31-3.55,2.31-6.1s-.76-4.55-2.27-6c-1.52-1.44-3.81-2.16-6.88-2.16h-8.94v16.54Z"/><path d="M584.97,356.68c-.99-.99-1.49-2.22-1.49-3.69s.5-2.7,1.49-3.69,2.22-1.49,3.69-1.49,2.63.5,3.62,1.49,1.49,2.22,1.49,3.69-.5,2.7-1.49,3.69c-.99.99-2.2,1.49-3.62,1.49s-2.7-.5-3.69-1.49Z"/><path d="M679.36,347.6h-20.65l-3.55,10.08h-8.45l17.67-49.4h9.37l17.67,49.4h-8.52l-3.55-10.08ZM677.09,341l-8.02-22.92-8.09,22.92h16.11Z"/><path d="M753.95,357.68h-8.09l-24.34-36.83v36.83h-8.09v-49.4h8.09l24.34,36.76v-36.76h8.09v49.4Z"/><path d="M808.85,311.37c3.95,2.01,7,4.9,9.16,8.66,2.15,3.76,3.23,8.15,3.23,13.17s-1.08,9.37-3.23,13.06c-2.15,3.69-5.21,6.52-9.16,8.48-3.95,1.96-8.55,2.95-13.8,2.95h-16.11v-49.32h16.11c5.25,0,9.85,1.01,13.8,3.02ZM808.32,346.39c3.08-3.12,4.61-7.52,4.61-13.2s-1.54-10.2-4.61-13.41c-3.08-3.22-7.5-4.83-13.27-4.83h-8.02v36.12h8.02c5.77,0,10.2-1.56,13.27-4.68Z"/><path d="M869.21,357.68l-11.35-19.73h-6.17v19.73h-8.09v-49.32h17.03c3.78,0,6.99.66,9.62,1.99,2.63,1.33,4.59,3.1,5.89,5.32,1.3,2.22,1.95,4.71,1.95,7.45,0,3.22-.93,6.14-2.8,8.76s-4.74,4.41-8.62,5.36l12.21,20.44h-9.65ZM851.68,331.49h8.94c3.03,0,5.31-.76,6.85-2.27,1.54-1.51,2.31-3.55,2.31-6.1s-.76-4.55-2.27-6c-1.51-1.44-3.81-2.16-6.88-2.16h-8.94v16.54Z"/><path d="M910.87,314.88v14.48h17.03v6.6h-17.03v15.12h19.16v6.6h-27.25v-49.4h27.25v6.6h-19.16ZM923.36,297.78l-15.68,7.74v-5.96l15.68-8.66v6.88Z"/><path d="M1016.83,347.6h-20.65l-3.55,10.08h-8.45l17.67-49.4h9.37l17.67,49.4h-8.52l-3.55-10.08ZM1014.56,341l-8.02-22.92-8.09,22.92h16.11Z"/><path d="M1058.98,351.15h16.68v6.53h-24.77v-49.32h8.09v42.8Z"/><path d="M1104.83,314.88v14.48h17.03v6.6h-17.03v15.12h19.16v6.6h-27.25v-49.4h27.25v6.6h-19.16Z"/><path d="M1181.55,343.7c0,2.51-.67,4.87-2.03,7.09-1.35,2.23-3.3,4.01-5.88,5.36s-5.62,2.02-9.13,2.02c-3.3,0-6.28-.57-8.94-1.73-2.66-1.16-4.74-2.8-6.25-4.94-.61-.86-1.1-1.77-1.46-2.76l7.07-4.85c.66,1.99,2.13,4.34,3.29,5.41,1.5,1.37,3.59,2.06,6.28,2.06s4.97-.67,6.53-2.02c1.56-1.36,2.34-3.09,2.34-5.22,0-1.66-.49-3-1.46-4.04-.97-1.05-2.17-1.85-3.62-2.42-1.45-.56-3.44-1.18-6-1.85-3.22-.85-5.83-1.71-7.84-2.59-2.02-.87-3.73-2.23-5.15-4.08-1.42-1.85-2.13-4.3-2.13-7.38,0-2.84.71-5.32,2.13-7.45,1.42-2.13,3.4-3.76,5.96-4.9,2.56-1.13,5.51-1.7,8.88-1.7,4.77,0,8.69,1.2,11.74,3.58,1.2.93,2.18,2.01,2.94,3.22l-7.24,4.79c-.41-1.03-1.12-1.97-2.12-2.78-1.56-1.28-3.62-1.92-6.17-1.92-2.33,0-4.21.59-5.68,1.77-1.47,1.18-2.19,2.89-2.19,5.11,0,1.52.46,2.76,1.38,3.73.92.97,2.09,1.75,3.5,2.31,1.42.57,3.37,1.18,5.82,1.85,3.27.9,5.93,1.8,7.99,2.69,2.06.91,3.8,2.29,5.25,4.15,1.45,1.87,2.17,4.38,2.17,7.49Z"/><path d="M1213.56,308.35v49.32h-8.09v-49.32h8.09Z"/></g><g fill="#D99B72"><text x="462" y="424" font-family="Poppins,sans-serif" font-weight="400" font-size="44" letter-spacing="13.2">SLEEP TO LIFE</text></g></symbol></defs></svg>
 
 <!-- NAV -->
 <header class="nav" id="nav">
@@ -841,7 +908,7 @@ img.hsf-ap{left:-4%;width:116%;bottom:-8%;filter:blur(2.2px) brightness(.6) satu
         <span class="ln"><span>Erholsamer Schlaf</span></span>
         <span class="ln"><span>ist <span class="o">kein</span> <span class="b">Zufall</span></span></span>
       </h1>
-      <p class="sub fade d1">Ich bin Dr. André Alesi, Schlafwissenschaftler und Unternehmer. Seit über 20 Jahren verbinde ich Forschung mit praktischer Erfahrung. Meine Mission: Aus Schlafwissen konkrete Lösungen machen, die zu deinem Leben passen. <b>Damit guter Schlaf auch in einem vollen Alltag möglich wird.</b></p>
+      <p class="sub fade d1">Ich bin Dr. André Alesi, Schlafwissenschaftler und Unternehmer. Seit über 20 Jahren verbinde ich Forschung mit praktischer Erfahrung. Meine Mission: Aus Schlafwissen konkrete Lösungen machen, die zu deinem Leben passen. <b>Weil guter Schlaf dein Leben verändert.</b></p>
       <div class="ctas fade d2">
         <a href="schlaftest.html" class="btn btn-cu">Schlaftest starten <span class="ar">→</span></a>
         <a href="webinar.html" class="lnk">Kostenloses Webinar ansehen</a>
@@ -927,10 +994,10 @@ img.hsf-ap{left:-4%;width:116%;bottom:-8%;filter:blur(2.2px) brightness(.6) satu
         <div class="bar"></div>
         <div class="poles">
           <div class="pole"><b>Wissenschaftler</b>Wissenschaftliche Erkenntnisse bilden die Grundlage, um Schlaf und Regeneration besser zu verstehen.</div>
-          <div class="pole r"><b>Unternehmer</b>Mit unternehmerischem Denken entstehen aus wissenschaftlichen Erkenntnissen konkrete Produkte, Angebote und Lösungen.</div>
+          <div class="pole r"><b>Unternehmer</b>Seit über 20 Jahren trage ich Verantwortung für Menschen und Unternehmen. Diese Erfahrung prägt mein Denken und Handeln.</div>
         </div>
       </div>
-      <p class="body rv">Wissenschaft liefert die Grundlage, unternehmerische Erfahrung macht daraus konkrete Lösungen. <b>Seit über 20 Jahren verbinde ich beide Perspektiven,</b> um neue Ideen zu entwickeln, Produkte kritisch zu bewerten und Schlafgesundheit praktisch voranzubringen.</p>
+      <p class="body rv">Meine wissenschaftliche Arbeit und meine unternehmerische Erfahrung ergänzen sich. <b>Sie prägen meinen Anspruch, Erkenntnisse kritisch zu prüfen, Verantwortung zu übernehmen und Schlafgesundheit konkret voranzubringen.</b></p>
       <blockquote class="quote rv">„Eine Lösung ist erst dann gut, wenn sie im echten Leben funktioniert.“</blockquote>
     </div>
   </div>
@@ -988,26 +1055,6 @@ img.hsf-ap{left:-4%;width:116%;bottom:-8%;filter:blur(2.2px) brightness(.6) satu
   </div>
 </section>
 
-<!-- DAS ZEICHEN -->
-<section class="sign">
-  <div class="wrap sign-grid">
-    <div class="sign-art" id="signArt" aria-hidden="true">
-      <svg viewBox="110 210 222 294">
-        <path class="s-disc" d="M115,358c0,56.89,46.11,103,103,103v-206c-56.89,0-103,46.11-103,103Z" fill="url(#sgW)"/>
-        <rect class="s-bar" fill="#fff" x="233.48" y="216.49" width="7.21" height="280.52"/>
-        <path class="s-moon" fill="#fff" d="M251.72,263.6v8.49s53.38,25.02,50.93,89.55c-2.12,55.81-51.78,78.96-51.78,78.96v9.31s72.4-14.31,74.06-93.37c1.49-71.09-73.21-92.94-73.21-92.94Z"/>
-      </svg>
-      <span class="lbl l1">Tag</span><span class="lbl l2">Übergang</span><span class="lbl l3">Nacht</span>
-    </div>
-    <div>
-      <div class="eyebrow rv">Das Logo</div>
-      <h2 class="h2 rv d1" style="margin:22px 0 24px">Guter Schlaf beginnt <em>am Tag.</em></h2>
-      <p class="t rv d1">Die helle Hälfte steht für den Tag, der Halbmond für die Nacht. Dazwischen liegt der Übergang. Gemeinsam bilden sie das Zeichen meiner Marke.</p>
-      <p class="t rv d2">Denn Schlaf und Wachsein gehören zusammen. Was wir tagsüber erleben und wie wir unseren Alltag gestalten, beeinflusst unsere Nächte. <b>Und wie gut wir schlafen, prägt wiederum unseren nächsten Tag.</b></p>
-    </div>
-  </div>
-</section>
-
 <!-- ANGEBOTE -->
 <section class="offers">
   <div class="wrap">
@@ -1016,9 +1063,9 @@ img.hsf-ap{left:-4%;width:116%;bottom:-8%;filter:blur(2.2px) brightness(.6) satu
         <div class="eyebrow">Dein Einstieg</div>
         <h2 class="h2">Schlaf verstehen. <em>Schlaf verbessern.</em></h2>
       </div>
-      <p class="lead rv d1" style="max-width:440px">Ob du deinen eigenen Schlaf verbessern möchtest oder Schlafgesundheit in deinem Unternehmen fördern willst: Hier findest du den passenden Einstieg.</p>
+      <p class="lead rv d1" style="max-width:440px">Ob für deinen eigenen Schlaf, für dein Unternehmen oder als Partner: Hier findest du den passenden Einstieg.</p>
     </div>
-    <div class="ogrid">
+    <div class="ogrid bento">
       <a href="schlaftest.html" class="ocard test rv">
         <span class="pill">Kostenlos · 3 Minuten</span>
         <div class="gauge" id="gauge"><svg viewBox="0 0 180 180"><circle class="t" cx="90" cy="90" r="80"/><circle class="v" cx="90" cy="90" r="80"/></svg><div class="n"><b id="gnum">0</b><small>Sleep Score</small></div></div>
@@ -1027,7 +1074,7 @@ img.hsf-ap{left:-4%;width:116%;bottom:-8%;filter:blur(2.2px) brightness(.6) satu
         <p>13 kurze Fragen helfen dir, deinen Schlaf besser einzuschätzen und mögliche Ansatzpunkte für Veränderungen zu erkennen.</p>
         <span class="go"><i>→</i>Jetzt Schlaftest starten</span>
       </a>
-      <a href="warteliste.html" class="ocard rv d1">
+      <a href="warteliste.html" class="ocard kurs rv d1">
         <div class="bg"><img src="fotos/kurs-mockup.webp" alt="Der Onlinekurs auf Laptop und Handy: Lektion, Modulübersicht und Bonus-Audio"></div>
         <span class="pill">Onlinekurs</span>
         <small class="kick">02 · Der Schlafkurs</small>
@@ -1035,13 +1082,37 @@ img.hsf-ap{left:-4%;width:116%;bottom:-8%;filter:blur(2.2px) brightness(.6) satu
         <p>Verstehe, was deinen Schlaf beeinflusst, und lerne wissenschaftlich fundierte Methoden kennen, die du in deinem Alltag umsetzen kannst.</p>
         <span class="go"><i>→</i>Schlafkurs entdecken</span>
       </a>
-      <a href="https://institut-schlaf.de/betriebliche-gesundheit/" target="_blank" rel="noopener" class="ocard biz rv d2">
-        <div class="bg"><img src="fotos/andre-vortrag.webp" alt="" style="object-position:75% center"></div>
+      <a href="https://alesi-schlaf.de" target="_blank" rel="noopener" class="ocard bett rv">
+        <div class="bg"><img src="fotos/andre-bett.webp" alt="Dr. André Alesi sitzt auf einem Boxspringbett im Bettenhaus Alesi" loading="lazy"></div>
+        <span class="pill">Bettenhaus Alesi · Schramberg</span>
+        <small class="kick">03 · Für dein Schlafzimmer</small>
+        <h3>Guter Schlaf beginnt auch bei der Einrichtung.</h3>
+        <p>Vom Spannbettlaken bis zum hochwertigen Boxspringbett: Entdecke persönliche Fachberatung, ausgewählte Marken und mehrfach ausgezeichneten Service online oder vor Ort in Schramberg.</p>
+        <span class="go"><i>→</i>Bettenhaus Alesi entdecken</span>
+      </a>
+      <a href="kontakt.html?anliegen=kooperation" class="ocard koop rv">
+        <svg class="koop-art" viewBox="0 0 240 160" aria-hidden="true"><circle cx="92" cy="80" r="66"/><circle cx="148" cy="80" r="66"/></svg>
+        <span class="pill">Kooperation</span>
+        <small class="kick">04 · Gemeinsam mehr bewegen</small>
+        <h3>Gute Ideen verdienen starke Partner.</h3>
+        <p>Ob Start-up, etablierte Marke oder Unternehmen mit neuen Ideen: Wir entwickeln Kooperationen. Von wissenschaftlicher Beratung und Produktentwicklung bis zu Markenpartnerschaften und langfristiger strategischer Begleitung.</p>
+        <span class="go"><i>→</i>Kooperation anfragen</span>
+      </a>
+      <a href="https://institut-schlaf.de/betriebliche-gesundheit/" target="_blank" rel="noopener" class="ocard biz rv d1">
+        <div class="bg"><img src="fotos/andre-vortrag.webp" alt="" style="object-position:72% 0" loading="lazy"></div>
         <span class="pill">Betriebliche Schlafgesundheit</span>
-        <small class="kick">03 · Für Unternehmen</small>
+        <small class="kick">05 · Für Unternehmen</small>
         <h3>Gesunder Schlaf am Arbeitsplatz</h3>
-        <p>Von Fachvorträgen und Workshops bis zu Schlafscreenings und individuellen Konzepten. Wissenschaftlich fundierte Angebote über das Institut für Schlaf und Regeneration.</p>
+        <p>Vorträge, Workshops und Schlafscreenings für dein Unternehmen. Über das Institut für Schlaf und Regeneration.</p>
         <span class="go"><i>→</i>Angebote für Unternehmen</span>
+      </a>
+      <a href="kontakt.html?anliegen=vortrag" class="ocard talk rv d2">
+        <svg class="talk-art" viewBox="0 0 248 80" aria-hidden="true"><defs><linearGradient id="twG" x1="0" x2="1"><stop offset="0" stop-color="#87A6C6"/><stop offset="1" stop-color="#D99B72"/></linearGradient></defs><g fill="url(#twG)"><rect x="4" y="35.0" width="3.2" height="10.0" rx="1.6"/><rect x="12" y="26.6" width="3.2" height="26.7" rx="1.6"/><rect x="20" y="14.4" width="3.2" height="51.1" rx="1.6"/><rect x="28" y="14.5" width="3.2" height="51.1" rx="1.6"/><rect x="36" y="17.2" width="3.2" height="45.6" rx="1.6"/><rect x="44" y="26.3" width="3.2" height="27.4" rx="1.6"/><rect x="52" y="31.4" width="3.2" height="17.2" rx="1.6"/><rect x="60" y="16.4" width="3.2" height="47.2" rx="1.6"/><rect x="68" y="14.8" width="3.2" height="50.5" rx="1.6"/><rect x="76" y="16.1" width="3.2" height="47.9" rx="1.6"/><rect x="84" y="22.9" width="3.2" height="34.2" rx="1.6"/><rect x="92" y="31.7" width="3.2" height="16.6" rx="1.6"/><rect x="100" y="27.6" width="3.2" height="24.9" rx="1.6"/><rect x="108" y="29.3" width="3.2" height="21.4" rx="1.6"/><rect x="116" y="31.3" width="3.2" height="17.3" rx="1.6"/><rect x="124" y="34.8" width="3.2" height="10.4" rx="1.6"/><rect x="132" y="32.6" width="3.2" height="14.8" rx="1.6"/><rect x="140" y="30.4" width="3.2" height="19.2" rx="1.6"/><rect x="148" y="29.8" width="3.2" height="20.4" rx="1.6"/><rect x="156" y="22.5" width="3.2" height="35.0" rx="1.6"/><rect x="164" y="17.6" width="3.2" height="44.8" rx="1.6"/><rect x="172" y="18.3" width="3.2" height="43.5" rx="1.6"/><rect x="180" y="21.4" width="3.2" height="37.3" rx="1.6"/><rect x="188" y="33.1" width="3.2" height="13.8" rx="1.6"/><rect x="196" y="21.4" width="3.2" height="37.2" rx="1.6"/><rect x="204" y="13.9" width="3.2" height="52.2" rx="1.6"/><rect x="212" y="13.4" width="3.2" height="53.3" rx="1.6"/><rect x="220" y="15.5" width="3.2" height="48.9" rx="1.6"/><rect x="228" y="29.4" width="3.2" height="21.1" rx="1.6"/><rect x="236" y="31.2" width="3.2" height="17.5" rx="1.6"/></g></svg>
+        <span class="pill">Vorträge und Medien</span>
+        <small class="kick">06 · Wissen, das ankommt</small>
+        <h3>Schlaf verstehen. Menschen erreichen.</h3>
+        <p>Ob Keynote, Podcast, Interview oder Veranstaltung: Ich mache Schlafwissenschaft verständlich, hinterfrage verbreitete Mythen und zeige, was Forschung für unseren Alltag bedeutet.</p>
+        <span class="go"><i>→</i>Jetzt anfragen</span>
       </a>
     </div>
   </div>
@@ -1080,7 +1151,7 @@ img.hsf-ap{left:-4%;width:116%;bottom:-8%;filter:blur(2.2px) brightness(.6) satu
   <div class="wrap who-grid">
     <div class="txt">
       <div class="eyebrow rv">Für wen ich arbeite</div>
-      <h2 class="h2 rv d1 rot">Sleep to <em class="rotw" id="rotw">Work.</em></h2>
+      <h2 class="h2 rv d1 rot">Sleep to <em class="rotw" id="rotw">Work</em></h2>
       <p class="lead rv d1">Jeder Mensch schläft. Aber nicht jeder unter denselben Bedingungen. Alter, Arbeitszeiten, Familie und Umfeld prägen deinen Schlaf. Deshalb gibt es keine Lösung, die für alle gleich funktioniert.</p>
       <div class="chips">
         <button type="button" class="chip rv" data-w="2"><i></i>Familien</button>
@@ -1295,7 +1366,7 @@ img.hsf-ap{left:-4%;width:116%;bottom:-8%;filter:blur(2.2px) brightness(.6) satu
   /* Sleep to ... Rotator */
   (function(){
     var sec = document.getElementById('who'); if(!sec) return;
-    var rw = document.getElementById('rotw'), W = ['Work.','School.','Family.','Sport.','Shift.','Life.'];
+    var rw = document.getElementById('rotw'), W = ['Work','School','Family','Sport','Shift','Life'];
     var cards = [].slice.call(sec.querySelectorAll('.dk')), segs = [].slice.call(sec.querySelectorAll('#dkBar button'));
     var chips = [].slice.call(sec.querySelectorAll('.chip')), num = document.getElementById('dkNum'), orb = document.getElementById('whoOrb');
     var n = W.length, cur = 0, timer = null, vis = false, hold = false, DUR = 4600, turns = 0;
@@ -1520,8 +1591,10 @@ img.hsf-ap{left:-4%;width:116%;bottom:-8%;filter:blur(2.2px) brightness(.6) satu
     desk = window.innerWidth > 860;
     var o = CFG[hvNo()] || CFG['1'], p = rel(personEl);
     if(desk){ AX = textRight() + 100; X0 = AX + 14; WR = W - Math.max(40, W*.03); TOP = H*o.top; BOT = H*o.bot; }
+    else if(W >= 600){ AX = 70; X0 = AX + 10; WR = Math.max(X0 + 220, p.l + p.w*.16); TOP = p.t + .06*p.h; BOT = p.t + .5*p.h; }   // Tablet: Linien enden vor André, mehr Höhe (Feedback 02.11.)
     else { AX = 70; X0 = AX + 10; WR = W; TOP = p.t + .02*p.h; BOT = p.t + .30*p.h; }
-    X1 = X0 + (WR - X0)*(desk ? (o.endM ? NIGHT_END/o.endM : (o.k || 1)) : 1.6);
+    var tab = !desk && W >= 600;
+    X1 = X0 + (WR - X0)*(desk || tab ? (o.endM ? NIGHT_END/o.endM : (o.k || 1)) : 1.6);
     GO = {o:o, cur: o.cur || (desk ? .55 : .4), lw: o.lw || 1, fadeR: X1 > WR + 1, times: desk && !!o.times};
     GAP = (BOT-TOP)*.1;
     HMAX = Math.min(NIGHT_END, (WR - X0)/(X1 - X0)*NIGHT_END);
