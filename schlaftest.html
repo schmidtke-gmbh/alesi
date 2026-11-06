@@ -233,6 +233,7 @@
   </div>
 </header>
 <div class="mpanel"><a class="m" href="index.html">Start</a><a class="m" href="ueber-mich.html">Über mich</a><a class="m" href="schlaftest.html">Schlaftest</a><a class="m" href="warteliste.html">Schlafkurs</a><a class="m" href="kontakt.html">Kontakt</a><a href="schlaftest.html" class="btn btn-cu">Schlaftest starten <span class="ar">→</span></a></div>
+<form name="schlaftest" data-netlify="true" netlify-honeypot="website" hidden><input name="website"><input name="vorname"><input name="email"><input name="score"><input name="kategorie"><input name="hebel"><input name="bereiche"></form>
 
 <main class="qz-outer">
   <div class="grain"></div>
@@ -646,9 +647,10 @@ function renderGate(){
         '<div class="qz-ready"><i></i> Dein Ergebnis ist bereit</div>' +
         '<h2>Dein Sleep Score ist <span class="ac">berechnet</span>' + personName(', ') + '!</h2>' +
         '<p class="mlead">Trag deine E-Mail-Adresse ein und wir zeigen dir <b>deinen Score, alle fünf Teilbereiche und deinen größten Hebel</b>. Du bekommst dein Ergebnis zusätzlich per E-Mail.</p>' +
-        '<!-- ▼ E-MAIL-ANBINDUNG: Formular ist noch nicht angebunden. Vor Livegang mit Newsletter-Tool/CRM verbinden ' +
-        '(z. B. per Netlify Forms oder API), Double-Opt-in und Einwilligungstexte rechtlich prüfen. -->' +
+        '<!-- ▼ E-MAIL-ANBINDUNG: geht an Netlify Forms (Formular „schlaftest“). Später an Klick-Tipp übergeben, ' +
+        'Double-Opt-in und Einwilligungstexte rechtlich prüfen. -->' +
         '<form onsubmit="qzEmail(event)">' +
+          '<input type="text" name="website" id="qzHp" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">' +
           '<input type="email" id="qzEmailInput" placeholder="deine@email.de" autocomplete="email" required>' +
           '<button type="submit" class="btn btn-cu">Mein Ergebnis anzeigen <span class="ar">→</span></button>' +
         '</form>' +
@@ -746,7 +748,20 @@ window.qzSlide = function(qIdx){
 window.qzEmail = function(ev){
   ev.preventDefault();
   state.email = document.getElementById('qzEmailInput').value.trim();
-  /* ▼ E-MAIL-ANBINDUNG: state.email + state.result hier an Newsletter-Tool/CRM übergeben. */
+  /* ▼ E-MAIL-ANBINDUNG: geht an Netlify Forms (verstecktes Formular „schlaftest“ im HTML). Später zusätzlich an Klick-Tipp. */
+  try {
+    var r = state.result || computeResult();
+    var fd = new FormData();
+    fd.append('form-name', 'schlaftest');
+    fd.append('website', (document.getElementById('qzHp') || {}).value || '');
+    fd.append('vorname', state.name || '');
+    fd.append('email', state.email);
+    fd.append('score', r.score);
+    fd.append('kategorie', (r.cat && r.cat.head ? r.cat.head.replace(/<[^>]+>/g, '') : ''));
+    fd.append('hebel', DIMS[r.hebel] ? DIMS[r.hebel].name : r.hebel);
+    fd.append('bereiche', Object.keys(r.dims).map(function(k){ return DIMS[k].name + ': ' + Math.round(r.dims[k]); }).join(', '));
+    fetch('/', {method:'POST', headers:{'Content-Type':'application/x-www-form-urlencoded'}, body:new URLSearchParams(fd).toString()}).catch(function(){});
+  } catch (e) {}
   window.qzNext();
 };
 window.qzRestart = function(){ state = {i:0, name:'', answers:{}, email:''}; var s = document.getElementById('qzStars'); if (s) s.innerHTML = ''; render(); };
