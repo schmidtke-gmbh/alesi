@@ -158,6 +158,14 @@
   .qz-modal{padding:28px 20px}
 }
 
+.qz-wl{max-width:440px;margin:0 auto;display:flex;flex-direction:column;gap:12px;text-align:left}
+.qz-wl input[type=email]{font-family:'Poppins';font-size:15px;font-weight:300;color:var(--porcelain);background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.16);border-radius:12px;padding:15px 16px;outline:none;width:100%}
+.qz-wl input[type=email]:focus{border-color:var(--copper);box-shadow:0 0 0 4px rgba(217,155,114,.14)}
+.qz-wl .btn{justify-content:center}
+.qz-consent{display:flex;gap:10px;align-items:flex-start;font-size:12.5px;line-height:1.6;color:var(--muted);font-weight:300}
+.qz-consent input{margin-top:3px;accent-color:#D99B72;flex:none}
+.qz-consent a{color:var(--copper-light);text-decoration:underline}
+.qz-hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
 /* Neues Erscheinungsbild */
 .qz-outer{background:radial-gradient(70% 70% at 70% 10%,#12325A 0%,#0A2241 45%,#061427 90%);isolation:isolate}
 .qz-outer .grain{position:absolute;inset:0;z-index:-1;opacity:.05;pointer-events:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
@@ -625,12 +633,19 @@ function buildResultBody(r, animate){
     '<div class="qz-hebel"><div class="he">Dein größter Hebel</div><h3>' + DIMS[r.hebel].name + '</h3><p>' + HEBEL_TEXT[r.hebel] + '</p></div>' +
     hints +
     '<p class="qz-disc">Der Sleep Score ist ein orientierender Selbstcheck und kein validiertes diagnostisches Instrument. Er ersetzt keine ärztliche Diagnose oder Behandlung.</p>' +
-    '<!-- ▼ CTA ÄNDERN: Hier verlinkt der Test auf das Webinar. Alternativ z. B. 7-Tage-Schlafcheck oder Newsletter. -->' +
+    '<!-- ▼ CTA: Warteliste für den Schlafkurs (Netlify Form schlaf-warteliste, Danke-Seite warteliste-danke.html). ' +
+    'Sobald die Webinar-Anmeldung steht, kann hier wieder zusätzlich das Webinar rein. -->' +
     '<div class="qz-pitch">' +
-      '<h3>Dein nächster <span class="ac">Schritt</span></h3>' +
-      '<p>Im kostenlosen Live-Webinar zeige ich dir, was hinter deinem Ergebnis steckt und wie du deinen größten Hebel konkret angehst. <b>So., 29. November · 20:00 Uhr · live und online.</b></p>' +
-      '<a class="btn btn-cu lg" href="webinar.html">Kostenlosen Platz sichern <span class="ar">→</span></a>' +
-      '<p class="sub2">Der Schlafkurs startet bald. <a href="warteliste.html">Jetzt auf die Warteliste</a></p>' +
+      '<h3>Auf die <span class="ac">Warteliste</span></h3>' +
+      '<p>Trag dich jetzt schon ein. Mein Schlafkurs geht demnächst online. Auf der Warteliste warten exklusive Vorteile auf dich: Frühzugang, der beste Preis und Bonusmaterial vorab.</p>' +
+      '<form class="qz-wl" action="warteliste-danke.html" method="POST" name="schlaf-warteliste">' +
+        '<input type="hidden" name="form-name" value="schlaf-warteliste">' +
+        '<input type="hidden" name="vorname" value="' + esc(state.name || '') + '">' +
+        '<p class="qz-hp" aria-hidden="true"><label>Bitte freilassen <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>' +
+        '<input type="email" name="email" required autocomplete="email" placeholder="deine@email.de" value="' + esc(state.email || '') + '">' +
+        '<label class="qz-consent"><input type="checkbox" name="einverstanden" required> <span>Ja, informiert mich zum Start des Schlafkurses und schickt mir gelegentlich Tipps rund um Schlaf per E-Mail. Abmelden geht jederzeit. Hinweise in der <a href="datenschutz.html">Datenschutzerklärung</a>.</span></label>' +
+        '<button type="submit" class="btn btn-cu lg">Jetzt auf die Warteliste <span class="ar">→</span></button>' +
+      '</form>' +
     '</div>' +
     '<button class="qz-restart" onclick="qzRestart()">Test neu starten</button>' +
   '</div>';
@@ -646,7 +661,7 @@ function renderGate(){
       '<div class="qz-modal">' +
         '<div class="qz-ready"><i></i> Dein Ergebnis ist bereit</div>' +
         '<h2>Dein Sleep Score ist <span class="ac">berechnet</span>' + personName(', ') + '!</h2>' +
-        '<p class="mlead">Trag deine E-Mail-Adresse ein und wir zeigen dir <b>deinen Score, alle fünf Teilbereiche und deinen größten Hebel</b>. Du bekommst dein Ergebnis zusätzlich per E-Mail.</p>' +
+        '<p class="mlead">Trag deine E-Mail-Adresse ein und wir zeigen dir <b>deinen Score, alle fünf Teilbereiche und deinen größten Hebel</b>.</p>' +
         '<!-- ▼ E-MAIL-ANBINDUNG: geht an Netlify Forms (Formular „schlaftest“). Später an Klick-Tipp übergeben, ' +
         'Double-Opt-in und Einwilligungstexte rechtlich prüfen. -->' +
         '<form onsubmit="qzEmail(event)">' +
